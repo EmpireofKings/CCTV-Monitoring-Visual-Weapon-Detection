@@ -4,8 +4,6 @@ MAINTAINER Ben Ryan (ben96ryan@gmail.com)
 
 COPY ./server ./server
 
-COPY ./keyboard ./etc/default/keyboard
-
 RUN apt-get update
 RUN apt-get install -y python3-pip
 RUN apt-get install -y libsm6 libxrender1 libfontconfig1 libxext6 libglib2.0-0
