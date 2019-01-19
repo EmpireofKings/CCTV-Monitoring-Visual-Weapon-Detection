@@ -10,6 +10,12 @@
 #	Receive Processed frame
 #	Display/Store frame
 
+import sys
+import os
+from pathlib import Path
+CommonPath = str(Path(str(os.path.dirname(os.path.realpath(__file__)))).parent) + "/Common"
+sys.path.append(CommonPath)
+
 import numpy as np
 import cv2
 import clientServer as cs
@@ -34,117 +40,117 @@ def main():
 		WORKING = True
 		vidFeed = getFeed()
 		sp.DEMO_MODE = sp.activateDemoMode()
-	
+
 		if vidFeed is None:
 			cs.messages.put("Error reading video feed")
 			return
-		
+
 		#get video fps so we know how to encode the processed video
 		vidFPS = vidFeed.get(cv2.CAP_PROP_FPS)
-		
+
 		cs.messages.put("Video feed acquired")
-		
+
 		try:
 			#connect to up and down streams
 			sendSocket = connectSocket(cs.HOST, cs.upStreamPort)
 			readSocket = connectSocket(cs.HOST, cs.downStreamPort)
 			cs.messages.put("Sockets connected")
-			
+
 			#begin threads
 			LoadThread = Thread(target=loadThreadMain, name="LoadThread", args=[vidFeed])
 			SendThread = Thread(target=sendThreadMain, name="SendThread",args=[sendSocket])
 			ReceiveThread = Thread(target=receiveThreadMain, name="ReceiveThread", args=[readSocket])
 			SaveThread = Thread(target=saveThreadMain, name="SaveThread", args=[vidFPS])
 			#ReportingThread = Thread(target=reporting, name="ReportingThread")
-			
+
 			#ReportingThread.start()
 			LoadThread.start()
 			SendThread.start()
 			ReceiveThread.start()
 			SaveThread.start()
-			
+
 			cs.messages.put("Threads running")
 			WORKING = True
-		
+
 			#wait for threads to stop working, then loop at start again with new feed
 			while WORKING == True: True
 			cs.messages.put("Threads stopped")
-		
+
 		except(ConnectionResetError,ConnectionRefusedError) as e:
 			cs.messages.put(e)
 
 #TODO
 #def reporting():
 	#global loaded, processed
-	
+
 	#while True:
 	#	cs.messages.put("Loaded Size:" + str(loaded.qsize()))
 	#	cs.messages.put("Processed Size:" + str(processed.qsize()))
-	
-#main function on thread for loading frames from video source	
+
+#main function on thread for loading frames from video source
 def loadThreadMain(feed):
 	global loaded, start
-	
+
 	LOADING = True
-		
+
 	start = time.time()
 	while feed.isOpened():
 		check, frame = feed.read()
-		
+
 		if check == True:
 			#resize before sending
 			frame = cv2.resize(frame, sp.imageSize)
-			
+
 			loaded.put(frame)
 		else:
 			LOADING = False
 			feed.release()
 			break
-			
-#main functon on thread for sending frames to server	
+
+#main functon on thread for sending frames to server
 def sendThreadMain(socket):
 	global start, loaded
 	frame = initCommsUp(socket)
-	
+
 	while LOADING == True:
 		cs.sendFrame(frame, socket)
-		
+
 		while loaded.empty() == True and LOADING == True : True
-		
+
 		frame = loaded.get()
-			
+
 	cs.sendMessage(cs.COMPLETE, socket)
-	
+
 #main function on thread for receiving processed frames
 def receiveThreadMain(socket):
 	global WORKING, start
 
-	cs.expectedSize = int(initCommsDown(socket))	
+	cs.expectedSize = int(initCommsDown(socket))
 	frameCount = 0
-	
+
 	while WORKING == True:
 		frame, socket = cs.recvFrame(socket)
 		frameCount +=1
-				
+
 		if frame is cs.COMPLETE:
 			WORKING == False
 			break
-			
+
 		processed.put(frame)
 
 #main function on thread for saving/showing processed frames
 def saveThreadMain(vidFPS):
 	global processed
-	
+
 	#setup video encoder
 	if sp.DEMO_MODE == False:
 		fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 		outStream = cv2.VideoWriter('./processed.mp4', fourcc, fps=vidFPS, frameSize=sp.displaySize)
-	
+
 	frameCount = 0
 	while WORKING == True:
 		while processed.empty() == True : True
-		
+
 		frame = processed.get()
 		frameCount +=1
 
@@ -159,27 +165,27 @@ def saveThreadMain(vidFPS):
 				cs.messages.put("TIME: ", time.time()-start)
 				cs.messages.put("RELEASED")
 				break
-		
+
 	outStream.release()
-			
+
 #used by receiveThread
 def initCommsDown(socket):
 	msg, _ = cs.recvMessage(socket)
-	
+
 	if msg == cs.NOTREADY:
 		return
-	
+
 	cs.sendMessage(cs.READY, socket)
-	
+
 	return msg
 
 
 #used by sendThread
 def initCommsUp(socket):
 	while loaded.empty() == True : True
-	
+
 	frame = loaded.get()
-	
+
 	if frame is not None:
 		frameSerial = cs.pickle.dumps(frame)
 		# _, frameSerial = cv2.imencode('.jpg', frame)
@@ -190,18 +196,18 @@ def initCommsUp(socket):
 		if resp == cs.READY:
 			cs.messages.put("Upstream comms initialised")
 			return frame
-	
+
 #used by main thread
 def connectSocket(HOST,PORT):
 	socket = cs.sock.socket(cs.sock.AF_INET, cs.sock.SOCK_STREAM)
 	socket.connect((HOST, PORT))
-		
+
 	return socket
-	
+
 #used by main thread
 def getFeed():
 	ans = input("Video or Camera?(V/C)")
-	
+
 	if ans == 'V' or ans == 'v':
 		filename = easygui.fileopenbox()
 		feed = cv2.VideoCapture(filename)
@@ -211,10 +217,7 @@ def getFeed():
 		return
 
 	return feed
-	
+
 
 if __name__ == '__main__':
 	main()
-
-
-	
