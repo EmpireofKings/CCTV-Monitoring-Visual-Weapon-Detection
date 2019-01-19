@@ -15,12 +15,11 @@ import os
 from pathlib import Path
 CommonPath = str(Path(str(os.path.dirname(os.path.realpath(__file__)))).parent) + "/Common"
 sys.path.append(CommonPath)
-
-import numpy as np
-import cv2
 import clientServer as cs
 from threading import Thread
 import easygui
+import cv2
+import numpy as np
 import time
 import sharedParams as sp
 

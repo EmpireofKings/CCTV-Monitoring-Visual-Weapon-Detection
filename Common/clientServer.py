@@ -1,8 +1,7 @@
 import _pickle as pickle
 import socket as sock
-import cv2
 import queue
-import numpy as np
+import cv2
 
 READY    = 'CODE:READY######'
 NOTREADY = 'CODE:NOTREADY###'
