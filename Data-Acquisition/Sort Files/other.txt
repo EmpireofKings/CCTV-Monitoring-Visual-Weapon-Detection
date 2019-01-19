@@ -1,0 +1,1 @@
+M79,grenade-launcher,RPG,gatling,AdvancedM26,M101,Phalanx,flamethrower,flare,gau,m61,grenade

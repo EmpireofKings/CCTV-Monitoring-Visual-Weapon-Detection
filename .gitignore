@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# images/video
+*.jpg
+*.bmp
+*.mp4
+/Data-Acquisition/Data/
+/Data-Prep-and-Training/Prepared-Data/
+/Client/Test-Data/

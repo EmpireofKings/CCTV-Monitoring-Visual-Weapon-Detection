@@ -1,0 +1,1 @@
+f2000,CAR15,OTs-14-1A,ak47,AK47,AKS,aks,ak74,AK74,G36K,G36,rifle,sks,afak,mk12,mk-12,colt1908,garand,rem700,ak.47,aks,mosin,aug,enfield
