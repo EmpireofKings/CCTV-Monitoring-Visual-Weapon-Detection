@@ -52,8 +52,8 @@ def main():
 
 		try:
 			#connect to up and down streams
-			sendSocket = connectSocket(cs.HOST, cs.upStreamPort)
-			readSocket = connectSocket(cs.HOST, cs.downStreamPort)
+			sendSocket = connectSocket(cs.EXTHOST, cs.upStreamPort)
+			readSocket = connectSocket(cs.EXTHOST, cs.downStreamPort)
 			cs.messages.put("Sockets connected")
 
 			#begin threads

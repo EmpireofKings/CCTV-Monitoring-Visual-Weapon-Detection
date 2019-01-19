@@ -20,8 +20,8 @@ dataStreaming = False
 
 #main function on main thread
 def main():
-	readSocket = setupSocket(cs.HOST, cs.upStreamPort)
-	respSocket = setupSocket(cs.HOST, cs.downStreamPort)
+	readSocket = setupSocket(cs.INTHOST, cs.upStreamPort)
+	respSocket = setupSocket(cs.INTHOST, cs.downStreamPort)
 
 	PrintThread = Thread(target=cs.displayMessages, name="PrintThread")
 	ReceiveThread = Thread(target=receiveThreadMain, name="ReceiveThread", args=[readSocket])

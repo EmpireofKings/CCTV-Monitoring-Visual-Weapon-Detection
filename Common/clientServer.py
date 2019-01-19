@@ -8,7 +8,9 @@ READY    = 'CODE:READY######'
 NOTREADY = 'CODE:NOTREADY###'
 COMPLETE = 'CODE:COMPLETE###'
 
-HOST = '35.204.94.151'
+EXTHOST = '35.204.94.151'
+INTHOST = '10.164.0.3'
+
 upStreamPort = 5000
 downStreamPort = 5001
 stdBuffSize = 26
