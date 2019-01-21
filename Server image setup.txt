@@ -1,0 +1,52 @@
+
+
+#docker ce
+a. sudo apt-get install \
+		apt-transport-https \
+		ca-certificates \
+		curl \
+		gnupg2 \
+		software-properties-common
+b. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+c. sudo apt-key fingerprint 0EBFCD88 (output: 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88)
+d. sudo add-apt-repository \
+	   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+	   $(lsb_release -cs) \
+	   stable"
+e. sudo apt-get update
+f. sudo apt-get install docker-ce
+
+#nvidia docker
+a. curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | \
+	  sudo apt-key add -
+	distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+	curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | \
+	  sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+	sudo apt-get update
+
+b. sudo apt-get install -y nvidia-docker2
+c. sudo pkill -SIGHUP dockerd
+d. test using: sudo docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
+
+#Nvidia drivers
+a. sudo apt-get install ubuntu-drivers-common
+b. ubuntu-drivers devices
+c. sudo apt-get install nvidia-driver-<latest> (390)
+d. reboot
+e. nvidia-smi to confirm success
+
+#FUSE
+	a. export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
+	b. echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+	c. curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+	d. sudo apt-get update
+	e. sudo apt-get install gcsfuse
+
+	mount/unmount using
+	a. gcsfuse <bucket-name> <mount-dir>
+	b. sudo umount <mount-dir>
+
+Docker
+	b. sudo docker run --runtime=nvidia -p 5000:5000 -p 5001:5001 server-image
+	c. sudo docker save server-image > server-image.tar
+	d. sudo docker load < server-image.tar
