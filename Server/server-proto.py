@@ -37,7 +37,7 @@ def main():
 def receiveThreadMain(socket):
 	global latestFrame, dataStreaming
 	while True:
-		cs.messages.put("Read thread ready. Listening on: " + cs.HOST + ":" + str(cs.upStreamPort))
+		cs.messages.put("Read thread ready. Listening on: " + cs.INTHOST + ":" + str(cs.upStreamPort))
 
 		conn, addr = socket.accept()
 		cs.messages.put("Connection on read thread. (" + str(addr) + ")")
@@ -125,7 +125,7 @@ def responseThreadMain(socket):
 	global outBuff, dataStreaming
 
 	while True:
-		cs.messages.put("Response thread ready. Listening on:" + cs.HOST + ":" + str(cs.downStreamPort))
+		cs.messages.put("Response thread ready. Listening on:" + cs.INTHOST + ":" + str(cs.downStreamPort))
 
 		conn, addr = socket.accept()
 		cs.messages.put("Connection on response thread. (" + str(addr) +")")

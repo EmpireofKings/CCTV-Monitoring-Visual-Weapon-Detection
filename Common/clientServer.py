@@ -7,8 +7,8 @@ READY    = 'CODE:READY######'
 NOTREADY = 'CODE:NOTREADY###'
 COMPLETE = 'CODE:COMPLETE###'
 
-EXTHOST = '35.204.94.151'
-INTHOST = '10.164.0.3'
+EXTHOST = '0.0.0.0'
+INTHOST = '0.0.0.0'
 
 upStreamPort = 5000
 downStreamPort = 5001
