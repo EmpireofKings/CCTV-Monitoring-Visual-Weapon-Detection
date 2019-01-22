@@ -1,0 +1,59 @@
+{
+	"levelIDs":[-1,0,1,2],
+
+	"levelData":[
+	{
+		"LevelID":-1,
+		"LevelDrawCoordinates":[ [[0, 0], [100, 0]], [[100, 100], [0, 100]] ],
+		"LevelCameras": [
+		{
+			"cameraID": 1,
+			"cameraCoordinates":[5, 5]
+		},
+		{
+			"cameraID": 2,
+			"cameraCoordinates":[95, 5]
+		}]
+	},
+	{
+		"LevelID":0,
+		"LevelDrawCoordinates":[ [[100, 100], [200, 100]], [[200, 200], [100, 200]] ],
+		"LevelCameras": [
+		{
+			"cameraID": 1,
+			"cameraCoordinates":[105, 105]
+		},
+		{
+			"cameraID": 2,
+			"cameraCoordinates":[195, 105]
+		}]
+	},
+	{
+		"LevelID":1,
+		"LevelDrawCoordinates":[ [[200, 200], [300, 200]], [[300, 300], [200, 300]] ],
+		"LevelCameras": [
+		{
+			"cameraID": 1,
+			"cameraCoordinates":[205, 205]
+		},
+
+		{
+			"cameraID": 2,
+			"cameraCoordinates":[295, 205]
+		}]
+	},
+	{
+		"LevelID":2,
+		"LevelDrawCoordinates":[ [[300, 300], [400, 300]], [[400, 400], [300, 400]] ],
+		"LevelCameras": [
+		{
+			"cameraID": 1,
+			"cameraCoordinates":[305, 305]
+		},
+
+		{
+			"cameraID": 2,
+			"cameraCoordinates":[395, 305]
+		}]
+	}]
+}
