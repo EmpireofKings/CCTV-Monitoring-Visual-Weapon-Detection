@@ -32,17 +32,8 @@ class mainWindow(QMainWindow):
 		layout.addWidget(buildingView)
 
 		#Camera monitoring (right side)
-		cameraLayout = QVBoxLayout()
-		camPreviewLayout = QGridLayout()
-		cameraPlaceholder = QLabel("Cameras placeholder")
-		camPreviewLayout.addWidget(cameraPlaceholder,1 , 1)
-
-		mainCamPlaceholder = QLabel("Main Cam placeholder")
-
-		cameraLayout.addLayout(camPreviewLayout)
-		cameraLayout.addWidget(mainCamPlaceholder)
-
-		layout.addLayout(cameraLayout)
+		cameraView = CameraViewer()
+		layout.addWidget(cameraView)
 
 		return layout
 
@@ -50,6 +41,40 @@ class mainWindow(QMainWindow):
 		layout = None
 		#TODO: Setup existing media analysis layout
 		return layout
+
+class CameraViewer(QWidget):
+	newFrameSignal = Signal(QImage)
+	def __init__(self):
+		QWidget.__init__(self)
+
+		layout = QVBoxLayout()
+		placeholder = QLabel("Grid placeholder")
+		layout.addWidget(placeholder)
+
+		mainDisplay = CameraDisplay()
+		layout.addWidget(mainDisplay)
+
+		self.newFrameSignal.connect(mainDisplay.updateDisplay)
+
+		image = np.zeros((300,400,3), dtype=np.uint8)
+		cv2.rectangle(image, (50,50), (200,200), (255,0,0), 3)
+		self.newFrameReady(image)
+
+		self.setLayout(layout)
+
+	def newFrameReady(self, frame):
+		h, w, c = np.shape(frame)
+		image = QImage(frame.data, w, h, QImage.Format_RGB888)
+		self.newFrameSignal.emit(image)
+
+class CameraDisplay(QLabel):
+	def __init__(self):
+		QLabel.__init__(self)
+
+	def updateDisplay(self, frame):
+		print("UPDATE DISPLAY")
+		self.setPixmap(QPixmap.fromImage(frame))
+
 
 class BuildingViewer(QWidget):
 	def __init__(self):
@@ -127,6 +152,7 @@ class BuildingPainter(QWidget):
 
 
 if __name__ == '__main__':
+	
 	app = QApplication(sys.argv)
 	mainWindow = mainWindow()
 	mainWindow.show()

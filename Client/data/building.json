@@ -8,11 +8,13 @@
 		"LevelCameras": [
 		{
 			"cameraID": 1,
-			"cameraCoordinates":[5, 5]
+			"cameraCoordinates":[5, 5],
+			"cameraOrientation":150
 		},
 		{
 			"cameraID": 2,
-			"cameraCoordinates":[95, 5]
+			"cameraCoordinates":[95, 5],
+			"cameraOrientation":150
 		}]
 	},
 	{
@@ -21,11 +23,13 @@
 		"LevelCameras": [
 		{
 			"cameraID": 1,
-			"cameraCoordinates":[105, 105]
+			"cameraCoordinates":[105, 105],
+			"cameraOrientation":150
 		},
 		{
 			"cameraID": 2,
-			"cameraCoordinates":[195, 105]
+			"cameraCoordinates":[195, 105],
+			"cameraOrientation":150
 		}]
 	},
 	{
@@ -34,12 +38,14 @@
 		"LevelCameras": [
 		{
 			"cameraID": 1,
-			"cameraCoordinates":[205, 205]
+			"cameraCoordinates":[205, 205],
+			"cameraOrientation":150
 		},
 
 		{
 			"cameraID": 2,
-			"cameraCoordinates":[295, 205]
+			"cameraCoordinates":[295, 205],
+			"cameraOrientation":150
 		}]
 	},
 	{
@@ -48,12 +54,14 @@
 		"LevelCameras": [
 		{
 			"cameraID": 1,
-			"cameraCoordinates":[305, 305]
+			"cameraCoordinates":[305, 305],
+			"cameraOrientation":150
 		},
 
 		{
 			"cameraID": 2,
-			"cameraCoordinates":[395, 305]
+			"cameraCoordinates":[395, 305],
+			"cameraOrientation":150
 		}]
 	}]
 }
