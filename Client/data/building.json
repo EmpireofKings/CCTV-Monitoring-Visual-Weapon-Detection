@@ -1,18 +1,18 @@
 {
 	"levelIDs":[-1,0,1,2],
-
+	"cameraIDs":["./Test-Data/0.mp4","./Test-Data/1.mp4","./Test-Data/2.mp4","./Test-Data/3.mp4","./Test-Data/4.mp4","./Test-Data/5.mp4","./Test-Data/6.mp4","./Test-Data/7.mp4","./Test-Data/8.mp4","./Test-Data/9.mp4"],
 	"levelData":[
 	{
 		"LevelID":-1,
 		"LevelDrawCoordinates":[ [[0, 0], [100, 0]], [[100, 100], [0, 100]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 1,
+			"cameraID": 0,
 			"cameraCoordinates":[5, 5],
 			"cameraOrientation":150
 		},
 		{
-			"cameraID": 2,
+			"cameraID": 1,
 			"cameraCoordinates":[95, 5],
 			"cameraOrientation":150
 		}]
@@ -22,12 +22,12 @@
 		"LevelDrawCoordinates":[ [[100, 100], [200, 100]], [[200, 200], [100, 200]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 1,
+			"cameraID": 2,
 			"cameraCoordinates":[105, 105],
 			"cameraOrientation":150
 		},
 		{
-			"cameraID": 2,
+			"cameraID": 3,
 			"cameraCoordinates":[195, 105],
 			"cameraOrientation":150
 		}]
@@ -37,13 +37,13 @@
 		"LevelDrawCoordinates":[ [[200, 200], [300, 200]], [[300, 300], [200, 300]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 1,
+			"cameraID": 4,
 			"cameraCoordinates":[205, 205],
 			"cameraOrientation":150
 		},
 
 		{
-			"cameraID": 2,
+			"cameraID": 5,
 			"cameraCoordinates":[295, 205],
 			"cameraOrientation":150
 		}]
@@ -53,13 +53,13 @@
 		"LevelDrawCoordinates":[ [[300, 300], [400, 300]], [[400, 400], [300, 400]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 1,
+			"cameraID": 6,
 			"cameraCoordinates":[305, 305],
 			"cameraOrientation":150
 		},
 
 		{
-			"cameraID": 2,
+			"cameraID": 7,
 			"cameraCoordinates":[395, 305],
 			"cameraOrientation":150
 		}]
