@@ -13,7 +13,7 @@ import clientHelper as ch
 
 
 class LiveAnalysis():
-	def __init__(self, helper):
+	def __init__(self, helper, sendBuffer):
 		self.layout = QHBoxLayout()
 		self.helper = helper
 
@@ -23,7 +23,7 @@ class LiveAnalysis():
 
 		cameraIDs = buildingView.cameras
 		#Camera monitoring (right side)
-		cameraView = CameraViewer(cameraIDs)
+		cameraView = CameraViewer(cameraIDs, helper, sendBuffer)
 		self.layout.addWidget(cameraView)
 
 	def getLayout(self):
@@ -34,7 +34,7 @@ class BuildingViewer(QFrame):
 	def __init__(self, helper):
 		QFrame.__init__(self)
 		availableSpace = helper.getScreenParams()
-		print(availableSpace)
+		#print(availableSpace)
 		self.setMinimumSize(QSize(availableSpace[0]*.33,int(availableSpace[1]*.75)))
 
 		#self.setFrameStyle(QFrame.Box)
@@ -140,13 +140,13 @@ class BuildingPainter(QFrame):
 #### RIGHT SIDE ####
 
 class CameraViewer(QFrame):
-	def __init__(self, cameraIDs):
+	def __init__(self, cameraIDs, helper, sendBuffer):
 		QFrame.__init__(self)
 		self.setFrameStyle(QFrame.Box)
 		layout = QVBoxLayout()
 
 
-		gridView = gridViewer(cameraIDs)
+		gridView = gridViewer(cameraIDs, helper, sendBuffer)
 		scrollArea = QScrollArea()
 		scrollArea.setWidget(gridView)
 		scrollArea.setMinimumSize(QSize(800,500))
@@ -155,21 +155,27 @@ class CameraViewer(QFrame):
 		self.setLayout(layout)
 
 class gridViewer(QWidget):
-	def __init__(self, cameraIDs):
+	def __init__(self, cameraIDs, helper, sendBuffer):
 		QWidget.__init__(self)
 		layout = QGridLayout()
 
 		maxCols = 3
 		rows = int(math.ceil((len(cameraIDs)/maxCols)))
 
+		sendBuffers = []
+
 		count = 0
+
 		for row in range(rows):
 			for col in range(maxCols):
 				if count < len(cameraIDs):
 					display = CameraDisplay(QSize(256,144), cameraIDs[count])
 					layout.addLayout(display, row, col)
-					t = Thread(target=loadThread, daemon=True, args=[display, (256,144), cameraIDs[count]])
-					t.start()
+
+					loadT = Thread(target=helper.loadThread, daemon=True, args=[sendBuffer, (256,144), cameraIDs[count]])
+					loadT.start()
+
+					displayT = Thread(target=helper.displayThread, daemon=True, args=[display, (256,144), cameraIDs[count]])
 					count += 1
 				else:
 					break
@@ -201,27 +207,3 @@ class CameraSurface(QLabel):
 		self.setPixmap(framePack.getFrameAsPixmap())
 	# def mousePressEvent(self, event):
 	# 	print(self.cameraID)
-
-### THREAD FUNCTIONS ###
-def loadThread(display, size, id):
-	feed = cv2.VideoCapture(id)
-	vidFPS = feed.get(cv2.CAP_PROP_FPS)
-	#print(vidFPS, id)
-
-	cur = time.time()
-	while feed.isOpened():
-		check, frame = feed.read()
-
-		if check == True:
-			frame = cv2.resize(frame, size)
-			frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-
-			#FPS Control
-			while((time.time() - cur) < 1/vidFPS) :time.sleep(0.01)
-
-			fp = ch.FramePack(frame, id)
-			display.newFrameReady(fp)
-			cur = time.time()
-		else:
-			feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
-			#print("reset")

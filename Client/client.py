@@ -12,9 +12,10 @@ import time
 import clientLive as cl
 import clientHelper as ch
 import clientDeferred as cd
+from collections import deque
 
 class mainWindow(QMainWindow):
-	def __init__(self, helper):
+	def __init__(self, helper, sendBuffer):
 		QMainWindow.__init__(self)
 		items = ["Live Feed", "Existing Media"]
 
@@ -26,7 +27,7 @@ class mainWindow(QMainWindow):
 		mainWidget = QWidget()
 
 		if decision == items[0]:
-			liveAnalyser = cl.LiveAnalysis(helper)
+			liveAnalyser = cl.LiveAnalysis(helper, sendBuffer)
 			mainWidget.setLayout(liveAnalyser.getLayout())
 		elif decision == items[1]:
 			deferredAnalyser = cd.DeferredAnalysis(helper)
@@ -39,7 +40,13 @@ if __name__ == '__main__':
 	app = QApplication(sys.argv)
 	helper = ch.Helper(app)
 
-	mainWindow = mainWindow(helper)
+	sendBuffer = deque()
+	mainWindow = mainWindow(helper, sendBuffer)
 	mainWindow.show()
+
+	#'35.204.135.105' reserved static ip GCP
+	network = ch.Network(sendBuffer, 'localhost', 5000, 5001)
+	sendT = Thread(target=network.sendFrames, daemon=True)
+	sendT.start()
 
 	sys.exit(app.exec_())
