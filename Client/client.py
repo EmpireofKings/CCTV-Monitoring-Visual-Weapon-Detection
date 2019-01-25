@@ -1,21 +1,15 @@
-import numpy as np
-import cv2
 import sys
-import json
-import math
-from pprint import pprint
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from threading import Thread
-import time
-import clientLive as cl
-import clientHelper as ch
-import clientDeferred as cd
 from collections import deque
 
+#my modules
+import live
+import deferred
+
 class mainWindow(QMainWindow):
-	def __init__(self, helper, sendBuffer):
+	def __init__(self, app):
 		QMainWindow.__init__(self)
 		items = ["Live Feed", "Existing Media"]
 
@@ -27,26 +21,18 @@ class mainWindow(QMainWindow):
 		mainWidget = QWidget()
 
 		if decision == items[0]:
-			liveAnalyser = cl.LiveAnalysis(helper, sendBuffer)
+			liveAnalyser = live.LiveAnalysis(app)
 			mainWidget.setLayout(liveAnalyser.getLayout())
 		elif decision == items[1]:
-			deferredAnalyser = cd.DeferredAnalysis(helper)
+			deferredAnalyser = deferred.DeferredAnalysis(app)
 			mainWidget.setLayout(deferredAnalyser.getLayout())
 
 		self.setCentralWidget(mainWidget)
 
-### MAIN ###
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
-	helper = ch.Helper(app)
 
-	sendBuffer = deque()
-	mainWindow = mainWindow(helper, sendBuffer)
+	mainWindow = mainWindow(app)
 	mainWindow.show()
-
-	#'35.204.135.105' reserved static ip GCP
-	network = ch.Network(sendBuffer, 'localhost', 5000, 5001)
-	sendT = Thread(target=network.sendFrames, daemon=True)
-	sendT.start()
 
 	sys.exit(app.exec_())

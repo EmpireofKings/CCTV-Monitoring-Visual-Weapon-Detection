@@ -9,21 +9,18 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from threading import Thread
 import time
-import clientHelper as ch
-
+import helper
 
 class LiveAnalysis():
-	def __init__(self, helper, sendBuffer):
+	def __init__(self, app):
 		self.layout = QHBoxLayout()
-		self.helper = helper
 
 		#System Overview (left side)
-		buildingView = BuildingViewer(helper)
+		buildingView = BuildingViewer(app)
 		self.layout.addWidget(buildingView)
 
-		cameraIDs = buildingView.cameras
 		#Camera monitoring (right side)
-		cameraView = CameraViewer(cameraIDs, helper, sendBuffer)
+		cameraView = CameraViewer(app, buildingView.cameras)
 		self.layout.addWidget(cameraView)
 
 	def getLayout(self):
@@ -31,20 +28,23 @@ class LiveAnalysis():
 
 #### LEFT SIDE ####
 class BuildingViewer(QFrame):
-	def __init__(self, helper):
+	def __init__(self, app):
 		QFrame.__init__(self)
-		availableSpace = helper.getScreenParams()
-		#print(availableSpace)
+
+		#Space checks
+		availableSpace = helper.getScreenParams(app)
 		self.setMinimumSize(QSize(availableSpace[0]*.33,int(availableSpace[1]*.75)))
 
-		#self.setFrameStyle(QFrame.Box)
+		#get building data
 		buildingFile = open("./data/building.json", 'r')
 		self.buildingData = json.load(buildingFile)
+
 		levels = self.buildingData["levelIDs"]
 		self.cameras = self.buildingData["cameraIDs"]
 
+		#left side internal breakdown, painter and controls, vertically aligned
 		layout = QVBoxLayout()
-		self.drawSpace = BuildingPainter(helper, self.buildingData)
+		self.drawSpace = BuildingPainter(app, self.buildingData)
 		self.drawSpace.setFrameStyle(QFrame.Box)
 
 		controlBox = QWidget()
@@ -73,7 +73,7 @@ class BuildingViewer(QFrame):
 		self.setLayout(layout)
 
 	def updown(self):
-		current = int(self.dropdown.currentText()[len("Label "):])
+		current = int(self.dropdown.currentText()[len("Level "):])
 
 		if self.sender().text() == "Up":
 			current += 1
@@ -88,16 +88,18 @@ class BuildingViewer(QFrame):
 			self.changeLevel()
 
 	def changeLevel(self):
-		index = int(self.dropdown.currentText()[len("Label "):])
+		index = int(self.dropdown.currentText()[len("Level "):])
 		self.drawSpace.currentLevel = index
 		self.drawSpace.repaint()
 
 class BuildingPainter(QFrame):
-	def __init__(self, helper, buildingData):
+	def __init__(self, app, buildingData):
 		QFrame.__init__(self)
 		self.buildingData = buildingData
-		self.currentLevel = 0
-		availableSpace = helper.getScreenParams()
+		self.currentLevel = 0 #start on ground level
+
+		availableSpace = helper.getScreenParams(app)
+
 		self.setMinimumSize(QSize(100,500))
 		self.setMaximumSize(QSize(int(availableSpace[1]*.90),int(availableSpace[1]*.90)))
 
@@ -140,42 +142,41 @@ class BuildingPainter(QFrame):
 #### RIGHT SIDE ####
 
 class CameraViewer(QFrame):
-	def __init__(self, cameraIDs, helper, sendBuffer):
+	def __init__(self, app, cameraIDs):
 		QFrame.__init__(self)
-		self.setFrameStyle(QFrame.Box)
+
 		layout = QVBoxLayout()
 
+		gridView = gridViewer(cameraIDs)
 
-		gridView = gridViewer(cameraIDs, helper, sendBuffer)
 		scrollArea = QScrollArea()
 		scrollArea.setWidget(gridView)
 		scrollArea.setMinimumSize(QSize(800,500))
+
 		layout.addWidget(scrollArea)
 
 		self.setLayout(layout)
 
 class gridViewer(QWidget):
-	def __init__(self, cameraIDs, helper, sendBuffer):
+	def __init__(self, cameraIDs):
 		QWidget.__init__(self)
+
 		layout = QGridLayout()
 
-		maxCols = 3
-		rows = int(math.ceil((len(cameraIDs)/maxCols)))
+		maxCols = 3 #TODO, dynamically choose based on availale space
+		rows = int(math.ceil((len(cameraIDs)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
 
-		sendBuffers = []
-
-		count = 0
-
+		count = 0 #item tracker
 		for row in range(rows):
 			for col in range(maxCols):
-				if count < len(cameraIDs):
-					display = CameraDisplay(QSize(256,144), cameraIDs[count])
+				if count < len(cameraIDs):#more slots than items to fill
+					feedID = cameraIDs[count]
+
+					display = CameraDisplay(QSize(256,144), feedID)
 					layout.addLayout(display, row, col)
 
-					loadT = Thread(target=helper.loadThread, daemon=True, args=[sendBuffer, (256,144), cameraIDs[count]])
-					loadT.start()
-
-					displayT = Thread(target=helper.displayThread, daemon=True, args=[display, (256,144), cameraIDs[count]])
+					loader = helper.FeedLoader(feedID)
+					loader.start()
 					count += 1
 				else:
 					break
@@ -183,7 +184,7 @@ class gridViewer(QWidget):
 		self.setLayout(layout)
 
 class CameraDisplay(QHBoxLayout):
-	newFrameSignal = Signal(ch.FramePack)
+	newFrameSignal = Signal(b'')
 
 	def __init__(self, minSize, cameraID):
 		QHBoxLayout.__init__(self)
@@ -205,5 +206,6 @@ class CameraSurface(QLabel):
 
 	def updateDisplay(self, framePack):
 		self.setPixmap(framePack.getFrameAsPixmap())
+
 	# def mousePressEvent(self, event):
 	# 	print(self.cameraID)
