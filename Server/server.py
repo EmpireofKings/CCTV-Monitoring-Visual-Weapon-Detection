@@ -1,3 +1,4 @@
+
 from threading import Thread
 from collections import deque
 import socket as s
@@ -22,16 +23,15 @@ class Listener(Thread):
 
 	def run(self):
 		while True:
-			str = self.socket.recv_string()
-			jpegStr = b64.b64decode(str)
+			received = self.socket.recv_string()
+			jpegStr = b64.b64decode(received)
 			jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 			frame = cv2.imdecode(jpeg, 1)
 
-			encodeCheck, jpegBuf = cv2.imencode('.jpg', frame)
+			result = str(np.mean(frame))
 
-			if encodeCheck:
-				encoded = b64.b64encode(jpegBuf)
-				self.socket.send(encoded)
+			#encoded = b64.b64encode(result)
+			self.socket.send_string(result)
 
 # class Receiver(Thread):
 # 	def __init__(self, conn, addr, feedID):
