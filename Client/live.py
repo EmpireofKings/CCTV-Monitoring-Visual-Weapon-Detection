@@ -175,7 +175,8 @@ class gridViewer(QWidget):
 					display = CameraDisplay(QSize(256,144), feedID)
 					layout.addLayout(display, row, col)
 
-					loader = helper.FeedLoader(feedID)
+					loader = helper.FeedLoader(feedID, display)
+					loader.setDaemon(True)
 					loader.start()
 					count += 1
 				else:
@@ -184,7 +185,7 @@ class gridViewer(QWidget):
 		self.setLayout(layout)
 
 class CameraDisplay(QHBoxLayout):
-	newFrameSignal = Signal(b'')
+	newFrameSignal = Signal(np.ndarray)
 
 	def __init__(self, minSize, cameraID):
 		QHBoxLayout.__init__(self)
@@ -193,9 +194,9 @@ class CameraDisplay(QHBoxLayout):
 		self.cameraID = cameraID
 		self.addWidget(surface)
 
-	def newFrameReady(self, framePack):
+	def newFrameReady(self, frame):
 		#if global main id = self if, also emit to update main display with same frame pack
-		self.newFrameSignal.emit(framePack)
+		self.newFrameSignal.emit(frame)
 
 class CameraSurface(QLabel):
 	def __init__(self, minSize, cameraID):
@@ -204,8 +205,11 @@ class CameraSurface(QLabel):
 		self.setMaximumSize(minSize)
 		self.cameraID = cameraID
 
-	def updateDisplay(self, framePack):
-		self.setPixmap(framePack.getFrameAsPixmap())
+	def updateDisplay(self, frame):
+		h, w, c = np.shape(frame)
+		frame = QImage(frame.data, w, h, c*w,  QImage.Format_RGB888)
+		pmap = QPixmap.fromImage(frame)
+		self.setPixmap(pmap)
 
 	# def mousePressEvent(self, event):
 	# 	print(self.cameraID)
