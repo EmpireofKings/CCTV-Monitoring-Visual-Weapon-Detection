@@ -10,6 +10,8 @@ from PySide2.QtWidgets import *
 from threading import Thread
 import time
 import helper
+import base64 as b64
+from collections import deque
 
 class LiveAnalysis():
 	def __init__(self, app):
@@ -175,9 +177,14 @@ class gridViewer(QWidget):
 					display = CameraDisplay(QSize(256,144), feedID)
 					layout.addLayout(display, row, col)
 
-					loader = helper.FeedLoader(feedID, display)
+					nextFrame = deque(maxlen=1)
+					loader = helper.FeedLoader(feedID)
 					loader.setDaemon(True)
 					loader.start()
+
+					networker = helper.Networker(feedID, display)
+					networker.setDaemon(True)
+					networker.start()
 					count += 1
 				else:
 					break
@@ -185,7 +192,7 @@ class gridViewer(QWidget):
 		self.setLayout(layout)
 
 class CameraDisplay(QHBoxLayout):
-	newFrameSignal = Signal(np.ndarray)
+	newFrameSignal = Signal(QPixmap)
 
 	def __init__(self, minSize, cameraID):
 		QHBoxLayout.__init__(self)
@@ -194,9 +201,6 @@ class CameraDisplay(QHBoxLayout):
 		self.cameraID = cameraID
 		self.addWidget(surface)
 
-	def newFrameReady(self, frame):
-		#if global main id = self if, also emit to update main display with same frame pack
-		self.newFrameSignal.emit(frame)
 
 class CameraSurface(QLabel):
 	def __init__(self, minSize, cameraID):
@@ -205,10 +209,7 @@ class CameraSurface(QLabel):
 		self.setMaximumSize(minSize)
 		self.cameraID = cameraID
 
-	def updateDisplay(self, frame):
-		h, w, c = np.shape(frame)
-		frame = QImage(frame.data, w, h, c*w,  QImage.Format_RGB888)
-		pmap = QPixmap.fromImage(frame)
+	def updateDisplay(self, pmap):
 		self.setPixmap(pmap)
 
 	# def mousePressEvent(self, event):

@@ -11,53 +11,70 @@ from PySide2.QtWidgets import *
 from threading import Thread
 from collections import deque
 
+nextFrames = {}
+
 class FeedLoader(Thread):
 	#GUI Thread launches this thread
 	#to prevent holding GUI Thread for too long keep __init__ minimal
-	def __init__(self, feedID, display):
+	def __init__(self, feedID):
 		Thread.__init__(self)
 
-		self.display = display
 		self.feedID = feedID
 
 	def setup(self):
 		self.feed = cv2.VideoCapture(self.feedID)
 		self.FPS = self.feed.get(cv2.CAP_PROP_FPS)
 
-		context = zmq.Context()
-		self.socket = context.socket(zmq.REQ)
-		self.socket.connect('tcp://127.0.0.1:5000')
-
 	def run(self):
+		global nextFrames
 		self.setup()
 
+		timer = time.time()
 		while self.feed.isOpened():
+			while time.time() - timer < 1/self.FPS : time.sleep(0.01)
 			loadCheck, frame = self.feed.read()
+			timer = time.time()
 
 			if loadCheck:
 				frame = cv2.resize(frame, (256,144))
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
+				pmap = QPixmap.fromImage(QImage(frame.data, 256, 144, 3*256,  QImage.Format_RGB888))
+
 				encodeCheck, jpegBuf = cv2.imencode('.jpg', frame)
 
 				if encodeCheck:
 					encoded = b64.b64encode(jpegBuf)
-					self.socket.send(encoded)
-
-				str = self.socket.recv_string()
-				jpegStr = b64.b64decode(str)
-				jpeg = np.fromstring(jpegStr, dtype=np.uint8)
-				frame = cv2.imdecode(jpeg, 1)
-
-				cv2.imshow(self.feedID, frame)
-				cv2.waitKey(1)
-
+					nextFrames[str(self.feedID)] = (pmap, encoded)
 			else:
 				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
 
 
+class Networker(Thread):
+	def __init__(self, feedID, display):
+		Thread.__init__(self)
 
-			#self.toBePaired.append(frame) #for matching with results on return???
+		self.feedID = feedID
+		self.display = display
+
+	def setup(self):
+		context = zmq.Context()
+		self.socket = context.socket(zmq.REQ)
+		self.socket.connect('tcp://35.204.135.105:5000')
+
+	def run(self):
+		global nextFrames
+		self.setup()
+
+		while True:
+			frame = nextFrames.get(str(self.feedID))
+
+			if frame is not None:
+				self.socket.send(frame[1])
+
+				result = self.socket.recv_string()
+
+				self.display.newFrameSignal.emit(frame[0])
 #
 # sendFrame = None
 # class FeedSender(Thread):
