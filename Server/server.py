@@ -9,6 +9,7 @@ import _pickle as pickle
 import sys
 import zmq
 import base64 as b64
+import tensorflow as tf
 
 class Listener(Thread):
 	def __init__(self, addr):
@@ -22,13 +23,19 @@ class Listener(Thread):
 		print("Listening on", addr)
 
 	def run(self):
+		model = tf.keras.models.load_model("../Models/model-current.h5")
+		model.summary()
+
 		while True:
 			received = self.socket.recv_string()
 			jpegStr = b64.b64decode(received)
 			jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 			frame = cv2.imdecode(jpeg, 1)
 
-			result = str(np.mean(frame))
+			frame = cv2.resize(frame, (100,100))
+			frameArr = np.asarray(frame)
+			frameArr = np.expand_dims(frameArr, axis=0)
+			result = str(model.predict(frameArr)[0][0])
 
 			#encoded = b64.b64encode(result)
 			self.socket.send_string(result)

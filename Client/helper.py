@@ -36,10 +36,10 @@ class FeedLoader(Thread):
 			timer = time.time()
 
 			if loadCheck:
-				frame = cv2.resize(frame, (256,144))
+				frame = cv2.resize(frame, (640,360))
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
-				pmap = QPixmap.fromImage(QImage(frame.data, 256, 144, 3*256,  QImage.Format_RGB888))
+				pmap = QPixmap.fromImage(QImage(frame.data, 640, 360, 3*640,  QImage.Format_RGB888))
 
 				encodeCheck, jpegBuf = cv2.imencode('.jpg', frame)
 
@@ -60,7 +60,7 @@ class Networker(Thread):
 	def setup(self):
 		context = zmq.Context()
 		self.socket = context.socket(zmq.REQ)
-		self.socket.connect('tcp://35.204.135.105:5000')
+		self.socket.connect('tcp://localhost:5000')
 
 	def run(self):
 		global nextFrames
@@ -74,7 +74,9 @@ class Networker(Thread):
 
 				result = self.socket.recv_string()
 
+				print(result)
 				self.display.newFrameSignal.emit(frame[0])
+
 #
 # sendFrame = None
 # class FeedSender(Thread):

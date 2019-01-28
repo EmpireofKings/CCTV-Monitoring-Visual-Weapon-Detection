@@ -174,7 +174,7 @@ class gridViewer(QWidget):
 				if count < len(cameraIDs):#more slots than items to fill
 					feedID = cameraIDs[count]
 
-					display = CameraDisplay(QSize(256,144), feedID)
+					display = CameraDisplay(QSize(640,360), feedID)
 					layout.addLayout(display, row, col)
 
 					nextFrame = deque(maxlen=1)
