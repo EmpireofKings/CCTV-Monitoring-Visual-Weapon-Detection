@@ -11,7 +11,7 @@ import zmq
 import base64 as b64
 import tensorflow as tf
 
-class Listener(Thread):
+class Receiver(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)
 
@@ -32,7 +32,7 @@ class Listener(Thread):
 			jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 			frame = cv2.imdecode(jpeg, 1)
 
-			frame = cv2.resize(frame, (100,100))
+			frame = cv2.resize(frame, (100,100)) #work it so it can use process size of (256, 144)
 			frameArr = np.asarray(frame)
 			frameArr = np.expand_dims(frameArr, axis=0)
 			result = str(model.predict(frameArr)[0][0])
@@ -217,8 +217,8 @@ if __name__ == '__main__':
 #	graph = tf.get_default_graph()
 
 	responseQueues = {}
-	receivePortListener = Listener('tcp://0.0.0.0:5000')
-	receivePortListener.start()
+	receiver = Receiver('tcp://0.0.0.0:5000')
+	receiver.start()
 
 	# respondPortListener = Listener(('localhost', 5001))
 	# respondPortListener.start()

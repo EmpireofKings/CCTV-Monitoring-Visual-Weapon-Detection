@@ -1,20 +1,20 @@
 {
-	"levelIDs":[-1,0,1,2],
-	"cameraIDs":["./Test-Data/0.mp4","./Test-Data/1.mp4","./Test-Data/2.mp4","./Test-Data/3.mp4","./Test-Data/4.mp4","./Test-Data/5.mp4","./Test-Data/6.mp4","./Test-Data/7.mp4","./Test-Data/8.mp4","./Test-Data/9.mp4"],
-	"levelData":[
+	"LevelData":[
 	{
 		"LevelID":-1,
 		"LevelDrawCoordinates":[ [[0, 0], [100, 0]], [[100, 100], [0, 100]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 0,
+			"cameraID": "0",
+			"cameraLocation":"Lifts",
 			"cameraCoordinates":[5, 5],
 			"cameraOrientation":150
 		},
 		{
-			"cameraID": 1,
+			"cameraID": "./Test-Data/1.mp4",
+			"cameraLocation":"Stairs",
 			"cameraCoordinates":[95, 5],
-			"cameraOrientation":150
+			"cameraOrientation":300
 		}]
 	},
 	{
@@ -22,12 +22,14 @@
 		"LevelDrawCoordinates":[ [[100, 100], [200, 100]], [[200, 200], [100, 200]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 2,
+			"cameraID": "./Test-Data/2.mp4",
+			"cameraLocation":"Main Entrance",
 			"cameraCoordinates":[105, 105],
 			"cameraOrientation":150
 		},
 		{
-			"cameraID": 3,
+			"cameraID": "./Test-Data/3.mp4",
+			"cameraLocation":"Side Entrance",
 			"cameraCoordinates":[195, 105],
 			"cameraOrientation":150
 		}]
@@ -37,13 +39,15 @@
 		"LevelDrawCoordinates":[ [[200, 200], [300, 200]], [[300, 300], [200, 300]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 4,
+			"cameraID": "./Test-Data/4.mp4",
+			"cameraLocation":"Lifts",
 			"cameraCoordinates":[205, 205],
 			"cameraOrientation":150
 		},
 
 		{
-			"cameraID": 5,
+			"cameraID": "./Test-Data/5.mp4",
+			"cameraLocation":"Stairs",
 			"cameraCoordinates":[295, 205],
 			"cameraOrientation":150
 		}]
@@ -53,13 +57,15 @@
 		"LevelDrawCoordinates":[ [[300, 300], [400, 300]], [[400, 400], [300, 400]] ],
 		"LevelCameras": [
 		{
-			"cameraID": 6,
+			"cameraID": "./Test-Data/6.mp4",
+			"cameraLocation":"Lifts",
 			"cameraCoordinates":[305, 305],
 			"cameraOrientation":150
 		},
 
 		{
-			"cameraID": 7,
+			"cameraID": "./Test-Data/7.mp4",
+			"cameraLocation":"Stairs",
 			"cameraCoordinates":[395, 305],
 			"cameraOrientation":150
 		}]

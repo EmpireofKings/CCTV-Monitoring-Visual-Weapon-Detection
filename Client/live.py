@@ -17,12 +17,16 @@ class LiveAnalysis():
 	def __init__(self, app):
 		self.layout = QHBoxLayout()
 
+		#get building data
+		buildingFile = open("./data/building.json", 'r')
+		buildingData = json.load(buildingFile)
+
 		#System Overview (left side)
-		buildingView = BuildingViewer(app)
+		buildingView = BuildingViewer(app, buildingData)
 		self.layout.addWidget(buildingView)
 
 		#Camera monitoring (right side)
-		cameraView = CameraViewer(app, buildingView.cameras)
+		cameraView = CameraViewer(app, buildingData, buildingView.mainDisplay)
 		self.layout.addWidget(cameraView)
 
 	def getLayout(self):
@@ -30,66 +34,60 @@ class LiveAnalysis():
 
 #### LEFT SIDE ####
 class BuildingViewer(QFrame):
-	def __init__(self, app):
+	def __init__(self, app, buildingData):
 		QFrame.__init__(self)
 
-		#Space checks
-		availableSpace = helper.getScreenParams(app)
-		self.setMinimumSize(QSize(availableSpace[0]*.33,int(availableSpace[1]*.75)))
+		self.buildingData = buildingData
 
-		#get building data
-		buildingFile = open("./data/building.json", 'r')
-		self.buildingData = json.load(buildingFile)
-
-		levels = self.buildingData["levelIDs"]
-		self.cameras = self.buildingData["cameraIDs"]
-
-		#left side internal breakdown, painter and controls, vertically aligned
-		layout = QVBoxLayout()
 		self.drawSpace = BuildingPainter(app, self.buildingData)
-		self.drawSpace.setFrameStyle(QFrame.Box)
 
-		controlBox = QWidget()
-		controlLayout = QHBoxLayout()
+		#CONTROLS
 		upLevel = QPushButton("Up")
 		downLevel = QPushButton("Down")
-
-		upLevel.clicked.connect(self.updown)
-		downLevel.clicked.connect(self.updown)
+		upLevel.clicked.connect(self.buttonLevelChange)
+		downLevel.clicked.connect(self.buttonLevelChange)
 
 		self.dropdown = QComboBox()
-		self.dropdown.currentIndexChanged.connect(self.changeLevel)
+		self.dropdown.currentIndexChanged.connect(self.dropdownLevelChange)
 
+		levels = buildingData["LevelData"]
 		for level in levels:
-			self.dropdown.addItem("Level " + str(level))
+			self.dropdown.addItem("Level " + str(level["LevelID"]))
 
+		controlLayout = QHBoxLayout()
 		controlLayout.addWidget(upLevel)
 		controlLayout.addWidget(downLevel)
 		controlLayout.addWidget(self.dropdown)
 
-		controlBox.setLayout(controlLayout)
+		self.mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(640, 360), None)
 
+		layout = QVBoxLayout()
 		layout.addWidget(self.drawSpace)
-		layout.addWidget(controlBox)
+		layout.addLayout(controlLayout)
+		layout.addWidget(self.mainDisplay)
 
 		self.setLayout(layout)
 
-	def updown(self):
+	def buttonLevelChange(self):
+		#get current level from button text
 		current = int(self.dropdown.currentText()[len("Level "):])
 
+		#determine which button was pressed
 		if self.sender().text() == "Up":
 			current += 1
 		elif self.sender().text() == "Down":
 			current -= 1
 
+		#Find next level index in drop down
 		text = "Level " + str(current)
 		index = self.dropdown.findText(text)
 
+		#if level exists in drop down change level
 		if index != -1:
 			self.dropdown.setCurrentIndex(index)
-			self.changeLevel()
+			self.dropdownLevelChange()
 
-	def changeLevel(self):
+	def dropdownLevelChange(self):
 		index = int(self.dropdown.currentText()[len("Level "):])
 		self.drawSpace.currentLevel = index
 		self.drawSpace.repaint()
@@ -100,36 +98,60 @@ class BuildingPainter(QFrame):
 		self.buildingData = buildingData
 		self.currentLevel = 0 #start on ground level
 
-		availableSpace = helper.getScreenParams(app)
+		self.levelData = self.buildingData["LevelData"]
+		self.levels = []
 
-		self.setMinimumSize(QSize(100,500))
-		self.setMaximumSize(QSize(int(availableSpace[1]*.90),int(availableSpace[1]*.90)))
+		for level in self.levelData:
+			self.levels.append(level["LevelID"])
+
+		self.setFrameStyle(QFrame.Box)
+
+		self.tooltip = QToolTip()
+		self.setMinimumSize(QSize(500,500))
+
+		self.setMouseTracking(True)
 
 	def paintEvent(self, event):
 		painter = QPainter(self)
-		levels = self.buildingData["levelIDs"]
-		curIndex = levels.index(int(self.currentLevel))
-		self.levelData = self.buildingData["levelData"][curIndex]
+		curIndex = self.levels.index(int(self.currentLevel))
+		self.curData = self.levelData[curIndex]
 
-		for line in self.levelData["LevelDrawCoordinates"]:
+		for line in self.curData["LevelDrawCoordinates"]:
 			p1 = QPoint(line[0][0], line[0][1])
 			p2 = QPoint(line[1][0], line[1][1])
 
 			painter.setPen(QColor(0,0,0))
 			painter.drawLine(p1, p2)
 
-		for cam in self.levelData["LevelCameras"]:
-			point = QPointF(cam["cameraCoordinates"][0], cam["cameraCoordinates"][1])
-			painter.setPen(QColor(0,255,0))
-			painter.drawEllipse(point, 10, 10)#TODO SCALE SIZE
+		for cam in self.curData["LevelCameras"]:
+			point = QPoint(cam["cameraCoordinates"][0], cam["cameraCoordinates"][1])
+			rect1 = QRect(point, QSize(5,5))
+			rect2 = QRect(point, QSize(20,20))
+			orientation = cam["cameraOrientation"]
+		#	painter.setPen(QPen(QColor(0,150,0), 1))
+			painter.setBrush(QBrush(QColor(0,0,150), Qt.SolidPattern))
+			painter.drawEllipse(rect1)#TODO SCALE SIZE
+			painter.drawArc(rect2, orientation-60, orientation+60)
+
 
 
 	def mousePressEvent(self, event):
-		x1 = event.x()
-		y1 = event.y()
+		id = self.getCloseCam(event.x(), event.y())
 
+		if id is not None:
+			helper.mainFeedID = id
+
+	def mouseMoveEvent(self, event):
+		pos = event.globalPos()
+		id = self.getCloseCam(event.x(), event.y())
+
+		if id is not None:
+			self.tooltip.showText(pos, str(id))
+
+	def getCloseCam(self, x1, y1):
 		distDict = {}
-		for cam in self.levelData["LevelCameras"]:
+
+		for cam in self.curData["LevelCameras"]:
 			id = cam["cameraID"]
 			x2 = cam["cameraCoordinates"][0]
 			y2 = cam["cameraCoordinates"][1]
@@ -139,78 +161,112 @@ class BuildingPainter(QFrame):
 			distDict[id] = dist
 
 		closestID = min(distDict, key=distDict.get)
+		closestDist = distDict.get(closestID)
 
+		if closestDist < 10:
+			return closestID
+		else:
+			return None
 
 #### RIGHT SIDE ####
 
 class CameraViewer(QFrame):
-	def __init__(self, app, cameraIDs):
+	def __init__(self, app, buildingData, mainDisplay):
 		QFrame.__init__(self)
 
 		layout = QVBoxLayout()
 
-		gridView = gridViewer(cameraIDs)
+		gridView = gridViewer(buildingData, mainDisplay)
 
 		scrollArea = QScrollArea()
-		scrollArea.setWidget(gridView)
-		scrollArea.setMinimumSize(QSize(800,500))
+		scrollArea.setLayout(gridView)
+		scrollArea.setMinimumSize(QSize(700,500))
 
 		layout.addWidget(scrollArea)
 
 		self.setLayout(layout)
 
-class gridViewer(QWidget):
-	def __init__(self, cameraIDs):
-		QWidget.__init__(self)
+class gridViewer(QGridLayout):
+	def __init__(self, buildingData, mainDisplay):
+		QGridLayout.__init__(self)
+		self.setSpacing(10)
+		self.setMargin(10)
 
-		layout = QGridLayout()
+		feeds = []
+
+		levelData = buildingData["LevelData"]
+
+		for level in levelData:
+			lid = level["LevelID"]
+
+			cameraData = level["LevelCameras"]
+
+			for camera in cameraData:
+				cid = camera["cameraID"]
+				cameraLocation = camera["cameraLocation"]
+
+				feeds.append({"level" : lid, "id" : cid, "location" : cameraLocation})
+
+		# pprint(cameraIDs)
+		# pprint(cameraLocations)
+		#layout = QGridLayout()
 
 		maxCols = 3 #TODO, dynamically choose based on availale space
-		rows = int(math.ceil((len(cameraIDs)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
+		rows = int(math.ceil((len(feeds)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
 
 		count = 0 #item tracker
 		for row in range(rows):
 			for col in range(maxCols):
-				if count < len(cameraIDs):#more slots than items to fill
-					feedID = cameraIDs[count]
+				if count < len(feeds):#more slots than items to fill
+					feedData = feeds[count]
 
-					display = CameraDisplay(QSize(640,360), feedID)
-					layout.addLayout(display, row, col)
+					## TODO TIDY THIS UP
+					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), feedData)
+					self.addWidget(feedDisplayer, row, col)
 
-					nextFrame = deque(maxlen=1)
-					loader = helper.FeedLoader(feedID)
+
+					loader = helper.FeedLoader(feedData)
 					loader.setDaemon(True)
 					loader.start()
 
-					networker = helper.Networker(feedID, display)
+					networker = helper.Networker(feedData, feedDisplayer, mainDisplay)
 					networker.setDaemon(True)
 					networker.start()
 					count += 1
 				else:
 					break
 
-		self.setLayout(layout)
-
-class CameraDisplay(QHBoxLayout):
+class FeedDisplayer(QLabel):
 	newFrameSignal = Signal(QPixmap)
 
-	def __init__(self, minSize, cameraID):
-		QHBoxLayout.__init__(self)
-		surface = CameraSurface(minSize, cameraID)
-		self.newFrameSignal.connect(surface.updateDisplay)
-		self.cameraID = cameraID
-		self.addWidget(surface)
-
-
-class CameraSurface(QLabel):
-	def __init__(self, minSize, cameraID):
+	def __init__(self, maxSize, minSize, feedData):
 		QLabel.__init__(self)
+		self.setFrameStyle(QFrame.Box)
+		self.setMaximumSize(maxSize)
 		self.setMinimumSize(minSize)
-		self.setMaximumSize(minSize)
-		self.cameraID = cameraID
+
+		self.feedData = feedData
+		self.newFrameSignal.connect(self.updateDisplay)
+
+		camLayout = QVBoxLayout()
+		camLayout.setMargin(0)
+		camLayout.setSpacing(0)
+
+		if feedData is not None:
+			title = QLabel("Level " + str(feedData["level"]) + " " + str(feedData["location"]))
+			title.setMaximumSize(150,20)
+			camLayout.addWidget(title)
+
+		self.surface = QLabel()
+
+		camLayout.addWidget(self.surface)
+
+		self.setLayout(camLayout)
 
 	def updateDisplay(self, pmap):
-		self.setPixmap(pmap)
+		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
+		self.surface.setPixmap(pmap)
 
-	# def mousePressEvent(self, event):
-	# 	print(self.cameraID)
+	def mousePressEvent(self, event):
+		if self.feedData is not None:
+ 			helper.mainFeedID = self.feedData["id"]
