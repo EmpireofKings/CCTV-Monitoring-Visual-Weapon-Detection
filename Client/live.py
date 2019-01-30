@@ -61,7 +61,7 @@ class BuildingViewer(QFrame):
 		controlLayout.addWidget(downLevel)
 		controlLayout.addWidget(self.dropdown)
 
-		self.mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(640, 360), None, self)
+		self.mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(512, 288), None, self)
 
 		layout = QVBoxLayout()
 		layout.addWidget(self.drawSpace)
@@ -110,6 +110,8 @@ class BuildingPainter(QFrame):
 
 		self.tooltip = QToolTip()
 		self.setMinimumSize(QSize(500,500))
+		self.setMaximumSize(QSize(500,500))
+
 
 		self.setMouseTracking(True)
 
@@ -127,9 +129,19 @@ class BuildingPainter(QFrame):
 
 		for cam in self.curData["LevelCameras"]:
 			id = cam["cameraID"]
-			point = QPoint(cam["cameraCoordinates"][0], cam["cameraCoordinates"][1])
-			orientation = cam["cameraOrientation"]
+			cx = cam["cameraCoordinates"][0]
+			cy = cam["cameraCoordinates"][1]
 
+			cpoint = QPoint(cx, cy)
+			angle = cam["cameraAngle"]
+
+			print(cx, cy, angle)
+
+			arrowLength = 20
+			arrowX = int((arrowLength * math.sin(math.radians(angle)))) + cx
+			arrowY = int((arrowLength * math.cos(math.radians(angle)))) + cy
+
+			arrowPoint = QPoint(arrowX, arrowY)
 
 			if id != threads.mainFeedID:
 				painter.setPen(QColor(0,0,255))
@@ -137,16 +149,15 @@ class BuildingPainter(QFrame):
 			else:
 				painter.setBrush(Qt.NoBrush)
 				painter.setPen(QColor(0,255,0))
-				painter.drawEllipse(point, 10,10)
+				painter.drawEllipse(cpoint, 10,10)
 
 				painter.setBrush(QBrush(QColor(0,255,0), Qt.SolidPattern))
 
-			painter.drawEllipse(point, 5, 5)#TODO SCALE SIZE
+			painter.drawLine(cpoint, arrowPoint)
+			painter.drawEllipse(cpoint, 5, 5)#TODO SCALE SIZE
 
-
-		#	painter.setPen(QPen(QColor(0,150,0), 1))
-
-			#painter.drawArc(rect2, orientation-60, orientation+60)
+	def range2range(self, value, oldMin, oldMax, newMin, newMax):
+		return ((value-oldMin)/(oldMax-oldMin)) * (newMax-newMin) + newMin
 
 
 
@@ -258,7 +269,7 @@ class FeedDisplayer(QLabel):
 
 	def __init__(self, maxSize, minSize, feedData, buildingView):
 		QLabel.__init__(self)
-		self.setFrameStyle(QFrame.Box)
+		#self.setFrameStyle(QFrame.Box)
 		self.setMaximumSize(maxSize)
 		self.setMinimumSize(minSize)
 		self.buildingView = buildingView

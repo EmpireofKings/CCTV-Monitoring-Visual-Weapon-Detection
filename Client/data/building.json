@@ -2,72 +2,118 @@
 	"LevelData":[
 	{
 		"LevelID":-1,
-		"LevelDrawCoordinates":[ [[0, 0], [100, 0]], [[100, 100], [0, 100]] ],
+		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
 		"LevelCameras": [
 		{
 			"cameraID": "0",
 			"cameraLocation":"Lifts",
-			"cameraCoordinates":[5, 5],
-			"cameraOrientation":150
+			"cameraCoordinates":[165, 165],
+			"cameraAngle": 45
 		},
 		{
-			"cameraID": "./Test-Data/1.mp4",
+			"cameraID": "./Videos/1.mp4",
 			"cameraLocation":"Stairs",
-			"cameraCoordinates":[95, 5],
-			"cameraOrientation":300
+			"cameraCoordinates":[335, 165],
+			"cameraAngle": 315
+		},
+		{
+			"cameraID": "./Videos/2.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[335, 335],
+			"cameraAngle": 225
+		},
+		{
+			"cameraID": "./Videos/3.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[165, 335],
+			"cameraAngle": 135
 		}]
 	},
 	{
 		"LevelID":0,
-		"LevelDrawCoordinates":[ [[100, 100], [200, 100]], [[200, 200], [100, 200]] ],
+		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
 		"LevelCameras": [
 		{
-			"cameraID": "./Test-Data/2.mp4",
-			"cameraLocation":"Main Entrance",
-			"cameraCoordinates":[105, 105],
-			"cameraOrientation":150
+			"cameraID": "./Videos/4.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[165, 165],
+			"cameraAngle": 45
 		},
 		{
-			"cameraID": "./Test-Data/3.mp4",
-			"cameraLocation":"Side Entrance",
-			"cameraCoordinates":[195, 105],
-			"cameraOrientation":150
+			"cameraID": "./Videos/5.mp4",
+			"cameraLocation":"Stairs",
+			"cameraCoordinates":[335, 165],
+			"cameraAngle": 315
+		},
+		{
+			"cameraID": "./Videos/6.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[335, 335],
+			"cameraAngle": 225
+		},
+		{
+			"cameraID": "./Videos/7.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[165, 335],
+			"cameraAngle": 135
 		}]
 	},
 	{
 		"LevelID":1,
-		"LevelDrawCoordinates":[ [[200, 200], [300, 200]], [[300, 300], [200, 300]] ],
+		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
 		"LevelCameras": [
 		{
-			"cameraID": "./Test-Data/4.mp4",
+			"cameraID": "./Videos/8.mp4",
 			"cameraLocation":"Lifts",
-			"cameraCoordinates":[205, 205],
-			"cameraOrientation":150
+			"cameraCoordinates":[165, 165],
+			"cameraAngle": 45
 		},
-
 		{
-			"cameraID": "./Test-Data/5.mp4",
+			"cameraID": "./Videos/9.mp4",
 			"cameraLocation":"Stairs",
-			"cameraCoordinates":[295, 205],
-			"cameraOrientation":150
+			"cameraCoordinates":[335, 165],
+			"cameraAngle": 315
+		},
+		{
+			"cameraID": "./Videos/10.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[335, 335],
+			"cameraAngle": 225
+		},
+		{
+			"cameraID": "./Videos/11.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[165, 335],
+			"cameraAngle": 135
 		}]
 	},
 	{
 		"LevelID":2,
-		"LevelDrawCoordinates":[ [[300, 300], [400, 300]], [[400, 400], [300, 400]] ],
+		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
 		"LevelCameras": [
 		{
-			"cameraID": "./Test-Data/6.mp4",
+			"cameraID": "./Videos/12.mp4",
 			"cameraLocation":"Lifts",
-			"cameraCoordinates":[305, 305],
-			"cameraOrientation":150
+			"cameraCoordinates":[165, 165],
+			"cameraAngle": 45
 		},
-
 		{
-			"cameraID": "./Test-Data/7.mp4",
+			"cameraID": "./Videos/13.mp4",
 			"cameraLocation":"Stairs",
-			"cameraCoordinates":[395, 305],
-			"cameraOrientation":150
+			"cameraCoordinates":[335, 165],
+			"cameraAngle": 315
+		},
+		{
+			"cameraID": "./Videos/14.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[335, 335],
+			"cameraAngle": 225
+		},
+		{
+			"cameraID": "./Videos/15.mp4",
+			"cameraLocation":"Lifts",
+			"cameraCoordinates":[165, 335],
+			"cameraAngle": 135
 		}]
 	}]
 }
