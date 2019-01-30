@@ -1,3 +1,5 @@
+#TODO
+
 import numpy as np
 import cv2
 import sys
@@ -9,13 +11,14 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from threading import Thread
 import time
-import helper
+import threads
 import base64 as b64
 from collections import deque
 
-class LiveAnalysis():
+class LiveAnalysis(QWidget):
 	def __init__(self, app):
-		self.layout = QHBoxLayout()
+		QWidget.__init__(self)
+		layout = QHBoxLayout()
 
 		#get building data
 		buildingFile = open("./data/building.json", 'r')
@@ -23,14 +26,13 @@ class LiveAnalysis():
 
 		#System Overview (left side)
 		buildingView = BuildingViewer(app, buildingData)
-		self.layout.addWidget(buildingView)
+		layout.addWidget(buildingView)
 
 		#Camera monitoring (right side)
-		cameraView = CameraViewer(app, buildingData, buildingView.mainDisplay)
-		self.layout.addWidget(cameraView)
+		self.cameraView = CameraViewer(app, buildingData, buildingView)
+		layout.addWidget(self.cameraView)
 
-	def getLayout(self):
-		return self.layout
+		self.setLayout(layout)
 
 #### LEFT SIDE ####
 class BuildingViewer(QFrame):
@@ -59,7 +61,7 @@ class BuildingViewer(QFrame):
 		controlLayout.addWidget(downLevel)
 		controlLayout.addWidget(self.dropdown)
 
-		self.mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(640, 360), None)
+		self.mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(640, 360), None, self)
 
 		layout = QVBoxLayout()
 		layout.addWidget(self.drawSpace)
@@ -85,7 +87,7 @@ class BuildingViewer(QFrame):
 		#if level exists in drop down change level
 		if index != -1:
 			self.dropdown.setCurrentIndex(index)
-			self.dropdownLevelChange()
+			#self.dropdownLevelChange()
 
 	def dropdownLevelChange(self):
 		index = int(self.dropdown.currentText()[len("Level "):])
@@ -124,14 +126,27 @@ class BuildingPainter(QFrame):
 			painter.drawLine(p1, p2)
 
 		for cam in self.curData["LevelCameras"]:
+			id = cam["cameraID"]
 			point = QPoint(cam["cameraCoordinates"][0], cam["cameraCoordinates"][1])
-			rect1 = QRect(point, QSize(5,5))
-			rect2 = QRect(point, QSize(20,20))
 			orientation = cam["cameraOrientation"]
+
+
+			if id != threads.mainFeedID:
+				painter.setPen(QColor(0,0,255))
+				painter.setBrush(QBrush(QColor(0,0,255), Qt.SolidPattern))
+			else:
+				painter.setBrush(Qt.NoBrush)
+				painter.setPen(QColor(0,255,0))
+				painter.drawEllipse(point, 10,10)
+
+				painter.setBrush(QBrush(QColor(0,255,0), Qt.SolidPattern))
+
+			painter.drawEllipse(point, 5, 5)#TODO SCALE SIZE
+
+
 		#	painter.setPen(QPen(QColor(0,150,0), 1))
-			painter.setBrush(QBrush(QColor(0,0,150), Qt.SolidPattern))
-			painter.drawEllipse(rect1)#TODO SCALE SIZE
-			painter.drawArc(rect2, orientation-60, orientation+60)
+
+			#painter.drawArc(rect2, orientation-60, orientation+60)
 
 
 
@@ -139,7 +154,8 @@ class BuildingPainter(QFrame):
 		id = self.getCloseCam(event.x(), event.y())
 
 		if id is not None:
-			helper.mainFeedID = id
+			threads.mainFeedID = id
+			self.repaint()
 
 	def mouseMoveEvent(self, event):
 		pos = event.globalPos()
@@ -171,15 +187,15 @@ class BuildingPainter(QFrame):
 #### RIGHT SIDE ####
 
 class CameraViewer(QFrame):
-	def __init__(self, app, buildingData, mainDisplay):
+	def __init__(self, app, buildingData, buildingView):
 		QFrame.__init__(self)
 
 		layout = QVBoxLayout()
 
-		gridView = gridViewer(buildingData, mainDisplay)
+		self.gridView = gridViewer(buildingData, buildingView)
 
 		scrollArea = QScrollArea()
-		scrollArea.setLayout(gridView)
+		scrollArea.setLayout(self.gridView)
 		scrollArea.setMinimumSize(QSize(700,500))
 
 		layout.addWidget(scrollArea)
@@ -187,7 +203,7 @@ class CameraViewer(QFrame):
 		self.setLayout(layout)
 
 class gridViewer(QGridLayout):
-	def __init__(self, buildingData, mainDisplay):
+	def __init__(self, buildingData, buildingView):
 		QGridLayout.__init__(self)
 		self.setSpacing(10)
 		self.setMargin(10)
@@ -221,17 +237,18 @@ class gridViewer(QGridLayout):
 					feedData = feeds[count]
 
 					## TODO TIDY THIS UP
-					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), feedData)
+					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), feedData, buildingView)
 					self.addWidget(feedDisplayer, row, col)
 
 
-					loader = helper.FeedLoader(feedData)
+					loader = threads.FeedLoader(feedData)
 					loader.setDaemon(True)
 					loader.start()
 
-					networker = helper.Networker(feedData, feedDisplayer, mainDisplay)
+					networker = threads.Networker(feedData, feedDisplayer, buildingView.mainDisplay)
 					networker.setDaemon(True)
 					networker.start()
+
 					count += 1
 				else:
 					break
@@ -239,11 +256,12 @@ class gridViewer(QGridLayout):
 class FeedDisplayer(QLabel):
 	newFrameSignal = Signal(QPixmap)
 
-	def __init__(self, maxSize, minSize, feedData):
+	def __init__(self, maxSize, minSize, feedData, buildingView):
 		QLabel.__init__(self)
 		self.setFrameStyle(QFrame.Box)
 		self.setMaximumSize(maxSize)
 		self.setMinimumSize(minSize)
+		self.buildingView = buildingView
 
 		self.feedData = feedData
 		self.newFrameSignal.connect(self.updateDisplay)
@@ -252,10 +270,10 @@ class FeedDisplayer(QLabel):
 		camLayout.setMargin(0)
 		camLayout.setSpacing(0)
 
-		if feedData is not None:
-			title = QLabel("Level " + str(feedData["level"]) + " " + str(feedData["location"]))
-			title.setMaximumSize(150,20)
-			camLayout.addWidget(title)
+
+		self.title = QLabel()
+		self.title.setMaximumSize(150,20)
+		camLayout.addWidget(self.title)
 
 		self.surface = QLabel()
 
@@ -266,7 +284,16 @@ class FeedDisplayer(QLabel):
 	def updateDisplay(self, pmap):
 		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
 		self.surface.setPixmap(pmap)
+		self.title.setText("Level " + str(self.feedData["level"]) + " " + str(self.feedData["location"]))
 
 	def mousePressEvent(self, event):
 		if self.feedData is not None:
- 			helper.mainFeedID = self.feedData["id"]
+			threads.mainFeedID = self.feedData["id"]
+			index = self.buildingView.dropdown.findText("Level " + str(self.feedData["level"]))
+
+			#if level exists in drop down change level
+			if index != -1:
+				self.buildingView.dropdown.setCurrentIndex(index)
+				self.buildingView.drawSpace.repaint()
+
+		#	self.buildingView.dropdownLevelChange()

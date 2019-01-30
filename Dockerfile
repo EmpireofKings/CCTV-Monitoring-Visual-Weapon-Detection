@@ -5,7 +5,6 @@ MAINTAINER Ben Ryan (ben96ryan@gmail.com)
 
 #REQUIRED FILES FOR SERVER
 COPY ./Server ./Server
-COPY ./Common ./Common
 COPY ./Models ./Models
 
 #REQUIRED PACKAGES
@@ -21,10 +20,10 @@ RUN python3 -m pip install --upgrade pip==18.1.0
 RUN python3 -m pip install opencv-python==3.4.3.18
 RUN python3 -m pip install numpy==1.16.0
 RUN python3 -m pip install tensorflow-gpu==1.11.0
+RUN python3 -m pip install zmq
 
 #PORTS USED TO COMM WITH CLIENT
 EXPOSE 5000
-EXPOSE 5001
 
 #RUN SERVER APP IN UNBUFFERED MODE
 CMD ["python3", "-u", "./Server/server-proto.py"]

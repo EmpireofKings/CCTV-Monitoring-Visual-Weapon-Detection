@@ -1,3 +1,5 @@
+#TODO
+
 import sys
 from PySide2.QtCore import *
 from PySide2.QtGui import *
@@ -7,6 +9,7 @@ from collections import deque
 #my modules
 import live
 import deferred
+import threading
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
@@ -18,16 +21,25 @@ class mainWindow(QMainWindow):
 		if check == False:
 			sys.exit()
 
-		mainWidget = QWidget()
+		mainWidget = None
 
 		if decision == items[0]:
-			liveAnalyser = live.LiveAnalysis(app)
-			mainWidget.setLayout(liveAnalyser.getLayout())
+			mainWidget = live.LiveAnalysis(app)
 		elif decision == items[1]:
-			deferredAnalyser = deferred.DeferredAnalysis(app)
-			mainWidget.setLayout(deferredAnalyser.getLayout())
+			mainWidget = deferred.DeferredAnalysis(app)
 
 		self.setCentralWidget(mainWidget)
+
+	#override close event to ensure all threads terminate themselves before main thread terminates
+	#otherwise threads that still run after main thread terminates will throw many errors
+	def closeEvent(self, event):
+		activeThreads = threading.enumerate()
+		for thread in activeThreads:
+			if thread is not threading.currentThread():
+				thread.stop = True
+				thread.join()
+
+		sys.exit()
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)

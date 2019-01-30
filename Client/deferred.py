@@ -1,3 +1,5 @@
+#TODO
+
 import numpy as np
 import cv2
 import sys
@@ -10,11 +12,11 @@ from PySide2.QtWidgets import *
 from threading import Thread
 import time
 
-class DeferredAnalysis():
+class DeferredAnalysis(QWidget):
 	def __init__(self, helper):
-		self.layout = QHBoxLayout()
+		QWidget.__init__(self)
+		layout = QHBoxLayout()
 		placeholder = QLabel("Deferred Analysis Placeholder")
-		self.layout.addWidget(placeholder)
+		layout.addWidget(placeholder)
 
-	def getLayout(self):
-		return self.layout
+		self.setLayout(layout)
