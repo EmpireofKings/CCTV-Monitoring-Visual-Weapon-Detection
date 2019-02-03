@@ -19,6 +19,7 @@ import _pickle as pickle
 import time
 import tensorflow as tf
 import matplotlib.pyplot as plt
+import cv2
 
 def removeExistingBatches():
 	folder = "./Prepared-Data"
@@ -76,60 +77,80 @@ def getFiles(folders):
 
 	return fileData
 
-#MEMORY ISSUES, SPLIT IN TO MULTIPLE FUN
 def prepare(files):
-	with tf.Session().as_default():
-		frameCount = 1
-		while len(files) != 0:
-			file = random.choice(files)
+	data = []
+	labels = []
+	batchSize = 128
+	batchCount = 0
 
-			augCount = file.get("augmentCounter")
-			label = file.get("label")
-			path = file.get("path")
+	while len(files) != 0:
+		file = random.choice(files)
 
-			img = tf.read_file(path)
-			origTensor = None
+		augCount = file.get("augmentCounter")
+		label = file.get("label")
+		path = file.get("path")
 
-			if '.bmp' in path:
-				origTensor = tf.image.decode_bmp(img, channels=3)
-			elif '.jpg' in path or 'jpeg' in path:
-				origTensor = tf.image.decode_jpeg(img, channels=3)
-			else:
-				print("Error decoding image")
+		orig = cv2.imread(path)
+		orig = cv2.resize(orig, (256, 144))
 
-			origTensor = tf.image.convert_image_dtype(origTensor, dtype=tf.float32)
-			origTensor = tf.image.resize_images(origTensor, (144, 256))
+		if augCount == 4: #original
+			augmented = orig
+			file["augmentCounter"] -= 1
 
-			if augCount == 4: #original
-				augmentedTensor = origTensor
-				file["augmentCounter"] -= 1
+		elif augCount == 3: #brightened
+			augmented = adjustBrightness(orig.copy(), 1)
+			file["augmentCounter"] -= 1
 
-			elif augCount == 3: #brightened
-				augmentedTensor = tf.image.random_brightness(origTensor, 0.75)
-				file["augmentCounter"] -= 1
+		elif augCount == 2: #darkened
+			augmented = adjustBrightness(orig.copy(), -1)
+			file["augmentCounter"] -= 1
 
-			elif augCount == 2: #darkened
-				augmentedTensor = tf.image.random_saturation(origTensor, 0.1, 0.3)
-				file["augmentCounter"] -= 1
+		elif augCount == 1: #flipped
+			augmented = cv2.flip(orig.copy(), 1)
+			files.remove(file)
 
-			elif augCount == 1: #flipped
-				augmentedTensor = tf.image.flip_left_right(origTensor)
-				files.remove(file)
+		else:
+			print("Error in augment counter")
+			sys.exit()
 
-			else:
-				print("Error in augment counter")
-				sys.exit()
+		final = cv2.cvtColor(augmented, cv2.COLOR_BGR2RGB)
+		final = final / 255.0
 
-			finalTensor = tf.clip_by_value(augmentedTensor, 0.0, 1.0)
+		data.append(final)
+		labels.append(label)
 
-			path = "./Prepared-Data/"+str(frameCount)+"_"+str(augCount)+"_"+str(label)
-			print(path)
-			fp = open(path, 'wb')
-			fp.write(finalTensor.eval())
-			fp.close()
+		if len(data) == batchSize:
+			dataArr = np.array(data)
+			labelsArr = np.array(labels)
+			print("Batch Number ", str(batchCount), np.shape(dataArr), np.shape(labelsArr))
 
-			frameCount += 1
-		print("Finished.")
+			data.clear()
+			labels.clear()
+
+			dataPath = "./Prepared-Data/batch_" + str(batchCount) + "_data"
+			labelsPath = "./Prepared-Data/batch_" + str(batchCount) + "_labels"
+
+			np.save(dataPath, dataArr , allow_pickle=False)
+			np.save(labelsPath, labelsArr, allow_pickle=False)
+
+			batchCount += 1
+	print("Finished.")
+
+
+def adjustBrightness(img, mult):
+	img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB) #convert to LAB colour space
+	l, a ,b = cv2.split(img)#split channels
+	avgV = np.mean(l) #get avg brigtness
+	adjustVal = int(avgV*.85) * mult #get 85% as value to adjust brightness by
+
+	#adjust brightness channel up
+	lAdj = cv2.add(l, adjustVal)
+
+	#merge adjusted channels
+	img = cv2.merge((lAdj, a, b))
+	img = cv2.cvtColor(img, cv2.COLOR_LAB2BGR)
+
+	return img
 
 if __name__ == '__main__':
 	print("Working...")

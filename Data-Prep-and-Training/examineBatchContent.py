@@ -5,27 +5,40 @@
 import os
 import cv2
 import numpy as np
-import easygui
-import _pickle as pickle
 
-print("Select folder")
-folder = easygui.diropenbox()
-files = os.listdir(folder)
+def preparePaths(folder):
+	files = os.listdir(folder)
 
-#display each file in each batch
-for file in files:
-	path = folder + "\\" + file
-	file = open(path, "rb")
-	data = pickle.load(file)
+	totalBatches = int(len(files)/2)
 
-	images = data[0]
-	labels = data[1]
+	batchPaths = []
+	for batch in range(1, totalBatches):
+		data = folder + "/batch_" + str(batch) + "_data.npy"
+		labels = folder + "/batch_" + str(batch) + "_labels.npy"
 
-	print(np.shape(images), np.shape(labels))
+		batchPaths.append({"data" : data, "labels" : labels})
 
-	i = 0
-	for image in images:
-		cv2.imshow(str(labels[i]), image)
-		cv2.waitKey(0)
-		cv2.destroyAllWindows()
-		i+=1
+	return batchPaths
+
+
+def view(batchPaths):
+	for batch in batchPaths:
+		dataPath = batch.get("data")
+		labelsPath = batch.get("labels")
+
+		data = np.load(dataPath)
+		labels = np.load(labelsPath)
+
+		print(np.shape(data), np.shape(labels))
+
+		for i in range(len(data)):
+			image = data[i]
+			label = labels[i]
+
+			cv2.imshow(str(label), image)
+			cv2.waitKey(0)
+			cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+	batchPaths = preparePaths('./Prepared-Data')
+	view(batchPaths)
