@@ -8,7 +8,6 @@
 #	Place in 4D tensors of shape (64, 100, 100, 3)
 #	Serialize each batch along with labels.
 
-import cv2
 import numpy as np
 import os
 import sys
@@ -18,8 +17,8 @@ import math
 import gc
 import _pickle as pickle
 import time
-import tracemalloc
-import linecache
+import tensorflow as tf
+import matplotlib.pyplot as plt
 
 def removeExistingBatches():
 	folder = "./Prepared-Data"
@@ -77,128 +76,65 @@ def getFiles(folders):
 
 	return fileData
 
-file = None
-augCount = None
-label = None
-original = None
-resized = None
-save = None
-save1 = None
-
 #MEMORY ISSUES, SPLIT IN TO MULTIPLE FUN
 def prepare(files):
-	data = []
-	labels = []
+	with tf.Session().as_default():
+		frameCount = 1
+		while len(files) != 0:
+			file = random.choice(files)
 
-	batchSize = 128
-	batchCount = 0
+			augCount = file.get("augmentCounter")
+			label = file.get("label")
+			path = file.get("path")
 
-	tracemalloc.start()
+			img = tf.read_file(path)
+			origTensor = None
 
+			if '.bmp' in path:
+				origTensor = tf.image.decode_bmp(img, channels=3)
+			elif '.jpg' in path or 'jpeg' in path:
+				origTensor = tf.image.decode_jpeg(img, channels=3)
+			else:
+				print("Error decoding image")
 
-	while len(files) != 0:
-		file = random.choice(files)
-		augCount = file.get("augmentCounter")
-		label = file.get("label")
+			origTensor = tf.image.convert_image_dtype(origTensor, dtype=tf.float32)
+			origTensor = tf.image.resize_images(origTensor, (144, 256))
 
-		original = cv2.imread(file.get("path"))
-		resized = cv2.resize(original, (256, 144))
+			if augCount == 4: #original
+				augmentedTensor = origTensor
+				file["augmentCounter"] -= 1
 
-		if augCount == 4: #original
-			save = original
-			file["augmentCounter"] -= 1
+			elif augCount == 3: #brightened
+				augmentedTensor = tf.image.random_brightness(origTensor, 0.75)
+				file["augmentCounter"] -= 1
 
-		elif augCount == 3: #brightened
-			save = adjustBrightness(resized, 1)
-			file["augmentCounter"] -= 1
+			elif augCount == 2: #darkened
+				augmentedTensor = tf.image.random_saturation(origTensor, 0.1, 0.3)
+				file["augmentCounter"] -= 1
 
-		elif augCount == 2: #darkened
-			save = adjustBrightness(resized, -1)
-			file["augmentCounter"] -= 1
+			elif augCount == 1: #flipped
+				augmentedTensor = tf.image.flip_left_right(origTensor)
+				files.remove(file)
 
-		elif augCount == 1: #flipped
-			save = cv2.flip(resized, 1)
-			files.remove(file)
+			else:
+				print("Error in augment counter")
+				sys.exit()
 
-		else:
-			print("Error in augment counter")
-			sys.exit()
+			finalTensor = tf.clip_by_value(augmentedTensor, 0.0, 1.0)
 
-		save1 = cv2.cvtColor(save, cv2.COLOR_BGR2RGB)
-		data.append(save1)
-		labels.append(label)
+			path = "./Prepared-Data/"+str(frameCount)+"_"+str(augCount)+"_"+str(label)
+			print(path)
+			fp = open(path, 'wb')
+			fp.write(finalTensor.eval())
+			fp.close()
 
-		if len(data) == batchSize:
-			saveBatch(data, labels, batchCount)
-
-			data.clear()
-			labels.clear()
-
-			batchCount += 1
-
-	#	gc.collect()
-
-	print("Finished.")
-
-def saveBatch(data, labels, batchCount):
-	print("Batch", batchCount, "Data", len(data), "labels", len(labels))
-	dataArr = np.asarray(data)
-	labelsArr = np.asarray(labels)
-
-	file = open("./Prepared-Data/batch_" + str(batchCount), "wb")
-	pickle.dump((dataArr, labelsArr), file)
-	file.close()
-
-	os.system('cls')
-	snap = tracemalloc.take_snapshot()
-	display_top(snap)
-
-# CREDIT: https://stackoverflow.com/questions/552744/how-do-i-profile-memory-usage-in-python
-def display_top(snapshot, key_type='lineno', limit=3):
-    snapshot = snapshot.filter_traces((
-        tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),
-        tracemalloc.Filter(False, "<unknown>"),
-    ))
-    top_stats = snapshot.statistics(key_type)
-
-    print("Top %s lines" % limit)
-    for index, stat in enumerate(top_stats[:limit], 1):
-        frame = stat.traceback[0]
-        # replace "/path/to/module/file.py" with "module/file.py"
-        filename = os.sep.join(frame.filename.split(os.sep)[-2:])
-        print("#%s: %s:%s: %.1f KiB"
-              % (index, filename, frame.lineno, stat.size / 1024))
-        line = linecache.getline(frame.filename, frame.lineno).strip()
-        if line:
-            print('    %s' % line)
-
-    other = top_stats[limit:]
-    if other:
-        size = sum(stat.size for stat in other)
-        print("%s other: %.1f KiB" % (len(other), size / 1024))
-    total = sum(stat.size for stat in top_stats)
-    print("Total allocated size: %.1f KiB" % (total / 1024))
-
-
-
-def adjustBrightness(img, mult):
-	img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB) #convert to LAB colour space
-	l, a ,b = cv2.split(img)#split channels
-	avgV = np.mean(l) #get avg brigtness
-	adjustVal = int(avgV*.85) * mult #get 85% as value to adjust brightness by
-
-	#adjust brightness channel up
-	lAdj = cv2.add(l, adjustVal)
-
-	#merge adjusted channels
-	img = cv2.merge((lAdj, a, b))
-	img = cv2.cvtColor(img, cv2.COLOR_LAB2BGR)
-
-	return img
+			frameCount += 1
+		print("Finished.")
 
 if __name__ == '__main__':
 	print("Working...")
 	removeExistingBatches()
 	folders = getFolders()
 	files = getFiles(folders)
+	# read(files)
 	prepare(files)
