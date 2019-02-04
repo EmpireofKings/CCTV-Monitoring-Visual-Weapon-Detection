@@ -2,24 +2,36 @@
 # This script is used to prepare the dataset for training
 #
 # Steps:
-#	Request the location of positives, negatives and the desired ratio between them
-#	Randomize the order
-#	Augment each original, flipped, brightened and darkened
-#	Place in 4D tensors of shape (64, 100, 100, 3)
-#	Serialize each batch along with labels.
+# TODO
 
-import numpy as np
-import os
-import sys
-import easygui
-import random
 import math
-import gc
+import os
 import _pickle as pickle
+import random
+import sys
 import time
-import tensorflow as tf
-import matplotlib.pyplot as plt
+
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
+import tensorflow as tf
+
+from terminator import Terminator
+
+def isResuming():
+	if len(sys.argv) != 2:
+		print("Usage:", sys.argv[0], "<state>")
+		print("<state> options: resume, start")
+		sys.exit()
+
+	if sys.argv[1] == "resume":
+		return True
+	elif sys.argv[1] == "start":
+		return False
+	else:
+		print("Argument error, must be \"resume\" or \"start\"")
+		print("Provided argument =", sys.argv[1])
+		sys.exit()
 
 def removeExistingBatches():
 	folder = "./Prepared-Data"
@@ -27,6 +39,9 @@ def removeExistingBatches():
 
 	for file in files:
 		os.remove(folder + '/' + file)
+
+	if os.path.isfile('./resumeData.pickle'):
+		os.remove('./resumeData.pickle')
 
 #gets required folders from user
 def getFolders():
@@ -77,13 +92,29 @@ def getFiles(folders):
 
 	return fileData
 
-def prepare(files):
-	data = []
-	labels = []
-	batchSize = 128
-	batchCount = 0
+def getResumeData():
+	with open("./resumeData.pickle", 'rb') as fp:
+		resumeData = pickle.load(fp)
+
+		return resumeData[0], resumeData[1], resumeData[2], resumeData[3]
+
+def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount = 0):
+	data = partialData
+	labels = partialLabels
+	batchSize = 32
+
+	expectedAmt = int(math.ceil((len(files)*4)/batchSize))
 
 	while len(files) != 0:
+		#if being told to terminate, save required data to restart at same place
+		if terminator.isTerminating():
+			resumeData = (files ,data, labels, batchCount)
+
+			with open("./resumeData.pickle", 'wb') as fp:
+				pickle.dump(resumeData, fp, protocol=4)
+
+			sys.exit()
+
 		file = random.choice(files)
 
 		augCount = file.get("augmentCounter")
@@ -122,7 +153,8 @@ def prepare(files):
 		if len(data) == batchSize:
 			dataArr = np.array(data)
 			labelsArr = np.array(labels)
-			print("Batch Number ", str(batchCount), np.shape(dataArr), np.shape(labelsArr))
+
+			print("Batch Number", str(batchCount), "of", expectedAmt, "(Total not accurate if resumed)")
 
 			data.clear()
 			labels.clear()
@@ -134,6 +166,7 @@ def prepare(files):
 			np.save(labelsPath, labelsArr, allow_pickle=False)
 
 			batchCount += 1
+
 	print("Finished.")
 
 
@@ -153,9 +186,20 @@ def adjustBrightness(img, mult):
 	return img
 
 if __name__ == '__main__':
-	print("Working...")
-	removeExistingBatches()
-	folders = getFolders()
-	files = getFiles(folders)
-	# read(files)
-	prepare(files)
+	terminator = Terminator()
+
+	if isResuming():
+		remainingfiles, partialData, partialLabels, batchCount = getResumeData()
+		prepare(remainingfiles, terminator, partialData, partialLabels, batchCount)
+	else:
+		#double check the user gave the correct instruction before deleting everything
+		ans = input("Are you sure you wish to start from the beginning. \nAll previously generated files will be permently deleted.(y/n)")
+
+		if ans == 'Y' or ans == 'y':
+			removeExistingBatches()
+		else:
+			sys.exit()
+
+		folders = getFolders()
+		files = getFiles(folders)
+		prepare(files, terminator)

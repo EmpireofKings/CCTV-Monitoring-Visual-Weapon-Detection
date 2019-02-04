@@ -20,7 +20,6 @@ def preparePaths(folder):
 
 	return batchPaths
 
-
 def view(batchPaths):
 	for batch in batchPaths:
 		dataPath = batch.get("data")
@@ -28,8 +27,9 @@ def view(batchPaths):
 
 		data = np.load(dataPath)
 		labels = np.load(labelsPath)
+		print(labels)
 
-		print(np.shape(data), np.shape(labels))
+		print(dataPath, np.shape(data), np.shape(labels))
 
 		for i in range(len(data)):
 			image = data[i]
