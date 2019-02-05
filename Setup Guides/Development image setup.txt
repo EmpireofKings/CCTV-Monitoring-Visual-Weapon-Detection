@@ -5,7 +5,7 @@ Development Instance/Image setup GCP
 		c. 8 CPUs
 		d. 16GB RAM
 
-	2. Software setup
+	2. Software setup - May need to disabled application based firewall
 
 		#general update/upgrade
 		a. sudo apt-get update
@@ -13,7 +13,10 @@ Development Instance/Image setup GCP
 
 		#python modules
 		a. sudo apt-get install python3-pip
-		b. python3 -m pip install opencv_python numpy tensorflow-gpu
+		b. python3 -m pip install opencv_python numpy tensorflow-gpu pyzmq
+
+		#compression software (dataset stored as .7z on gcp bucket data-share)
+		a. sudo apt-get install p7zip-full
 
 		#Nvidia drivers
 		a. sudo apt-get install ubuntu-drivers-common

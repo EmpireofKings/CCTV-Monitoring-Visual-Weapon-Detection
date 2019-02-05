@@ -110,3 +110,6 @@ venv.bak/
 /Data-Acquisition/Data/
 /Data-Prep-and-Training/Prepared-Data/
 /Client/Test-Data/
+*.7z
+*.npy
+*.pickle
