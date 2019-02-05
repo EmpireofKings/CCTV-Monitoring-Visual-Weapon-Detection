@@ -12,7 +12,6 @@ import sys
 import time
 
 import cv2
-import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 
@@ -66,7 +65,7 @@ def getFiles(folders):
 		files = os.listdir(folder)
 
 		for file in files:
-			path = folder + "\\" + file
+			path = folder + "/" + file
 
 			label = -1
 			#decide label:
@@ -93,15 +92,19 @@ def getFiles(folders):
 	return fileData
 
 def getResumeData():
-	with open("./resumeData.pickle", 'rb') as fp:
-		resumeData = pickle.load(fp)
+	if os.path.isfile("./resumeData.pickle"):
+		with open("./resumeData.pickle", 'rb') as fp:
+			resumeData = pickle.load(fp)
 
-		return resumeData[0], resumeData[1], resumeData[2], resumeData[3]
+			return resumeData[0], resumeData[1], resumeData[2], resumeData[3]
+	else:
+		print("No resume data found")
+		sys.exit()
 
 def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount = 0):
 	data = partialData
 	labels = partialLabels
-	batchSize = 32
+	batchSize = 128
 
 	expectedAmt = int(math.ceil((len(files)*4)/batchSize))
 
@@ -122,6 +125,7 @@ def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount
 		path = file.get("path")
 
 		orig = cv2.imread(path)
+
 		orig = cv2.resize(orig, (256, 144))
 
 		if augCount == 4: #original
