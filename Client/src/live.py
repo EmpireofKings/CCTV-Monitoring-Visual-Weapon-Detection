@@ -21,7 +21,7 @@ class LiveAnalysis(QWidget):
 		layout = QHBoxLayout()
 
 		#get building data
-		buildingFile = open("./data/building.json", 'r')
+		buildingFile = open("../data/config.json", 'r')
 		buildingData = json.load(buildingFile)
 
 		#System Overview (left side)
@@ -134,8 +134,6 @@ class BuildingPainter(QFrame):
 
 			cpoint = QPoint(cx, cy)
 			angle = cam["cameraAngle"]
-
-			print(cx, cy, angle)
 
 			arrowLength = 20
 			arrowX = int((arrowLength * math.sin(math.radians(angle)))) + cx

@@ -1,0 +1,5 @@
+Icons acquired from www.flaticon.com licensed by Creative Commons BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+config.png made by Fermam Aziz  https://www.flaticon.com/authors/fermam-aziz
+live.png made by photo3idea_studio https://www.flaticon.com/authors/photo3idea-studio
+deferred.png made by Smashicons https://www.flaticon.com/authors/smashicons 
