@@ -12,117 +12,103 @@ from PySide2.QtWidgets import *
 from threading import Thread
 import time
 import os
+import json
 
-class Config(QStackedWidget):
-	def __init__(self, helper):
-		QStackedWidget.__init__(self)
-
-		settings = QWidget()
-		settingsLayout = QVBoxLayout()
-		buildingConfigButton = QPushButton("Configure Building")
-		buildingConfigButton.clicked.connect(self.switchToConfig)
-		settingsLayout.addWidget(buildingConfigButton)
-		settings.setLayout(settingsLayout)
-
-		self.buildingConfig = BuildingConfig()
-
-		self.addWidget(settings)
-		self.addWidget(self.buildingConfig)
-
-	def switchToConfig(self):
-		index = self.indexOf(self.buildingConfig)
-
-		if index != -1:
-			if os.path.isfile("../data/config.json"):
-				prompt = QMessageBox()
-				prompt.setText("A configuration file already exists, do you wish to open this file or reset it?")
-				prompt.setIcon(QMessageBox.Question)
-				prompt.setStandardButtons(QMessageBox.Open | QMessageBox.Reset | QMessageBox.Cancel)
-				prompt.setDefaultButton(QMessageBox.Open)
-				result = prompt.exec_()
-
-				if result == QMessageBox.Open:
-					self.setCurrentIndex(index)
-					self.currentChanged(index)
-				elif result == QMessageBox.Reset:
-					self.setCurrentIndex(index)
-					self.currentChanged(index)
-					os.remove("../data/config.json")
-
-		else:
-			print("Error getting configuration index")
-
-
-	def cycle(self):
-		next = self.currentIndex() + 1
-		total = self.count()
-
-
-		if next >= total:
-			next = 0
-
-		self.setCurrentIndex(next)
-		self.currentChanged(next)
-
-	def currentChanged(self, index):
-		#to officially begin the configuration
-		print("currentChanged")
-		if index == self.indexOf(self.buildingConfig):
-			self.buildingConfig.begin()
-
-
-class BuildingConfig(QWidget):
-	def __init__(self):
+class Config(QWidget):
+	def __init__(self, app, configHandler):
 		QWidget.__init__(self)
+
 		layout = QHBoxLayout()
 
-		levelScroll = QScrollArea()
-		levelWidget = QWidget()
-		levelLayout = QVBoxLayout()
+		self.levelMenu = LevelMenu(configHandler)
 
-		for i in range(0,100):
-			levelLayout.addWidget(QLabel("level" + str(i)))
+		drawSpace = BuildingPainter(configHandler)
+		controls = Controls(drawSpace, configHandler)
 
-		levelWidget.setLayout(levelLayout)
-		levelScroll.setWidget(levelWidget)
+		middleSection = QVBoxLayout()
+		middleSection.addWidget(drawSpace)
+		middleSection.addWidget(controls)
 
-		middleDiv = QVBoxLayout()
-		controls = QHBoxLayout()
-		colourButton = QPushButton("Colour")
-		sizeButton = QPushButton("Size")
-		saveButton = QPushButton("Save")
-		resetButton = QPushButton("Reset")
-		controls.addWidget(colourButton)
-		controls.addWidget(sizeButton)
-		controls.addWidget(saveButton)
-		controls.addWidget(resetButton)
+		self.cameraMenu = CameraMenu(configHandler)
 
-		drawSpace = BuildingPainter()
-		middleDiv.addWidget(drawSpace)
-		middleDiv.addLayout(controls)
-
-		cameraScroll = QScrollArea()
-		cameraWidget = QWidget()
-		cameraLayout = QVBoxLayout()
-
-		for i in range(0,100):
-			cameraLayout.addWidget(QLabel("camera" + str(i)))
-
-		cameraWidget.setLayout(cameraLayout)
-		cameraScroll.setWidget(cameraWidget)
-
-		layout.addWidget(levelScroll)
-		layout.addLayout(middleDiv)
-		layout.addWidget(cameraScroll)
-
+		layout.addWidget(self.levelMenu)
+		layout.addLayout(middleSection)
+		layout.addWidget(self.cameraMenu)
 
 		self.setLayout(layout)
 
-	def begin(self):
-		print("Begin")
+class LevelMenu(QScrollArea):
+	def __init__(self, configHandler):
+		QScrollArea.__init__(self)
+		levels = configHandler.getConfigData()
+
+		self.layout = QVBoxLayout()
+
+		for level in levels:
+			disp = LevelDisplay(level)
+			self.layout.addWidget(disp)
+
+
+
+		self.mainWidget = QWidget()
+		self.mainWidget.setLayout(self.layout)
+		self.setWidget(self.mainWidget)
+
+
+class LevelDisplay(QLabel):
+	def __init__(self, level):
+		QLabel.__init__(self)
+		self.setMaximumSize(QSize(256, 144))
+		self.level = level
+
+		pmap = QPixmap(level.drawPath).scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
+		self.setPixmap(pmap)
+
+	def mousePressEvent(self, event):
+		print(str(self.level.id))
+
+class CameraMenu(QScrollArea):
+	def __init__(self, configHandler):
+		QScrollArea.__init__(self)
+
+		self.layout = QVBoxLayout()
+
+		self.mainWidget = QWidget()
+		self.mainWidget.setLayout(self.layout)
+		self.setWidget(self.mainWidget)
+
+class Controls(QWidget):
+	def __init__(self, drawSpace, configHandler):
+		QWidget.__init__(self)
+		self.drawSpace = drawSpace
+
+		colourButton = QPushButton("Colour")
+		colourButton.clicked.connect(self.getColour)
+
+		sizeButton = QPushButton("Size")
+		saveButton = QPushButton("Save")
+		resetButton = QPushButton("Reset")
+
+
+		layout = QHBoxLayout()
+		layout.addWidget(colourButton)
+		layout.addWidget(sizeButton)
+		layout.addWidget(saveButton)
+		layout.addWidget(resetButton)
+
+		self.setLayout(layout)
+
+	def getColour(self):
+		prompt = QColorDialog()
+		result = prompt.getColor()
+
+		if result.isValid():
+			self.drawSpace.drawColour = result
+
 
 class BuildingPainter(QFrame):
-	def __init__(self):
+	def __init__(self, configHandler):
 		QFrame.__init__(self)
+		self.drawColour = QColor(0,0,0)
 		self.setMinimumSize(QSize(700,700))
 		self.setFrameStyle(QFrame.Box)

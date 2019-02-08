@@ -1,9 +1,9 @@
 {
-	"LevelData":[
+	"levelData":[
 	{
-		"LevelID":-1,
-		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
-		"LevelCameras": [
+		"levelID":-1,
+		"levelDrawPath": "../data/floorplans/placeholder1.jpg",
+		"levelCameras": [
 		{
 			"cameraID": "0",
 			"cameraLocation":"Lifts",
@@ -30,9 +30,9 @@
 		}]
 	},
 	{
-		"LevelID":0,
-		"LevelDrawCoordinates":[ [[150, 150], [350, 150 ]], [[350, 150], [350, 350]], [[350, 350], [150, 350]], [[150, 350], [150,150]]],
-		"LevelCameras": [
+		"levelID":0,
+		"levelDrawPath": "../data/floorplans/placeholder2.jpg",
+		"levelCameras": [
 		{
 			"cameraID": "../data/videos/4.mp4",
 			"cameraLocation":"Lifts",

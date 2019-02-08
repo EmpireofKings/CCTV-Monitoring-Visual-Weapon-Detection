@@ -13,7 +13,7 @@ from threading import Thread
 import time
 
 class DeferredAnalysis(QWidget):
-	def __init__(self, helper):
+	def __init__(self, app, configHandler):
 		QWidget.__init__(self)
 		layout = QHBoxLayout()
 		placeholder = QLabel("Deferred Analysis Placeholder")

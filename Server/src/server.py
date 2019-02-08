@@ -23,7 +23,7 @@ class Receiver(Thread):
 		print("Listening on", addr)
 
 	def run(self):
-		model = tf.keras.models.load_model("../Models/model-current.h5")
+		model = tf.keras.models.load_model("../../Models/model-current.h5")
 		model.summary()
 
 		while True:
