@@ -6,23 +6,18 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 import threading
 
-import live as l
-import deferred as d
-import config as c
-from config_handler import Handler
+#from live_gui import LiveAnalysis
+from deferred_gui import DeferredAnalysis
+from config_gui import Config
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
 		QMainWindow.__init__(self)
-		self.setMinimumSize(QSize(600,600))
+		#self.setMinimumSize(QSize(1280,600))
 
-		configHandler = Handler()
-
-		tabs = Tab(app, configHandler)
+		tabs = Tab(app)
 		self.setCentralWidget(tabs)
 
-	#override close event to ensure all threads terminate themselves before main thread terminates
-	#otherwise threads that still run after main thread terminates will throw many errors
 	def closeEvent(self, event):
 		activeThreads = threading.enumerate()
 		for thread in activeThreads:
@@ -33,13 +28,12 @@ class mainWindow(QMainWindow):
 		sys.exit()
 
 class Tab(QTabWidget):
-	def __init__(self, app, configHandler):
+	def __init__(self, app):
 		QTabWidget.__init__(self)
 
-
-		self.configTab = c.Config(app, configHandler)
-		#self.liveTab = l.LiveAnalysis(app)
-		self.deferredTab = d.DeferredAnalysis(app, configHandler)
+		self.configTab = Config(app)
+		#self.liveTab = LiveAnalysis(app)
+		self.deferredTab = DeferredAnalysis(app)
 
 		#Icons acquired from www.flaticon.com licensed by Creative Commons BY 3.0 http://creativecommons.org/licenses/by/3.0/
 		configIcon = QIcon("../data/icons/config.png") #Icon made by Fermam Aziz  https://www.flaticon.com/authors/fermam-aziz
@@ -61,7 +55,6 @@ class Tab(QTabWidget):
 			print("deferred")
 		else:
 			print("Error getting index of new tab")
-
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
