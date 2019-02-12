@@ -32,13 +32,12 @@ class Receiver(Thread):
 			jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 			frame = cv2.imdecode(jpeg, 1)
 
-			frame = cv2.resize(frame, (100,100)) #work it so it can use process size of (256, 144)
 			frameArr = np.asarray(frame)
 			frameArr = np.expand_dims(frameArr, axis=0)
-			result = str(model.predict(frameArr)[0][0])
-
+			result = model.predict(frameArr)
+			print(result)
 			#encoded = b64.b64encode(result)
-			self.socket.send_string(result)
+			self.socket.send_string(str(result))
 
 
 

@@ -38,7 +38,10 @@ def main():
 
 	#5% set aside for testing
 	testingPaths = datasetPaths[:testAmt]
-	trainingPaths = datasetPaths[testAmt:int(testAmt*2)]
+	trainingPaths = datasetPaths[testAmt:]
+
+	writeVideo(testingPaths)
+	print("Test Video Written")
 
 	#prepare the model
 	untrainedModel = prepModel((144, 256, 3))
@@ -46,7 +49,7 @@ def main():
 
 	#train the model
 	trainedModel = trainModel(trainingPaths, untrainedModel)
-
+	print("model training finished")
 	#save the model for the server
 	trainedModel.save("model.h5")
 	print("Model Saved")
@@ -55,23 +58,39 @@ def main():
 
 	print("Complete")
 
+
+def writeVideo(batches):
+	#fps does not matter here as it will be displayed frame by frame for demoing
+	fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+	outStream = cv2.VideoWriter('./testData.mp4', fourcc, fps=30.0, frameSize=(256, 144))
+
+	for batch in batches:
+		dataPath = batch.get("data")
+		data = np.load(dataPath)
+
+		for image in data:
+			norm = cv2.normalize(image, None, alpha = 0, beta = 255, norm_type = cv2.NORM_MINMAX, dtype = cv2.CV_8U)
+			outStream.write(norm)
+
+	outStream.release()
+
 #prepares model as specified
 def prepModel(shape):
 	model = Sequential()
 
 	#convolutional/pooling layers
 	model.add(Conv2D(64, (5,5), activation='relu', input_shape=shape))
-	# model.add(MaxPooling2D(pool_size=(5, 5)))
-	# model.add(Conv2D(32, (2,2), activation='relu'))
-	# model.add(Conv2D(16, (2,2), activation='relu'))
-	#model.add(Conv2D(16, (3,3), activation='relu'))
+	model.add(MaxPooling2D(pool_size=(5, 5)))
+	model.add(Conv2D(32, (2,2), activation='relu'))
+	model.add(Conv2D(16, (2,2), activation='relu'))
+	model.add(Conv2D(8, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 
 	#fully connected layers
 	model.add(Flatten())
-	# model.add(Dense(16, activation='relu'))
-	model.add(Dense(8, activation='relu'))
-	# model.add(Dense(, activation='relu'))
+	model.add(Dense(128, activation='relu'))
+	model.add(Dense(64, activation='relu'))
+	model.add(Dense(32, activation='relu'))
 	model.add(Dense(4, activation='sigmoid'))
 
 	model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy', 'categorical_accuracy'])
@@ -84,7 +103,7 @@ def trainModel(batches, model):
 	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}.hdf5")
 
 	amt = len(batches)
-	model.fit_generator(DataSequence(batches), steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 40,use_multiprocessing = True, workers = 20)
+	model.fit_generator(DataSequence(batches), shuffle = True, steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 20,use_multiprocessing = False, workers = 4)
 
 	return model
 
@@ -124,7 +143,7 @@ class DataSequence(Sequence):
 #evaluates the trained model
 def testModel(paths, model):
 	amt = len(paths)
-	results = model.evaluate_generator(genData(paths), steps=amt, max_queue_size=40, use_multiprocessing=True, workers = 20, verbose=1)
+	results = model.evaluate_generator(DataSequence(paths), steps=amt, max_queue_size=10, use_multiprocessing=True, workers = 25, verbose=1)
 
 	print(results)
 

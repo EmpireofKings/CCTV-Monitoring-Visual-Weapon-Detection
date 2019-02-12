@@ -104,7 +104,7 @@ def getResumeData():
 def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount = 0):
 	data = partialData
 	labels = partialLabels
-	batchSize = 128
+	batchSize = 64
 
 	expectedAmt = int(math.ceil((len(files)*4)/batchSize))
 
