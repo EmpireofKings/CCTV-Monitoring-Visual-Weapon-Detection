@@ -14,6 +14,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
 from tensorflow.keras.models import Sequential
+from tensorflow.keras.callbacks import ModelCheckpoint
 
 import examineBatchContent as exBC
 
@@ -57,15 +58,15 @@ def prepModel(shape):
 
 	#convolutional/pooling layers
 	model.add(Conv2D(64, (5,5), activation='relu', input_shape=shape))
-	model.add(MaxPooling2D(pool_size=(5, 5)))
-	model.add(Conv2D(32, (2,2), activation='relu'))
-	model.add(Conv2D(16, (2,2), activation='relu'))
+	# model.add(MaxPooling2D(pool_size=(5, 5)))
+	# model.add(Conv2D(32, (2,2), activation='relu'))
+	# model.add(Conv2D(16, (2,2), activation='relu'))
 	#model.add(Conv2D(16, (3,3), activation='relu'))
-	model.add(MaxPooling2D(pool_size=(5, 5)))
+	model.add(MaxPooling2D(pool_size=(2, 2)))
 
 	#fully connected layers
 	model.add(Flatten())
-	model.add(Dense(16, activation='relu'))
+	# model.add(Dense(16, activation='relu'))
 	model.add(Dense(8, activation='relu'))
 	# model.add(Dense(, activation='relu'))
 	model.add(Dense(4, activation='sigmoid'))
@@ -76,8 +77,11 @@ def prepModel(shape):
 
 #trains provided model on provided batches
 def trainModel(batches, model):
+
+	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}-{val_loss:.2f}.hdf5")
+
 	amt = len(batches)
-	model.fit_generator(genData(batches),steps_per_epoch=amt, epochs=2, verbose=1)
+	model.fit_generator(genData(batches),steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], use_multiprocessing = True, workers = 10, shuffle = True)
 
 	return model
 
