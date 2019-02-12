@@ -24,6 +24,7 @@ class DataLoader():
 		#represent json data as objects
 		levels = []
 		levelIDs = []
+		cameraIDs = []
 		for level in levelData:
 			levelID = level["levelID"]
 			levelDrawPath = level["levelDrawPath"]
@@ -31,6 +32,8 @@ class DataLoader():
 
 			for cam in level["levelCameras"]:
 				camID = cam.get("cameraID")
+				cameraIDs.append(camID)
+				camName = cam.get("cameraName")
 				camLocation = cam.get("cameraLocation")
 
 				x = cam.get("cameraCoordinates")[0]
@@ -45,15 +48,59 @@ class DataLoader():
 				camColor = QColor(r, g, b)
 				camSize = cam.get("cameraSize")
 
-				camera = Camera(camID, levelID, camLocation, camPosition, camAngle, camColor, camSize)
+				camera = Camera(camID, camName, levelID, camLocation, camPosition, camAngle, camColor, camSize, assigned = True)
 				levelCameras.append(camera)
 
 			level = Level(levelID, levelDrawPath, levelCameras)
 			levels.append(level)
 			levelIDs.append(levelID)
 
+		#CAP_DSHOW and CAP_MSMF removed as they were producing duplicate cameras
+		apis =   {"CAP_ANY" : 0,
+				  #"CAP_VFW" : 200,
+				  #"CAP_V4L" : 200,
+				  "CAP_FIREWIRE" : 300,
+				  "CAP_QT" : 500,
+				  "CAP_UNICAP" : 600,
+				  #"CAP_DSHOW" : 700,
+				  "CAP_PVAPI" : 800,
+				  "CAP_OPENNI" : 900,
+				  "CAP_OPENNI_ASUS" : 910,
+				  "CAP_ANDROID" : 1000,
+				  "CAP_XIAPI" : 1100,
+				  "CAP_AVFOUNDATION" : 1200,
+				  "CAP_GIGANETIX" : 1300,
+				  #"CAP_MSMF" : 1400,
+				  "CAP_WINRT" : 1410,
+				  "CAP_INTELPERC" : 1500,
+				  "CAP_OPENNI2" : 1600,
+				  "CAP_OPENNI2_ASUS" : 1610,
+				  "CAP_GPHOTO2" : 1700,
+				  "CAP_GSTREAMER" : 1800,
+				  "CAP_FFMPEG" : 1900,
+				  "CAP_IMAGES" : 2000,
+				  "CAP_ARAVIS" : 2100,
+				  "CAP_OPENCV_MJPEG" : 2200,
+				  "CAP_INTEL_MFX" : 2300}
 
-		return levels, levelIDs
+		unassignedCameras = []
+
+		for api in apis.items():
+			api = api[1]
+
+			for id in range(10):
+				if str(id) not in cameraIDs:
+					try:
+						feed = cv2.VideoCapture(id + api)
+
+						if feed.isOpened():
+							feed.release()
+							camera = Camera(str(id + api), str(id + api))
+							unassignedCameras.append(camera)
+					except Exception as e:
+						print(e)
+
+		return [levels, unassignedCameras]
 
 	def getConfigData(self):
 		return self.configData
@@ -62,7 +109,6 @@ class DataLoader():
 		data = []
 
 		for level in configData:
-			pprint(level)
 			data.append(level.getSaveableForm())
 
 		with open('../data/config.json', 'w') as fp:
@@ -98,33 +144,42 @@ class Level():
 		return level
 
 class Camera():
-	def __init__(self, id, levelID, location, position, angle, color, size):
+	def __init__(self, id, name, levelID = None, location = None, position = None, angle = None, color = None, size = None, staticBackground = None, assigned = False):
 		self.id = id
+		self.name = name
 		self.levelID = levelID
 		self.location = location
 		self.position = position
 		self.angle = angle
 		self.color = color
 		self.size = size
+		self.staticBackground = staticBackground
+		self.assigned = assigned
+		self.preview = None
 
 	def getPreview(self, width, height):
-		if self.id.isdigit():
-			feed = cv2.VideoCapture(int(self.id))
-		else:
-			feed = cv2.VideoCapture(self.id)
-
-		if feed.isOpened():
-			check, frame = feed.read()
-
-			if check:
-				feed.release()
-				return getLabelledPixmap(width, height, self.id , path = None, pmap = nd2pmap(frame))
+		if self.preview is None:
+			if self.id.isdigit():
+				feed = cv2.VideoCapture(int(self.id))
 			else:
-				print("Error acquiring feed preview.")
+				feed = cv2.VideoCapture(self.id)
+
+			if feed.isOpened():
+				check, frame = feed.read()
+
+				if check:
+					feed.release()
+					self.preview = getLabelledPixmap(width, height, self.name, path = None, pmap = nd2pmap(frame))
+			else:
+				print("Error acquiring feed preview. (ID:", self.id, ")" )
+
+		return self.preview
+
 
 	def getSaveableForm(self):
 		cam = {}
-		cam["cameraID"] = self.id
+		cam["cameraID"] = str(self.id)
+		cam["cameraName"] = str(self.name)
 		cam["cameraLocation"] = self.location
 		cam["cameraCoordinates"] = [self.position.x(), self.position.y()]
 		cam["cameraAngle"] = self.angle

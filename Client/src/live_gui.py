@@ -13,22 +13,29 @@ from threading import Thread
 import time
 import base64 as b64
 from collections import deque
+from layout_gui import Layout, LayoutMode
+from data_handler import *
+from networker import Networker
+from feed_loader import FeedLoader
 
 class LiveAnalysis(QWidget):
-	def __init__(self, app):
+	def __init__(self, app, dataLoader):
 		QWidget.__init__(self)
 		layout = QHBoxLayout()
 
-		#get building data
-		buildingFile = open("../data/config.json", 'r')
-		buildingData = json.load(buildingFile)
+		dataLoader = DataLoader()
+		data = dataLoader.getConfigData()
 
-		#System Overview (left side)
-		buildingView = BuildingViewer(app, buildingData)
-		layout.addWidget(buildingView)
+		drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
+		mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(480, 270), data[0][0].cameras[0], drawSpace)
+		mainDisplayDrawSpace = QVBoxLayout()
+		mainDisplayDrawSpace.addWidget(drawSpace)
+		mainDisplayDrawSpace.addWidget(mainDisplay)
+
+		layout.addLayout(mainDisplayDrawSpace)
 
 		#Camera monitoring (right side)
-		self.cameraView = CameraViewer(app, buildingData, buildingView)
+		self.cameraView = CameraViewer(app, data, drawSpace, mainDisplay)
 		layout.addWidget(self.cameraView)
 
 		self.setLayout(layout)
@@ -36,12 +43,12 @@ class LiveAnalysis(QWidget):
 #### RIGHT SIDE ####
 
 class CameraViewer(QFrame):
-	def __init__(self, app, buildingData, buildingView):
+	def __init__(self, app, data, drawSpace, mainDisplay):
 		QFrame.__init__(self)
 
 		layout = QVBoxLayout()
 
-		self.gridView = gridViewer(buildingData, buildingView)
+		self.gridView = gridViewer(data, drawSpace, mainDisplay)
 
 		scrollArea = QScrollArea()
 		scrollArea.setLayout(self.gridView)
@@ -52,67 +59,62 @@ class CameraViewer(QFrame):
 		self.setLayout(layout)
 
 class gridViewer(QGridLayout):
-	def __init__(self, buildingData, buildingView):
+	def __init__(self, data, drawSpace, mainDisplay):
 		QGridLayout.__init__(self)
 		self.setSpacing(10)
 		self.setMargin(10)
 
-		feeds = []
+		cameras = []
 
-		levelData = buildingData["LevelData"]
+		for level in data[0]:
+			lid = level.id
 
-		for level in levelData:
-			lid = level["LevelID"]
-
-			cameraData = level["LevelCameras"]
-
-			for camera in cameraData:
-				cid = camera["cameraID"]
-				cameraLocation = camera["cameraLocation"]
-
-				feeds.append({"level" : lid, "id" : cid, "location" : cameraLocation})
+			for camera in level.cameras:
+				cameras.append(camera)
 
 		# pprint(cameraIDs)
 		# pprint(cameraLocations)
 		#layout = QGridLayout()
 
 		maxCols = 3 #TODO, dynamically choose based on availale space
-		rows = int(math.ceil((len(feeds)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
+		rows = int(math.ceil((len(cameras)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
 
 		count = 0 #item tracker
 		for row in range(rows):
 			for col in range(maxCols):
-				if count < len(feeds):#more slots than items to fill
-					feedData = feeds[count]
+				if count < len(cameras):#more slots than items to fill
+					camera = cameras[count]
 
 					## TODO TIDY THIS UP
-					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), feedData, buildingView)
+					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), camera, drawSpace, mainDisplay)
 					self.addWidget(feedDisplayer, row, col)
 
+					networker = Networker(camera, feedDisplayer, mainDisplay)
+					networker.setDaemon(True)
+					networker.start()
 
-					loader = threads.FeedLoader(feedData)
+					loader = FeedLoader(camera, networker)
 					loader.setDaemon(True)
 					loader.start()
 
-					networker = threads.Networker(feedData, feedDisplayer, buildingView.mainDisplay)
-					networker.setDaemon(True)
-					networker.start()
+
 
 					count += 1
 				else:
 					break
 
 class FeedDisplayer(QLabel):
-	newFrameSignal = Signal(QPixmap)
+	newFrameSignal = Signal(QPixmap)#TODO move to other thread and connect back
 
-	def __init__(self, maxSize, minSize, feedData, buildingView):
+	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay = None):
 		QLabel.__init__(self)
 		#self.setFrameStyle(QFrame.Box)
 		self.setMaximumSize(maxSize)
 		self.setMinimumSize(minSize)
-		self.buildingView = buildingView
+		self.drawSpace = drawSpace
+		self.mainDisplay = mainDisplay
 
-		self.feedData = feedData
+		self.camera = camera
 		self.newFrameSignal.connect(self.updateDisplay)
 
 		camLayout = QVBoxLayout()
@@ -133,16 +135,11 @@ class FeedDisplayer(QLabel):
 	def updateDisplay(self, pmap):
 		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
 		self.surface.setPixmap(pmap)
-		self.title.setText("Level " + str(self.feedData["level"]) + " " + str(self.feedData["location"]))
+		self.title.setText("Level " + str(self.camera.levelID) + " " + self.camera.location)
 
 	def mousePressEvent(self, event):
-		if self.feedData is not None:
-			threads.mainFeedID = self.feedData["id"]
-			index = self.buildingView.dropdown.findText("Level " + str(self.feedData["level"]))
-
-			#if level exists in drop down change level
-			if index != -1:
-				self.buildingView.dropdown.setCurrentIndex(index)
-				self.buildingView.drawSpace.repaint()
-
-		#	self.buildingView.dropdownLevelChange()
+		if self.camera is not None:
+			self.drawSpace.controls.setMainFeedID(self.camera)
+			self.drawSpace.controls.setLevel(self.camera.levelID)
+			if self.mainDisplay is not None:
+				self.mainDisplay.camera = self.camera

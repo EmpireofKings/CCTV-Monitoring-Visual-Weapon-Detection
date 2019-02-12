@@ -1,17 +1,27 @@
+import cv2
+import time
+import numpy as np
+import base64 as b64
+from threading import Thread
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 class FeedLoader(Thread):
 	#GUI Thread launches this thread
 	#to prevent holding GUI Thread for too long keep __init__ minimal
-	def __init__(self, feedData):
+	def __init__(self, camera, networker):
 		Thread.__init__(self)
 
+		self.networker = networker
 		self.stop = False
-		self.feedData = feedData
+		self.camera = camera
 
 	def setup(self):
-		if self.feedData["id"].isdigit():
-			self.feed = cv2.VideoCapture(int(self.feedData["id"]))
+		if self.camera.id.isdigit():
+			self.feed = cv2.VideoCapture(int(self.camera.id))
 		else:
-			self.feed = cv2.VideoCapture(self.feedData["id"])
+			self.feed = cv2.VideoCapture(self.camera.id)
 
 		self.FPS = self.feed.get(cv2.CAP_PROP_FPS)
 
@@ -40,6 +50,6 @@ class FeedLoader(Thread):
 
 				if encodeCheck:
 					encoded = b64.b64encode(jpegBuf)
-					nextFrames[str(self.feedData["id"])] = (encoded, pmap)
+					self.networker.nextFrame = (encoded, pmap)
 			else:
 				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
