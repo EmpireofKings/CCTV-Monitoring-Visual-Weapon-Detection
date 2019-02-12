@@ -15,6 +15,7 @@ import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import ModelCheckpoint
+from tensorflow.keras.utils import Sequence
 
 import examineBatchContent as exBC
 
@@ -33,11 +34,11 @@ def main():
 	random.shuffle(datasetPaths)
 	batchAmt = len(datasetPaths)
 
-	testAmt = math.ceil(batchAmt * .5)
+	testAmt = math.ceil(batchAmt * .05)
 
 	#5% set aside for testing
 	testingPaths = datasetPaths[:testAmt]
-	trainingPaths = datasetPaths[testAmt:]
+	trainingPaths = datasetPaths[testAmt:int(testAmt*2)]
 
 	#prepare the model
 	untrainedModel = prepModel((144, 256, 3))
@@ -45,10 +46,12 @@ def main():
 
 	#train the model
 	trainedModel = trainModel(trainingPaths, untrainedModel)
-	testModel(testingPaths, trainedModel)
 
 	#save the model for the server
 	trainedModel.save("model.h5")
+	print("Model Saved")
+
+	testModel(testingPaths, trainedModel)
 
 	print("Complete")
 
@@ -78,10 +81,10 @@ def prepModel(shape):
 #trains provided model on provided batches
 def trainModel(batches, model):
 
-	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}-{val_loss:.2f}.hdf5")
+	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}.hdf5")
 
 	amt = len(batches)
-	model.fit_generator(genData(batches),steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], use_multiprocessing = True, workers = 10, shuffle = True)
+	model.fit_generator(DataSequence(batches), steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 40,use_multiprocessing = True, workers = 20)
 
 	return model
 
@@ -99,10 +102,29 @@ def genData(paths):
 
 			yield((data, labels))
 
+class DataSequence(Sequence):
+	def __init__(self, paths):
+		Sequence.__init__(self)
+		self.paths = paths
+
+	def __len__(self):
+		return len(self.paths)
+
+	def __getitem__(self, idx):
+		dataPath = self.paths[idx].get("data")
+		labelsPath = self.paths[idx].get("labels")
+
+		data = np.load(dataPath)
+		labels = np.load(labelsPath)
+
+		return (data, labels)
+
+
+
 #evaluates the trained model
 def testModel(paths, model):
 	amt = len(paths)
-	results = model.evaluate_generator(genData(paths), steps=amt, max_queue_size=1)
+	results = model.evaluate_generator(genData(paths), steps=amt, max_queue_size=40, use_multiprocessing=True, workers = 20, verbose=1)
 
 	print(results)
 
