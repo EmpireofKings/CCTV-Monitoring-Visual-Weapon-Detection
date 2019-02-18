@@ -10,6 +10,7 @@ import random
 import sys
 
 import cv2
+import keras_metrics
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
@@ -93,9 +94,13 @@ def prepModel(shape):
 	model.add(Dense(32, activation='relu'))
 	model.add(Dense(4, activation='sigmoid'))
 
-	model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy', 'categorical_accuracy'])
+
+	model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics= ['accuracy', 'sparse_categorical_accuracy'])
 
 	return model
+
+def custom(y_true, y_pred):
+	print(y_true, y_pred)
 
 #trains provided model on provided batches
 def trainModel(batches, model):
@@ -103,23 +108,10 @@ def trainModel(batches, model):
 	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}.hdf5")
 
 	amt = len(batches)
-	model.fit_generator(DataSequence(batches), shuffle = True, steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 20,use_multiprocessing = False, workers = 4)
+	model.fit_generator(DataSequence(batches), shuffle = True, steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 20, use_multiprocessing = False, workers = 4)
 
 	return model
 
-#yields one batch image-label pair at a time
-def genData(paths):
-	while True:
-		#after all have been used shuffle
-		random.shuffle(paths)
-		for path in paths:
-			dataPath = path.get("data")
-			labelsPath = path.get("labels")
-
-			data = np.load(dataPath)
-			labels = np.load(labelsPath)
-
-			yield((data, labels))
 
 class DataSequence(Sequence):
 	def __init__(self, paths):

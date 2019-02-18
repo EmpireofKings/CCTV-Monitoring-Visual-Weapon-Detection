@@ -34,10 +34,22 @@ class Receiver(Thread):
 
 			frameArr = np.asarray(frame)
 			frameArr = np.expand_dims(frameArr, axis=0)
-			result = model.predict(frameArr)
-			print(result)
+			results = model.predict(frameArr)
+
+			labels = {	"0" : "Clear",
+						"1" : "Knife",
+						"2" : "Pistol",
+						"3" : "Long Gun"}
+
+			for i in range(4):
+				result = results[0][i]
+
+				# if result > .5:
+				# 	print(labels.get(str(i)), str(result))
+
+
 			#encoded = b64.b64encode(result)
-			self.socket.send_string(str(result))
+			self.socket.send_string(str(results))
 
 
 

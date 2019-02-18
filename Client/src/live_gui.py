@@ -27,6 +27,7 @@ class LiveAnalysis(QWidget):
 		data = dataLoader.getConfigData()
 
 		drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
+
 		mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(480, 270), data[0][0].cameras[0], drawSpace)
 		mainDisplayDrawSpace = QVBoxLayout()
 		mainDisplayDrawSpace.addWidget(drawSpace)

@@ -35,7 +35,7 @@ class LevelMenu(QScrollArea):
 		self.layout = QVBoxLayout()
 		self.setMaximumSize(QSize(300,1000))
 
-		data[0].sort(key=lambda level: level.id)
+		#data[0].sort(key=lambda level: level.id)
 
 		for level in data[0]:
 			disp = LevelDisplay(level, self.drawSpace)
