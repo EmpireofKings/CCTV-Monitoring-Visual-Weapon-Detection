@@ -10,7 +10,6 @@ import random
 import sys
 
 import cv2
-import keras_metrics
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
@@ -31,7 +30,7 @@ def main():
 	tf.keras.backend.set_session(sess)
 
 	#get and shuffle batch paths
-	datasetPaths= exBC.preparePaths('./Prepared-Data')
+	datasetPaths= exBC.preparePaths('../../../../mnt/temp/Prepared-Data')
 	random.shuffle(datasetPaths)
 	batchAmt = len(datasetPaths)
 
@@ -92,10 +91,10 @@ def prepModel(shape):
 	model.add(Dense(128, activation='relu'))
 	model.add(Dense(64, activation='relu'))
 	model.add(Dense(32, activation='relu'))
-	model.add(Dense(4, activation='sigmoid'))
+	model.add(Dense(3, activation='sigmoid'))
 
 
-	model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics= ['accuracy', 'sparse_categorical_accuracy'])
+	model.compile(optimizer='adam', loss='categorical_crossentropy', metrics= ['accuracy', 'categorical_accuracy'])
 
 	return model
 

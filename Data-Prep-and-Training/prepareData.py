@@ -32,25 +32,27 @@ def isResuming():
 		print("Provided argument =", sys.argv[1])
 		sys.exit()
 
+rootFolder = "../../../../mnt/temp/"
+
 def removeExistingBatches():
-	folder = "./Prepared-Data"
+	folder = rootFolder+"Prepared-Data/"
 	files = os.listdir(folder)
 
 	for file in files:
 		os.remove(folder + '/' + file)
 
-	if os.path.isfile('./resumeData.pickle'):
-		os.remove('./resumeData.pickle')
+	if os.path.isfile(rootFolder+'resumeData.pickle'):
+		os.remove(rootFolder+'resumeData.pickle')
 
 #gets required folders from user
 def getFolders():
-	basePath = '../Data-Acquisition/Data/Sorted'
-	negativePath = basePath + '/Negatives'
-	knifePath = basePath + '/Knives'
-	pistolPath = basePath + '/Pistol'
-	riflePath = basePath + '/Rifle'
-	shotgunPath = basePath + '/Shotgun'
-	submachineGunPath = basePath +'/SubmachineGun'
+	basePath = rootFolder+'Dataset/'
+	negativePath = basePath + 'Negatives'
+	knifePath = basePath + 'Knives'
+	pistolPath = basePath + 'Pistol'
+	riflePath = basePath + 'Rifle'
+	shotgunPath = basePath + 'Shotgun'
+	submachineGunPath = basePath +'SubmachineGun'
 
 	folders = ( negativePath, knifePath,
 				pistolPath, riflePath,
@@ -92,8 +94,8 @@ def getFiles(folders):
 	return fileData
 
 def getResumeData():
-	if os.path.isfile("./resumeData.pickle"):
-		with open("./resumeData.pickle", 'rb') as fp:
+	if os.path.isfile(rootFolder+"resumeData.pickle"):
+		with open(rootFolder+"resumeData.pickle", 'rb') as fp:
 			resumeData = pickle.load(fp)
 
 			return resumeData[0], resumeData[1], resumeData[2], resumeData[3]
@@ -113,7 +115,7 @@ def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount
 		if terminator.isTerminating():
 			resumeData = (files ,data, labels, batchCount)
 
-			with open("./resumeData.pickle", 'wb') as fp:
+			with open(rootFolder+"resumeData.pickle", 'wb') as fp:
 				pickle.dump(resumeData, fp, protocol=4)
 
 			sys.exit()
@@ -163,8 +165,8 @@ def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount
 			data.clear()
 			labels.clear()
 
-			dataPath = "./Prepared-Data/batch_" + str(batchCount) + "_data"
-			labelsPath = "./Prepared-Data/batch_" + str(batchCount) + "_labels"
+			dataPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_data"
+			labelsPath = rootFolder+"./Prepared-Data/batch_" + str(batchCount) + "_labels"
 
 			np.save(dataPath, dataArr , allow_pickle=False)
 			np.save(labelsPath, labelsArr, allow_pickle=False)
