@@ -27,15 +27,16 @@ def view(batchPaths):
 
 		data = np.load(dataPath)
 		labels = np.load(labelsPath)
-		print(labels)
+		#print(labels)
 
 		print(dataPath, np.shape(data), np.shape(labels))
 
 		for i in range(len(data)):
 			image = data[i]
-			label = labels[i]
+			labelData = "Knife:" + str(labels[0][i]) + "  Pistol:" + str(labels[1][i]) +"  Long Gun:"+ str(labels[2][i])
 
-			cv2.imshow(str(label), image)
+			cv2.imshow(labelData, image)
+			print(labelData)
 			cv2.waitKey(0)
 			cv2.destroyAllWindows()
 
