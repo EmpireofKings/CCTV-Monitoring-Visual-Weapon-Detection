@@ -18,13 +18,12 @@ RUN apt-get install -y cuda9.0 cuda-cublas-9-0 cuda-cufft-9-0 cuda-curand-9-0 \
 #REQUIRED MODULES
 RUN python3 -m pip install --upgrade pip==18.1.0
 RUN python3 -m pip install opencv-python==3.4.3.18
-RUN python3 -m pip install numpy==1.16.0
+RUN python3 -m pip install numpy==1.16.1
 RUN python3 -m pip install tensorflow-gpu==1.11.0
-RUN python3 -m pip install zmq
+RUN python3 -m pip install pyzmq==17.1.2
 
 #PORTS USED TO COMM WITH CLIENT
 EXPOSE 5000
 
 #RUN SERVER APP IN UNBUFFERED MODE
 CMD ["python3", "-u", "./Server/server-proto.py"]
-

@@ -13,6 +13,7 @@ import time
 
 import cv2
 import numpy as np
+from pprint import pprint
 import tensorflow as tf
 
 from terminator import Terminator
@@ -69,18 +70,18 @@ def getFiles(folders):
 		for file in files:
 			path = folder + "/" + file
 
-			label = -1
+			label = None
 			#decide label:
 			if "Negatives" in folder:
-				label = 0 #NO WEAPON
+				label = -1 #NO WEAPON
 			elif "Knives" in folder:
-				label = 1 #KNIFE/SHARP OBJECT
+				label = 0 #KNIFE/SHARP OBJECT
 			elif "Pistol" in folder:
-				label = 2 #PISTOLS
+				label = 1 #PISTOLS
 			elif "Rifle" in folder or "Shotgun" in folder or "SubmachineGun" in folder:
-				label = 3 #LONG GUNS
+				label = 2 #LONG GUNS
 
-			if label == -1:
+			if label is None:
 				print("Error: Label could not be determined for", file, "in", folder)
 				sys.exit()
 
@@ -103,9 +104,10 @@ def getResumeData():
 		print("No resume data found")
 		sys.exit()
 
-def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount = 0):
+def prepare(files, terminator, partialData = [], partialLabels = [[], [], []],  batchCount = 0):
 	data = partialData
 	labels = partialLabels
+
 	batchSize = 64
 
 	expectedAmt = int(math.ceil((len(files)*4)/batchSize))
@@ -154,16 +156,37 @@ def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount
 		final = final / 255.0
 
 		data.append(final)
-		labels.append(label)
+		#labels.append(label)
+
+		indices = [0, 1, 2]
+		if label != -1:
+			labels[label].append(1)
+			indices.remove(label)
+
+		for negative in indices:
+			labels[negative].append(0)
+
+
+		# print(label)
+		# for list in labels:
+		# 	print(str(list)+"\n")
+		# cv2.imshow("image", final)
+		# cv2.waitKey(0)
 
 		if len(data) == batchSize:
 			dataArr = np.array(data)
-			labelsArr = np.array(labels)
+			knifeArr = np.array(labels[0])
+			pistolArr = np.array(labels[1])
+			longArr = np.array(labels[2])
 
+			labelsArr = np.array([knifeArr, pistolArr, longArr])
+
+			print(labelsArr)
+			print(np.shape(labelsArr))
 			print("Batch Number", str(batchCount), "of", expectedAmt, "(Total not accurate if resumed)")
 
 			data.clear()
-			labels.clear()
+			labels = [[], [], []]
 
 			dataPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_data"
 			labelsPath = rootFolder+"./Prepared-Data/batch_" + str(batchCount) + "_labels"

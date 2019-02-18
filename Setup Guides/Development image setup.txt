@@ -13,7 +13,8 @@ Development Instance/Image setup GCP
 
 		#python modules
 		a. sudo apt-get install python3-pip
-		b. python3 -m pip install opencv_python numpy tensorflow-gpu pyzmq
+		b. python3 -m pip install --upgrade pip==18.1.0
+		c. python3 -m pip install opencv_python==3.4.3.18 numpy==1.16.1 tensorflow-gpu==1.12.0 pyzmq==17.1.2
 
 		#compression software (dataset stored as .7z on gcp bucket data-share)
 		a. sudo apt-get install p7zip-full
@@ -73,7 +74,7 @@ Development Instance/Image setup GCP
 				a. ssh-keygen -t rsa -b 4096 -C "ben96ryan@gmail.com"
 				b. eval $(ssh-agent -s)
 				c. ssh-add ~/.ssh/id_rsa
-				d. clip < ~/.ssh/id_rsa.pub
+				d. clip < ~/.ssh/id_rsa.pub // cat and copy
 				e. add to github account
 
 			2. repo setup
@@ -102,3 +103,6 @@ Development Instance/Image setup GCP
 		mount/unmount using
 		a. gcsfuse <bucket-name> <mount-dir>
 		b. sudo umount <mount-dir>
+
+		extracting
+		a. 7z x -o<target path> archive
