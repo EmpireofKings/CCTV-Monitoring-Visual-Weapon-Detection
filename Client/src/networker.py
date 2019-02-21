@@ -20,7 +20,7 @@ class Networker(Thread):
 
 		context = zmq.Context()
 		self.socket = context.socket(zmq.REQ)
-		self.socket.connect(localAddr)
+		self.socket.connect(serverAddr)
 
 	def run(self):
 		global nextFrames
