@@ -10,13 +10,15 @@ import random
 import sys
 
 import cv2
+import keras_metrics
 import numpy as np
+from sklearn.metrics import classification_report, precision_score, recall_score, accuracy_score, f1_score
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import ModelCheckpoint
 from tensorflow.keras.utils import Sequence
-
+import tensorflow.keras.backend as K
 import examineBatchContent as exBC
 
 #os.environ['CUDA_VISIBLE_DEVICES'] = '-1' #uncomment to force CPU to be used
@@ -91,23 +93,38 @@ def prepModel(shape):
 	model.add(Dense(128, activation='relu'))
 	model.add(Dense(64, activation='relu'))
 	model.add(Dense(32, activation='relu'))
-	model.add(Dense(3, activation='sigmoid'))
+	model.add(Dense(2, activation='sigmoid'))
 
 
-	model.compile(optimizer='adam', loss='categorical_crossentropy', metrics= ['accuracy', 'categorical_accuracy'])
+	#precision = keras_metrics.precision(label=1)
+	#recall = keras_metrics.recall(label=0)
+
+	model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=[precision, recall, 'categorical_accuracy'])
 
 	return model
 
-def custom(y_true, y_pred):
-	print(y_true, y_pred)
+
+def precision(y_true, y_pred):
+	true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+	predicted_positives = K.sum(K.round(K.clip(y_pred, 0, 1)))
+	precision = true_positives / (predicted_positives + K.epsilon())
+	return precision
+
+
+def recall(y_true, y_pred):
+	true_positives = K.sum(K.round(K.clip(y_true * y_pred, 0, 1)))
+	possible_positives = K.sum(K.round(K.clip(y_true, 0, 1)))
+	recall = true_positives / (possible_positives + K.epsilon())
+	return recall
 
 #trains provided model on provided batches
 def trainModel(batches, model):
 
 	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}.hdf5")
 
+
 	amt = len(batches)
-	model.fit_generator(DataSequence(batches), shuffle = True, steps_per_epoch=amt, epochs=2, callbacks = [checkpointCB], max_queue_size = 20, use_multiprocessing = False, workers = 4)
+	model.fit_generator(DataSequence(batches), shuffle = True, steps_per_epoch=amt, epochs=10, callbacks = [checkpointCB], max_queue_size = 50, use_multiprocessing = False, workers = 8)
 
 	return model
 
@@ -126,7 +143,6 @@ class DataSequence(Sequence):
 
 		data = np.load(dataPath)
 		labels = np.load(labelsPath)
-
 		return (data, labels)
 
 
@@ -134,9 +150,40 @@ class DataSequence(Sequence):
 #evaluates the trained model
 def testModel(paths, model):
 	amt = len(paths)
-	results = model.evaluate_generator(DataSequence(paths), steps=amt, max_queue_size=10, use_multiprocessing=True, workers = 25, verbose=1)
+	results = model.evaluate_generator(DataSequence(paths), steps=amt, max_queue_size=50, use_multiprocessing=False, workers = 9, verbose=1)
 
+
+	true = []
+	pred = []
+	for path in paths:
+		dataPath = path.get("data")
+		labelsPath = path.get("labels")
+
+		data = np.load(dataPath)
+		labels = np.load(labelsPath)
+		predictions = model.predict(data)
+
+		for item in predictions:
+			highest = np.argmax(item)
+			if item[highest] > 0.5:
+				item[highest] = 1
+			else:
+				item[highest] = 0
+
+			for cat in range(len(item)):
+				if cat != highest:
+					item[cat] = 0
+
+		for item in labels:
+			#true.append([ item[0], item[1] ])
+			true.append(item)
+		for item in predictions:
+			#pred.append([ int(item[0]), int(item[1]) ])
+			pred.append(item)
+
+	print(classification_report(np.asarray(true), np.asarray(pred)))
+	#print(classification_report(true, pred))
+	print(np.shape(true), np.shape(pred))
 	print(results)
-
 if __name__ == '__main__':
 	main()

@@ -33,13 +33,13 @@ def view(batchPaths):
 
 		for i in range(len(data)):
 			image = data[i]
-			labelData = "Knife:" + str(labels[0][i]) + "  Pistol:" + str(labels[1][i]) +"  Long Gun:"+ str(labels[2][i])
+			labelData = labels[i]
 
-			cv2.imshow(labelData, image)
+			#cv2.imshow(labelData, image)
 			print(labelData)
-			cv2.waitKey(0)
-			cv2.destroyAllWindows()
+			#cv2.waitKey(0)
+			#cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-	batchPaths = preparePaths('./Prepared-Data')
+	batchPaths = preparePaths('../../../../mnt/temp/Prepared-Data')
 	view(batchPaths)
