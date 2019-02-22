@@ -116,3 +116,6 @@ venv.bak/
 *.out
 *.h5
 *.hdf5
+/Checkpoints/
+/Data-Prep-and-Training/logs/
+/Models/
