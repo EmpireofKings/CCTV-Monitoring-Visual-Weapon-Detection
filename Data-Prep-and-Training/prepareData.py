@@ -18,6 +18,9 @@ import tensorflow as tf
 
 from terminator import Terminator
 
+rootFolderGCP = "../../../../mnt/temp/"
+rootFolderLocal = "C:/Dataset/"
+
 def isResuming():
 	if len(sys.argv) != 2:
 		print("Usage:", sys.argv[0], "<state>")
@@ -33,9 +36,7 @@ def isResuming():
 		print("Provided argument =", sys.argv[1])
 		sys.exit()
 
-rootFolder = "../../../../mnt/temp/"
-
-def removeExistingBatches():
+def removeExistingBatches(rootFolder):
 	folder = rootFolder+"Prepared-Data/"
 	files = os.listdir(folder)
 
@@ -46,16 +47,23 @@ def removeExistingBatches():
 		os.remove(rootFolder+'resumeData.pickle')
 
 #gets required folders from user
-def getFolders():
-	basePath = rootFolder+'Dataset/'
+def getFolders(rootFolder):
+	basePath = rootFolder+'Unrefined/'
+	basePath = rootFolder+'Refined/'
+
 	negativePath = basePath + 'Negatives'
-	knifePath = basePath + 'Knives'
+	extraNeg = basePath + 'ExtraNeg'
+	knifePath = basePath + 'Knife'
 	pistolPath = basePath + 'Pistol'
 	#riflePath = basePath + 'Rifle'
 	#shotgunPath = basePath + 'Shotgun'
 	#submachineGunPath = basePath +'SubmachineGun'
 
-	folders = ( negativePath, knifePath, pistolPath) #, riflePath, shotgunPath, submachineGunPath)
+	folders = [knifePath, pistolPath] #flePath, shotgunPath, submachineGunPath)
+
+	for i in range(10):
+		cifarPath = basePath + "cifar" + str(i)
+		folders.append(cifarPath)
 
 	return folders
 
@@ -65,34 +73,37 @@ def getFiles(folders):
 	for folder in folders:
 		files = os.listdir(folder)
 
+		if "Neg" in folder:
+			random.shuffle(files)
+			files = files[:1000]
+
+		print("From", folder, str(len(files)))
+
 		for file in files:
 			path = folder + "/" + file
 
-			label = None
+			label = [0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.] #nothing
 			#decide label:
-			if "Negatives" in folder:
-				label = 0 #NO WEAPON
-			elif "Knives" in folder:
-				label = 1 #KNIFE/SHARP OBJECT
+			if "Knife" in folder:
+				label[10] = 1.
 			elif "Pistol" in folder:
-				label = 2 #PISTOLS
+				label[11] = 1.
+			elif "cifar" in folder:
+				l = folder[len(folder)-1]
+				label[int(l)] = 1.
 			#elif "Rifle" in folder or "Shotgun" in folder or "SubmachineGun" in folder:
 			#	label = 3 #LONG GUNS
 
-			if label is None:
-				print("Error: Label could not be determined for", file, "in", folder)
-				sys.exit()
-
 			#file path, augmentCounter, label
 			fileData.append({ "path" : path,
-							  "augmentCounter": 4,
+							  "augmentCounter": 0,
 							  "label" : label })
 
 	random.shuffle(fileData)
 
 	return fileData
 
-def getResumeData():
+def getResumeData(rootFolder):
 	if os.path.isfile(rootFolder+"resumeData.pickle"):
 		with open(rootFolder+"resumeData.pickle", 'rb') as fp:
 			resumeData = pickle.load(fp)
@@ -102,18 +113,18 @@ def getResumeData():
 		print("No resume data found")
 		sys.exit()
 
-def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount = 0):
+def prepare(files, rootFolder, terminator, partialData = [], partialLabels = [],  batchCount = 1):
 	data = partialData
 	labels = partialLabels
 
 	batchSize = 64
 
-	expectedAmt = int(math.ceil((len(files)*4)/batchSize))
+	expectedAmt = int(math.floor(((len(files))/batchSize)))
 
 	while len(files) != 0:
 		#if being told to terminate, save required data to restart at same place
 		if terminator.isTerminating():
-			resumeData = (files ,data, labels, batchCount)
+			resumeData = (files, data, labels, batchCount)
 
 			with open(rootFolder+"resumeData.pickle", 'wb') as fp:
 				pickle.dump(resumeData, fp, protocol=4)
@@ -122,54 +133,46 @@ def prepare(files, terminator, partialData = [], partialLabels = [],  batchCount
 
 		file = random.choice(files)
 
-		augCount = file.get("augmentCounter")
 		label = file.get("label")
 		path = file.get("path")
 
 		orig = cv2.imread(path)
 
-		orig = cv2.resize(orig, (256, 144))
+		orig = cv2.resize(orig, (64, 64))
+		# augmented1 = adjustBrightness(orig.copy(), 1)
+		# augmented2 = adjustBrightness(orig.copy(), -1)
+		# augmented3 = cv2.flip(orig.copy(), 1)
 
-		if augCount == 4: #original
-			augmented = orig
-			file["augmentCounter"] -= 1
+		files.remove(file)
 
-		elif augCount == 3: #brightened
-			augmented = adjustBrightness(orig.copy(), 1)
-			file["augmentCounter"] -= 1
+		f1 = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB) / 255.0
+		# f2 = cv2.cvtColor(augmented1, cv2.COLOR_BGR2RGB) / 255.0
+		# f3 = cv2.cvtColor(augmented2, cv2.COLOR_BGR2RGB) / 255.0
+		# f4 = cv2.cvtColor(augmented3, cv2.COLOR_BGR2RGB) / 255.0
 
-		elif augCount == 2: #darkened
-			augmented = adjustBrightness(orig.copy(), -1)
-			file["augmentCounter"] -= 1
+		data.append(f1)
+		labels.append(label)
 
-		elif augCount == 1: #flipped
-			augmented = cv2.flip(orig.copy(), 1)
-			files.remove(file)
-
-		else:
-			print("Error in augment counter")
-			sys.exit()
-
-		final = cv2.cvtColor(augmented, cv2.COLOR_BGR2RGB)
-		final = final / 255.0
-
-		data.append(final)
-
-		labelArrs = [[0,0], [1,0], [0,1]]
-		labels.append(labelArrs[label])
-
+		# data.append(f2)
+		# labels.append(label)
+		#
+		# data.append(f3)
+		# labels.append(label)
+		#
+		# data.append(f4)
+		# labels.append(label)
 
 		if len(data) == batchSize:
 			dataArr = np.array(data)
 			labelsArr = np.array(labels)
 
-			print("Batch Number", str(batchCount), "approx total:", expectedAmt)
+			print("Batch", str(batchCount), "of", expectedAmt)
 
 			data.clear()
 			labels.clear()
 
 			dataPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_data"
-			labelsPath = rootFolder+"./Prepared-Data/batch_" + str(batchCount) + "_labels"
+			labelsPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_labels"
 
 			np.save(dataPath, dataArr , allow_pickle=True)
 			np.save(labelsPath, labelsArr, allow_pickle=True)
@@ -200,17 +203,22 @@ if __name__ == '__main__':
 	terminator = Terminator()
 
 	if isResuming():
-		remainingfiles, partialData, partialLabels, batchCount = getResumeData()
-		prepare(remainingfiles, terminator, partialData, partialLabels, batchCount)
+		remainingfiles, partialData, partialLabels, batchCount = getResumeData(rootFolderLocal)
+		prepare(remainingfiles, rootFolderLocal, terminator, partialData, partialLabels, batchCount)
+		#prepare(remainingfiles, rootFolderGCP, terminator, partialData, partialLabels, batchCount)
+
 	else:
 		#double check the user gave the correct instruction before deleting everything
 		ans = input("Are you sure you wish to start from the beginning. \nAll previously generated files will be permently deleted.(y/n)")
 
 		if ans == 'Y' or ans == 'y':
-			removeExistingBatches()
+			removeExistingBatches(rootFolderLocal)
+			#removeExistingBatches(rootFolderGCP)
 		else:
 			sys.exit()
 
-		folders = getFolders()
+		folders = getFolders(rootFolderLocal)
+		#folders = getFolders(rootFolderGCP)
 		files = getFiles(folders)
-		prepare(files, terminator)
+		prepare(files, rootFolderLocal, terminator)
+		#prepare(files, rootFolderGCP, terminator)

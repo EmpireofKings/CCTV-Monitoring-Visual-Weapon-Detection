@@ -6,6 +6,9 @@ import os
 import cv2
 import numpy as np
 
+rootFolderGCP = "../../../../mnt/temp/"
+rootFolderLocal = "C:/Dataset/"
+
 def preparePaths(folder):
 	files = os.listdir(folder)
 
@@ -27,6 +30,8 @@ def view(batchPaths):
 
 		data = np.load(dataPath)
 		labels = np.load(labelsPath)
+
+		print(labels)
 		#print(labels)
 
 		print(dataPath, np.shape(data), np.shape(labels))
@@ -35,11 +40,13 @@ def view(batchPaths):
 			image = data[i]
 			labelData = labels[i]
 
-			#cv2.imshow(labelData, image)
+			cv2.imshow(str(labelData), cv2.resize(image, (640, 360)))
 			print(labelData)
-			#cv2.waitKey(0)
-			#cv2.destroyAllWindows()
+			cv2.waitKey(0)
+			cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-	batchPaths = preparePaths('../../../../mnt/temp/Prepared-Data')
+	batchPaths = preparePaths(rootFolderLocal+"Prepared-Data")
+	#batchPaths = preparePaths(rootFolderGCP+"Prepared-Data")
+
 	view(batchPaths)
