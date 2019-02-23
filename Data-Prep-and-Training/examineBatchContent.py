@@ -39,8 +39,9 @@ def view(batchPaths):
 		for i in range(len(data)):
 			image = data[i]
 			labelData = labels[i]
+			print(image)
 
-			cv2.imshow(str(labelData), cv2.resize(image, (640, 360)))
+			cv2.imshow(str(labelData), cv2.resize(image, (640, 640)))
 			print(labelData)
 			cv2.waitKey(0)
 			cv2.destroyAllWindows()

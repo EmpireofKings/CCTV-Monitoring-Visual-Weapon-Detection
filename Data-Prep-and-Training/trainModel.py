@@ -89,8 +89,8 @@ def prepModel(shape):
 	model = Sequential()
 
 	#convolutional/pooling layers
-	model.add(Conv2D(64, (3,3), activation='relu', padding='same', input_shape=shape))
-	model.add(Conv2D(64, (3,3), activation='relu'))
+	model.add(Conv2D(32, (3,3), activation='relu', padding='same', input_shape=shape))
+	model.add(Conv2D(32, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.25))
 
@@ -99,8 +99,8 @@ def prepModel(shape):
 	# model.add(MaxPooling2D(pool_size=(2, 2)))
 	# model.add(Dropout(0.25))
 
-	model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
-	model.add(Conv2D(128, (3,3), activation='relu'))
+	model.add(Conv2D(64, (3,3), activation='relu', padding='same'))
+	model.add(Conv2D(64, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.25))
 
@@ -111,7 +111,7 @@ def prepModel(shape):
 
 	#fully connected layers
 	model.add(Flatten())
-	model.add(Dense(1024, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
+	model.add(Dense(4608, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
 	#model.add(Dense(512, activation='relu'))
 	model.add(Dropout(0.25))
 	model.add(Dense(12, activation='sigmoid'))
@@ -137,7 +137,7 @@ def trainModel(trainingData, validationData, model):
 					    validation_data = DataSequence(validationData), validation_steps = validateSteps,
 						class_weight = getClassWeights(trainingData), epochs = 30,
 						callbacks = [checkpointCB, tensorBoardCB],
-						max_queue_size = 200, workers = 10, shuffle = True,)
+						max_queue_size = 500, workers = 20, shuffle = True,)
 
 	return model
 
