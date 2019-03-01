@@ -9,6 +9,7 @@ import numpy as np
 rootFolderGCP = "../../../../mnt/temp/"
 rootFolderLocal = "C:/Dataset/"
 
+
 def preparePaths(folder):
 	files = os.listdir(folder)
 

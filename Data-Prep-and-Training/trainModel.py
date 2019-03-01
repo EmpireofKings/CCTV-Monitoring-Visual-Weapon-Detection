@@ -14,12 +14,14 @@ import keras_metrics
 import numpy as np
 from sklearn.metrics import classification_report, precision_score, recall_score, accuracy_score, f1_score
 from sklearn.utils import class_weight as classWeight
+
 import tensorflow as tf
 from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D, Dropout
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.utils import Sequence
 from tensorflow.keras import regularizers
+
 import tensorflow.keras.backend as K
 import examineBatchContent as exBC
 
@@ -254,5 +256,6 @@ def cifarMain():
 	return model
 
 if __name__ == '__main__':
-	main()
+	#main()
 	#cifarMain()
+	pretrained()
