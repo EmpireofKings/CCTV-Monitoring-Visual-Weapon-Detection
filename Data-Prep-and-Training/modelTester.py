@@ -19,7 +19,7 @@ def pretrained():
 		check, frame = feed.read()
 
 		if check:
-			regions, drawCoords = extractRegions(frame, 3, (331,331), false)
+			regions, drawCoords = extractRegions(frame, 3, (331,331), False)
 			print(np.shape(regions))
 
 			regions = preprocess_input(regions)
@@ -79,24 +79,24 @@ def extractRegions(frame, gridSize, regionSize, prepare = True, offset = False, 
 
 			regions.append(region)
 
-	if offset is False:
-		subX = int(regionW/2)
-		subWidth = w-subX
-		subY = int(regionH/2)
-		subHeight = h-subY
-		subImage = frame[subY:subHeight, subX:subWidth]
-		extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset=True, offsetX=subX, offsetY=subY)
+	# if offset is False:
+	# 	subX = int(regionW/2)
+	# 	subWidth = w-subX
+	# 	subY = int(regionH/2)
+	# 	subHeight = h-subY
+	# 	subImage = frame[subY:subHeight, subX:subWidth]
+	# 	extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset=True, offsetX=subX, offsetY=subY)
 		
-		for count in range(len(extraRegions)):
-			regions.append(extraRegions[count])
-			drawCoords.append(extraDraw[count])
+	# 	for count in range(len(extraRegions)):
+	# 		regions.append(extraRegions[count])
+	# 		drawCoords.append(extraDraw[count])
 
 	return np.array(regions), drawCoords
 
 def interpretResults():
 	model = getDefaultModel()
-	feed = getCameraFeed()
-	resultHandler = ResultsHandler(13, 10)
+	feed = getVideoFeed()#getCameraFeed()
+	resultHandler = ResultsHandler(9, 30)
 
 	bgRemover = BackgroundRemover(feed)
 
@@ -120,13 +120,16 @@ def interpretResults():
 				print(time.time() - alertTimer)
 				frame = bgRemover.drawBoundingBox(frame)
 
-				if time.time() - alertTimer >= 10:
+				if time.time() - alertTimer >= 5:
 					print("reset")
 					alertTimer = None
 			#frame = drawResults(frame, resultHandler.getAverages(), drawCoords, ["Knife", "Pistol"], all=True)
 			
 			cv2.imshow("feed", frame)
-			cv2.waitKey(1)
+			cv2.waitKey(0)
+		else:
+			feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+		
 
 
 class BackgroundRemover():
@@ -138,7 +141,7 @@ class BackgroundRemover():
 			
 			if check:
 				cv2.imshow("Press enter to capture background", frame)
-				key = cv2.waitKey(1)
+				key = cv2.waitKey(0)
 				
 				if key == 13:
 					gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -239,7 +242,7 @@ def drawResults(img, results, drawCoords, categories, all=False):
 		regionResults = results[count]
 		highest = np.argmax(regionResults)
 
-		if regionResults[highest] > 0.95:
+		if regionResults[highest] > 0:
 			label = categories[highest]
 			regionX, regionY, regionW, regionH = drawCoords[count]
 			cv2.rectangle(img, (regionX, regionY), (regionX+regionW, regionY+regionH), (0,0,255), 3)
