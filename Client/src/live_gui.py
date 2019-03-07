@@ -1,22 +1,25 @@
-#TODO
+# TODO
 
-import numpy as np
-import cv2
-import sys
+import base64 as b64
 import json
 import math
+import sys
+import time
+from collections import deque
 from pprint import pprint
+from threading import Thread
+
+import numpy as np
+
+import cv2
+from data_handler import *
+from feed_loader import FeedLoader
+from layout_gui import Layout, LayoutMode
+from networker import Networker
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from threading import Thread
-import time
-import base64 as b64
-from collections import deque
-from layout_gui import Layout, LayoutMode
-from data_handler import *
-from networker import Networker
-from feed_loader import FeedLoader
+
 
 class LiveAnalysis(QWidget):
 	def __init__(self, app, dataLoader):
@@ -28,7 +31,12 @@ class LiveAnalysis(QWidget):
 
 		drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
 
-		mainDisplay = FeedDisplayer(QSize(1280, 720), QSize(480, 270), data[0][0].cameras[0], drawSpace)
+		mainDisplay = FeedDisplayer(
+			QSize(1280, 720),
+			QSize(480, 270),
+			data[0][0].cameras[0],
+			drawSpace)
+
 		mainDisplayDrawSpace = QVBoxLayout()
 		mainDisplayDrawSpace.addWidget(drawSpace)
 		mainDisplayDrawSpace.addWidget(mainDisplay)
@@ -41,8 +49,8 @@ class LiveAnalysis(QWidget):
 
 		self.setLayout(layout)
 
-#### RIGHT SIDE ####
 
+# ### RIGHT SIDE ###
 class CameraViewer(QFrame):
 	def __init__(self, app, data, drawSpace, mainDisplay):
 		QFrame.__init__(self)
@@ -53,11 +61,12 @@ class CameraViewer(QFrame):
 
 		scrollArea = QScrollArea()
 		scrollArea.setLayout(self.gridView)
-		scrollArea.setMinimumSize(QSize(700,500))
+		scrollArea.setMinimumSize(QSize(700, 500))
 
 		layout.addWidget(scrollArea)
 
 		self.setLayout(layout)
+
 
 class gridViewer(QGridLayout):
 	def __init__(self, data, drawSpace, mainDisplay):
@@ -94,7 +103,7 @@ class gridViewer(QGridLayout):
 					networker.setDaemon(True)
 					networker.start()
 
-					loader = FeedLoader(camera, networker)
+					loader = FeedLoader(camera, networker, feedDisplayer, mainDisplay)
 					loader.setDaemon(True)
 					loader.start()
 
@@ -104,27 +113,25 @@ class gridViewer(QGridLayout):
 				else:
 					break
 
-class FeedDisplayer(QLabel):
-	newFrameSignal = Signal(QPixmap)#TODO move to other thread and connect back
 
-	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay = None):
+class FeedDisplayer(QLabel):
+	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay=None):
 		QLabel.__init__(self)
-		#self.setFrameStyle(QFrame.Box)
+
+		# self.setFrameStyle(QFrame.Box)
 		self.setMaximumSize(maxSize)
 		self.setMinimumSize(minSize)
 		self.drawSpace = drawSpace
 		self.mainDisplay = mainDisplay
 
 		self.camera = camera
-		self.newFrameSignal.connect(self.updateDisplay)
 
 		camLayout = QVBoxLayout()
 		camLayout.setMargin(0)
 		camLayout.setSpacing(0)
 
-
 		self.title = QLabel()
-		self.title.setMaximumSize(150,20)
+		self.title.setMaximumSize(150, 20)
 		camLayout.addWidget(self.title)
 
 		self.surface = QLabel()
@@ -136,7 +143,9 @@ class FeedDisplayer(QLabel):
 	def updateDisplay(self, pmap):
 		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
 		self.surface.setPixmap(pmap)
-		self.title.setText("Level " + str(self.camera.levelID) + " " + self.camera.location)
+		self.title.setText(
+			"Level " + str(self.camera.levelID) +
+			" " + self.camera.location)
 
 	def mousePressEvent(self, event):
 		if self.camera is not None:
