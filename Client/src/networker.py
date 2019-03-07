@@ -23,7 +23,6 @@ class Networker(Thread):
 		self.socket.connect(serverAddr)
 
 	def run(self):
-		global nextFrames
 		global mainFeedID
 		self.setup()
 

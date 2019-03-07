@@ -26,7 +26,6 @@ class FeedLoader(Thread):
 		self.FPS = self.feed.get(cv2.CAP_PROP_FPS)
 
 	def run(self):
-		global nextFrames
 		displaySize = (640, 360)
 		processSize = (256, 144)
 
@@ -38,7 +37,10 @@ class FeedLoader(Thread):
 			loadCheck, frame = self.feed.read()
 			timer = time.time()
 
+
 			if loadCheck:
+				# cv2.imshow("frame", frame)
+				# cv2.waitKey(1)
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 				displayFrame = cv2.resize(frame, displaySize)
 				processFrame = cv2.resize(frame, processSize)
@@ -52,4 +54,6 @@ class FeedLoader(Thread):
 					encoded = b64.b64encode(jpegBuf)
 					self.networker.nextFrame = (encoded, pmap)
 			else:
+				print("Error loading Frame")
 				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+
