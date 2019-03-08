@@ -119,3 +119,7 @@ venv.bak/
 /Checkpoints/
 /Data-Prep-and-Training/logs/
 /Models/
+*.key_secret
+*.key
+/Client/Certificates/
+/Server/Certificates/
