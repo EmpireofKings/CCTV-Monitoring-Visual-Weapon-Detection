@@ -1,4 +1,4 @@
-#TODO
+# TODO
 
 import sys
 from PySide2.QtCore import *
@@ -16,7 +16,7 @@ from networker import GlobalContextHandler, GlobalCertificateHandler
 class mainWindow(QMainWindow):
 	def __init__(self, app):
 		QMainWindow.__init__(self)
-		#self.setMinimumSize(QSize(1280,600))
+		# self.setMinimumSize(QSize(1280,600))
 		self.app = app
 		tabs = Tab(app)
 		self.setCentralWidget(tabs)
@@ -51,10 +51,18 @@ class Tab(QTabWidget):
 		self.liveTab = LiveAnalysis(app, dataLoader)
 		self.deferredTab = DeferredAnalysis(app)
 
-		#Icons acquired from www.flaticon.com licensed by Creative Commons BY 3.0 http://creativecommons.org/licenses/by/3.0/
-		configIcon = QIcon("../data/icons/config.png") #Icon made by Fermam Aziz  https://www.flaticon.com/authors/fermam-aziz
-		liveIcon = QIcon("../data/icons/live.png") #Icon made by photo3idea_studio https://www.flaticon.com/authors/photo3idea-studio
-		deferredIcon = QIcon("../data/icons/deferred.png") #Icon made by Smashicons https://www.flaticon.com/authors/smashicons
+		# Icons acquired from www.flaticon.com licensed by
+		# Creative Commons BY 3.0 http://creativecommons.org/licenses/by/3.0/
+
+		# Icon made by Fermam Aziz  https://www.flaticon.com/authors/fermam-aziz
+		configIcon = QIcon("../data/icons/config.png")
+
+		# Icon made by photo3idea_studio
+		# https://www.flaticon.com/authors/photo3idea-studio
+		liveIcon = QIcon("../data/icons/live.png")
+
+		# Icon made by Smashicons https://www.flaticon.com/authors/smashicons
+		deferredIcon = QIcon("../data/icons/deferred.png")
 
 		self.addTab(self.liveTab, liveIcon, "Live Analysis")
 		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")

@@ -52,10 +52,30 @@ class GlobalCertificateHandler():
 		if GlobalCertificateHandler.__instance is None:
 			self.id = 'front'
 			self.basePath = '../Certificates'
-			self.publicFolderPath = self.basePath + '/Public-' + str(self.id) + '/'
-			self.privateFolderPath = self.basePath + '/Private-' + str(self.id) + '/'
-			self.publicFilePath = self.publicFolderPath + "client-" + str(self.id) + ".key"
-			self.privateFilePath = self.privateFolderPath + "client-" + str(self.id) + ".key_secret"
+
+			self.publicFolderPath = (
+				self.basePath +
+				'/Public-' +
+				str(id) +
+				'/')
+
+			self.privateFolderPath = (
+				self.basePath +
+				'/Private-' +
+				str(id) +
+				'/')
+
+			self.publicFilePath = (
+				self.publicFolderPath +
+				"server-" +
+				self.id +
+				".key")
+
+			self.privateFilePath = (
+				self.privateFolderPath +
+				"server-" +
+				self.id +
+				".key_secret")
 
 			self._generateCertificates()
 
@@ -78,7 +98,9 @@ class GlobalCertificateHandler():
 		os.mkdir(self.publicFolderPath)
 		os.mkdir(self.privateFolderPath)
 
-		public, private = zmq.auth.create_certificates(self.basePath, "client-" + self.id)
+		public, private = zmq.auth.create_certificates(
+			self.basePath, "client-" + self.id)
+
 		shutil.move(public, self.publicFilePath)
 		shutil.move(private, self.privateFilePath)
 
@@ -120,10 +142,30 @@ class CertificateHandler():
 	def __init__(self, id):
 		self.id = id
 		self.basePath = '../Certificates'
-		self.publicFolderPath = self.basePath + '/Public-' + str(self.id) + '/'
-		self.privateFolderPath = self.basePath + '/Private-' + str(self.id) + '/'
-		self.publicFilePath = self.publicFolderPath + "client-" + str(self.id) + ".key"
-		self.privateFilePath = self.privateFolderPath + "client-" + str(self.id) + ".key_secret"
+
+		self.publicFolderPath = (
+			self.basePath +
+			'/Public-' +
+			str(id) +
+			'/')
+
+		self.privateFolderPath = (
+			self.basePath +
+			'/Private-' +
+			str(id) +
+			'/')
+
+		self.publicFilePath = (
+			self.publicFolderPath +
+			"server-" +
+			self.id +
+			".key")
+
+		self.privateFilePath = (
+			self.privateFolderPath +
+			"server-" +
+			self.id +
+			".key_secret")
 
 		self._generateCertificates()
 
@@ -140,7 +182,9 @@ class CertificateHandler():
 		os.mkdir(self.publicFolderPath)
 		os.mkdir(self.privateFolderPath)
 
-		public, private = zmq.auth.create_certificates(self.basePath, "client-" + self.id)
+		public, private = zmq.auth.create_certificates(
+			self.basePath, "client-" + self.id)
+
 		shutil.move(public, self.publicFilePath)
 		shutil.move(private, self.privateFilePath)
 
@@ -211,7 +255,7 @@ class Monitor(Thread):
 			for key, val in self.events.items():
 				if event == val:
 					assigned = True
-					#print(key, endpoint)
+					# print(key, endpoint)
 
 			if assigned is False:
 				print(msg)

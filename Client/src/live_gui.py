@@ -43,7 +43,7 @@ class LiveAnalysis(QWidget):
 
 		layout.addLayout(mainDisplayDrawSpace)
 
-		#Camera monitoring (right side)
+		# Camera monitoring (right side)
 		self.cameraView = CameraViewer(app, data, drawSpace, mainDisplay)
 		layout.addWidget(self.cameraView)
 
@@ -84,19 +84,22 @@ class gridViewer(QGridLayout):
 
 		# pprint(cameraIDs)
 		# pprint(cameraLocations)
-		#layout = QGridLayout()
+		# layout = QGridLayout()
 
-		maxCols = 3 #TODO, dynamically choose based on availale space
-		rows = int(math.ceil((len(cameras)/maxCols))) #figure out how many rows are needed based on amount of items and max cols
+		maxCols = 3  # TODO, dynamically choose based on availale space
+		# figure out how many rows are needed based on amount of items and max cols
+		rows = int(math.ceil((len(cameras) / maxCols)))
 
-		count = 0 #item tracker
+		count = 0  # item tracker
 		for row in range(rows):
 			for col in range(maxCols):
-				if count < len(cameras):#more slots than items to fill
+				if count < len(cameras):  # more slots than items to fill
 					camera = cameras[count]
 
-					## TODO TIDY THIS UP
-					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), camera, drawSpace, mainDisplay)
+					# TODO TIDY THIS UP
+					feedDisplayer = FeedDisplayer(
+						QSize(384, 216), QSize(128, 72), camera, drawSpace, mainDisplay)
+
 					self.addWidget(feedDisplayer, row, col)
 
 					# instantiate singleton object before threads try to access them
@@ -115,7 +118,8 @@ class gridViewer(QGridLayout):
 					count += 1
 				else:
 					break
-					
+
+
 class FeedDisplayer(QLabel):
 	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay=None):
 		QLabel.__init__(self)

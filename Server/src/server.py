@@ -1,4 +1,4 @@
-#TODO
+# TODO
 
 import base64 as b64
 import os
@@ -27,10 +27,30 @@ class CertificateHandler():
 	def __init__(self, id):
 		self.id = id
 		self.basePath = '../Certificates'
-		self.publicFolderPath = self.basePath + '/Public-' + str(id) + '/'
-		self.privateFolderPath = self.basePath + '/Private-' + str(id) + '/'
-		self.publicFilePath = self.publicFolderPath + "server-" + self.id + ".key"
-		self.privateFilePath = self.privateFolderPath + "server-" + self.id + ".key_secret"
+
+		self.publicFolderPath = (
+			self.basePath +
+			'/Public-' +
+			str(id) +
+			'/')
+
+		self.privateFolderPath = (
+			self.basePath +
+			'/Private-' +
+			str(id) +
+			'/')
+
+		self.publicFilePath = (
+			self.publicFolderPath +
+			"server-" +
+			self.id +
+			".key")
+
+		self.privateFilePath = (
+			self.privateFolderPath +
+			"server-" +
+			self.id +
+			".key_secret")
 
 	def _generateCertificates(self):
 		if os.path.exists(self.publicFolderPath):
@@ -45,13 +65,16 @@ class CertificateHandler():
 		os.mkdir(self.publicFolderPath)
 		os.mkdir(self.privateFolderPath)
 
-		public, private = zmq.auth.create_certificates(self.basePath, "server-" + self.id)
+		public, private = zmq.auth.create_certificates(
+			self.basePath,
+			"server-" + self.id)
 		print("PATHS:", public, private)
 		shutil.move(public, self.publicFilePath)
 		shutil.move(private, self.privateFilePath)
 
 	def getCertificatesPaths(self):
-		if not os.path.exists(self.publicFilePath) or not os.path.exists(self.privateFilePath):
+		if (not os.path.exists(self.publicFilePath) or
+			not os.path.exists(self.privateFilePath)):
 			print("Generating new keys, clients will need access to public key.")
 			self._generateCertificates()
 
@@ -194,7 +217,9 @@ class FeedHandler(Thread):
 		self.socket.curve_publickey = self.publicKey
 		self.socket.curve_server = True
 
-		self.port = self.socket.bind_to_random_port('tcp://*', min_port=49151, max_port=65535)
+		self.port = self.socket.bind_to_random_port('tcp://*',
+													min_port=49151,
+													max_port=65535)
 		self.feedID = feedID
 
 	def getPort(self):
@@ -225,12 +250,12 @@ class FeedHandler(Thread):
 					jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 					frame = cv2.imdecode(jpeg, 1)
 
-					regions, drawCoords = helper.extractRegions(frame, 3, (64,64), True)
-					results = np.around(model.predict(regions)[:,10:], decimals=3)
+					regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
+					results = np.around(model.predict(regions)[:, 10:], decimals=3)
 					resultHandler.append(results)
 					alert = resultHandler.assess()
 
-					#frame = bgRemover.drawBoundingBox(frame)
+					# frame = bgRemover.drawBoundingBox(frame)
 
 					self.socket.send_string(str(alert))
 
@@ -243,11 +268,14 @@ class FeedHandler(Thread):
 
 
 class Helper():
-	def extractRegions(self, frame, gridSize, regionSize, prepare=True, offset=False, offsetX=0, offsetY=0):
+	def extractRegions(
+		self, frame, gridSize, regionSize, prepare=True, offset=False,
+		offsetX=0, offsetY=0):
+
 		h, w, c = np.shape(frame)
 
-		regionH = int(h/gridSize)
-		regionW = int(w/gridSize)
+		regionH = int(h / gridSize)
+		regionW = int(w / gridSize)
 
 		regions = []
 		drawCoords = []
@@ -259,7 +287,9 @@ class Helper():
 				region = frame[regionY: regionY + regionH, regionX:regionX + regionW]
 
 				if offset:
-					drawCoords.append((regionX + offsetX, regionY + offsetY, regionW, regionH))
+					drawCoords.append((
+						regionX + offsetX, regionY + offsetY,
+						regionW, regionH))
 				else:
 					drawCoords.append((regionX, regionY, regionW, regionH))
 
@@ -277,7 +307,9 @@ class Helper():
 		# 	subY = int(regionH/2)
 		# 	subHeight = h-subY
 		# 	subImage = frame[subY:subHeight, subX:subWidth]
-		# 	extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset = True, offsetX = subX, offsetY = subY)
+		# 	extraRegions, extraDraw = extractRegions(
+		# 		subImage, 2, (64,64), offset = True,
+		# 		offsetX = subX, offsetY = subY)
 
 		# 	for count in range(len(extraRegions)):
 		# 		regions.append(extraRegions[count])
@@ -293,13 +325,25 @@ class Helper():
 			if regionResults[highest] > 0:
 				label = categories[highest]
 				regionX, regionY, regionW, regionH = drawCoords[count]
-				cv2.rectangle(img, (regionX, regionY), (regionX+regionW, regionY+regionH), (0,0,255), 3)
-				cv2.putText(img, label, (regionX+10, regionY+regionH-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
-				cv2.putText(img, str(regionResults[highest]), (regionX+10, regionY+regionH-60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
+				cv2.rectangle(
+					img, (regionX, regionY), (regionX + regionW, regionY + regionH),
+					(0, 0, 255), 3)
+
+				cv2.putText(
+					img, label, (regionX + 10, regionY + regionH - 10),
+					cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+				cv2.putText(
+					img, str(regionResults[highest]),
+					(regionX + 10, regionY + regionH - 60),
+					cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1)
+
 			elif all:
 				label = "Clear"
 				regionX, regionY, regionW, regionH = drawCoords[count]
-				cv2.rectangle(img, (regionX, regionY), (regionX+regionW, regionY+regionH), (0,255,0), 1)
+				cv2.rectangle(
+					img, (regionX, regionY),
+					(regionX + regionW, regionY + regionH), (0, 255, 0), 1)
 
 		return img
 
@@ -316,7 +360,7 @@ class Helper():
 
 class BackgroundRemover():
 	def __init__(self, feed):
-		self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(5,5))
+		self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(5, 5))
 
 		while feed.isOpened():
 			check, frame = feed.read()
@@ -324,10 +368,10 @@ class BackgroundRemover():
 			if check:
 				cv2.imshow("Press enter to capture background", frame)
 				key = cv2.waitKey(0)
-				
+
 				if key == 13:
 					gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-					blurred = cv2.GaussianBlur(gray, (5,5), 0)
+					blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 					self.background = self.clahe.apply(blurred)
 					break
 
@@ -338,17 +382,19 @@ class BackgroundRemover():
 
 		diff = cv2.absdiff(equalized, self.background)
 		_, binary = cv2.threshold(diff, 60, 255, cv2.THRESH_BINARY)
-		structEl = cv2.getStructuringElement(cv2.MORPH_RECT, (5,5))
-		
+		structEl = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+
 		opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, structEl)
 
-		_, contours, _ = cv2.findContours(opened, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+		_, contours, _ = cv2.findContours(
+			opened, cv2.RETR_EXTERNAL,
+			cv2.CHAIN_APPROX_SIMPLE)
 
 		if len(contours) > 0:
 			largest = max(contours, key=cv2.contourArea)
 
 			x, y, w, h = cv2.boundingRect(largest)
-			cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
+			cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 		return frame
 
@@ -400,8 +446,8 @@ class ResultsHandler():
 			self.pistolBuffer = deque(maxlen=size)
 
 		def getAvg(self):
-			knifeAvg = sum(self.knifeBuffer)/len(self.knifeBuffer)
-			pistolAvg = sum(self.pistolBuffer)/len(self.pistolBuffer)
+			knifeAvg = sum(self.knifeBuffer) / len(self.knifeBuffer)
+			pistolAvg = sum(self.pistolBuffer) / len(self.pistolBuffer)
 
 			return (knifeAvg, pistolAvg)
 
@@ -458,5 +504,3 @@ if __name__ == '__main__':
 
 	while not terminator.isTerminating():
 		time.sleep(1)
-
-
