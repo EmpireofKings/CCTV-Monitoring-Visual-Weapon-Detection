@@ -1,37 +1,90 @@
 #TODO
 
-from threading import Thread
-from collections import deque
-import socket as s
-import tensorflow as tf
-import cv2
-import numpy as np
-import _pickle as pickle
-import sys
-import zmq
 import base64 as b64
+import os
+import shutil
+import socket as s
+import sys
+from collections import deque
+from threading import Thread
+
+import numpy as np
+
+import _pickle as pickle
+import cv2
 import tensorflow as tf
+import zmq
+import zmq.auth
+from zmq.auth.thread import ThreadAuthenticator
+
+
+class CertificateHandler():
+	def __init__(self, id):
+		self.id = id
+		self.basePath = '../Certificates'
+		self.publicFolderPath = self.basePath + '/Public-' + str(id) + '/'
+		self.privateFolderPath = self.basePath + '/Private-' + str(id) + '/'
+		self.publicFilePath = self.publicFolderPath + "server-" + self.id + ".key"
+		self.privateFilePath = self.privateFolderPath + "server-" + self.id + ".key_secret"
+
+	def _generateCertificates(self):
+		if os.path.exists(self.basePath):
+			shutil.rmtree(self.basePath)
+
+		os.mkdir(self.basePath)
+		os.mkdir(self.publicFolderPath)
+		os.mkdir(self.privateFolderPath)
+
+		public, private = zmq.auth.create_certificates(self.basePath, "server-" + self.id)
+		print("PATHS:", public, private)
+		shutil.move(public, self.publicFilePath)
+		shutil.move(private, self.privateFilePath)
+
+	def getCertificatesPaths(self):
+		if not os.path.exists(self.publicFilePath) or not os.path.exists(self.privateFilePath):
+			print("Generating new keys, clients will need access to public key.")
+			self._generateCertificates()
+
+		return self.publicFolderPath, self.privateFolderPath
+
 
 class Listener(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)
-		
-		context = zmq.Context()
+
+		certHandler = CertificateHandler(id="front")
+		publicPath, privatePath = certHandler.getCertificatesPaths()
+
+		context = zmq.Context.instance()
+		auth = ThreadAuthenticator(context)
+		auth.start()
+		# auth.allow()??
+		auth.configure_curve(domain='*', location=publicPath)
+
 		self.socket = context.socket(zmq.REP)
+
+		privateFile = privatePath + "server-front.key_secret"
+		publicKey, privateKey = zmq.auth.load_certificate(privateFile)
+		self.socket.curve_secretkey = privateKey
+		self.socket.curve_publickey = publicKey
+		self.socket.curve_server = True
+
 		self.socket.bind(addr)
 
 		print("Listening on", addr)
 
 	def run(self):
+		print("Waiting")
 		while True:
 			received = self.socket.recv_string()
 
+			print("New connection from ", received)
 			handler = FeedHandler(received)
 			handler.setDaemon(True)
 			handler.start()
 
 			assignedPort = handler.getPort()
-			
+
 			self.socket.send_string(str(assignedPort))
 
 
@@ -54,9 +107,9 @@ class FeedHandler(Thread):
 		global model
 		global session
 		global graph
-		
+
 		resultHandler = ResultsHandler(9, 30)
-		#bgRemover = BackgroundRemover(feed)
+		# bgRemover = BackgroundRemover(feed)
 
 		with session.as_default():
 			with graph.as_default():
@@ -77,7 +130,7 @@ class FeedHandler(Thread):
 
 
 class Helper():	
-	def extractRegions(self, frame, gridSize, regionSize, prepare = True, offset = False, offsetX = 0, offsetY = 0):
+	def extractRegions(self, frame, gridSize, regionSize, prepare=True, offset=False, offsetX=0, offsetY=0):
 		h, w, c = np.shape(frame)
 
 		regionH = int(h/gridSize)
@@ -90,13 +143,12 @@ class Helper():
 			for col in range(gridSize):
 				regionX = col * regionW
 
-				region = frame[regionY: regionY+regionH, regionX:regionX+regionW]
-				
+				region = frame[regionY: regionY + regionH, regionX:regionX + regionW]
+
 				if offset:
-					drawCoords.append((regionX+offsetX, regionY+offsetY, regionW, regionH))
+					drawCoords.append((regionX + offsetX, regionY + offsetY, regionW, regionH))
 				else:
 					drawCoords.append((regionX, regionY, regionW, regionH))
-
 
 				region = cv2.resize(region, regionSize)
 				region = cv2.cvtColor(region, cv2.COLOR_BGR2RGB)
@@ -112,15 +164,14 @@ class Helper():
 		# 	subY = int(regionH/2)
 		# 	subHeight = h-subY
 		# 	subImage = frame[subY:subHeight, subX:subWidth]
-		# 	extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset=True, offsetX=subX, offsetY=subY)
-			
+		# 	extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset = True, offsetX = subX, offsetY = subY)
+
 		# 	for count in range(len(extraRegions)):
 		# 		regions.append(extraRegions[count])
 		# 		drawCoords.append(extraDraw[count])
 
 		return np.array(regions), drawCoords
 
-	
 	def drawResults(self, img, results, drawCoords, categories, all=False):
 		for count in range(len(results)):
 			regionResults = results[count]
