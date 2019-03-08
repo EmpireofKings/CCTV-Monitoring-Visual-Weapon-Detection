@@ -5,10 +5,12 @@ from threading import Thread
 
 import zmq
 import zmq.auth
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from zmq.auth.thread import ThreadAuthenticator
+from zmq.utils.monitor import recv_monitor_message
 
 
 class GlobalContextHandler():
@@ -170,6 +172,51 @@ class displayConnector(QObject):
 			self.newFrameSignal.emit(pmap)
 
 
+class Monitor(Thread):
+	def __init__(self, socket, feedID):
+		Thread.__init__(self)
+		self.socket = socket
+		self.feedID = feedID
+
+		self.events = {
+			"EVENT_CONNECTED": zmq.EVENT_CONNECTED,
+			"EVENT_CONNECT_DELAYED": zmq.EVENT_CONNECT_DELAYED,
+			"EVENT_CONNECT_RETRIED": zmq.EVENT_CONNECT_RETRIED,
+			"EVENT_LISTENING": zmq.EVENT_LISTENING,
+			"EVENT_BIND_FAILED": zmq.EVENT_BIND_FAILED,
+			"EVENT_ACCEPTED": zmq.EVENT_ACCEPTED,
+			"EVENT_ACCEPT_FAILED": zmq.EVENT_ACCEPT_FAILED,
+			"EVENT_CLOSED": zmq.EVENT_CLOSED,
+			"EVENT_CLOSE_FAILED": zmq.EVENT_CLOSE_FAILED,
+			"EVENT_DISCONNECTED": zmq.EVENT_DISCONNECTED,
+			"EVENT_ALL": zmq.EVENT_ALL,
+			"EVENT_MONITOR_STOPPED": zmq.EVENT_MONITOR_STOPPED,
+			"EVENT_HANDSHAKE_FAILED_NO_DETAIL": zmq.EVENT_HANDSHAKE_FAILED_NO_DETAIL,
+			"EVENT_HANDSHAKE_SUCCEEDED": zmq.EVENT_HANDSHAKE_SUCCEEDED,
+			"EVENT_HANDSHAKE_FAILED_PROTOCOL": zmq.EVENT_HANDSHAKE_FAILED_PROTOCOL,
+			"EVENT_HANDSHAKE_FAILED_AUTH": zmq.EVENT_HANDSHAKE_FAILED_AUTH}
+
+		# for key, val in self.events.items():
+		# 	print(key, val)
+
+	def run(self):
+		while True:
+			msg = recv_monitor_message(self.socket)
+
+			event = msg.get("event")
+			value = msg.get("value")
+			endpoint = msg.get("endpoint")
+
+			assigned = False
+			for key, val in self.events.items():
+				if event == val:
+					assigned = True
+					# print(key, endpoint)
+
+			if assigned is False:
+				print(msg)
+
+
 class Networker(Thread):
 	def __init__(self, camera, display, mainDisplay):
 		Thread.__init__(self)
@@ -218,7 +265,7 @@ class Networker(Thread):
 		return socket
 
 	def initialize(self, feedID):
-		socket = self.setupSocket('front', self.localAddr + self.initPort)
+		socket = self.setupSocket('front', self.serverAddr + self.initPort)
 		socket.send_string(feedID)
 		initData = socket.recv_string()
 		print("INITDATA", feedID, initData)
@@ -237,14 +284,17 @@ class Networker(Thread):
 		feedID = feedID.replace(':', '')
 
 		port, serverKey = self.initialize(feedID)
-		socket = self.setupSocket(feedID, self.localAddr + port, serverKey)
+
+		socket = self.setupSocket(feedID, self.serverAddr + port, serverKey)
+		monitorSocket = socket.get_monitor_socket()
+		monitor = Monitor(monitorSocket, feedID)
+		monitor.setDaemon(True)
+		monitor.start()
 
 		while self.stop is False:
 			if self.nextFrame is not None:
 				frames = self.nextFrame
-				print("before send")
 				socket.send(frames[0])
-				print("send")
 				result = socket.recv_string()
 
 				# TODO SWAP BACK TO DECOUPLED MODE
@@ -254,6 +304,7 @@ class Networker(Thread):
 				if self.camera.id == self.mainDisplay.camera.id:
 					self.mainDisplayConn.emitFrame(frames[1])
 
+		socket.disable_monitor()
 		socket.close()
 		self.ctxHandler.cleanup()
 		self.certHandler.cleanup()

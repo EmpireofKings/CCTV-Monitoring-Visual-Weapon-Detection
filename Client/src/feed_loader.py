@@ -80,5 +80,4 @@ class FeedLoader(Thread):
 				# 	self.mainDisplayConn.emitFrame(pmap)
 
 			else:
-				print("Reset feed", self.camera.id)
 				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)

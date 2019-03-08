@@ -25,11 +25,9 @@ class mainWindow(QMainWindow):
 		activeThreads = threading.enumerate()
 		for thread in activeThreads:
 			if thread is not threading.currentThread():
-				print(type(thread))
 				try:
 					if thread.stop is False:
 						thread.stop = True
-						print("set")
 						thread.join()
 				except:
 					pass
@@ -39,7 +37,6 @@ class mainWindow(QMainWindow):
 		ctxHandler = GlobalContextHandler.getInstance(publicPath)
 		ctxHandler.cleanup()
 
-		print("exiting main", threading.enumerate())
 		self.app.exit()
 		sys.exit()
 

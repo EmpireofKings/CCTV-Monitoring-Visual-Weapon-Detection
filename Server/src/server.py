@@ -18,7 +18,9 @@ import tensorflow as tf
 import zmq
 import zmq.auth
 from zmq.auth.thread import ThreadAuthenticator
+from zmq.utils.monitor import recv_monitor_message
 
+import signal
 
 class CertificateHandler():
 	def __init__(self, id):
@@ -54,22 +56,22 @@ class CertificateHandler():
 
 		return self.publicFolderPath, self.privateFolderPath
 
+	def cleanup(self):
+		shutil.rmtree(self.publicFolderPath)
+		shutil.rmtree(self.privateFolderPath)
+
 
 class ContextHandler():
 	def __init__(self, publicPath):
 		self.__context = zmq.Context()
-		self.__auth = ThreadAuthenticator(self.__context)
-		self.__auth.start()
-		self.__auth.configure_curve(domain='*', location=publicPath)
+		auth = ThreadAuthenticator(self.__context)
+		auth.start()
+		auth.configure_curve(domain='*', location=publicPath)
 
 	def getContext(self):
 		return self.__context
 
-	def getAuth(self):
-		return self.__auth
-
 	def cleanup(self):
-		self.__auth.stop()
 		self.__context.destroy()
 
 
@@ -77,12 +79,12 @@ class Listener(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)
 
+		self.terminator = Terminator.getInstance()
 		certHandler = CertificateHandler(id="front")
 		publicPath, privatePath = certHandler.getCertificatesPaths()
 
 		self.ctxHandler = ContextHandler(publicPath)
 		context = self.ctxHandler.getContext()
-		# auth.allow('134.0.0.1')
 		self.socket = context.socket(zmq.REP)
 
 		privateFile = privatePath + "server-front.key_secret"
@@ -93,27 +95,84 @@ class Listener(Thread):
 
 		print(publicKey)
 		self.socket.bind(addr)
+		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
 
 		print("Listening on", addr)
 
 	def run(self):
-		while True:
-			received = self.socket.recv_string()
+		while not self.terminator.isTerminating():
+			try:
+				received = self.socket.recv_string()
 
-			print("New connection from ", received)
-			handler = FeedHandler(received)
-			handler.setDaemon(True)
-			handler.start()
+				print("New connection from ", received)
+				handler = FeedHandler(received)
+				handler.setDaemon(True)
+				handler.start()
 
-			assignedPort = handler.getPort()
-			publicKey = handler.getPublicKey()
+				assignedPort = handler.getPort()
+				publicKey = handler.getPublicKey()
 
-			self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
+				self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
+			except:
+				pass
+		self.socket.close()
+		self.ctxHandler.cleanup()
+		print("Ending Listener Thread")
+
+
+class Monitor(Thread):
+	def __init__(self, socket, feedID):
+		Thread.__init__(self)
+		self.socket = socket
+		self.feedID = feedID
+		self.stop = False
+
+		self.events = {
+			"EVENT_CONNECTED": zmq.EVENT_CONNECTED,
+			"EVENT_CONNECT_DELAYED": zmq.EVENT_CONNECT_DELAYED,
+			"EVENT_CONNECT_RETRIED": zmq.EVENT_CONNECT_RETRIED,
+			"EVENT_LISTENING": zmq.EVENT_LISTENING,
+			"EVENT_BIND_FAILED": zmq.EVENT_BIND_FAILED,
+			"EVENT_ACCEPTED": zmq.EVENT_ACCEPTED,
+			"EVENT_ACCEPT_FAILED": zmq.EVENT_ACCEPT_FAILED,
+			"EVENT_CLOSED": zmq.EVENT_CLOSED,
+			"EVENT_CLOSE_FAILED": zmq.EVENT_CLOSE_FAILED,
+			"EVENT_DISCONNECTED": zmq.EVENT_DISCONNECTED,
+			"EVENT_ALL": zmq.EVENT_ALL,
+			"EVENT_MONITOR_STOPPED": zmq.EVENT_MONITOR_STOPPED,
+			"EVENT_HANDSHAKE_FAILED_NO_DETAIL": zmq.EVENT_HANDSHAKE_FAILED_NO_DETAIL,
+			"EVENT_HANDSHAKE_SUCCEEDED": zmq.EVENT_HANDSHAKE_SUCCEEDED,
+			"EVENT_HANDSHAKE_FAILED_PROTOCOL": zmq.EVENT_HANDSHAKE_FAILED_PROTOCOL,
+			"EVENT_HANDSHAKE_FAILED_AUTH": zmq.EVENT_HANDSHAKE_FAILED_AUTH}
+
+		# for key, val in self.events.items():
+		# 	print(key, val)
+
+	def run(self):
+		while self.stop is False:
+			try:
+				msg = recv_monitor_message(self.socket)
+			except:
+				break
+			event = msg.get("event")
+			value = msg.get("value")
+			endpoint = msg.get("endpoint")
+
+			assigned = False
+			for key, val in self.events.items():
+				if event == val:
+					assigned = True
+					# print(key, endpoint)
+
+			if assigned is False:
+				print(msg)
 
 
 class FeedHandler(Thread):
 	def __init__(self, feedID):
 		Thread.__init__(self)
+
+		self.terminator = Terminator.getInstance()
 
 		self.certHandler = CertificateHandler(id=feedID)
 		publicPath, privatePath = self.certHandler.getCertificatesPaths()
@@ -122,6 +181,10 @@ class FeedHandler(Thread):
 		context = self.ctxHandler.getContext()
 
 		self.socket = context.socket(zmq.REP)
+		monitorSocket = self.socket.get_monitor_socket()
+		self.monitor = Monitor(monitorSocket, feedID)
+		self.monitor.setDaemon(True)
+		self.monitor.start()
 
 		privateFile = privatePath + "server-" + feedID + ".key_secret"
 		self.publicKey, privateKey = zmq.auth.load_certificate(privateFile)
@@ -147,16 +210,15 @@ class FeedHandler(Thread):
 		resultHandler = ResultsHandler(9, 30)
 		# bgRemover = BackgroundRemover(feed)
 
-		print("before set")
 		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
-		print("after set")
 		with session.as_default():
 			with graph.as_default():
-				while True:
+				while not self.terminator.isTerminating():
 					try:
 						received = self.socket.recv_string()
 					except:
 						break
+
 					jpegStr = b64.b64decode(received)
 					jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 					frame = cv2.imdecode(jpeg, 1)
@@ -170,7 +232,13 @@ class FeedHandler(Thread):
 
 					self.socket.send_string(str(alert))
 
+		self.monitor.stop = True
+		self.socket.disable_monitor()
+		self.socket.close()
+		self.ctxHandler.cleanup()
+		self.certHandler.cleanup()
 		print("Ending thread", self.feedID)
+
 
 class Helper():	
 	def extractRegions(self, frame, gridSize, regionSize, prepare=True, offset=False, offsetX=0, offsetY=0):
@@ -346,9 +414,36 @@ class ResultsHandler():
 		def append(self, knife, pistol):
 			self.knifeBuffer.append(knife)
 			self.pistolBuffer.append(pistol)
-	
+
+			import signal
+
+
+class Terminator():
+	__instance = None
+
+	def __init__(self):
+		self.__terminating = False
+		signal.signal(signal.SIGTERM, self.terminate)
+		signal.signal(signal.SIGINT, self.terminate)
+		print("connected")
+
+	@staticmethod
+	def getInstance():
+		if Terminator.__instance is None:
+			Terminator.__instance = Terminator()
+
+		return Terminator.__instance
+
+	def terminate(self, signal, frame):
+		print("Termination signal received")
+		self.__terminating = True
+
+	def isTerminating(self):
+		return self.__terminating
 
 if __name__ == '__main__':
+	# instantiate singleton before threads so it becomes thread safe
+	terminator = Terminator.getInstance()
 	responseQueues = {}
 	helper = Helper()
 	model = helper.getDefaultModel(summary=True)
@@ -359,3 +454,8 @@ if __name__ == '__main__':
 
 	listener = Listener('tcp://0.0.0.0:5000')
 	listener.start()
+
+	while not terminator.isTerminating():
+		time.sleep(1)
+
+

@@ -115,8 +115,7 @@ class gridViewer(QGridLayout):
 					count += 1
 				else:
 					break
-
-
+					
 class FeedDisplayer(QLabel):
 	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay=None):
 		QLabel.__init__(self)
