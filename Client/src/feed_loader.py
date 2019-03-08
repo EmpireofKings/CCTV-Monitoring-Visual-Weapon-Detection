@@ -57,8 +57,8 @@ class FeedLoader(Thread):
 			timer = time.time()
 
 			if loadCheck:
-				# cv2.imshow("frame", frame)
-				# cv2.waitKey(1)
+				# cv2.imshow(str(self.camera.id), frame)
+				# cv2.waitKey(0)
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 				displayFrame = cv2.resize(frame, displaySize)
 				processFrame = cv2.resize(frame, processSize)
@@ -73,12 +73,12 @@ class FeedLoader(Thread):
 					encoded = b64.b64encode(jpegBuf)
 					self.networker.nextFrame = (encoded, pmap)
 
-				self.displayConn.emitFrame(pmap)
+				# self.displayConn.emitFrame(pmap)
 
-				# if this display is the main, emit the frame signal to both displays
-				if self.camera.id == self.mainDisplay.camera.id:
-					self.mainDisplayConn.emitFrame(pmap)
-					# self.mainDisplay.camera = self.camera
+				# # if this display is the main, emit the frame signal to both displays
+				# if self.camera.id == self.mainDisplay.camera.id:
+				# 	self.mainDisplayConn.emitFrame(pmap)
+
 			else:
 				print("Reset feed", self.camera.id)
 				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)

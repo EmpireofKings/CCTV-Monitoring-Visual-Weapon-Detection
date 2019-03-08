@@ -10,12 +10,14 @@ from live_gui import LiveAnalysis
 from deferred_gui import DeferredAnalysis
 from config_gui import Config
 from data_handler import *
+from networker import GlobalContextHandler, GlobalCertificateHandler
+
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
 		QMainWindow.__init__(self)
 		#self.setMinimumSize(QSize(1280,600))
-
+		self.app = app
 		tabs = Tab(app)
 		self.setCentralWidget(tabs)
 
@@ -23,10 +25,24 @@ class mainWindow(QMainWindow):
 		activeThreads = threading.enumerate()
 		for thread in activeThreads:
 			if thread is not threading.currentThread():
-				thread.stop = True
-				thread.join()
+				print(type(thread))
+				try:
+					if thread.stop is False:
+						thread.stop = True
+						print("set")
+						thread.join()
+				except:
+					pass
 
+		certHandler = GlobalCertificateHandler.getInstance()
+		publicPath, _ = certHandler.getCertificatesPaths()
+		ctxHandler = GlobalContextHandler.getInstance(publicPath)
+		ctxHandler.cleanup()
+
+		print("exiting main", threading.enumerate())
+		self.app.exit()
 		sys.exit()
+
 
 class Tab(QTabWidget):
 	def __init__(self, app):

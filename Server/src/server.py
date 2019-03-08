@@ -5,6 +5,8 @@ import os
 import shutil
 import socket as s
 import sys
+import threading
+import time
 from collections import deque
 from threading import Thread
 
@@ -28,10 +30,15 @@ class CertificateHandler():
 		self.privateFilePath = self.privateFolderPath + "server-" + self.id + ".key_secret"
 
 	def _generateCertificates(self):
-		if os.path.exists(self.basePath):
-			shutil.rmtree(self.basePath)
+		if os.path.exists(self.publicFolderPath):
+			shutil.rmtree(self.publicFolderPath)
 
-		os.mkdir(self.basePath)
+		if os.path.exists(self.privateFolderPath):
+			shutil.rmtree(self.privateFolderPath)
+
+		if not os.path.exists(self.basePath):
+			os.mkdir(self.basePath)
+
 		os.mkdir(self.publicFolderPath)
 		os.mkdir(self.privateFolderPath)
 
@@ -48,6 +55,24 @@ class CertificateHandler():
 		return self.publicFolderPath, self.privateFolderPath
 
 
+class ContextHandler():
+	def __init__(self, publicPath):
+		self.__context = zmq.Context()
+		self.__auth = ThreadAuthenticator(self.__context)
+		self.__auth.start()
+		self.__auth.configure_curve(domain='*', location=publicPath)
+
+	def getContext(self):
+		return self.__context
+
+	def getAuth(self):
+		return self.__auth
+
+	def cleanup(self):
+		self.__auth.stop()
+		self.__context.destroy()
+
+
 class Listener(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)
@@ -55,12 +80,9 @@ class Listener(Thread):
 		certHandler = CertificateHandler(id="front")
 		publicPath, privatePath = certHandler.getCertificatesPaths()
 
-		context = zmq.Context.instance()
-		auth = ThreadAuthenticator(context)
-		auth.start()
-		# auth.allow()??
-		auth.configure_curve(domain='*', location=publicPath)
-
+		self.ctxHandler = ContextHandler(publicPath)
+		context = self.ctxHandler.getContext()
+		# auth.allow('134.0.0.1')
 		self.socket = context.socket(zmq.REP)
 
 		privateFile = privatePath + "server-front.key_secret"
@@ -69,12 +91,12 @@ class Listener(Thread):
 		self.socket.curve_publickey = publicKey
 		self.socket.curve_server = True
 
+		print(publicKey)
 		self.socket.bind(addr)
 
 		print("Listening on", addr)
 
 	def run(self):
-		print("Waiting")
 		while True:
 			received = self.socket.recv_string()
 
@@ -84,23 +106,37 @@ class Listener(Thread):
 			handler.start()
 
 			assignedPort = handler.getPort()
+			publicKey = handler.getPublicKey()
 
-			self.socket.send_string(str(assignedPort))
+			self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
 
 
 class FeedHandler(Thread):
 	def __init__(self, feedID):
 		Thread.__init__(self)
 
-		context = zmq.Context()
+		self.certHandler = CertificateHandler(id=feedID)
+		publicPath, privatePath = self.certHandler.getCertificatesPaths()
+
+		self.ctxHandler = ContextHandler(publicPath)
+		context = self.ctxHandler.getContext()
+
 		self.socket = context.socket(zmq.REP)
+
+		privateFile = privatePath + "server-" + feedID + ".key_secret"
+		self.publicKey, privateKey = zmq.auth.load_certificate(privateFile)
+		self.socket.curve_secretkey = privateKey
+		self.socket.curve_publickey = self.publicKey
+		self.socket.curve_server = True
+
 		self.port = self.socket.bind_to_random_port('tcp://*')
 		self.feedID = feedID
 
-		print("Waiting for", self.feedID, "on port", self.port)
-
 	def getPort(self):
 		return self.port
+
+	def getPublicKey(self):
+		return self.publicKey
 
 	def run(self):
 		helper = Helper()
@@ -111,10 +147,16 @@ class FeedHandler(Thread):
 		resultHandler = ResultsHandler(9, 30)
 		# bgRemover = BackgroundRemover(feed)
 
+		print("before set")
+		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
+		print("after set")
 		with session.as_default():
 			with graph.as_default():
 				while True:
-					received = self.socket.recv_string()
+					try:
+						received = self.socket.recv_string()
+					except:
+						break
 					jpegStr = b64.b64decode(received)
 					jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 					frame = cv2.imdecode(jpeg, 1)
@@ -128,6 +170,7 @@ class FeedHandler(Thread):
 
 					self.socket.send_string(str(alert))
 
+		print("Ending thread", self.feedID)
 
 class Helper():	
 	def extractRegions(self, frame, gridSize, regionSize, prepare=True, offset=False, offsetX=0, offsetY=0):
@@ -221,7 +264,7 @@ class BackgroundRemover():
 
 	def drawBoundingBox(self, frame):
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-		blurred = cv2.GaussianBlur(gray, (5,5), 0)
+		blurred = cv2.GaussianBlur(gray, (5, 5), 0)
 		equalized = self.clahe.apply(blurred)
 
 		diff = cv2.absdiff(equalized, self.background)

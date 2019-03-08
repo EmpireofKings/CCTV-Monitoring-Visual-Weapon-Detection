@@ -15,7 +15,7 @@ import cv2
 from data_handler import *
 from feed_loader import FeedLoader
 from layout_gui import Layout, LayoutMode
-from networker import Networker
+from networker import Networker, GlobalCertificateHandler, GlobalContextHandler
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -99,6 +99,11 @@ class gridViewer(QGridLayout):
 					feedDisplayer = FeedDisplayer(QSize(384,216), QSize(128, 72), camera, drawSpace, mainDisplay)
 					self.addWidget(feedDisplayer, row, col)
 
+					# instantiate singleton object before threads try to access them
+					certHandler = GlobalCertificateHandler.getInstance()
+					publicPath, _ = certHandler.getCertificatesPaths()
+					ctxHandler = GlobalContextHandler.getInstance(publicPath)
+
 					networker = Networker(camera, feedDisplayer, mainDisplay)
 					networker.setDaemon(True)
 					networker.start()
@@ -106,8 +111,6 @@ class gridViewer(QGridLayout):
 					loader = FeedLoader(camera, networker, feedDisplayer, mainDisplay)
 					loader.setDaemon(True)
 					loader.start()
-
-
 
 					count += 1
 				else:
