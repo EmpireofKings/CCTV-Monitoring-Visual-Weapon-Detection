@@ -17,7 +17,7 @@ class Terminator():
 		return Terminator.__instance
 
 	def terminate(self, signal, frame):
-		print("Termination signal received")
+		print("Termination signal received. Please wait while clean up occurs.")
 		self.__terminating = True
 
 	def isTerminating(self):

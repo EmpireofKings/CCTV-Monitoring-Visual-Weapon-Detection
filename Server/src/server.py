@@ -22,6 +22,7 @@ from zmq.utils.monitor import recv_monitor_message
 
 import signal
 
+
 class CertificateHandler():
 	def __init__(self, id):
 		self.id = id
@@ -114,6 +115,7 @@ class Listener(Thread):
 
 				self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
 			except:
+				print("Exception")
 				pass
 		self.socket.close()
 		self.ctxHandler.cleanup()
@@ -162,7 +164,7 @@ class Monitor(Thread):
 			for key, val in self.events.items():
 				if event == val:
 					assigned = True
-					# print(key, endpoint)
+					print(key, endpoint)
 
 			if assigned is False:
 				print(msg)
@@ -294,8 +296,6 @@ class Helper():
 				cv2.rectangle(img, (regionX, regionY), (regionX+regionW, regionY+regionH), (0,0,255), 3)
 				cv2.putText(img, label, (regionX+10, regionY+regionH-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2)
 				cv2.putText(img, str(regionResults[highest]), (regionX+10, regionY+regionH-60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,0,255), 1)
-
-
 			elif all:
 				label = "Clear"
 				regionX, regionY, regionW, regionH = drawCoords[count]
@@ -307,11 +307,12 @@ class Helper():
 		path = "../../Decent Models\model-current.h5"
 
 		model = tf.keras.models.load_model(path)
-		
+
 		if summary:
 			model.summary()
 
 		return model
+
 
 class BackgroundRemover():
 	def __init__(self, feed):
@@ -319,7 +320,7 @@ class BackgroundRemover():
 
 		while feed.isOpened():
 			check, frame = feed.read()
-			
+
 			if check:
 				cv2.imshow("Press enter to capture background", frame)
 				key = cv2.waitKey(0)
@@ -351,9 +352,10 @@ class BackgroundRemover():
 
 		return frame
 
+
 class ResultsHandler():
 	def __init__(self, amount, size):
-		
+
 		self.buffers = []
 		for _ in range(amount):
 			buf = self.ResultBuffer(size)
@@ -372,7 +374,7 @@ class ResultsHandler():
 		for buf in self.buffers:
 			l = len(buf)
 			lengths.append(l)
-		
+
 		return lengths
 
 	def __len__(self):
@@ -391,7 +393,6 @@ class ResultsHandler():
 		for avg in averages:
 			if max(avg) > 0.95:
 				return True
-
 
 	class ResultBuffer():
 		def __init__(self, size):

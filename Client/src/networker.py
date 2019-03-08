@@ -211,7 +211,7 @@ class Monitor(Thread):
 			for key, val in self.events.items():
 				if event == val:
 					assigned = True
-					# print(key, endpoint)
+					#print(key, endpoint)
 
 			if assigned is False:
 				print(msg)
@@ -268,7 +268,6 @@ class Networker(Thread):
 		socket = self.setupSocket('front', self.serverAddr + self.initPort)
 		socket.send_string(feedID)
 		initData = socket.recv_string()
-		print("INITDATA", feedID, initData)
 		parts = initData.split(" ")
 
 		mainPort = ':' + parts[0]
