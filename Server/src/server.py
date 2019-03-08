@@ -115,8 +115,8 @@ class Listener(Thread):
 
 				self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
 			except:
-				print("Exception")
 				pass
+
 		self.socket.close()
 		self.ctxHandler.cleanup()
 		print("Ending Listener Thread")
@@ -194,7 +194,7 @@ class FeedHandler(Thread):
 		self.socket.curve_publickey = self.publicKey
 		self.socket.curve_server = True
 
-		self.port = self.socket.bind_to_random_port('tcp://*')
+		self.port = self.socket.bind_to_random_port('tcp://*', min_port=49151, max_port=65535)
 		self.feedID = feedID
 
 	def getPort(self):
@@ -212,7 +212,7 @@ class FeedHandler(Thread):
 		resultHandler = ResultsHandler(9, 30)
 		# bgRemover = BackgroundRemover(feed)
 
-		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
+		self.socket.setsockopt(zmq.RCVTIMEO, 60000)
 		with session.as_default():
 			with graph.as_default():
 				while not self.terminator.isTerminating():
@@ -242,7 +242,7 @@ class FeedHandler(Thread):
 		print("Ending thread", self.feedID)
 
 
-class Helper():	
+class Helper():
 	def extractRegions(self, frame, gridSize, regionSize, prepare=True, offset=False, offsetX=0, offsetY=0):
 		h, w, c = np.shape(frame)
 
@@ -304,7 +304,7 @@ class Helper():
 		return img
 
 	def getDefaultModel(self, summary=False):
-		path = "../../Decent Models\model-current.h5"
+		path = "../../Decent Models/model-current.h5"
 
 		model = tf.keras.models.load_model(path)
 
