@@ -334,15 +334,21 @@ class LoginDialog(QDialog):
 
 			if registered:
 				activationDialog = ActivationDialog()
-				activationDialog.getKey(userID)
+				result = activationDialog.getKey(userID)
+				if result:
+					self.msgLabelRegister.setText('Donezo')
+				else:
+					self.msgLabelRegister.setText('Error please try again')
 			else:
 				self.msgLabelRegister.setText(msg)
 		else:
 			self.msgLabelRegister.setText(msg)
 
 	def registerUser(self, username, password, email):
-		socket = setupGlobalSocket(localAddr + registrationPort)
+		print("register user")
+		socket = setupGlobalSocket(serverAddr + registrationPort)
 		socket.send_string('REGISTER ' + username + ' ' + password + ' ' + email)
+		print("sent")
 		result = socket.recv_string()
 		print(result)
 		socket.close()
@@ -382,7 +388,7 @@ def setupGlobalSocket(addr):
 	socket.curve_publickey = publicKey
 	socket.curve_serverkey = serverKey
 
-	socket.connect(localAddr + registrationPort)
+	socket.connect(serverAddr + registrationPort)
 
 	return socket
 
@@ -416,14 +422,24 @@ class ActivationDialog(QDialog):
 
 	def activate(self):
 		key = self.activationEntryRegister.text()
-		data = self.validateKey(key)
+		validKey, msg = self.validateKey(key)
 
 		if validKey:
-			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket = setupGlobalSocket(serverAddr + registrationPort)
 			socket.send_string('ACTIVATE ' + key + ' ' + self.userID)
 			result = socket.recv_string()
-			print(result)
+			parts = result.split('  ')
+
+			activated = parts[0]
+			msg = parts[1]
+
+			if activated == 'True':
+				activated = True
+			else:
+				activated = False
+
 			if activated:
+				self.result = True
 				self.accept()
 			else:
 				self.msgLabelActivate.setText(msg)
