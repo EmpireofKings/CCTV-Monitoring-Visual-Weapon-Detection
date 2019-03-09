@@ -12,6 +12,8 @@ from config_gui import Config
 from data_handler import *
 from networker import GlobalContextHandler, GlobalCertificateHandler
 
+import string
+
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
@@ -22,7 +24,6 @@ class mainWindow(QMainWindow):
 		self.app = app
 		tabs = MainWindowTabs(app)
 		self.setCentralWidget(tabs)
-
 
 	def closeEvent(self, event):
 		activeThreads = threading.enumerate()
@@ -57,6 +58,14 @@ class LoginDialog(QDialog):
 		outerLayout = QHBoxLayout()
 		outerLayout.addWidget(tabs)
 		self.setLayout(outerLayout)
+
+		self.lowercase = list(string.ascii_lowercase)
+		self.uppercase = list(string.ascii_uppercase)
+		self.digits = list(string.digits)
+		self.whitespace = list(string.whitespace)
+		self.special = list(string.punctuation)
+
+		self.allValid = list(string.printable)
 
 	def setupLoginTab(self):
 		loginTab = QWidget()
@@ -98,12 +107,14 @@ class LoginDialog(QDialog):
 		usernameLayout = QHBoxLayout()
 		usernameLabel = QLabel("Username: ")
 		self.usernameEntryRegister = QLineEdit()
+		self.usernameEntryRegister.setMaxLength(32)
 		usernameLayout.addWidget(usernameLabel)
 		usernameLayout.addWidget(self.usernameEntryRegister)
 
 		emailLayout = QHBoxLayout()
 		emailLabel = QLabel("Email: ")
 		self.emailEntryRegister = QLineEdit()
+		self.emailEntryRegister.setMaxLength(254)
 		emailLayout.addWidget(emailLabel)
 		emailLayout.addWidget(self.emailEntryRegister)
 
@@ -111,12 +122,22 @@ class LoginDialog(QDialog):
 		passwordLabel = QLabel("Password: ")
 		self.passwordEntryRegister = QLineEdit()
 		self.passwordEntryRegister.setEchoMode(QLineEdit.Password)
+		self.passwordEntryRegister.setMaxLength(128)
 		passwordLayout.addWidget(passwordLabel)
 		passwordLayout.addWidget(self.passwordEntryRegister)
+
+		passConfLayout = QHBoxLayout()
+		passConfLabel = QLabel("Confirm Password: ")
+		self.passConfEntryRegister = QLineEdit()
+		self.passConfEntryRegister.setEchoMode(QLineEdit.Password)
+		self.passConfEntryRegister.setMaxLength(128)
+		passConfLayout.addWidget(passConfLabel)
+		passConfLayout.addWidget(self.passConfEntryRegister)
 
 		activationLayout = QHBoxLayout()
 		activationLabel = QLabel("Activation Key: ")
 		self.activationEntryRegister = QLineEdit()
+		self.activationEntryRegister.setMaxLength(32)
 		activationLayout.addWidget(activationLabel)
 		activationLayout.addWidget(self.activationEntryRegister)
 
@@ -134,8 +155,10 @@ class LoginDialog(QDialog):
 		outerRegisterLayout.addLayout(usernameLayout)
 		outerRegisterLayout.addLayout(emailLayout)
 		outerRegisterLayout.addLayout(passwordLayout)
+		outerRegisterLayout.addLayout(passConfLayout)
 		outerRegisterLayout.addLayout(activationLayout)
 		outerRegisterLayout.addLayout(buttonLayout)
+		outerRegisterLayout.addWidget(self.msgLabelRegister)
 		registerTab.setLayout(outerRegisterLayout)
 
 		return registerTab
@@ -160,48 +183,174 @@ class LoginDialog(QDialog):
 		valid = True
 		msg = ''
 
-		if username is None:
+		if username is None or username == '':
 			valid = False
-			msg += '\nUsername must not be blank'
+			msg += '\n\tMust not be blank'
 
-		if len(username) < 8:
+		if len(username) < 5:
 			valid = False
-			msg += '\nUsername must be at least 8 characters long'
+			msg += '\n\tMust be at least 5 characters long'
+		elif len(username) > 32:
+			valid = False
+			msg += '\n\tMust be no more than 32 characters long'
 
+		if any(char in username for char in self.whitespace):
+			valid = False
+			msg += '\n\tMust not contain whitespace'
 
-	def validatePassword(self, password):
+		if any(char in username for char in self.special):
+			valid = False
+			msg += '\n\tMust not contain speical characters'
+
+		for char in username:
+			if char not in self.allValid:
+				valid = False
+				msg = '\n\tInvalid character: ' + char
+				break
+
+		return valid, msg
+
+	def validatePassword(self, password, passConf, username):
+		valid = True
+		msg = ''
+
+		if password is None or password == '':
+			valid = False
+			msg += '\n\tMust not be blank'
+
+		if password != passConf:
+			valid = False
+			msg += '\n\tConfirmation password does not match'
+
+		if len(password) < 8:
+			valid = False
+			msg += '\n\tMust be at least 8 characters long'
+
+		elif len(password) > 128:
+			valid = False
+			msg += '\n\tMust not be no more than 128 characters long'
+
+		if username in password:
+			valid = False
+			msg += '\n\tMust not contain username'
+
+		if not any(char in password for char in self.lowercase):
+			valid = False
+			msg += '\n\tMust contain at least one lowercase letter'
+
+		if not any(char in password for char in self.uppercase):
+			valid = False
+			msg += '\n\tMust contain at least one uppercase letter'
+
+		if not any(char in password for char in self.digits):
+			valid = False
+			msg += '\n\tMust contain at least one digit'
+
+		if not any(char in password for char in self.special):
+			valid = False
+			msg += '\n\tMust contain at least one special character'
+
+		if any(char in password for char in self.whitespace):
+			valid = False
+			msg += '\n\tMust not contain whitespace'
+
+		for char in password:
+			if char not in self.allValid:
+				valid = False
+				msg = '\n\tInvalid character: ' + char
+				break
+
+		return valid, msg
 
 	def validateEmail(self, email):
+		valid = True
+		msg = ''
+
+		if email is None or email == '':
+			valid = False
+			msg += '\n\tMust not be blank'
+		else:
+			parts = email.split('@')
+			if len(parts) != 2:
+				valid = False
+				msg += '\n\tInvalid structure regarding @'
+			else:
+				prefix = parts[0]
+				domain = parts[1]
+
+				if prefix == '' :
+					valid = False
+					msg += '\n\tBlank prefix'
+
+				if domain == '':
+					valid = False
+					msg += '\n\tBlank Domain'
+
+				parts = domain.split('.')
+
+				if len(parts) != 2 or parts[0] == '' or parts[1] == '':
+					valid = False
+					msg += '\n\tInvalid Domain'
+
+		if len(email) > 254:
+			valid = False
+			msg += "\n\tMust not exceed 254 characters"
+
+		return valid, msg
 
 	def validateKey(self, key):
+		valid = True
+		msg = ''
 
+		hexdigits = list(string.hexdigits)
+
+		if key is None or key == '':
+			valid = False
+			msg += '\n\tMust not be blank'
+
+		if len(key) != 32:
+			valid = False
+			msg += '\n\tMust be exactly 32 characters long'
+
+		for char in key:
+			if char not in hexdigits:
+				valid = False
+				msg += '\n\tInvalid Character: ' + char
+				break
+
+		return valid, msg
 
 	def register(self):
-		username = self.usernameEntryRegister.displayText()
-		password = self.passwordEntryRegister.displayText()
-		email = self.emailEntryRegiter.displayText()
-		activationKey = self.activationEntryRegister.displayText()
+		username = self.usernameEntryRegister.text()
+		password = self.passwordEntryRegister.text()
+		passConf = self.passConfEntryRegister.text()
+		email = self.emailEntryRegister.text()
+		activationKey = self.activationEntryRegister.text()
 
 		validParameters = True
 		msg = ''
 
-		if not self.validateUsername(username):
-			validParameters = False
-			msg += "\nUsername invalid"  # TODO + reqs
+		validUsername, usernameMsg = self.validateUsername(username)
+		if usernameMsg != '':
+			msg += '\nUsername:' + usernameMsg
 
-		if not self.validatePassword(password):
-			validParameters = False
-			msg += "\nPassword invalid"  # TODO + reqs
+		# password validation uses username
+		if validUsername:
+			validPassword, passwordMsg = self.validatePassword(
+				password, passConf, username)
 
-		if not self.validateEmail(email):
-			validParameters = False
-			msg += "\nEmail invalid"  # TODO + reqs
+			if passwordMsg != '':
+				msg += '\nPassword:' + passwordMsg
 
-		if not self.validateKey(activationKey):
-			validParameters = False
-			msg += "\nActivation Key invalid"  # TODO + reqs
+		validEmail, emailMsg = self.validateEmail(email)
+		if emailMsg != '':
+			msg += '\nEmail:' + emailMsg
 
-		if validParameters:
+		validKey, keyMsg = self.validateKey(activationKey)
+		if keyMsg != '':
+			msg += '\nKey:' + keyMsg
+
+		if validUsername and validPassword and validEmail and validKey:
 			registered, msg = self.registerUser(
 				username,
 				password,
@@ -212,6 +361,8 @@ class LoginDialog(QDialog):
 				self.accept()
 			else:
 				self.msgLabelRegister.setText(msg)
+		else:
+			self.msgLabelRegister.setText(msg)
 
 	def registerUser(self, username, password, email, activationKey):
 		return False, "Could not register"
@@ -225,6 +376,7 @@ class LoginDialog(QDialog):
 
 	def closeEvent(self, event):
 		sys.exit()
+
 
 class MainWindowTabs(QTabWidget):
 	def __init__(self, app):
