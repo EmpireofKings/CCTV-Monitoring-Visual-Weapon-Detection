@@ -70,7 +70,7 @@ class RegistrationListener(Thread):
 				if parts[0] == "REGISTER":
 					
 				elif parts[0] == "ACTIVATE":
-
+					
 				else:
 					
 
