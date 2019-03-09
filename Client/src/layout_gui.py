@@ -92,7 +92,6 @@ class LayoutPainter(QFrame):
 				painter.setBrush(QBrush(QColor(255, 0, 0)))
 				painter.drawEllipse(self.lastMousePos, 10, 10)
 
-
 	def mousePressEvent(self, event):
 		if self.data[0] != []:
 			id = self.getCloseCam(event.x(), event.y())
@@ -101,7 +100,7 @@ class LayoutPainter(QFrame):
 				self.mainFeedID = id
 				self.repaint()
 
-			if self.placing == True:
+			if self.placing is True:
 				cameraDialog = self.CameraDialog(self.mainFeedID, self.currentLevel)
 				name, location, angle, color, size, staticBackground = cameraDialog.getCameraInfo()
 
@@ -154,8 +153,6 @@ class LayoutPainter(QFrame):
 			self.backgroundName.setPlaceholderText("Static Background Image Path (Optional)")
 			self.backgroundButton = QPushButton("Browse")
 			self.backgroundButton.clicked.connect(self.getStaticBackground)
-
-
 
 			self.layout = QVBoxLayout()
 			self.layout.addWidget(ids)
@@ -436,7 +433,6 @@ class LayoutControls(QFrame):
 			msgBox = QMessageBox()
 			msgBox.setText("Nothing to save.")
 			msgBox.exec()
-
 
 	def setSize(self):
 		if self.data[0] != []:
