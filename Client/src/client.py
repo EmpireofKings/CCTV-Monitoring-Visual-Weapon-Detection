@@ -12,7 +12,12 @@ from config_gui import Config
 from data_handler import *
 from networker import GlobalContextHandler, GlobalCertificateHandler
 
+import zmq
 import string
+
+serverAddr = 'tcp://35.204.135.105'
+localAddr = 'tcp://127.0.0.1'
+registrationPort = ':5001'
 
 
 class mainWindow(QMainWindow):
@@ -134,13 +139,6 @@ class LoginDialog(QDialog):
 		passConfLayout.addWidget(passConfLabel)
 		passConfLayout.addWidget(self.passConfEntryRegister)
 
-		activationLayout = QHBoxLayout()
-		activationLabel = QLabel("Activation Key: ")
-		self.activationEntryRegister = QLineEdit()
-		self.activationEntryRegister.setMaxLength(32)
-		activationLayout.addWidget(activationLabel)
-		activationLayout.addWidget(self.activationEntryRegister)
-
 		buttonLayout = QHBoxLayout()
 		registerButton = QPushButton("Register")
 		registerButton.clicked.connect(self.register)
@@ -156,7 +154,6 @@ class LoginDialog(QDialog):
 		outerRegisterLayout.addLayout(emailLayout)
 		outerRegisterLayout.addLayout(passwordLayout)
 		outerRegisterLayout.addLayout(passConfLayout)
-		outerRegisterLayout.addLayout(activationLayout)
 		outerRegisterLayout.addLayout(buttonLayout)
 		outerRegisterLayout.addWidget(self.msgLabelRegister)
 		registerTab.setLayout(outerRegisterLayout)
@@ -298,6 +295,144 @@ class LoginDialog(QDialog):
 
 		return valid, msg
 
+	def register(self):
+		username = self.usernameEntryRegister.text()
+		password = self.passwordEntryRegister.text()
+		passConf = self.passConfEntryRegister.text()
+		email = self.emailEntryRegister.text()
+
+		validParameters = True
+		msg = ''
+
+		validUsername, usernameMsg = self.validateUsername(username)
+		if usernameMsg != '':
+			msg += '\nUsername:' + usernameMsg
+
+		# password validation uses username
+		if validUsername:
+			validPassword, passwordMsg = self.validatePassword(
+				password, passConf, username)
+
+			if passwordMsg != '':
+				msg += '\nPassword:' + passwordMsg
+
+		validEmail, emailMsg = self.validateEmail(email)
+		if emailMsg != '':
+			msg += '\nEmail:' + emailMsg
+
+		if validUsername and validPassword and validEmail:
+			data = self.registerUser(
+				username,
+				password,
+				email)
+
+			registered = data[0]
+			msg = data[1]
+
+			if len(data) == 3:
+				userID = data[2]
+
+			if registered:
+				activationDialog = ActivationDialog()
+				activationDialog.getKey(userID)
+			else:
+				self.msgLabelRegister.setText(msg)
+		else:
+			self.msgLabelRegister.setText(msg)
+
+	def registerUser(self, username, password, email):
+		socket = setupGlobalSocket(localAddr + registrationPort)
+		socket.send_string('REGISTER ' + username + ' ' + password + ' ' + email)
+		result = socket.recv_string()
+		print(result)
+		socket.close()
+
+		parts = result.split('  ')
+		result = parts[0]
+		msg = parts[1]
+
+		if result == 'True':
+			return True, msg, parts[2]
+		else:
+			return False, msg
+
+	def exit(self):
+		sys.exit()
+
+	def getUserData(self):
+		self.exec()
+		return self.result
+
+	def closeEvent(self, event):
+		sys.exit()
+
+
+def setupGlobalSocket(addr):
+	certHandler = GlobalCertificateHandler.getInstance()
+	serverPath = certHandler.getServerKey()
+	serverKey = zmq.auth.load_certificate(serverPath)[0]
+	publicPath, privatePath = certHandler.getCertificatesPaths()
+	ctxHandler = GlobalContextHandler.getInstance(publicPath)
+	context = ctxHandler.getContext()
+
+	socket = context.socket(zmq.REQ)
+	privateFile = privatePath + "client-front.key_secret"
+	publicKey, privateKey = zmq.auth.load_certificate(privateFile)
+	socket.curve_secretkey = privateKey
+	socket.curve_publickey = publicKey
+	socket.curve_serverkey = serverKey
+
+	socket.connect(localAddr + registrationPort)
+
+	return socket
+
+
+class ActivationDialog(QDialog):
+	def __init__(self):
+		QDialog.__init__(self)
+
+		outerLayout = QVBoxLayout()
+		activationLayout = QHBoxLayout()
+		activationLabel = QLabel("Activation Key: ")
+		self.activationEntryRegister = QLineEdit()
+		self.activationEntryRegister.setMaxLength(32)
+		activationLayout.addWidget(activationLabel)
+		activationLayout.addWidget(self.activationEntryRegister)
+
+		buttonLayout = QHBoxLayout()
+		registerButton = QPushButton("Activate")
+		registerButton.clicked.connect(self.activate)
+		exitButton = QPushButton("Cancel")
+		exitButton.clicked.connect(self.cancel)
+		buttonLayout.addWidget(registerButton)
+		buttonLayout.addWidget(exitButton)
+
+		self.msgLabelActivate = QLabel()
+
+		outerLayout.addLayout(activationLayout)
+		outerLayout.addLayout(buttonLayout)
+		outerLayout.addWidget(self.msgLabelActivate)
+		self.setLayout(outerLayout)
+
+	def activate(self):
+		key = self.activationEntryRegister.text()
+		data = self.validateKey(key)
+
+		if validKey:
+			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket.send_string('ACTIVATE ' + key + ' ' + self.userID)
+			activated, msg = socket.recv_string()
+
+			if activated:
+				self.accept()
+			else:
+				self.msgLabelActivate.setText(msg)
+		else:
+			self.msgLabelActivate.setText(msg)
+
+	def cancel(self):
+		self.reject()
+
 	def validateKey(self, key):
 		valid = True
 		msg = ''
@@ -320,62 +455,10 @@ class LoginDialog(QDialog):
 
 		return valid, msg
 
-	def register(self):
-		username = self.usernameEntryRegister.text()
-		password = self.passwordEntryRegister.text()
-		passConf = self.passConfEntryRegister.text()
-		email = self.emailEntryRegister.text()
-		activationKey = self.activationEntryRegister.text()
-
-		validParameters = True
-		msg = ''
-
-		validUsername, usernameMsg = self.validateUsername(username)
-		if usernameMsg != '':
-			msg += '\nUsername:' + usernameMsg
-
-		# password validation uses username
-		if validUsername:
-			validPassword, passwordMsg = self.validatePassword(
-				password, passConf, username)
-
-			if passwordMsg != '':
-				msg += '\nPassword:' + passwordMsg
-
-		validEmail, emailMsg = self.validateEmail(email)
-		if emailMsg != '':
-			msg += '\nEmail:' + emailMsg
-
-		validKey, keyMsg = self.validateKey(activationKey)
-		if keyMsg != '':
-			msg += '\nKey:' + keyMsg
-
-		if validUsername and validPassword and validEmail and validKey:
-			registered, msg = self.registerUser(
-				username,
-				password,
-				email,
-				activationKey)
-
-			if registered:
-				self.accept()
-			else:
-				self.msgLabelRegister.setText(msg)
-		else:
-			self.msgLabelRegister.setText(msg)
-
-	def registerUser(self, username, password, email, activationKey):
-		return False, "Could not register"
-
-	def exit(self):
-		sys.exit()
-
-	def getUserData(self):
+	def getKey(self, userID):
+		self.userID = userID
 		self.exec()
 		return self.result
-
-	def closeEvent(self, event):
-		sys.exit()
 
 
 class MainWindowTabs(QTabWidget):

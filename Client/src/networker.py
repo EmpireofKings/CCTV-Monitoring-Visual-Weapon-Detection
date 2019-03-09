@@ -56,24 +56,24 @@ class GlobalCertificateHandler():
 			self.publicFolderPath = (
 				self.basePath +
 				'/Public-' +
-				str(id) +
+				str(self.id) +
 				'/')
 
 			self.privateFolderPath = (
 				self.basePath +
 				'/Private-' +
-				str(id) +
+				str(self.id) +
 				'/')
 
 			self.publicFilePath = (
 				self.publicFolderPath +
-				"server-" +
+				"client-" +
 				self.id +
 				".key")
 
 			self.privateFilePath = (
 				self.privateFolderPath +
-				"server-" +
+				"client-" +
 				self.id +
 				".key_secret")
 
@@ -157,13 +157,13 @@ class CertificateHandler():
 
 		self.publicFilePath = (
 			self.publicFolderPath +
-			"server-" +
+			"client-" +
 			self.id +
 			".key")
 
 		self.privateFilePath = (
 			self.privateFolderPath +
-			"server-" +
+			"client-" +
 			self.id +
 			".key_secret")
 
