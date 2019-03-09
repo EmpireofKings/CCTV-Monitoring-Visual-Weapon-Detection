@@ -421,8 +421,8 @@ class ActivationDialog(QDialog):
 		if validKey:
 			socket = setupGlobalSocket(localAddr + registrationPort)
 			socket.send_string('ACTIVATE ' + key + ' ' + self.userID)
-			activated, msg = socket.recv_string()
-
+			result = socket.recv_string()
+			print(result)
 			if activated:
 				self.accept()
 			else:

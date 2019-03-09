@@ -13,26 +13,6 @@ from context_handler import ContextHandler
 from terminator import Terminator
 from monitor import Monitor
 
-
-# db = sql.connect(
-# 	os.environ["DBHOST"], os.environ["DBUSER"],
-# 	os.environ["DBPASS"], os.environ["DBNAME"])
-
-# cursor = db.cursor()
-
-# count = None
-
-# while count != 0:
-# 	id = uuid.uuid4().hex
-# 	cursor.execute("select * from productKey where activationKey = %s", (id,))
-# 	count = cursor.rowcount
-
-# cursor.execute("insert into productKey (activationKey) values (%s)", (id,))
-# db.commit()
-
-# print("Activation Key:", id)
-
-
 class RegistrationListener(Thread):
 	def __init__(self):
 		Thread.__init__(self)
@@ -70,38 +50,97 @@ class RegistrationListener(Thread):
 				parts = recevied.split(' ')
 
 				if parts[0] == "REGISTER":
+					success = True
+					msg = 'Account Registered'
+
 					hasher = PasswordHasher()
-					username = parts[1]
-					password = hasher.hash(parts[2])
-					email = parts[3]
 
-					global cursor
-					count = cursor.execute(
-						"""insert into users(username, password, email)
-						values(%s, %s, %s)""", (username, password, email))
-					userID = cursor.lastrowid
+					try:
+						username = parts[1]
+						password = hasher.hash(parts[2])
+						email = parts[3]
+					except:
+						success = False
+						msg += '\n\tError in parameters provided'
 
-					if count == 1 and userID is not None:
-						found = None
-
-						while found != 0:
-							key = uuid.uuid4().hex
-							cursor.execute(
-								"""select * from productKey where activationKey = %s""",
-								 (key,))
-							found = cursor.rowcount
+					if success:
+						global cursor
 
 						cursor.execute(
-							"""insert into productKey(activationKey, userID)
-							values(%s, %s)""", (key, userID))
+							"""select * from users where username = %s""", (username,))
 
-						cursor.commit()
+						if cursor.rowcount != 0:
+							success = False
+							msg += '\n\tUsername already taken'
+
+						cursor.execute(
+							"""select * from users where username = %s""", (email, ))
+
+						if cursor.rowcount != 0:
+							success = False
+							msg += '\n\tEmail already registered'
+
+						if success:
+							count = cursor.execute(
+								"""insert into users(username, password, email)
+								values(%s, %s, %s)""", (username, password, email))
+							userID = cursor.lastrowid
+
+							cursor.commit()
+
+							if count == 1 and userID is not None:
+								found = None
+
+								while found != 0:
+									key = uuid.uuid4().hex
+									cursor.execute(
+										"""select * from productKey where activationKey = %s""",
+										(key,))
+
+									found = cursor.rowcount
+
+								inserted = cursor.execute(
+									"""insert into productKey(activationKey, userID)
+									values(%s, %s)""", (key, userID))
+
+								cursor.commit()
+
+								if inserted != 1:
+									success = False
+									msg = 'Failed to register activation key, contact support.'
+							else:
+								success = False
+								msg += '\n\tFailed to register'
+
 				elif parts[0] == "ACTIVATE":
-					
-				else:
-					
+					success = True
+					msg = 'Account Activated'
 
-				self.socket.send_string('True  No DB  1')
+					try:
+						key = parts[1]
+						userID = parts[2]
+					except:
+						success = False
+						msg = 'Error in parameters provided'
+
+					if success:
+						cursor.execute(
+							"""select * from productKey
+							where activationKey = %s and userID = %s""", (key, userID))
+
+						if cursor.rowcount != 1:
+							success = False
+							msg = 'Key not registered to user.'
+						else:
+							cursor.execute(
+								"""update productKey
+								set activationCount = activationCount + 1
+								where activationKey = %s and userID = %s""", (key, userID))
+				else:	
+					success = False
+					msg = 'Invalid Instruction'
+
+				self.socket.send_string(str(success) + '  ' + msg + '  ' + str(usedID))
 			except:
 				pass
 
