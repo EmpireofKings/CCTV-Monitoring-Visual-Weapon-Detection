@@ -5,6 +5,8 @@ import uuid
 from threading import Thread
 import zmq
 
+from argon2 import PasswordHasher
+
 # import MySQLdb as sql
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
@@ -68,7 +70,32 @@ class RegistrationListener(Thread):
 				parts = recevied.split(' ')
 
 				if parts[0] == "REGISTER":
-					
+					hasher = PasswordHasher()
+					username = parts[1]
+					password = hasher.hash(parts[2])
+					email = parts[3]
+
+					global cursor
+					count = cursor.execute(
+						"""insert into users(username, password, email)
+						values(%s, %s, %s)""", (username, password, email))
+					userID = cursor.lastrowid
+
+					if count == 1 and userID is not None:
+						found = None
+
+						while found != 0:
+							key = uuid.uuid4().hex
+							cursor.execute(
+								"""select * from productKey where activationKey = %s""",
+								 (key,))
+							found = cursor.rowcount
+
+						cursor.execute(
+							"""insert into productKey(activationKey, userID)
+							values(%s, %s)""", (key, userID))
+
+						cursor.commit()
 				elif parts[0] == "ACTIVATE":
 					
 				else:
@@ -86,6 +113,12 @@ class RegistrationListener(Thread):
 
 if __name__ == '__main__':
 	terminator = Terminator.getInstance()
+
+	db = sql.connect(
+ 	os.environ["DBHOST"], os.environ["DBUSER"],
+ 	os.environ["DBPASS"], os.environ["DBNAME"])
+
+	cursor = db.cursor()
 
 	regListener = RegistrationListener()
 	regListener.setDaemon(True)
