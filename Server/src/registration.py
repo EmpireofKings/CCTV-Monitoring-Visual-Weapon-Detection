@@ -115,15 +115,21 @@ class RegistrationListener(Thread):
 									success = False
 									msg = 'Failed to register activation key, contact support.'
 								else:
-									mail = EmailMessage()
-									mail.set_content(key)
-									mail['Subject'] = 'Activation Key'
-									mail['From'] = 'benjmr96@gmail.com'
-									mail['To'] = email
+									message = EmailMessage()
+									message.set_content(key)
+									message['Subject'] = 'Activation Key'
+									message['From'] = 'ben96ryan@gmail.com'
+									message['To'] = email
 
-									s = smtplib.SMTP('localhost')
-									s.send_message(mail)
-									s.quit()
+									try:
+										mailserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+										mailserver.ehlo()
+										mailserver.login(os.enivron['EMAILUSER'], os.environ["EMAILPASS"])
+										mailserver.send_message(message)
+										s.close()
+									except Exception as e:
+										print(e)
+
 							else:
 								success = False
 								msg += '\n\tFailed to register'
