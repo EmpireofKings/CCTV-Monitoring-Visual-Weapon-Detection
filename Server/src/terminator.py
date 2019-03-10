@@ -1,5 +1,5 @@
 import signal
-
+import logging
 
 class Terminator():
 	__instance = None
@@ -8,6 +8,7 @@ class Terminator():
 		self.__terminating = False
 		signal.signal(signal.SIGTERM, self.terminate)
 		signal.signal(signal.SIGINT, self.terminate)
+		logging.info('Terminator signals linked')
 
 	@staticmethod
 	def getInstance():
@@ -17,7 +18,7 @@ class Terminator():
 		return Terminator.__instance
 
 	def terminate(self, signal, frame):
-		print("Termination signal received, please wait.")
+		logging.info('Termination signal received, please wait.')
 		self.__terminating = True
 
 	def autoTerminate(self):

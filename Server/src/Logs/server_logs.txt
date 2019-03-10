@@ -1,0 +1,411 @@
+Begin
+DEBUG - 2019-03-10 20:26:55,141 - 2411 - Model/Graph ready
+DEBUG - 2019-03-10 20:26:55,214 - 2411 - Starting
+DEBUG - 2019-03-10 20:26:55,215 - 2411 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:26:55,216 - 2411 - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-10 20:26:55,227 - 2411 - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:26:55,228 - 2411 - Feed listener thread started
+DEBUG - 2019-03-10 20:26:55,485 - 2411 - Connected to database
+DEBUG - 2019-03-10 20:26:55,486 - 2411 - Starting
+DEBUG - 2019-03-10 20:26:55,486 - 2411 - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:26:55,487 - 2411 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:26:55,487 - 2411 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:26:55,487 - 2411 - Socket monitor thread started
+DEBUG - 2019-03-10 20:26:55,488 - 2411 - Authentication thread started
+DEBUG - 2019-03-10 20:26:55,488 - 2411 - Authentication thread shutting down gracefully
+DEBUG - 2019-03-10 20:26:55,488 - 2411 - Main thread ending
+DEBUG - 2019-03-10 20:27:09,952 - 2556 - Model/Graph ready
+DEBUG - 2019-03-10 20:27:09,953 - 2556 - Starting
+INFO - 2019-03-10 20:27:09,954 - 2556 - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:27:09,955 - 2556 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:27:09,955 - 2556 - Feed listener thread started
+DEBUG - 2019-03-10 20:27:09,955 - 2556 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:27:09,966 - 2556 - Connected to database
+DEBUG - 2019-03-10 20:27:09,967 - 2556 - Starting
+DEBUG - 2019-03-10 20:27:09,968 - 2556 - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:27:09,968 - 2556 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:27:09,969 - 2556 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:27:09,969 - 2556 - Socket monitor thread started
+DEBUG - 2019-03-10 20:27:09,969 - 2556 - Authentication thread started
+DEBUG - 2019-03-10 20:27:24,982 - 2556 - Main thread ending
+INFO - 2019-03-10 20:31:28,764 - 139756945618752 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-10 20:31:32,391 - 139756945618752 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:31:32,392 - 139753353615104 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:31:32,392 - 139753353615104 - Thread-2 - auth received API command b'CURVE'
+INFO - 2019-03-10 20:31:32,393 - 139756945618752 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:31:32,393 - 139753353615104 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:31:32,394 - 139756945618752 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:31:32,404 - 139756945618752 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:31:32,404 - 139753154397952 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:31:32,405 - 139756945618752 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:31:32,405 - 139753154397952 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:31:32,405 - 139753154397952 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:31:32,406 - 139756945618752 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:31:32,406 - 139756945618752 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:32:32,463 - 139756945618752 - MainThread - Main thread ending
+INFO - 2019-03-10 20:34:42,440 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-10 20:34:45,727 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:34:45,728 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:34:45,729 - Thread-2 - auth received API command b'CURVE'
+INFO - 2019-03-10 20:34:45,730 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:34:45,730 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:34:45,730 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:34:45,740 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:34:45,740 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:34:45,741 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:34:45,741 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:34:45,741 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:34:45,742 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:34:45,742 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:35:22,553 - Thread-4 - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-10 20:35:22,554 - Thread-4 - DENIED (CURVE) domain=* client_key=b'rl:v.+/iNs2ai{TYT{<dhS))@f<=.u*INyG.i7M!'
+DEBUG - 2019-03-10 20:35:22,554 - Thread-4 - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-10 20:35:40,797 - MainThread - Main thread ending
+DEBUG - 2019-03-10 20:35:45,797 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-10 20:36:12,212 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-10 20:36:15,598 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:36:15,599 - Thread-2 - Starting
+INFO - 2019-03-10 20:36:15,601 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:36:15,601 - Thread-2 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:36:15,602 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:36:15,602 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:36:15,612 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:36:15,613 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:36:15,614 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:36:15,614 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:36:15,614 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:36:15,615 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:36:15,615 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:36:32,201 - Thread-4 - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-10 20:36:32,201 - Thread-4 - DENIED (CURVE) domain=* client_key=b'Iw$D[BrL3$b9xGkcn$hL/Tu3=)7cU8%0mQljt}*s'
+DEBUG - 2019-03-10 20:36:32,201 - Thread-4 - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-10 20:36:45,640 - Authenticator - Authentication thread shutting down gracefully
+DEBUG - 2019-03-10 20:36:45,641 - MainThread - Main thread ending
+INFO - 2019-03-10 20:37:14,481 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-10 20:37:17,876 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:37:17,877 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:37:17,878 - Thread-2 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:37:17,879 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-10 20:37:17,879 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:37:17,880 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:37:17,890 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:37:17,891 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:37:17,891 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:37:17,891 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:37:17,892 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:37:17,892 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:37:17,892 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:37:28,837 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-10 20:37:29,194 - Thread-4 - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-10 20:37:29,194 - Thread-4 - DENIED (CURVE) domain=* client_key=b'xp-r6k#pJHg/xUFuH[N1p]q}sx=X3VDV*[R)*rnh'
+DEBUG - 2019-03-10 20:37:29,194 - Thread-4 - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-10 20:37:29,194 - Monitor - EVENT_HANDSHAKE_FAILED_AUTH b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-10 20:37:29,226 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-10 20:38:42,980 - MainThread - Main thread ending
+DEBUG - 2019-03-10 20:38:47,980 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-10 20:44:33,863 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-10 20:44:37,212 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:44:37,213 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:44:37,214 - Thread-2 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:44:37,215 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-10 20:44:37,215 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:44:37,216 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:44:37,226 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:44:37,227 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:44:37,227 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:44:37,227 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:44:37,228 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:44:37,228 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:44:37,228 - MainThread - Authentication thread started
+INFO - 2019-03-10 20:44:40,169 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-10 20:44:42,231 - MainThread - Main thread ending
+INFO - 2019-03-10 20:44:47,227 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-10 20:44:47,236 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-10 20:47:39,637 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 20:47:39,637 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 20:47:43,058 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:47:43,060 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:47:43,061 - Thread-2 - auth received API command b'CURVE'
+INFO - 2019-03-10 20:47:43,062 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:47:43,062 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:47:43,062 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:47:43,073 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:47:43,074 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:47:43,075 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:47:43,075 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:47:43,075 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:47:43,076 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:47:43,076 - MainThread - Authentication thread started
+INFO - 2019-03-10 20:48:01,783 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-10 20:48:03,084 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-10 20:48:03,093 - MainThread - Main thread ending
+DEBUG - 2019-03-10 20:48:03,097 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-10 20:55:00,417 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 20:55:00,418 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 20:55:04,121 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:55:04,122 - Thread-2 - Starting
+CRITICAL - 2019-03-10 20:55:04,122 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 164, in __getattr__
+    object.__getattr__(self, key)
+AttributeError: type object 'object' has no attribute '__getattr__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "server.py", line 70, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "/home/ben96ryan/dev/Server/src/feed_listener.py", line 17, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 11, in __init__
+    self.auth.setName("CurveAuth")
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 166, in __getattr__
+    return getattr(self.thread.authenticator, key)
+AttributeError: 'Authenticator' object has no attribute 'setName'
+DEBUG - 2019-03-10 20:55:04,123 - Thread-2 - auth received API command b'CURVE'
+INFO - 2019-03-10 20:55:04,131 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-10 20:55:04,131 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:55:04,132 - Thread-2 - auth received API command b'TERMINATE'
+DEBUG - 2019-03-10 20:55:04,142 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:55:04,143 - Thread-4 - Starting
+CRITICAL - 2019-03-10 20:55:04,143 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 164, in __getattr__
+    object.__getattr__(self, key)
+AttributeError: type object 'object' has no attribute '__getattr__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 41, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 11, in __init__
+    self.auth.setName("CurveAuth")
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 166, in __getattr__
+    return getattr(self.thread.authenticator, key)
+AttributeError: 'Authenticator' object has no attribute 'setName'
+DEBUG - 2019-03-10 20:55:04,143 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:55:04,144 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:55:04,144 - Thread-4 - auth received API command b'TERMINATE'
+CRITICAL - 2019-03-10 20:55:04,144 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 58, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-10 20:55:04,145 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 134, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-10 20:55:04,145 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:55:04,145 - MainThread - Main thread ending
+INFO - 2019-03-10 20:56:21,501 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 20:56:21,501 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 20:56:25,207 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:56:25,208 - Thread-2 - Starting
+CRITICAL - 2019-03-10 20:56:25,208 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 164, in __getattr__
+    object.__getattr__(self, key)
+AttributeError: type object 'object' has no attribute '__getattr__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "server.py", line 70, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "/home/ben96ryan/dev/Server/src/feed_listener.py", line 17, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 11, in __init__
+    self.auth.Thread.setName("CurveAuth")
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 166, in __getattr__
+    return getattr(self.thread.authenticator, key)
+AttributeError: 'Authenticator' object has no attribute 'Thread'
+DEBUG - 2019-03-10 20:56:25,208 - Thread-2 - auth received API command b'CURVE'
+INFO - 2019-03-10 20:56:25,209 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-10 20:56:25,209 - Thread-2 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:56:25,210 - Thread-2 - auth received API command b'TERMINATE'
+DEBUG - 2019-03-10 20:56:25,220 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:56:25,221 - Thread-4 - Starting
+CRITICAL - 2019-03-10 20:56:25,221 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 164, in __getattr__
+    object.__getattr__(self, key)
+AttributeError: type object 'object' has no attribute '__getattr__'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 41, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 11, in __init__
+    self.auth.Thread.setName("CurveAuth")
+  File "/usr/local/lib/python3.6/dist-packages/zmq/auth/thread.py", line 166, in __getattr__
+    return getattr(self.thread.authenticator, key)
+AttributeError: 'Authenticator' object has no attribute 'Thread'
+DEBUG - 2019-03-10 20:56:25,222 - Thread-4 - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:56:25,222 - Thread-4 - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:56:25,222 - Thread-4 - auth received API command b'TERMINATE'
+CRITICAL - 2019-03-10 20:56:25,223 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 58, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-10 20:56:25,223 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 134, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-10 20:56:25,223 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 20:56:25,224 - MainThread - Main thread ending
+INFO - 2019-03-10 20:58:30,438 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 20:58:30,438 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 20:58:33,759 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 20:58:33,761 - Thread-2 - Starting
+DEBUG - 2019-03-10 20:58:33,761 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:58:33,762 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-10 20:58:33,762 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 20:58:33,763 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 20:58:33,772 - MainThread - Connected to database
+DEBUG - 2019-03-10 20:58:33,773 - Thread-4 - Starting
+DEBUG - 2019-03-10 20:58:33,774 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 20:58:33,774 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-10 20:58:33,775 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 20:58:33,775 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 20:58:33,775 - MainThread - Authentication thread started
+INFO - 2019-03-10 20:59:26,954 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-10 20:59:28,829 - MainThread - Main thread ending
+INFO - 2019-03-10 20:59:33,826 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-10 20:59:58,374 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 20:59:58,375 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 21:00:01,683 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 21:00:01,684 - Thread-2 - Starting
+CRITICAL - 2019-03-10 21:00:01,685 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 70, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "/home/ben96ryan/dev/Server/src/feed_listener.py", line 17, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 12, in __init__
+    self.auth.thread.setDaemon(True)
+  File "/usr/lib/python3.6/threading.py", line 1148, in setDaemon
+    self.daemon = daemonic
+  File "/usr/lib/python3.6/threading.py", line 1141, in daemon
+    raise RuntimeError("cannot set daemon status of active thread")
+RuntimeError: cannot set daemon status of active thread
+DEBUG - 2019-03-10 21:00:01,685 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-10 21:00:01,686 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-10 21:00:01,687 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 21:00:01,687 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-10 21:00:01,697 - MainThread - Connected to database
+DEBUG - 2019-03-10 21:00:01,698 - Thread-4 - Starting
+CRITICAL - 2019-03-10 21:00:01,698 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 41, in __init__
+    self.ctxHandler = ContextHandler(publicPath)
+  File "/home/ben96ryan/dev/Server/src/context_handler.py", line 12, in __init__
+    self.auth.thread.setDaemon(True)
+  File "/usr/lib/python3.6/threading.py", line 1148, in setDaemon
+    self.daemon = daemonic
+  File "/usr/lib/python3.6/threading.py", line 1141, in daemon
+    raise RuntimeError("cannot set daemon status of active thread")
+RuntimeError: cannot set daemon status of active thread
+DEBUG - 2019-03-10 21:00:01,698 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-10 21:00:01,699 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 21:00:01,699 - CurveAuth - auth received API command b'TERMINATE'
+CRITICAL - 2019-03-10 21:00:01,700 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 58, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-10 21:00:01,700 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "/home/ben96ryan/dev/Server/src/authenticator.py", line 134, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-10 21:00:01,700 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 21:00:01,700 - MainThread - Main thread ending
+INFO - 2019-03-10 21:00:22,307 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-10 21:00:22,307 - MainThread - Terminator signals linked
+DEBUG - 2019-03-10 21:00:25,892 - MainThread - Model/Graph ready
+DEBUG - 2019-03-10 21:00:25,893 - Thread-2 - Starting
+DEBUG - 2019-03-10 21:00:25,894 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-10 21:00:25,895 - MainThread - Socket setup, public key: b'*Y=^n^0B!uZEITgR<4n@KW7*2WAT-eSlmIdH1ZV$'
+DEBUG - 2019-03-10 21:00:25,895 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-10 21:00:25,895 - MainThread - Feed listener thread started
+DEBUG - 2019-03-10 21:00:25,905 - MainThread - Connected to database
+DEBUG - 2019-03-10 21:00:25,906 - Thread-4 - Starting
+DEBUG - 2019-03-10 21:00:25,907 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-10 21:00:25,907 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-10 21:00:25,907 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-10 21:00:25,908 - MainThread - Authentication thread started
+DEBUG - 2019-03-10 21:00:25,908 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-10 21:00:45,044 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-10 21:00:45,917 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-10 21:00:45,924 - MainThread - Main thread ending
