@@ -182,8 +182,14 @@ class RegistrationListener(Thread):
 						if success:
 							hashed = cursor.fetchone()[0]
 							verifier = PasswordHasher()
+							try:
+								verifier.verify(hashed, password)
+								verified = True
+							except:
+								verified = False
 
-							if verifier.verify(hashed, password):
+
+							if verified:
 								msg += 'Authenticated'
 
 								if verifier.check_needs_rehash(hashed):
@@ -209,7 +215,7 @@ class RegistrationListener(Thread):
 					msg = 'Invalid Instruction'
 
 				if success:
-					msg = '\n\tAccount created and activation key registered, check your email'
+					msg = '\n\Request Successul'
 
 				self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
 
