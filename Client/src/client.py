@@ -35,8 +35,8 @@ class mainWindow(QMainWindow):
 		else:
 			loginDialog = LoginDialog()
 			authenticated, msg, userID, key = loginDialog.getUserData()
-			
-			self.saveUserDetails(userID, key)
+
+			# self.saveUserDetails(userID, key)
 
 		if authenticated:
 			tabs = MainWindowTabs(app)
@@ -44,7 +44,7 @@ class mainWindow(QMainWindow):
 		else:
 			self.closeEvent(None)
 
-	def saveUserDetails()
+	# def saveUserDetails()
 
 	def closeEvent(self, event):
 		activeThreads = threading.enumerate()
