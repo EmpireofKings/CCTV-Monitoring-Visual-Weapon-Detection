@@ -161,8 +161,8 @@ class LoginDialog(QDialog):
 		return registerTab
 
 	def login(self):
-		username = self.usernameEntryLogin.displayText()
-		password = self.passwordEntryLogin.displayText()
+		username = self.usernameEntryLogin.text()
+		password = self.passwordEntryLogin.text()
 
 		verified, msg = self.verifyUser(username, password)
 
@@ -173,8 +173,22 @@ class LoginDialog(QDialog):
 
 		self.accept()
 
-	def verifyUser(username, password):
-		return False, "Could not authenticate"
+	def verifyUser(self, username, password):
+		authenticated = True
+		msg = ''
+
+		socket = setupGlobalSocket(serverAddr + registrationPort)
+		socket.send_string('LOGIN' + ' ' + username + ' ' + password)
+		result = socket.recv_string()
+		print(result)
+		parts = result.split('  ')
+
+		if parts[0] == 'True':
+			authenticated = True
+		else:
+			authenticated = False
+
+		return authenticated, msg
 
 	def validateUsername(self, username):
 		valid = True
