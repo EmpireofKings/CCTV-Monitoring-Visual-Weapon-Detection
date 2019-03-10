@@ -11,7 +11,7 @@ from threading import Thread
 class FeedHandler(Thread):
 	def __init__(self, feedID):
 		Thread.__init__(self)
-
+		self.setName("FeedHandler")
 		self.terminator = Terminator.getInstance()
 
 		self.certHandler = CertificateHandler(id=feedID)

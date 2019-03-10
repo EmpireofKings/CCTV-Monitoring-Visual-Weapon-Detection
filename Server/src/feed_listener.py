@@ -4,12 +4,12 @@ from context_handler import ContextHandler
 import zmq
 from feed_handler import FeedHandler
 from threading import Thread
-
+import logging
 
 class FeedListener(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)
-
+		self.setName("FeedListener")
 		self.terminator = Terminator.getInstance()
 		certHandler = CertificateHandler(id="front")
 		publicPath, privatePath = certHandler.getCertificatesPaths()
@@ -24,11 +24,9 @@ class FeedListener(Thread):
 		self.socket.curve_publickey = publicKey
 		self.socket.curve_server = True
 
-		print(publicKey)
 		self.socket.bind(addr)
 		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
-
-		print("Listening on", addr)
+		logging.info('Socket setup, public key: %s', publicKey)
 
 	def run(self):
 		while not self.terminator.isTerminating():
@@ -49,4 +47,4 @@ class FeedListener(Thread):
 
 		self.socket.close()
 		self.ctxHandler.cleanup()
-		print("Ending Listener Thread")
+		logging.info('Feed listener thread shutting down')

@@ -5,10 +5,10 @@ from zmq.auth.thread import ThreadAuthenticator
 class ContextHandler():
 	def __init__(self, publicPath):
 		self.__context = zmq.Context()
-		auth = ThreadAuthenticator(self.__context)
-		auth.start()
-		auth.configure_curve(domain='*', location=publicPath)
-
+		self.auth = ThreadAuthenticator(self.__context)
+		self.auth.start()
+		self.auth.configure_curve(domain='*', location=publicPath)
+		self.auth.thread.setName("CurveAuth")
 	def getContext(self):
 		return self.__context
 

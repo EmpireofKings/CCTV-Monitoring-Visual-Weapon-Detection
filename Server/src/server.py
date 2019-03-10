@@ -29,8 +29,6 @@ from monitor import Monitor
 from terminator import Terminator
 
 if __name__ == '__main__':
-	terminator = Terminator.getInstance()
-
 	if len(sys.argv) == 2:
 			mode = sys.argv[1]
 			if mode == 'debug':
@@ -46,9 +44,16 @@ if __name__ == '__main__':
 	else:
 		loggerMode = logging.INFO
 
-		logging.basicConfig(
-			format='%(levelname)s - %(asctime)s - %(process)d - %(message)s',
-			level=loggerMode)
+	logging.basicConfig(
+		format='%(levelname)s - %(asctime)s - %(threadName)s - %(message)s',
+		level=loggerMode,
+		handlers=
+			[logging.FileHandler('./Logs/server_logs.txt'),
+			logging.StreamHandler(sys.stdout)])
+
+	logging.info('\n\n\n\t\tBegin new set of logs:\n\n\n')
+
+	terminator = Terminator.getInstance()
 
 	try:
 		model = tf.keras.models.load_model("../../Decent Models/model-current.h5")

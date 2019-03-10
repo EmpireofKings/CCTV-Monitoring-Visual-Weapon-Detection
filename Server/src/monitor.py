@@ -1,7 +1,7 @@
 import zmq
 from threading import Thread
 from zmq.utils.monitor import recv_monitor_message
-
+import logging
 
 class Monitor(Thread):
 	def __init__(self, socket, feedID):
@@ -9,7 +9,7 @@ class Monitor(Thread):
 		self.socket = socket
 		self.feedID = feedID
 		self.stop = False
-
+		self.setName("Monitor")
 		self.events = {
 			"EVENT_CONNECTED": zmq.EVENT_CONNECTED,
 			"EVENT_CONNECT_DELAYED": zmq.EVENT_CONNECT_DELAYED,
@@ -28,9 +28,6 @@ class Monitor(Thread):
 			"EVENT_HANDSHAKE_FAILED_PROTOCOL": zmq.EVENT_HANDSHAKE_FAILED_PROTOCOL,
 			"EVENT_HANDSHAKE_FAILED_AUTH": zmq.EVENT_HANDSHAKE_FAILED_AUTH}
 
-		# for key, val in self.events.items():
-		# 	print(key, val)
-
 	def run(self):
 		while self.stop is False:
 			try:
@@ -45,7 +42,7 @@ class Monitor(Thread):
 			for key, val in self.events.items():
 				if event == val:
 					assigned = True
-					print(key, endpoint)
+					logging.debug(str(key) +' ' + str(endpoint))
 
 			if assigned is False:
-				print(msg)
+				logging.error('Unknown monitor message: %s', msg)

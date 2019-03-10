@@ -21,7 +21,7 @@ class AuthenticationListener(Thread):
 	def __init__(self):
 		Thread.__init__(self)
 		self.terminator = Terminator.getInstance()
-
+		self.setName("Authenticator")
 		try:
 			self.db = sql.connect(
 				os.environ["DBHOST"], os.environ["DBUSER"],
@@ -68,62 +68,67 @@ class AuthenticationListener(Thread):
 
 	def run(self):
 		while not self.terminator.isTerminating():
+			try:
+				data = self.socket.recv_string()
+				received = True
+			except:
+				received = False
+				pass
 
-			received = self.socket.recv_string()
-			print(received)
-			parts = received.split(' ')
+			if received:
+				parts = data.split(' ')
 
-			if parts[0] == "REGISTER":
-				try:
-					success, msg, userID = self.register(parts[1, parts[2]])
-					self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
-					logging.debug(
-						'Responded to register instruction: %s, %s, %s',
-						(success, msg, userID))
-				except:
-					logging.error('Exception occured when registering', exc_info=True)
+				if parts[0] == "REGISTER":
+					try:
+						success, msg, userID = self.register(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
+						logging.debug(
+							'Responded to register instruction: %s, %s, %s',
+							(success, msg, userID))
+					except:
+						logging.error('Exception occured when registering', exc_info=True)
 
-			elif parts[0] == "ACTIVATE":
-				try:
-					success, msg, userID = self.activate(parts[1], parts[2])
-					self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
-					logging.debug(
-						'Responded to activation instruction: %s, %s, %s',
-						(success, msg, userID))
-				except:
-					logging.error('Exception occured when activating', exc_info=True)
+				elif parts[0] == "ACTIVATE":
+					try:
+						success, msg, userID = self.activate(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
+						logging.debug(
+							'Responded to activation instruction: %s, %s, %s',
+							(success, msg, userID))
+					except:
+						logging.error('Exception occured when activating', exc_info=True)
 
-			elif parts[0] == 'LOGIN':
-				try:
-					success, msg, userID = self.login(parts[1, parts[2]])
-					self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
-					logging.debug(
-						'Responded to login instruction: %s, %s, %s',
-						(success, msg, userID))
-				except:
-					logging.error('Exception occured when logging in', exc_info=True)
+				elif parts[0] == 'LOGIN':
+					try:
+						success, msg, userID = self.login(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
+						logging.debug(
+							'Responded to login instruction: %s, %s, %s',
+							(success, msg, userID))
+					except:
+						logging.error('Exception occured when logging in', exc_info=True)
 
-			elif parts[0] == 'AUTHENICATE':
-				try:
-					success, msg = self.authenticate(parts[1], parts[2])
-					self.socket.send_string(str(success) + '  ' + msg)
-					logging.debug(
-						'Responded to authenticate instruction: %s, %s',
-						(success, msg))
-				except:
-					logging.error('Exception occured when authenticating', exc_info=True)
+				elif parts[0] == 'AUTHENICATE':
+					try:
+						success, msg = self.authenticate(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg)
+						logging.debug(
+							'Responded to authenticate instruction: %s, %s',
+							(success, msg))
+					except:
+						logging.error('Exception occured when authenticating', exc_info=True)
 
-			else:
-				try:
-					success, msg = False, 'Invalid Instruction'
-					self.socket.send_string(str(success) + '  ' + msg)
-					logging.debug(
-						'Responded to invalid instruction: %s, %s',
-						(success, msg))
-				except:
-					logging.error(
-						'Exception occured when repsonding to invalid instruction',
-						exc_info=True)
+				else:
+					try:
+						success, msg = False, 'Invalid Instruction'
+						self.socket.send_string(str(success) + '  ' + msg)
+						logging.debug(
+							'Responded to invalid instruction: %s, %s',
+							(success, msg))
+					except:
+						logging.error(
+							'Exception occured when repsonding to invalid instruction',
+							exc_info=True)
 
 		try:
 			self.monitor.stop = True
@@ -218,7 +223,7 @@ class AuthenticationListener(Thread):
 
 		self.cursor.execute(
 			"""select * from productKey
-			where activationKey = %s and userID = %s""", (key, userID))
+			where activationKey = %s and id = %s""", (key, userID))
 
 		if self.cursor.rowcount != 1:
 			success = False
@@ -227,7 +232,7 @@ class AuthenticationListener(Thread):
 			self.cursor.execute(
 				"""update productKey
 				set activationCount = activationCount + 1
-				where activationKey = %s and userID = %s""", (key, userID))
+				where activationKey = %s and id = %s""", (key, userID))
 			self.db.commit()
 			success = True
 			msg = 'Successfully Activated'
@@ -240,7 +245,7 @@ class AuthenticationListener(Thread):
 		userID = 'N/A'
 
 		self.cursor.execute(
-			"""select password, userID from users
+			"""select password, id from users
 			where username = %s""", (username,))
 
 		if self.cursor.rowcount == 0:
@@ -283,6 +288,8 @@ class AuthenticationListener(Thread):
 			else:
 				success = False
 				msg += 'Incorrect Password'
+
+		return success, msg, userID
 
 	def authenticate(self):
 		return True, '', 'N/A'
