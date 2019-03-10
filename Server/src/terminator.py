@@ -8,7 +8,6 @@ class Terminator():
 		self.__terminating = False
 		signal.signal(signal.SIGTERM, self.terminate)
 		signal.signal(signal.SIGINT, self.terminate)
-		print("connected")
 
 	@staticmethod
 	def getInstance():
@@ -18,8 +17,11 @@ class Terminator():
 		return Terminator.__instance
 
 	def terminate(self, signal, frame):
-		print("Termination signal received")
+		print("Termination signal received, please wait.")
 		self.__terminating = True
+
+	def autoTerminate(self):
+		self.terminate(signal.SIGTERM, None)
 
 	def isTerminating(self):
 		return self.__terminating
