@@ -91,8 +91,7 @@ class RegistrationListener(Thread):
 								values(%s, %s, %s)""", (username, password, email))
 							userID = cursor.lastrowid
 
-							db.commit()
-							print("commit")
+
 							if count == 1 and userID is not None:
 								found = None
 
@@ -109,12 +108,13 @@ class RegistrationListener(Thread):
 									"""insert into productKey(activationKey, userID)
 									values(%s, %s)""", (key, userID))
 
-								db.commit()
-								print("commit")
+
 								if inserted != 1:
 									success = False
 									msg = 'Failed to register activation key, contact support.'
+									db.rollback()
 								else:
+									db.commit()
 									message = EmailMessage()
 									message.set_content(key)
 									message['Subject'] = 'Activation Key'
@@ -124,9 +124,9 @@ class RegistrationListener(Thread):
 									try:
 										mailserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 										mailserver.ehlo()
-										mailserver.login(os.enivron['EMAILUSER'], os.environ["EMAILPASS"])
+										mailserver.login(os.environ['EMAILUSER'], os.environ["EMAILPASS"])
 										mailserver.send_message(message)
-										s.close()
+										mailserver.close()
 									except Exception as e:
 										print(e)
 
@@ -159,6 +159,51 @@ class RegistrationListener(Thread):
 								set activationCount = activationCount + 1
 								where activationKey = %s and userID = %s""", (key, userID))
 							db.commit()
+				elif parts[0] == 'LOGIN':
+					success = True
+					msg = ''
+					userID = 'N/A'
+
+					try:
+						username = parts[1]
+						password = parts[2]
+
+						cursor.execute(
+							"""select password from users
+							where username = %s""", (username,))
+
+						if cursor.rowcount == 0:
+							success = False
+							msg += 'Username does not exists'
+						elif cursor.rowcount != 1:
+							success = False
+							msg += 'Unknown Error'
+
+						if success:
+							hashed = cursor.fetchone()[0]
+							verifier = PasswordHasher()
+
+							if verifier.verify(hashed, password):
+								msg += 'Authenticated'
+
+								if verifier.check_needs_rehash(hashed):
+									hashed = verifier.hash(password)
+									count = cursor.execute(
+										"""update users
+										set password = %s
+										where username = %s""",
+										(hashed, username))
+
+									if count != 1:
+										msg += 'Failed to rehash password, contact support'
+										db.rollback()
+									else:
+										db.commit()
+							else:
+								success = False
+								msg += 'Incorrect Password'
+					except Exception as e:
+						print(e)
 				else:
 					success = False
 					msg = 'Invalid Instruction'
