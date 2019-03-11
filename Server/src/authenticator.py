@@ -37,8 +37,9 @@ class AuthenticationListener(Thread):
 		try:
 			certHandler = CertificateHandler(id="front")
 			publicPath, privatePath = certHandler.getCertificatesPaths()
+			clientKeysPath = certHandler.getClientKeysPath()
 
-			self.ctxHandler = ContextHandler(publicPath)
+			self.ctxHandler = ContextHandler(clientKeysPath)
 			context = self.ctxHandler.getContext()
 			self.socket = context.socket(zmq.REP)
 
