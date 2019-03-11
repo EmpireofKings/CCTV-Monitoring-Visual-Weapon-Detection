@@ -81,31 +81,31 @@ class AuthenticationListener(Thread):
 
 				if parts[0] == "REGISTER":
 					try:
-						success, msg, userID = self.register(parts[1], parts[2])
+						success, msg, userID = self.register(parts[1], parts[2], parts[3])
 						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
 						logging.debug(
 							'Responded to register instruction: %s, %s, %s',
-							(success, msg, userID))
+							success, msg, userID)
 					except:
 						logging.error('Exception occured when registering', exc_info=True)
 
 				elif parts[0] == "ACTIVATE":
 					try:
-						success, msg, userID = self.activate(parts[1], parts[2])
-						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
+						success, msg = self.activate(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg)
 						logging.debug(
-							'Responded to activation instruction: %s, %s, %s',
-							(success, msg, userID))
+							'Responded to activation instruction: %s, %s',
+							success, msg)
 					except:
 						logging.error('Exception occured when activating', exc_info=True)
 
 				elif parts[0] == 'LOGIN':
 					try:
-						success, msg, userID = self.login(parts[1], parts[2])
-						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID))
+						success, msg, userID, key = self.login(parts[1], parts[2])
+						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID) + '  ' + str(key))
 						logging.debug(
-							'Responded to login instruction: %s, %s, %s',
-							(success, msg, userID))
+							'Responded to login instruction: %s, %s, %s, %s',
+							success, msg, userID, key)
 					except:
 						logging.error('Exception occured when logging in', exc_info=True)
 
@@ -115,7 +115,7 @@ class AuthenticationListener(Thread):
 						self.socket.send_string(str(success) + '  ' + msg)
 						logging.debug(
 							'Responded to authenticate instruction: %s, %s',
-							(success, msg))
+							success, msg)
 					except:
 						logging.error('Exception occured when authenticating', exc_info=True)
 
@@ -125,7 +125,7 @@ class AuthenticationListener(Thread):
 						self.socket.send_string(str(success) + '  ' + msg)
 						logging.debug(
 							'Responded to invalid instruction: %s, %s',
-							(success, msg))
+							success, msg)
 					except:
 						logging.error(
 							'Exception occured when repsonding to invalid instruction',
@@ -148,73 +148,75 @@ class AuthenticationListener(Thread):
 		userID = 'N/A'
 		hasher = PasswordHasher()
 		password = hasher.hash(password)
+		cont = True
 
-		if success:
-			self.cursor.execute(
-				"""select * from users where username = %s""", (username,))
+		self.cursor.execute(
+			"""select * from users where username = %s""", (username,))
 
-			if self.cursor.rowcount != 0:
-				success = False
-				msg += '\n\tUsername already taken'
-				logging.debug('Username already taken: %s', username)
+		if self.cursor.rowcount != 0:
+			cont = False
+			success = False
+			msg += '\n\tUsername already taken'
+			logging.debug('Username already taken: %s', username)
 
-			self.cursor.execute(
-				"""select * from users where email = %s""", (email, ))
+		self.cursor.execute(
+			"""select * from users where email = %s""", (email, ))
 
-			if self.cursor.rowcount != 0:
-				success = False
-				msg += '\n\tEmail already registered'
-				logging.debug('Email already registered: %s', email)
+		if self.cursor.rowcount != 0:
+			cont = False
+			success = False
+			msg += '\n\tEmail already registered'
+			logging.debug('Email already registered: %s', email)
 
-			if success:
-				count = self.cursor.execute(
-					"""insert into users(username, password, email)
-					values(%s, %s, %s)""", (username, password, email))
+		if cont:
+			count = self.cursor.execute(
+				"""insert into users(username, password, email)
+				values(%s, %s, %s)""", (username, password, email))
 
-				userID = self.cursor.lastrowid
+			userID = self.cursor.lastrowid
 
-				if count == 1 and userID is not None:
-					found = None
+			if count == 1 and userID is not None:
+				found = None
 
-					while found != 0:
-						key = uuid.uuid4().hex
-						self.cursor.execute(
-							"""select * from productKey where activationKey = %s""",
-							(key,))
+				while found != 0:
+					key = uuid.uuid4().hex
+					self.cursor.execute(
+						"""select * from productKey where activationKey = %s""",
+						(key,))
 
-						found = self.cursor.rowcount
+					found = self.cursor.rowcount
 
-					inserted = self.cursor.execute(
-						"""insert into productKey(activationKey, userID)
-						values(%s, %s)""", (key, userID))
+				inserted = self.cursor.execute(
+					"""insert into productKey(activationKey, userID)
+					values(%s, %s)""", (key, userID))
 
-					if inserted != 1:
-						success = False
-						msg += 'Failed to register activation key'
-						self.db.rollback()
-					else:
-
-						self.db.commit()
-						message = EmailMessage()
-						message.set_content(key)
-						message['Subject'] = 'Activation Key'
-						message['From'] = 'ben96ryan@gmail.com'
-						message['To'] = email
-
-						try:
-							mailserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-							mailserver.ehlo()
-							mailserver.login(os.environ['EMAILUSER'], os.environ["EMAILPASS"])
-							mailserver.send_message(message)
-							mailserver.close()
-
-							success = True
-							msg += '\n\tSuccessfully Registered, check email for activation key.'
-						except:
-							logging.error('Exception occure emailing activation key', exc_info=True)
-				else:
+				if inserted != 1:
 					success = False
-					msg += '\n\tFailed to register'
+					msg += 'Failed to register activation key'
+					self.db.rollback()
+				else:
+
+					self.db.commit()
+					message = EmailMessage()
+					message.set_content(key)
+					message['Subject'] = 'Activation Key'
+					message['From'] = 'ben96ryan@gmail.com'
+					message['To'] = email
+
+					try:
+						mailserver = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+						mailserver.ehlo()
+						mailserver.login(os.environ['EMAILUSER'], os.environ["EMAILPASS"])
+						mailserver.send_message(message)
+						mailserver.close()
+
+						success = True
+						msg += '\n\tSuccessfully Registered, check email for activation key.'
+					except:
+						logging.error('Exception occure emailing activation key', exc_info=True)
+			else:
+				success = False
+				msg += '\n\tFailed to register'
 
 		return success, msg, userID
 
@@ -238,12 +240,13 @@ class AuthenticationListener(Thread):
 			success = True
 			msg = 'Successfully Activated'
 
-		return success, msg, userID
+		return success, msg
 
 	def login(self, username, password):
 		success = False
 		msg = ''
 		userID = 'N/A'
+		key = 'N/A'
 
 		self.cursor.execute(
 			"""select password, id from users
@@ -265,11 +268,11 @@ class AuthenticationListener(Thread):
 			verifier = PasswordHasher()
 			try:
 				verifier.verify(hashed, password)
-				verified = True
+				success = True
 			except:
-				verified = False
+				success = False
 
-			if verified:
+			if success:
 				msg += 'Authenticated'
 
 				if verifier.check_needs_rehash(hashed):
@@ -286,11 +289,19 @@ class AuthenticationListener(Thread):
 						self.db.rollback()
 					else:
 						self.db.commit()
+
+				self.cursor.execute(
+					"""select activationKey from productKey
+					where userID = %s""", (userID,))
+
+				row = self.cursor.fetchone()
+				key = row[0]
+
 			else:
 				success = False
 				msg += 'Incorrect Password'
 
-		return success, msg, userID
+		return success, msg, userID, key
 
 	def authenticate(self):
 		return True, '', 'N/A'

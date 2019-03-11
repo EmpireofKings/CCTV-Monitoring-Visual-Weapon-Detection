@@ -14,8 +14,9 @@ class FeedListener(Thread):
 		self.terminator = Terminator.getInstance()
 		certHandler = CertificateHandler(id="front")
 		publicPath, privatePath = certHandler.getCertificatesPaths()
+		clientsPath = certHandler.getClientKeysPath()
 
-		self.ctxHandler = ContextHandler(publicPath)
+		self.ctxHandler = ContextHandler(clientsPath)
 		context = self.ctxHandler.getContext()
 		self.socket = context.socket(zmq.REP)
 

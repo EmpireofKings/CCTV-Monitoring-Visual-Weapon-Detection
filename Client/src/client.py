@@ -24,6 +24,8 @@ connectCamPort = ':5000'
 registrationPort = ':5001'
 unsecuredEnrollPort = ':5002'
 
+userConfig = '../userDetails.config'
+
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
@@ -31,13 +33,16 @@ class mainWindow(QMainWindow):
 		self.app = app
 		authenticated = False
 
-		if os.path.exists("../userDetails.config"):
-			authenticated = authenticateUserDetails()
-		else:
+		if os.path.exists(userConfig):
+			authenticated = self.authenticateUserDetails()
+
+		if not authenticated:
 			loginDialog = LoginDialog()
 			authenticated, msg, userID, key = loginDialog.getUserData()
 
-			# self.saveUserDetails(userID, key)
+			# print("FINAL WORD:", str(authenticated), str(msg), str(userID), str(key))
+			# print("FINAL WORD:", type(authenticated), type(msg), type(userID), type(key))
+			self.saveUserDetails(userID, key)
 
 		if authenticated:
 			tabs = MainWindowTabs(app)
@@ -45,7 +50,39 @@ class mainWindow(QMainWindow):
 		else:
 			self.closeEvent(None)
 
-	# def saveUserDetails()
+	def saveUserDetails(self, userID, key):
+		with open(userConfig, 'w') as fp:
+			fileContents = str(userID) + '\t' + str(key)
+			fp.write(fileContents)
+
+	def authenticateUserDetails(self):
+		authenticated = False
+		msg = ''
+
+		try:
+			with open(userConfig, 'r') as fp:
+				data = fp.read()
+				parts = data.split('\t')
+				userID = parts[0]
+				key = parts[1]
+
+			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket.send_string('AUTHENTICATE' + ' ' + userID + ' ' + key)
+			result = socket.recv_string()
+			parts = result.split('  ')
+
+			if parts[0] == 'True':
+				authenticated = True
+				msg = 'Authenticated by userID and key'
+			else:
+				authenticated = False
+				msg = 'Failed to authenticate'
+		except:
+			authenticated = False
+			msg = 'Failed to authenticate'
+			os.remove(userConfig)
+
+		return authenticated, msg
 
 	def closeEvent(self, event):
 		activeThreads = threading.enumerate()
@@ -174,7 +211,7 @@ class LoginDialog(QDialog):
 		username = self.usernameEntryLogin.text()
 		password = self.passwordEntryLogin.text()
 
-		self.authenticated, self.msg = self.verifyUser(username, password)
+		self.authenticated, self.msg, self.userID, self.key = self.verifyUser(username, password)
 		print(self.msg)
 		if self.authenticated:
 			self.accept()
@@ -185,7 +222,7 @@ class LoginDialog(QDialog):
 		authenticated = False
 		msg = ''
 
-		socket = setupGlobalSocket(serverAddr + registrationPort)
+		socket = setupGlobalSocket(localAddr + registrationPort)
 		socket.send_string('LOGIN' + ' ' + username + ' ' + password)
 		result = socket.recv_string()
 		parts = result.split('  ')
@@ -195,7 +232,7 @@ class LoginDialog(QDialog):
 		else:
 			authenticated = False
 
-		return authenticated, parts[1]
+		return authenticated, parts[1], parts[2], parts[3]
 
 	def register(self):
 		username = self.usernameEntryRegister.text()
@@ -232,13 +269,11 @@ class LoginDialog(QDialog):
 
 			registered = data[0]
 			msg = data[1]
-
-			if len(data) == 3:
-				userID = data[2]
+			self.userID = data[2]
 
 			if registered:
 				activationDialog = ActivationDialog()
-				self.authenticated, self.msg = activationDialog.getKey(userID)
+				self.authenticated, self.msg, self.key = activationDialog.getKey(self.userID)
 				if self.authenticated:
 					self.accept()
 				else:
@@ -250,7 +285,7 @@ class LoginDialog(QDialog):
 
 	def registerUser(self, username, password, email):
 		print("register user")
-		socket = setupGlobalSocket(serverAddr + registrationPort)
+		socket = setupGlobalSocket(localAddr + registrationPort)
 		socket.send_string('REGISTER ' + username + ' ' + password + ' ' + email)
 		print("sent")
 		result = socket.recv_string()
@@ -260,18 +295,19 @@ class LoginDialog(QDialog):
 		parts = result.split('  ')
 		result = parts[0]
 		msg = parts[1]
+		userID = parts[2]
 
 		if result == 'True':
-			return True, msg, parts[2]
+			return True, msg, userID
 		else:
-			return False, msg
+			return False, msg, userID
 
 	def exit(self):
 		sys.exit()
 
 	def getUserData(self):
 		self.exec()
-		return self.authenticated, self.msg
+		return self.authenticated, self.msg, self.userID, self.key
 
 	def closeEvent(self, event):
 		sys.exit()
@@ -294,7 +330,7 @@ def setupGlobalSocket(addr):
 	socket.curve_publickey = publicKey
 	socket.curve_serverkey = serverKey
 
-	socket.connect(serverAddr + registrationPort)
+	socket.connect(localAddr + registrationPort)
 
 	return socket
 
@@ -327,13 +363,13 @@ class ActivationDialog(QDialog):
 		self.setLayout(outerLayout)
 
 	def activate(self):
-		key = self.activationEntryRegister.text()
+		self.key = self.activationEntryRegister.text()
 		validator = Validator()
-		validKey, msg = validator.validateKey(key)
+		validKey, self.msg = validator.validateKey(self.key)
 
 		if validKey:
-			socket = setupGlobalSocket(serverAddr + registrationPort)
-			socket.send_string('ACTIVATE ' + key + ' ' + self.userID)
+			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket.send_string('ACTIVATE ' + self.key + ' ' + self.userID)
 			result = socket.recv_string()
 			parts = result.split('  ')
 
@@ -348,19 +384,17 @@ class ActivationDialog(QDialog):
 			if self.authenticated:
 				self.accept()
 			else:
-				self.msgLabelActivate.setText(msg)
+				self.msgLabelActivate.setText(self.msg)
 		else:
-			self.msgLabelActivate.setText(msg)
+			self.msgLabelActivate.setText(self.msg)
 
 	def cancel(self):
 		self.reject()
 
-	
-
 	def getKey(self, userID):
 		self.userID = userID
 		self.exec()
-		return self.authenticated, self.msg
+		return self.authenticated, self.msg, self.key
 
 
 class MainWindowTabs(QTabWidget):
@@ -407,7 +441,7 @@ def enroll():
 	try:
 		unsecuredCtx = zmq.Context()
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
-		unsecuredSocket.connect(serverAddr + unsecuredEnrollPort)
+		unsecuredSocket.connect(localAddr + unsecuredEnrollPort)
 		certHandler = GlobalCertificateHandler.getInstance()
 		publicKey, _ = certHandler.getKeys()
 

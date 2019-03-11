@@ -3,6 +3,13 @@ import shutil
 import os
 import uuid
 
+import datetime
+import glob
+import io
+from zmq.utils.strtypes import bytes, unicode, b, u
+import logging
+
+
 class CertificateHandler():
 	def __init__(self, id):
 		self.id = id
@@ -82,13 +89,30 @@ class CertificateHandler():
 		return self.clientKeysFolderPath
 
 	def saveClientKey(self, key):
-		path = self.getClientKeysPath() + uuid.uuid4().hex + '.key'
+		try:
+			print("tryin")
+			path = "{0}.key".format(str(self.getClientKeysPath() + uuid.uuid4().hex))
+			print("after")
+		except:
+			logging.error('Exception while formatting', exc_info=True)
 
-		fileContents = 'metadata\ncurve\n    public-key = \"' + key + '\"'
+		print(path)
+		print(key)
+		now = datetime.datetime.now()
+		print(now)
 
-		print("FILE CONTENTS\n", fileContents)
-		with open(path, 'w') as fp:
-			fp.write(fileContents)
+		try:
+			print("trying to save")
+			zmq.auth.certs._write_key_file(path, zmq.auth.certs._cert_public_banner.format(now), key)
+			logging.debug('Client key saved')
+		except:
+			logging.error('Exception while writing file', exc_info=True)
+
+		# fileContents = 'metadata\ncurve\n    public-key = \"' + key + '\"'
+
+		# print("FILE CONTENTS\n", fileContents)
+		# with open(path, 'w') as fp:
+		# 	fp.write(fileContents)
 
 	def cleanup(self):
 		shutil.rmtree(self.publicFolderPath)

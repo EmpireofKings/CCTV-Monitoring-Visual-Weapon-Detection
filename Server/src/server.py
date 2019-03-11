@@ -68,17 +68,6 @@ if __name__ == '__main__':
 		terminator.autoTerminate()
 
 	try:
-		enroller = Enroller()
-		enroller.setDaemon(True)
-		enroller.start()
-		logging.debug('Enroller thread started')
-	except:
-		logging.critical(
-			'Exception occured starting enroller thread',
-			exc_info=True)
-		terminator.autoTerminate()
-
-	try:
 		feedListener = FeedListener('tcp://0.0.0.0:5000')
 		feedListener.setDaemon(True)
 		feedListener.start()
@@ -96,6 +85,17 @@ if __name__ == '__main__':
 		logging.debug('Authentication thread started')
 	except:
 		logging.critical('Exception occured starting auth thread', exc_info=True)
+		terminator.autoTerminate()
+
+	try:
+		enroller = Enroller(feedListener, authListener)
+		enroller.setDaemon(True)
+		enroller.start()
+		logging.debug('Enroller thread started')
+	except:
+		logging.critical(
+			'Exception occured starting enroller thread',
+			exc_info=True)
 		terminator.autoTerminate()
 
 	while not terminator.isTerminating():

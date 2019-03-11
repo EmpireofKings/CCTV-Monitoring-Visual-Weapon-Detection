@@ -36931,3 +36931,2123 @@ DEBUG - 2019-03-11 12:02:59,442 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5
 INFO - 2019-03-11 12:03:33,615 - MainThread - Termination signal received, please wait.
 DEBUG - 2019-03-11 12:03:36,629 - MainThread - Main thread ending
 DEBUG - 2019-03-11 12:03:41,622 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 13:01:28,536 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:01:28,537 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:01:33,873 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 13:01:33,877 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 13:01:33,880 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:01:43,820 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 13:12:26,331 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:12:26,333 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:12:48,906 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:12:48,907 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:12:53,590 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 13:12:53,592 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 13:12:53,594 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:13:03,533 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 13:14:26,433 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:14:26,434 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:14:31,263 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 13:14:31,265 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 13:14:31,267 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:14:41,197 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 13:16:10,757 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:16:10,758 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:16:15,750 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+INFO - 2019-03-11 13:16:24,918 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:16:25,687 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 13:16:25,752 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:16:32,305 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:16:32,306 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:16:37,019 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:16:37,087 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:16:37,168 - Thread-4 - Starting
+DEBUG - 2019-03-11 13:16:37,179 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:16:37,180 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-11 13:16:37,186 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:16:37,187 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:16:37,208 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:16:37,272 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:16:37,282 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:16:37,291 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:16:37,291 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:16:37,312 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:16:37,313 - MainThread - Authentication thread started
+INFO - 2019-03-11 13:18:57,152 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:18:57,153 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:19:01,833 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:19:01,889 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:19:01,948 - Thread-4 - Starting
+DEBUG - 2019-03-11 13:19:01,957 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:19:01,958 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-11 13:19:01,962 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:19:01,963 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:19:01,987 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:19:02,051 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:19:02,059 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:19:02,060 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:19:02,064 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:19:02,080 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:19:02,082 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:19:03,363 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:19:03,364 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:19:03,411 - Enroller - New client enrolled @3tH<O*#M2rVEIxVt}OO}e.5$8nLkF^yje4]<SE#
+DEBUG - 2019-03-11 13:19:03,416 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:19:14,331 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:19:14,344 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 13:19:14,344 - CurveAuth - DENIED (CURVE) domain=* client_key=b'@3tH<O*#M2rVEIxVt}OO}e.5$8nLkF^yje4]<SE#'
+DEBUG - 2019-03-11 13:19:14,345 - CurveAuth - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-11 13:19:14,346 - Monitor - EVENT_HANDSHAKE_FAILED_AUTH b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:19:14,346 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 13:20:00,171 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:20:01,971 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:20:02,080 - MainThread - Main thread ending
+INFO - 2019-03-11 13:22:35,968 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:22:35,969 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:22:41,231 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:22:41,285 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:22:41,294 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:22:41,294 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+INFO - 2019-03-11 13:22:41,309 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:22:41,310 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:22:41,371 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:22:41,389 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:22:41,442 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:22:41,451 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:22:41,451 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:22:41,456 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:22:41,472 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:22:41,473 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:22:46,074 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:22:46,074 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:22:46,191 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:22:46,191 - Enroller - New client enrolled YH1bjYC#CwDOMZNZ*{b/EbVw[OWCo}Me=P11xM)(
+DEBUG - 2019-03-11 13:22:46,192 - CurveAuth - Configure curve: *[../Certificates/Public-front/]
+DEBUG - 2019-03-11 13:22:46,198 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:23:03,456 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:23:03,486 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 13:23:03,487 - CurveAuth - DENIED (CURVE) domain=* client_key=b'YH1bjYC#CwDOMZNZ*{b/EbVw[OWCo}Me=P11xM)('
+DEBUG - 2019-03-11 13:23:03,487 - CurveAuth - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-11 13:23:03,489 - Monitor - EVENT_HANDSHAKE_FAILED_AUTH b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:23:03,490 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 13:23:11,333 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 13:23:11,474 - MainThread - Main thread ending
+DEBUG - 2019-03-11 13:23:11,482 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 13:23:16,187 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:23:16,188 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:23:16,190 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:23:55,304 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:23:55,307 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:23:59,997 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:24:00,048 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:24:00,057 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:24:00,058 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:24:00,064 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:24:00,065 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:24:00,118 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:24:00,138 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:24:00,194 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:24:00,203 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:24:00,203 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:24:00,209 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:24:00,225 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:24:00,226 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:24:02,427 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:24:02,428 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:24:02,466 - Enroller - New client enrolled >x/C2SLZ6FnV+}><NF{]=4jb}{EQ-2X+:2J+Uox@
+DEBUG - 2019-03-11 13:24:02,466 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:24:02,467 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:24:02,473 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:24:11,931 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:24:11,944 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 13:24:11,945 - CurveAuth - DENIED (CURVE) domain=* client_key=b'>x/C2SLZ6FnV+}><NF{]=4jb}{EQ-2X+:2J+Uox@'
+DEBUG - 2019-03-11 13:24:11,945 - CurveAuth - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-11 13:24:11,946 - Monitor - EVENT_HANDSHAKE_FAILED_AUTH b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 13:24:11,946 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 13:36:55,600 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:37:00,173 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:37:00,321 - MainThread - Main thread ending
+INFO - 2019-03-11 13:37:14,740 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:37:14,741 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:37:19,463 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:37:19,510 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:37:19,518 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:37:19,519 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:37:19,526 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:37:19,527 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:37:19,581 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:37:19,599 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:37:19,652 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:37:19,661 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:37:19,661 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:37:19,666 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:37:19,682 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:37:19,683 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:37:30,332 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:37:30,332 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:37:42,148 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:37:42,148 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:37:42,149 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:37:42,149 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:37:44,696 - MainThread - Main thread ending
+INFO - 2019-03-11 13:37:49,536 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:39:03,980 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:39:03,981 - MainThread - Terminator signals linked
+INFO - 2019-03-11 13:39:08,711 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+INFO - 2019-03-11 13:39:14,677 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:39:18,716 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:39:18,763 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 13:39:24,654 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:39:24,654 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:39:29,060 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:39:29,108 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:39:29,117 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:39:29,118 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:39:29,125 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:39:29,126 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:39:29,183 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:39:29,208 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:39:29,261 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:39:29,271 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:39:29,271 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:39:29,276 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:39:29,294 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:39:29,295 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:39:34,559 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:39:34,560 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:40:04,955 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:40:04,956 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:40:04,956 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:40:04,957 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:40:09,136 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:40:09,299 - MainThread - Main thread ending
+INFO - 2019-03-11 13:40:46,401 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:40:46,402 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:40:51,094 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:40:51,161 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:40:51,168 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:40:51,169 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:40:51,175 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:40:51,176 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:40:51,236 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:40:51,255 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:40:51,303 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:40:51,311 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:40:51,312 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:40:51,316 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:40:51,332 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:40:51,333 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:40:53,020 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:40:53,021 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:41:14,259 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:41:14,261 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:41:14,262 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:41:14,262 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:41:16,324 - MainThread - Main thread ending
+INFO - 2019-03-11 13:41:21,182 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:41:28,043 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:41:28,044 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:41:32,700 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:41:32,743 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:41:32,751 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:41:32,752 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:41:32,760 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:41:32,761 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:41:32,814 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:41:32,836 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:41:32,885 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:41:32,896 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:41:32,896 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:41:32,901 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:41:32,920 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:41:32,921 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:41:35,101 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:41:35,102 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:44:37,455 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:44:37,456 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:44:37,456 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:44:37,463 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:44:37,941 - MainThread - Main thread ending
+INFO - 2019-03-11 13:44:42,890 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:44:49,080 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:44:49,081 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:44:53,983 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:44:54,042 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:44:54,053 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:44:54,054 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:44:54,060 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:44:54,062 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:44:54,130 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:44:54,147 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:44:54,194 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:44:54,204 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:44:54,204 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:44:54,209 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:44:54,226 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:44:54,227 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:44:55,733 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:44:55,734 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:45:10,938 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:45:10,939 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:45:10,940 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:45:10,940 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:45:14,070 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:45:14,221 - MainThread - Main thread ending
+INFO - 2019-03-11 13:46:39,691 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:46:39,691 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:46:44,415 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:46:44,465 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:46:44,474 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:46:44,475 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:46:44,481 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:46:44,482 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:46:44,534 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:46:44,554 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:46:44,602 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:46:44,611 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:46:44,616 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:46:44,616 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:46:44,632 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:46:44,633 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:46:48,956 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:46:48,957 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:49:07,621 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:49:07,622 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:49:07,622 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:49:07,622 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:49:09,636 - MainThread - Main thread ending
+INFO - 2019-03-11 13:49:14,563 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:49:22,626 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:49:22,631 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:49:27,608 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:49:27,656 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:49:27,666 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:49:27,678 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:49:27,678 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:49:27,680 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:49:27,745 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:49:27,766 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:49:27,815 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:49:27,824 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:49:27,824 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:49:27,830 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:49:27,856 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:49:27,857 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:49:28,210 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:49:28,211 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:49:30,426 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:49:33,856 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:49:33,856 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:50:08,068 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:50:08,069 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:50:08,070 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:50:08,070 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:50:08,322 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 13:50:12,870 - MainThread - Main thread ending
+INFO - 2019-03-11 13:50:17,732 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:50:25,239 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:50:25,240 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:50:29,896 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:50:29,965 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:50:29,973 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:50:29,974 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:50:29,981 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:50:29,983 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:50:30,033 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:50:30,051 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:50:30,098 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:50:30,106 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:50:30,107 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:50:30,112 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:50:30,129 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:50:30,130 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:50:32,442 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:50:32,443 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:50:55,281 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:50:55,282 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:50:55,283 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:50:55,283 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:50:55,444 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:50:59,986 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:51:00,132 - MainThread - Main thread ending
+INFO - 2019-03-11 13:51:39,444 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:51:39,444 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:51:44,278 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:51:44,326 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:51:44,334 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:51:44,335 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:51:44,341 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:51:44,342 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:51:44,395 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:51:44,413 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:51:44,465 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:51:44,474 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:51:44,474 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:51:44,479 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:51:44,504 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:51:44,505 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:51:46,192 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:51:46,193 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:52:05,802 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:52:05,802 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:52:05,803 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:52:05,803 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:52:09,507 - MainThread - Main thread ending
+INFO - 2019-03-11 13:52:14,413 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:52:23,878 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:52:23,880 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:52:29,131 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:52:29,175 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:52:29,183 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:52:29,184 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:52:29,191 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:52:29,192 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:52:29,244 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:52:29,266 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:52:29,315 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:52:29,324 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:52:29,324 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:52:29,335 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:52:29,351 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:52:29,353 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:52:34,597 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:52:34,598 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:52:53,174 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:52:53,175 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:52:53,176 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:52:53,178 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:52:54,348 - MainThread - Main thread ending
+INFO - 2019-03-11 13:52:59,199 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:53:17,964 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:53:17,965 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:53:22,856 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:53:22,902 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:53:22,910 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:53:22,911 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:53:22,923 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:53:22,924 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:53:22,976 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:53:22,995 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:53:23,051 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:53:23,060 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:53:23,060 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:53:23,065 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:53:23,082 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:53:23,083 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:53:23,105 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:53:23,106 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:53:24,077 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:53:26,916 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:53:26,916 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:57:15,505 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:57:15,507 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:57:15,507 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:57:15,508 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:57:17,769 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 13:57:18,099 - MainThread - Main thread ending
+INFO - 2019-03-11 13:57:23,075 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:57:34,230 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:57:34,231 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:57:38,952 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:57:38,997 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:57:39,005 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:57:39,005 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:57:39,014 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:57:39,014 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:57:39,070 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:57:39,088 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:57:39,136 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:57:39,144 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:57:39,145 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:57:39,153 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:57:39,169 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:57:39,171 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:57:40,910 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:57:40,910 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:58:06,292 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:58:06,293 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:58:06,293 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:58:06,294 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 13:58:09,021 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 13:58:09,169 - MainThread - Main thread ending
+INFO - 2019-03-11 13:58:15,117 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:58:15,117 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:58:19,669 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:58:19,719 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:58:19,727 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:58:19,728 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:58:19,734 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:58:19,735 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:58:19,785 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:58:19,804 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:58:19,843 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:58:19,857 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:58:19,868 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:58:19,877 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:58:19,878 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:58:19,884 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:58:19,904 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:58:19,905 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:58:27,894 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:58:30,536 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:58:30,536 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 13:59:15,744 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 13:59:15,745 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 13:59:15,745 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:59:15,746 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 13:59:19,916 - MainThread - Main thread ending
+INFO - 2019-03-11 13:59:19,926 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 13:59:28,825 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 13:59:28,826 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 13:59:33,652 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 13:59:33,699 - Thread-2 - Starting
+DEBUG - 2019-03-11 13:59:33,707 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:59:33,708 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 13:59:33,714 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 13:59:33,716 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 13:59:33,766 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 13:59:33,784 - MainThread - Connected to database
+DEBUG - 2019-03-11 13:59:33,832 - Thread-6 - Starting
+DEBUG - 2019-03-11 13:59:33,840 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 13:59:33,840 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 13:59:33,845 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 13:59:33,860 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 13:59:33,861 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 13:59:37,927 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 13:59:37,937 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:00:15,337 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:00:15,338 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:00:15,338 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:00:15,339 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 14:00:18,869 - MainThread - Main thread ending
+INFO - 2019-03-11 14:00:23,748 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:00:43,268 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:00:43,269 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:00:48,111 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:00:48,160 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:00:48,168 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:00:48,169 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:00:48,186 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:00:48,187 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:00:48,240 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:00:48,257 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:00:48,300 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:00:48,309 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:00:48,313 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:00:48,314 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:00:48,328 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:00:48,329 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:00:48,697 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:00:48,709 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:01:17,768 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:01:17,769 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:01:17,769 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:01:17,770 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:01:18,192 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:01:18,332 - MainThread - Main thread ending
+INFO - 2019-03-11 14:01:28,585 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:01:28,586 - MainThread - Terminator signals linked
+INFO - 2019-03-11 14:01:33,706 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+INFO - 2019-03-11 14:01:41,786 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:01:43,720 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:01:43,756 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 14:01:52,593 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:01:52,594 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:01:57,225 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:01:57,277 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:01:57,285 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:01:57,286 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:01:57,292 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:01:57,294 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:01:57,344 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:01:57,361 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:01:57,405 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:01:57,413 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:01:57,413 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:01:57,417 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:01:57,433 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:01:57,434 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:01:59,628 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:01:59,628 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:02:28,611 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:02:28,612 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:02:28,612 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:02:28,613 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 14:02:32,441 - MainThread - Main thread ending
+INFO - 2019-03-11 14:02:37,331 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:02:43,308 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:02:43,309 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:02:48,027 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:02:48,089 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:02:48,098 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:02:48,105 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:02:48,105 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:02:48,107 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:02:48,160 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:02:48,178 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:02:48,220 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:02:48,228 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:02:48,228 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:02:48,233 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:02:48,247 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:02:48,248 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:02:49,870 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:02:49,870 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:03:35,287 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:03:35,288 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:03:35,288 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:03:35,288 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:03:38,159 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:03:38,256 - MainThread - Main thread ending
+INFO - 2019-03-11 14:04:47,617 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:04:47,619 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:04:53,076 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:04:53,124 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:04:53,135 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:04:53,135 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:04:53,142 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:04:53,144 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:04:53,194 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:04:53,211 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:04:53,256 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:04:53,264 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:04:53,264 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:04:53,269 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:04:53,284 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:04:53,285 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:04:54,981 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:04:54,982 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:05:09,678 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:05:09,679 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:05:09,680 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:05:09,680 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:05:13,149 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:05:13,289 - MainThread - Main thread ending
+DEBUG - 2019-03-11 14:05:13,290 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 14:05:25,236 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:05:25,237 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:05:30,534 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:05:30,582 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:05:30,589 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:05:30,607 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:05:30,607 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:05:30,608 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:05:30,661 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:05:30,678 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:05:30,725 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:05:30,725 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:05:30,733 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:05:30,733 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:05:30,738 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:05:30,738 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:05:30,754 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:05:30,755 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:05:31,242 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:05:34,731 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:05:34,731 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:06:26,265 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:06:38,039 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:06:38,039 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:06:43,111 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:06:43,168 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:06:43,178 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:06:43,179 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:06:43,185 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:06:43,187 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:06:43,240 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:06:43,267 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:06:43,311 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:06:43,319 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:06:43,319 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:06:43,327 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:06:43,347 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:06:43,348 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:06:49,825 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:06:49,826 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:08:40,688 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:08:40,688 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:08:40,689 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:08:40,689 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 14:08:43,361 - MainThread - Main thread ending
+DEBUG - 2019-03-11 14:08:43,385 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 14:08:43,387 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:08:53,404 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:08:53,405 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:08:58,178 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:08:58,227 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:08:58,236 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:08:58,238 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:08:58,248 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:08:58,249 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:08:58,311 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:08:58,327 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:08:58,377 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:08:58,384 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:08:58,384 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:08:58,389 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:08:58,404 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:08:58,405 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:09:03,140 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:09:03,141 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:13:17,335 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:13:17,336 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:13:17,336 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:13:17,336 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:13:18,332 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:13:18,445 - MainThread - Main thread ending
+INFO - 2019-03-11 14:13:59,847 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:13:59,848 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:14:04,633 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:14:04,684 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:14:04,693 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 14:14:04,699 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:14:04,700 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:14:04,701 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:14:04,752 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:14:04,769 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:14:04,824 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:14:04,832 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:14:04,833 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:14:04,837 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:14:04,857 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:14:04,858 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:14:06,334 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:14:06,335 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:14:45,458 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:14:45,459 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:14:45,459 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:14:45,460 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 14:14:49,866 - MainThread - Main thread ending
+INFO - 2019-03-11 14:14:54,709 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:15:51,761 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:15:51,762 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:15:56,470 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:15:56,513 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:15:56,520 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:15:56,521 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:15:56,527 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:15:56,529 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:15:56,577 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:15:56,594 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:15:56,641 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:15:56,650 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:15:56,650 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:15:56,655 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:15:56,671 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:15:56,672 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:15:58,252 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:15:58,252 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:15:58,302 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:15:58,302 - Enroller - New client enrolled YJ4yD&g%Z-{B7D/7?I%q5HP[W<Cl&{S+!zpe5Jls
+DEBUG - 2019-03-11 14:15:58,302 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:15:58,309 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:16:24,055 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:16:26,534 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:16:26,680 - Authenticator - Authentication thread shutting down gracefully
+DEBUG - 2019-03-11 14:16:26,682 - MainThread - Main thread ending
+INFO - 2019-03-11 14:16:45,943 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:16:45,943 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:16:50,875 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:16:50,925 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:16:50,934 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:16:50,935 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:16:50,942 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:16:50,944 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:16:51,002 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:16:51,022 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:16:51,084 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:16:51,094 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:16:51,094 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:16:51,099 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:16:51,122 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:16:51,122 - MainThread - Authentication thread started
+INFO - 2019-03-11 14:16:51,261 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:16:56,122 - MainThread - Main thread ending
+INFO - 2019-03-11 14:17:00,950 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:17:01,005 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:17:01,006 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:17:01,008 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:17:36,038 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:17:36,039 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:17:40,857 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:17:40,907 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:17:40,914 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:17:40,914 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:17:40,921 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:17:40,922 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:17:40,998 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:17:41,015 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:17:41,060 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:17:41,068 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:17:41,068 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:17:41,074 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:17:41,089 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:17:41,090 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:17:47,084 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:17:47,085 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:17:47,125 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:17:47,125 - Enroller - New client enrolled 5^}+oSl>]&jrv!^IMmR*+59Aq(Tb8K@@8nI2E182
+DEBUG - 2019-03-11 14:17:47,125 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:17:47,134 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:18:14,553 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:18:16,101 - MainThread - Main thread ending
+INFO - 2019-03-11 14:18:17,140 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:18:17,141 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:18:17,146 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:18:20,932 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:18:26,215 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:18:26,216 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:18:30,651 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:18:30,698 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:18:30,706 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:18:30,707 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:18:30,713 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:18:30,715 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:18:30,765 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:18:30,783 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:18:30,830 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:18:30,838 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:18:30,843 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:18:30,843 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:18:30,858 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:18:30,860 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:18:36,818 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:18:36,819 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:18:36,887 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:18:36,888 - Enroller - New client enrolled VDCOIN}=ZQp1T.WNQoyp)]-/^S01ex&cYTV.=Me2
+DEBUG - 2019-03-11 14:18:36,888 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:18:36,896 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:19:18,490 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:18,689 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:18,849 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:19,019 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:20,724 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:19:20,863 - MainThread - Main thread ending
+INFO - 2019-03-11 14:19:27,408 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:19:27,411 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:19:32,325 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:19:32,374 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:19:32,381 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:19:32,382 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:19:32,388 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:19:32,390 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:19:32,451 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:19:32,469 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:19:32,519 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:19:32,528 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:19:32,529 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:19:32,533 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:19:32,547 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:19:32,548 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:19:38,189 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:19:38,189 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:19:55,487 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:55,488 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:19:55,489 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:19:55,498 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:19:55,742 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:55,915 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,081 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,252 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,434 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,623 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,804 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:56,979 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:57,158 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:57,336 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:19:57,510 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:19:57,558 - MainThread - Main thread ending
+INFO - 2019-03-11 14:20:02,419 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:20:02,420 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:20:09,878 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:20:09,879 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:20:14,704 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:20:14,761 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:20:14,769 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:20:14,770 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:20:14,776 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:20:14,777 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:20:14,827 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:20:14,845 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:20:14,887 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:20:14,888 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:20:14,895 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:20:14,904 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:20:14,908 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:20:14,909 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:20:14,925 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:20:14,927 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:20:17,637 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:20:21,198 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:20:21,199 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+ERROR - 2019-03-11 14:20:21,256 - Enroller - EXCEPTION
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\certificate_handler.py", line 147, in saveClientKey
+    print(self.create_certificates('./', "client", key))
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\certificate_handler.py", line 109, in create_certificates
+    base_filename = os.path.join(key_dir, name)
+  File "D:\CompSci\Python3.6\lib\ntpath.py", line 76, in join
+    path = os.fspath(path)
+TypeError: expected str, bytes or os.PathLike object, not CertificateHandler
+DEBUG - 2019-03-11 14:20:21,259 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:20:21,259 - Enroller - New client enrolled ZLDFvB[Ui*VChEVw@aWbjP}jp?zdR{85-HX@6p@+
+DEBUG - 2019-03-11 14:20:21,259 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:20:21,271 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:22:06,409 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:22:09,941 - MainThread - Main thread ending
+INFO - 2019-03-11 14:22:11,268 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:22:11,268 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:22:11,269 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:22:14,798 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:22:34,537 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:22:34,538 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:22:39,926 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:22:39,983 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:22:39,993 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:22:40,005 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:22:40,005 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:22:40,010 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:22:40,072 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:22:40,092 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:22:40,155 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:22:40,164 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:22:40,165 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:22:40,170 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:22:40,195 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:22:40,196 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:22:40,473 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:22:40,473 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+ERROR - 2019-03-11 14:22:40,528 - Enroller - Exception while writing file
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\certificate_handler.py", line 106, in saveClientKey
+    zmq.auth._write_key_file("./here.key", zmq.auth._cert_public_banner.format(now), b'5dLQZ/pEzjcn8@&L=<1}X^kIz8P&ImP}G*pyHzF')
+AttributeError: module 'zmq.auth' has no attribute '_write_key_file'
+DEBUG - 2019-03-11 14:22:40,531 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:22:40,531 - Enroller - New client enrolled z/GJPd6RiNXc{^O-nAv^4I3QyGR>9VVYVP#0m/du
+DEBUG - 2019-03-11 14:22:40,535 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:22:40,542 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:23:28,186 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:23:30,016 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:23:30,201 - Authenticator - Authentication thread shutting down gracefully
+DEBUG - 2019-03-11 14:23:30,203 - MainThread - Main thread ending
+INFO - 2019-03-11 14:23:35,748 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:23:35,752 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:23:40,757 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:23:40,803 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:23:40,810 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:23:40,811 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:23:40,829 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:23:40,830 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:23:40,881 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:23:40,899 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:23:40,945 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:23:40,953 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:23:40,954 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:23:40,958 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:23:40,974 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:23:40,975 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:23:42,379 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:23:42,380 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:23:42,438 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:23:42,439 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:23:42,441 - Enroller - New client enrolled yl^dj9)VQzftU^.9&eoiRMjUNsAED%W^<:{WJMtq
+DEBUG - 2019-03-11 14:23:42,443 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:23:42,454 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 14:24:47,423 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:24:50,842 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:24:50,989 - MainThread - Main thread ending
+DEBUG - 2019-03-11 14:24:50,992 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 14:24:58,947 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:24:58,953 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:25:03,860 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:25:03,905 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:25:03,913 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:25:03,914 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:25:03,921 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:25:03,922 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:25:03,982 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:25:04,000 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:25:04,045 - Thread-6 - Starting
+DEBUG - 2019-03-11 14:25:04,053 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:25:04,054 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:25:04,058 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:25:04,082 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:25:04,083 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:25:05,862 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:25:05,863 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:25:05,920 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:25:05,922 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:25:05,923 - Enroller - New client enrolled B0]AB}VMMjuOol6pnT9qx{Ji{ui)pku%x=Cv15Ie
+DEBUG - 2019-03-11 14:25:05,923 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:25:05,931 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:25:45,600 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:25:45,613 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:25:45,614 - CurveAuth - DENIED (CURVE) domain=* client_key=b'B0]AB}VMMjuOol6pnT9qx{Ji{ui)pku%x=Cv15Ie'
+DEBUG - 2019-03-11 14:25:45,614 - CurveAuth - ZAP reply code=b'400' text=b'Unknown key'
+DEBUG - 2019-03-11 14:25:45,615 - Monitor - EVENT_HANDSHAKE_FAILED_AUTH b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:25:45,615 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 14:27:41,198 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:27:43,941 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:27:44,089 - MainThread - Main thread ending
+INFO - 2019-03-11 14:27:54,972 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:27:54,976 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:27:59,777 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:27:59,829 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:27:59,837 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:27:59,846 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:27:59,846 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:27:59,851 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:27:59,871 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:27:59,919 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:27:59,927 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:27:59,928 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:27:59,933 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:27:59,949 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:27:59,952 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 14:27:59,952 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 91, in <module>
+    enroller = Enroller(feedListener, authenticator)
+NameError: name 'authenticator' is not defined
+INFO - 2019-03-11 14:27:59,967 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:27:59,967 - MainThread - Main thread ending
+INFO - 2019-03-11 14:28:09,856 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 14:29:09,410 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:29:09,411 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:29:14,397 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:29:14,448 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:29:14,457 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:29:14,457 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:29:14,464 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:29:14,465 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:29:14,484 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:29:14,536 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:29:14,545 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:29:14,549 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:29:14,550 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:29:14,570 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:29:14,571 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:29:14,639 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:29:16,506 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:29:16,506 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:29:16,569 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:29:16,570 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:29:16,570 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:29:16,571 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:29:16,571 - Enroller - New client enrolled P4t7TrG9^(XaYZWyIm>s9CYg5unRR9IaZ%{)jZ.n
+DEBUG - 2019-03-11 14:29:16,572 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:29:16,583 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:29:31,171 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:29:31,185 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:29:31,186 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'P4t7TrG9^(XaYZWyIm>s9CYg5unRR9IaZ%{)jZ.n'
+DEBUG - 2019-03-11 14:29:31,186 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:29:31,187 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:29:31,189 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 14:31:36,678 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:31:39,663 - MainThread - Main thread ending
+DEBUG - 2019-03-11 14:31:41,216 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 14:31:55,990 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:31:55,991 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:32:01,036 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:32:01,086 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:32:01,095 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:32:01,102 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:32:01,102 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:32:01,109 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:32:01,128 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:32:01,183 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:32:01,192 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:32:01,197 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:32:01,197 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:32:01,214 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:32:01,219 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:32:01,274 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:32:06,627 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:32:06,627 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:32:06,695 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:32:06,697 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:32:06,697 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:32:06,697 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:32:06,698 - Enroller - New client enrolled IDLSBLu4g(n+TqS.B:ppfdQ-=fGp5X)tM86}9D#M
+DEBUG - 2019-03-11 14:32:06,698 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:32:06,710 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:32:28,685 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:32:28,697 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:32:28,698 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'IDLSBLu4g(n+TqS.B:ppfdQ-=fGp5X)tM86}9D#M'
+DEBUG - 2019-03-11 14:32:28,699 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:32:28,699 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+ERROR - 2019-03-11 14:32:28,700 - Authenticator - Exception occured when registering
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 84, in run
+    success, msg, userID = self.register(parts[1], parts[2])
+TypeError: register() missing 1 required positional argument: 'email'
+INFO - 2019-03-11 14:33:42,053 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 14:33:42,056 - Authenticator - Authentication thread shutting down gracefully
+DEBUG - 2019-03-11 14:33:46,290 - MainThread - Main thread ending
+INFO - 2019-03-11 14:33:46,730 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:33:46,730 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:33:46,731 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:34:04,605 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:34:04,607 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:34:11,136 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:34:11,199 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:34:11,207 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:34:11,208 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:34:11,215 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:34:11,217 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:34:11,244 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:34:11,302 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:34:11,313 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:34:11,320 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:34:11,320 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:34:11,341 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:34:11,342 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:34:11,400 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:34:16,842 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:34:16,843 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:34:16,893 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:34:16,894 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:34:16,895 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:34:16,895 - Enroller - New client enrolled at(X7Pa3sDt^Exb{<FLSqS)%l?V[d*%bCeXIxNG>
+DEBUG - 2019-03-11 14:34:16,895 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:34:16,896 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:34:16,904 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:34:37,562 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:34:37,607 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:34:37,608 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'at(X7Pa3sDt^Exb{<FLSqS)%l?V[d*%bCeXIxNG>'
+DEBUG - 2019-03-11 14:34:37,610 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:34:37,612 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:34:37,808 - Authenticator - Responded to register instruction: False, , N/A
+DEBUG - 2019-03-11 14:34:37,809 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 14:36:40,966 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:36:41,233 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:36:41,406 - MainThread - Main thread ending
+INFO - 2019-03-11 14:36:46,907 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:36:46,908 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:36:46,910 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:36:57,723 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:36:57,726 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:37:02,800 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:37:02,850 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:37:02,860 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 14:37:02,867 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:37:02,868 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:37:02,877 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:37:02,898 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:37:02,947 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:37:02,956 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:37:02,962 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:37:02,962 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:37:02,990 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:37:02,996 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:37:03,080 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:37:11,121 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:37:11,121 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:37:11,181 - Enroller - Client key saved
+DEBUG - 2019-03-11 14:37:11,182 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:37:11,182 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:37:11,182 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:37:11,183 - Enroller - New client enrolled *d!d!m/ZY@Oo}6u]99Y0=:xoepZYq8z-RuTI5&Pg
+DEBUG - 2019-03-11 14:37:11,185 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:37:11,197 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:37:27,203 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:37:27,250 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:37:27,252 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'*d!d!m/ZY@Oo}6u]99Y0=:xoepZYq8z-RuTI5&Pg'
+DEBUG - 2019-03-11 14:37:27,254 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:37:27,256 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:37:27,435 - Authenticator - Responded to register instruction: False, , N/A
+DEBUG - 2019-03-11 14:37:27,436 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 14:40:58,504 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 14:41:01,226 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 14:41:01,226 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 14:41:01,228 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 14:41:02,907 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 14:41:03,098 - MainThread - Main thread ending
+INFO - 2019-03-11 14:41:41,177 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 14:41:41,183 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 14:41:45,987 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 14:41:46,036 - Thread-2 - Starting
+DEBUG - 2019-03-11 14:41:46,044 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:41:46,044 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 14:41:46,051 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 14:41:46,052 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 14:41:46,071 - MainThread - Connected to database
+DEBUG - 2019-03-11 14:41:46,120 - Thread-4 - Starting
+DEBUG - 2019-03-11 14:41:46,128 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 14:41:46,129 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 14:41:46,138 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 14:41:46,154 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 14:41:46,155 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 14:41:46,208 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 14:41:47,190 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:41:47,231 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:41:47,234 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'*d!d!m/ZY@Oo}6u]99Y0=:xoepZYq8z-RuTI5&Pg'
+DEBUG - 2019-03-11 14:41:47,235 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:41:47,238 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:41:50,646 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 1
+DEBUG - 2019-03-11 14:41:50,658 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:42:05,961 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:42:05,983 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 14:42:05,984 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'*d!d!m/ZY@Oo}6u]99Y0=:xoepZYq8z-RuTI5&Pg'
+DEBUG - 2019-03-11 14:42:05,985 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 14:42:05,997 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 14:42:06,104 - Authenticator - Responded to activation instruction: True, Successfully Activated, 1
+DEBUG - 2019-03-11 14:42:06,127 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 15:19:36,823 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:19:41,434 - MainThread - Main thread ending
+INFO - 2019-03-11 15:19:46,368 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 15:21:10,149 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:21:10,150 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:21:15,016 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:21:15,070 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:21:15,080 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:21:15,088 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:21:15,088 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:21:15,091 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:21:15,113 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:21:15,177 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:21:15,187 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:21:15,194 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:21:15,194 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:21:15,224 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:21:15,228 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:21:15,294 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:21:23,834 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:21:23,835 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:21:23,892 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:21:23,893 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:21:23,893 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:21:23,894 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:21:23,894 - Enroller - New client enrolled PY{r{v4I5AU/%#{UFFjPAqettHYu1il4SMagL&XX
+DEBUG - 2019-03-11 15:21:23,895 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:21:23,905 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:21:32,215 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:21:32,229 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:21:32,230 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'PY{r{v4I5AU/%#{UFFjPAqettHYu1il4SMagL&XX'
+DEBUG - 2019-03-11 15:21:32,232 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:21:32,234 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:21:59,635 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 15:22:01,283 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:22:02,392 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 15:22:03,892 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 15:22:03,893 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:22:03,899 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 15:22:05,099 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 15:22:05,299 - MainThread - Main thread ending
+INFO - 2019-03-11 15:22:37,834 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:22:37,835 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:22:42,974 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:22:43,042 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:22:43,051 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:22:43,053 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:22:43,061 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:22:43,065 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:22:43,087 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:22:43,153 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:22:43,163 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:22:43,171 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:22:43,171 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:22:43,196 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:22:43,197 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:22:43,281 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:22:45,017 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:22:45,017 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:22:45,075 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:22:45,076 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:22:45,076 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:22:45,077 - Enroller - New client enrolled o)hN2HBt7MDj9[61+ZSjo]@4pVUpvN><Df8Buh@=
+DEBUG - 2019-03-11 15:22:45,077 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:22:45,082 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:22:45,089 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:22:53,723 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:22:53,737 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:22:53,737 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'o)hN2HBt7MDj9[61+ZSjo]@4pVUpvN><Df8Buh@='
+DEBUG - 2019-03-11 15:22:53,738 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:22:53,739 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:22:53,833 - Authenticator - Responded to login instruction: False, Authenticated, 1, 42ac171668d540f1becacae416f55544
+DEBUG - 2019-03-11 15:23:21,327 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 15:23:56,814 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:23:58,284 - MainThread - Main thread ending
+INFO - 2019-03-11 15:24:03,078 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 15:24:13,889 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:24:13,891 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:24:18,766 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:24:18,823 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:24:18,832 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:24:18,833 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:24:18,840 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:24:18,848 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:24:18,867 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:24:18,933 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:24:18,945 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:24:18,946 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:24:18,951 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:24:18,968 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:24:18,970 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:24:19,026 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:24:29,047 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:24:29,048 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:24:29,107 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:24:29,108 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:24:29,108 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:24:29,108 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:24:29,108 - Enroller - New client enrolled SE0iWR/EchS:G6^+hfuR)vBnltNunGFOoh#m:6M$
+DEBUG - 2019-03-11 15:24:29,109 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:24:29,127 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:24:37,714 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:24:37,729 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:24:37,729 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'SE0iWR/EchS:G6^+hfuR)vBnltNunGFOoh#m:6M$'
+DEBUG - 2019-03-11 15:24:37,730 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:24:37,731 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:24:37,825 - Authenticator - Responded to login instruction: False, Authenticated, 1, 42ac171668d540f1becacae416f55544
+DEBUG - 2019-03-11 15:24:37,826 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 15:26:56,828 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:26:57,846 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 15:26:58,864 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 15:26:59,047 - MainThread - Main thread ending
+INFO - 2019-03-11 15:27:04,524 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:27:04,525 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:27:09,626 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:27:09,682 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:27:09,691 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:09,691 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:27:09,697 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:27:09,699 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:27:09,717 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:27:09,761 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:27:09,769 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:09,777 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:09,777 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:27:09,792 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:27:09,794 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:27:09,861 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:27:13,417 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:13,417 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:13,470 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:27:13,470 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:13,471 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:13,471 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:13,472 - Enroller - New client enrolled ncbwj!lKUwYmYz$r@Ln9!*waX3#YbX*)?*sr}xiA
+DEBUG - 2019-03-11 15:27:13,472 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:13,478 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:23,185 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:27:23,200 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:27:23,202 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'ncbwj!lKUwYmYz$r@Ln9!*waX3#YbX*)?*sr}xiA'
+DEBUG - 2019-03-11 15:27:23,211 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:27:23,214 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+ERROR - 2019-03-11 15:27:23,328 - Authenticator - Exception occured when logging in
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 104, in run
+    success, msg, userID, key = self.login(parts[1], parts[2])
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 275, in login
+    if verified:
+NameError: name 'verified' is not defined
+INFO - 2019-03-11 15:27:31,158 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:27:31,161 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 15:27:33,464 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 15:27:33,464 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:33,469 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 15:27:34,862 - MainThread - Main thread ending
+INFO - 2019-03-11 15:27:45,716 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:27:45,722 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:27:50,981 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:27:51,030 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:27:51,037 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:51,038 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:27:51,045 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:27:51,046 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:27:51,064 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:27:51,110 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:27:51,117 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:51,118 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:51,122 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:27:51,143 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:27:51,148 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:27:51,196 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:51,196 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:27:51,197 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:27:51,210 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:27:51,211 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:51,212 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:51,212 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:27:51,212 - Enroller - New client enrolled @?IQ)(67O.4.-<E=HC*YzBleBYP-L!)Y$O]a86Cv
+DEBUG - 2019-03-11 15:27:51,216 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:27:51,228 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:28:03,365 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:28:03,410 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:28:03,412 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'@?IQ)(67O.4.-<E=HC*YzBleBYP-L!)Y$O]a86Cv'
+DEBUG - 2019-03-11 15:28:03,420 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:28:03,425 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:28:03,604 - Authenticator - Responded to login instruction: True, Authenticated, 1, 42ac171668d540f1becacae416f55544
+DEBUG - 2019-03-11 15:28:03,604 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:28:45,000 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:28:45,001 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:28:45,062 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:28:45,063 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:28:45,063 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:28:45,064 - Enroller - New client enrolled q3={dx+MTe2}v}+2Ty9.WdGEjf!*xdeXOp}Kzl#=
+DEBUG - 2019-03-11 15:28:45,064 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:28:45,065 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:28:45,084 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:29:02,466 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:29:02,479 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:29:02,479 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'q3={dx+MTe2}v}+2Ty9.WdGEjf!*xdeXOp}Kzl#='
+DEBUG - 2019-03-11 15:29:02,480 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:29:02,481 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:29:02,578 - Authenticator - Username already taken: benryan1
+DEBUG - 2019-03-11 15:29:02,579 - Authenticator - Email already registered: benjmr96@gmail.com
+DEBUG - 2019-03-11 15:29:02,579 - Authenticator - Responded to register instruction: False, 
+	Username already taken
+	Email already registered, N/A
+DEBUG - 2019-03-11 15:29:02,584 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:29:34,921 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:29:34,922 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:29:35,011 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:29:35,013 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:29:35,013 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:29:35,014 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:29:35,014 - Enroller - New client enrolled X&9XA4*@zX40G&$pqH{Sx*+0oWt5z}T4k[(Idvwu
+DEBUG - 2019-03-11 15:29:35,014 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:29:35,027 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:29:56,564 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:29:56,611 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:29:56,613 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'X&9XA4*@zX40G&$pqH{Sx*+0oWt5z}T4k[(Idvwu'
+DEBUG - 2019-03-11 15:29:56,615 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:29:56,656 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:29:56,767 - Authenticator - Username already taken: benryan1
+DEBUG - 2019-03-11 15:29:56,768 - Authenticator - Email already registered: benjmr96@gmail.com
+DEBUG - 2019-03-11 15:29:56,768 - Authenticator - Responded to register instruction: False, 
+	Username already taken
+	Email already registered, N/A
+DEBUG - 2019-03-11 15:29:56,771 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:30:38,332 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:30:38,332 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:30:38,397 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:30:38,398 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:30:38,398 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:30:38,399 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:30:38,399 - Enroller - New client enrolled yVamiqC6ka>#3<Wf^@[A!w*m?tgLuM[c]lfSi1+{
+DEBUG - 2019-03-11 15:30:38,399 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:30:38,411 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:31:15,630 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:15,643 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:31:15,645 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'yVamiqC6ka>#3<Wf^@[A!w*m?tgLuM[c]lfSi1+{'
+DEBUG - 2019-03-11 15:31:15,646 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:31:15,647 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:15,740 - Authenticator - Username already taken: benryan1
+DEBUG - 2019-03-11 15:31:15,741 - Authenticator - Email already registered: benjmr96@gmail.com
+DEBUG - 2019-03-11 15:31:15,741 - Authenticator - Responded to register instruction: False, 
+	Username already taken
+	Email already registered, N/A
+DEBUG - 2019-03-11 15:31:15,745 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:25,341 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:25,385 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:31:25,387 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'yVamiqC6ka>#3<Wf^@[A!w*m?tgLuM[c]lfSi1+{'
+DEBUG - 2019-03-11 15:31:25,388 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:31:25,389 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:25,559 - Authenticator - Email already registered: benjmr96@gmail.com
+DEBUG - 2019-03-11 15:31:25,559 - Authenticator - Responded to register instruction: False, 
+	Email already registered, N/A
+DEBUG - 2019-03-11 15:31:25,561 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:32,479 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:32,524 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:31:32,525 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'yVamiqC6ka>#3<Wf^@[A!w*m?tgLuM[c]lfSi1+{'
+DEBUG - 2019-03-11 15:31:32,525 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:31:32,526 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:31:32,630 - Authenticator - Username already taken: benryan1
+DEBUG - 2019-03-11 15:31:32,631 - Authenticator - Responded to register instruction: False, 
+	Username already taken, N/A
+DEBUG - 2019-03-11 15:31:32,632 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:32:45,779 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:32:45,831 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:32:45,832 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'yVamiqC6ka>#3<Wf^@[A!w*m?tgLuM[c]lfSi1+{'
+DEBUG - 2019-03-11 15:32:45,836 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:32:45,872 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:32:49,018 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 2
+DEBUG - 2019-03-11 15:32:49,023 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:36:09,238 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:36:09,239 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:36:09,296 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:36:09,297 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:36:09,297 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:36:09,297 - Enroller - New client enrolled sZyQl9Y7SDjfJg55VEjR2CHk:e7C5F?R6I@m&2t{
+DEBUG - 2019-03-11 15:36:09,297 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:36:09,298 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:36:09,305 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:36:35,112 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:36:35,126 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:36:35,127 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'sZyQl9Y7SDjfJg55VEjR2CHk:e7C5F?R6I@m&2t{'
+DEBUG - 2019-03-11 15:36:35,127 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:36:35,128 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:36:36,621 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 3
+DEBUG - 2019-03-11 15:36:36,625 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:37:41,588 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:37:41,588 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:37:41,646 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:37:41,647 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:37:41,647 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:37:41,647 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:37:41,648 - Enroller - New client enrolled YNa=cHV3UOGOAU2&]L$rBL6qb<O+9!2$H3DC51xH
+DEBUG - 2019-03-11 15:37:41,648 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:37:41,656 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:38:14,391 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:38:14,412 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:38:14,413 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'YNa=cHV3UOGOAU2&]L$rBL6qb<O+9!2$H3DC51xH'
+DEBUG - 2019-03-11 15:38:14,413 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:38:14,414 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:38:15,528 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 1
+DEBUG - 2019-03-11 15:38:15,532 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:05,493 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:05,515 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:39:05,516 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'YNa=cHV3UOGOAU2&]L$rBL6qb<O+9!2$H3DC51xH'
+DEBUG - 2019-03-11 15:39:05,516 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:39:05,517 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:16,962 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:16,962 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:16,976 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:39:16,976 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'YNa=cHV3UOGOAU2&]L$rBL6qb<O+9!2$H3DC51xH'
+DEBUG - 2019-03-11 15:39:16,976 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:39:16,977 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:39:40,505 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:40:11,723 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:40:11,723 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:40:11,771 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:40:11,772 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:40:11,772 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:40:11,772 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:40:11,773 - Enroller - New client enrolled e4P!AtQBD<rR^vFE:BIZG/&H^V&1!p:Nj4gOpQtI
+DEBUG - 2019-03-11 15:40:11,773 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:40:11,780 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:40:34,855 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:40:34,868 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:40:34,869 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'e4P!AtQBD<rR^vFE:BIZG/&H^V&1!p:Nj4gOpQtI'
+DEBUG - 2019-03-11 15:40:34,869 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:40:34,870 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:40:36,237 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 1
+DEBUG - 2019-03-11 15:40:36,243 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:41:04,742 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:41:04,782 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:41:04,783 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'e4P!AtQBD<rR^vFE:BIZG/&H^V&1!p:Nj4gOpQtI'
+DEBUG - 2019-03-11 15:41:04,786 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:41:04,801 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+ERROR - 2019-03-11 15:41:05,117 - Authenticator - Exception occured when activating
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 94, in run
+    success, msg, userID = self.activate(parts[1], parts[2])
+ValueError: not enough values to unpack (expected 3, got 2)
+DEBUG - 2019-03-11 15:41:33,841 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 15:42:21,158 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 15:42:21,160 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 15:42:21,165 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 15:42:21,284 - MainThread - Main thread ending
+INFO - 2019-03-11 15:42:27,189 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 15:42:27,189 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 15:42:32,315 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 15:42:32,365 - Thread-2 - Starting
+DEBUG - 2019-03-11 15:42:32,373 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:42:32,373 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 15:42:32,387 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 15:42:32,388 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 15:42:32,406 - MainThread - Connected to database
+DEBUG - 2019-03-11 15:42:32,459 - Thread-4 - Starting
+DEBUG - 2019-03-11 15:42:32,467 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:42:32,468 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:42:32,480 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 15:42:32,495 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 15:42:32,496 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 15:42:32,546 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 15:42:53,038 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:42:53,039 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:42:53,079 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:42:53,080 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:42:53,081 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:42:53,081 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:42:53,081 - Enroller - New client enrolled Li>]--zN2gy^qZ}v0Y329xs/9+>DVyUlkV4Estr7
+DEBUG - 2019-03-11 15:42:53,082 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:42:53,088 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:43:11,877 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:43:11,890 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:43:11,891 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'Li>]--zN2gy^qZ}v0Y329xs/9+>DVyUlkV4Estr7'
+DEBUG - 2019-03-11 15:43:11,891 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:43:11,892 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:43:14,371 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 1
+DEBUG - 2019-03-11 15:43:14,376 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:43:33,102 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:43:33,125 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:43:33,126 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'Li>]--zN2gy^qZ}v0Y329xs/9+>DVyUlkV4Estr7'
+DEBUG - 2019-03-11 15:43:33,127 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:43:33,128 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:43:33,193 - Authenticator - Responded to activation instruction: True, Successfully Activated
+DEBUG - 2019-03-11 15:43:33,207 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:07,739 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:07,739 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:07,786 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:44:07,787 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:44:07,787 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:44:07,787 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:44:07,788 - Enroller - New client enrolled 2b8}C+x2y*9mHVWJdPXQWU+)mSM3ZGvGO#Kuoka]
+DEBUG - 2019-03-11 15:44:07,788 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:44:07,794 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:15,033 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:15,047 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:44:15,048 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'2b8}C+x2y*9mHVWJdPXQWU+)mSM3ZGvGO#Kuoka]'
+DEBUG - 2019-03-11 15:44:15,048 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:44:15,049 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:15,050 - Authenticator - Responded to login instruction: False, 
+	Username does not exists, N/A, N/A
+DEBUG - 2019-03-11 15:44:15,051 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:18,640 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:18,653 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:44:18,654 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'2b8}C+x2y*9mHVWJdPXQWU+)mSM3ZGvGO#Kuoka]'
+DEBUG - 2019-03-11 15:44:18,654 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:44:18,655 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:18,767 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 15:44:18,768 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:32,527 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:32,527 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:32,567 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:44:32,568 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:44:32,568 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:44:32,569 - Enroller - New client enrolled .W1$kV?=wMwS(mOLZ^3@ib&]ue4^)bwwOz8y-2(d
+DEBUG - 2019-03-11 15:44:32,569 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:44:32,569 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:44:32,576 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:44:37,723 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:37,737 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:44:37,737 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'.W1$kV?=wMwS(mOLZ^3@ib&]ue4^)bwwOz8y-2(d'
+DEBUG - 2019-03-11 15:44:37,737 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:44:37,738 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:44:37,852 - Authenticator - Responded to login instruction: False, Incorrect Password, 1, N/A
+DEBUG - 2019-03-11 15:44:37,853 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:45:27,237 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:45:27,237 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:45:27,640 - Enroller - Client key saved
+DEBUG - 2019-03-11 15:45:27,641 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:45:27,641 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 15:45:27,642 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:45:27,642 - Enroller - New client enrolled R0{RO63@L@34Gp$PNGwY-9^O<N0S{2l>22yMw#X%
+DEBUG - 2019-03-11 15:45:27,643 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 15:45:27,652 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 15:45:45,266 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:45:45,312 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:45:45,317 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'R0{RO63@L@34Gp$PNGwY-9^O<N0S{2l>22yMw#X%'
+DEBUG - 2019-03-11 15:45:45,322 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:45:45,362 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:45:47,238 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 2
+DEBUG - 2019-03-11 15:45:47,242 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:02,464 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:02,478 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:46:02,479 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'R0{RO63@L@34Gp$PNGwY-9^O<N0S{2l>22yMw#X%'
+DEBUG - 2019-03-11 15:46:02,479 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:46:02,480 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:02,481 - Authenticator - Responded to activation instruction: False, 
+	Key not registered to user.
+DEBUG - 2019-03-11 15:46:02,482 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:13,711 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:13,757 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 15:46:13,758 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'R0{RO63@L@34Gp$PNGwY-9^O<N0S{2l>22yMw#X%'
+DEBUG - 2019-03-11 15:46:13,759 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 15:46:13,761 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 15:46:13,828 - Authenticator - Responded to activation instruction: True, Successfully Activated
+DEBUG - 2019-03-11 15:46:13,859 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:02:48,422 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:02:48,423 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:02:48,457 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:02:48,458 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:02:48,458 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:02:48,458 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:02:48,459 - Enroller - New client enrolled rU2e)QkcL7x)AMa:en)ut{kXPkXe2]-b5CL<7Htu
+DEBUG - 2019-03-11 16:02:48,459 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:02:48,466 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:03:18,246 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:03:18,295 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:03:18,296 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'rU2e)QkcL7x)AMa:en)ut{kXPkXe2]-b5CL<7Htu'
+DEBUG - 2019-03-11 16:03:18,297 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:03:18,301 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:03:18,424 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 16:03:18,425 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:03:42,745 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:03:42,745 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:03:42,785 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:03:42,786 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:03:42,786 - Enroller - New client enrolled [NuXDj@m1=<8EN/sW7Kg{l}{/RB/hZp<LK3OsBFw
+DEBUG - 2019-03-11 16:03:42,786 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:03:42,786 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:03:42,787 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:03:42,792 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:03:52,512 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:03:52,526 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:03:52,527 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'[NuXDj@m1=<8EN/sW7Kg{l}{/RB/hZp<LK3OsBFw'
+DEBUG - 2019-03-11 16:03:52,527 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:03:52,528 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:03:52,641 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 16:03:52,642 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:22,124 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:04:22,124 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:04:22,162 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:04:22,163 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:04:22,163 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:04:22,163 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:04:22,164 - Enroller - New client enrolled lPM{2z?T#e5=.WHhmKZD!Xm<vR<xZI55=Y6q>)[)
+DEBUG - 2019-03-11 16:04:22,164 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:04:22,170 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:04:24,435 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:24,452 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:04:24,454 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'lPM{2z?T#e5=.WHhmKZD!Xm<vR<xZI55=Y6q>)[)'
+DEBUG - 2019-03-11 16:04:24,455 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:04:24,455 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:24,456 - Authenticator - Responded to login instruction: False, 
+	Username does not exists, N/A, N/A
+DEBUG - 2019-03-11 16:04:24,457 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:34,792 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:34,806 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:04:34,807 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'lPM{2z?T#e5=.WHhmKZD!Xm<vR<xZI55=Y6q>)[)'
+DEBUG - 2019-03-11 16:04:34,807 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:04:34,808 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:04:34,927 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 16:04:34,928 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:05:19,931 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:19,931 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:19,974 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:05:19,975 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:19,975 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:19,975 - Enroller - New client enrolled ?PNo4?nHpEiipGBwhETXruVR{SKWKHa[rS)]eYM-
+DEBUG - 2019-03-11 16:05:19,975 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:19,976 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:19,983 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:27,228 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:27,229 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:27,282 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:05:27,283 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:27,284 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:27,284 - Enroller - New client enrolled >U5(pf><Baz&hdup$:EpSyh<pJnGrIxiX+S@BErg
+DEBUG - 2019-03-11 16:05:27,284 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:27,285 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:27,290 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:45,696 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:45,696 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:45,733 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:05:45,734 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:45,734 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:05:45,735 - Enroller - New client enrolled kCL}7<&L{l>[gu*Qf*ePG[+PL:gBC+K$^Ym8p)5j
+DEBUG - 2019-03-11 16:05:45,735 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:45,735 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:05:45,739 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:05:53,614 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:05:53,628 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:05:53,629 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'kCL}7<&L{l>[gu*Qf*ePG[+PL:gBC+K$^Ym8p)5j'
+DEBUG - 2019-03-11 16:05:53,629 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:05:53,630 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:05:53,749 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 16:05:53,749 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:08,180 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:08,180 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:08,224 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:06:08,224 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:06:08,224 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:06:08,224 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:06:08,224 - Enroller - New client enrolled ?DNy&eMVA?.t/Af><qQy:rYv.cQHmt>%b9A{XF>I
+DEBUG - 2019-03-11 16:06:08,226 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:06:08,232 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:08,300 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:08,313 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:06:08,313 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'?DNy&eMVA?.t/Af><qQy:rYv.cQHmt>%b9A{XF>I'
+DEBUG - 2019-03-11 16:06:08,313 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:06:08,313 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:08,314 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 16:06:08,316 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:25,285 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:25,286 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:25,320 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:06:25,321 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:06:25,321 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:06:25,321 - Enroller - New client enrolled K[Nd*ULN1o7l)F:JB{o%iQP7<G+:!0OW?xI6PmeU
+DEBUG - 2019-03-11 16:06:25,321 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:06:25,322 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:06:25,329 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:06:52,504 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:52,517 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:06:52,518 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'K[Nd*ULN1o7l)F:JB{o%iQP7<G+:!0OW?xI6PmeU'
+DEBUG - 2019-03-11 16:06:52,518 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:06:52,519 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:06:54,111 - Authenticator - Responded to register instruction: True, 
+	Successfully Registered, check email for activation key., 3
+DEBUG - 2019-03-11 16:06:54,135 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:20,600 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:20,615 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:07:20,617 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'K[Nd*ULN1o7l)F:JB{o%iQP7<G+:!0OW?xI6PmeU'
+DEBUG - 2019-03-11 16:07:20,617 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:07:20,618 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:20,698 - Authenticator - Responded to activation instruction: True, Successfully Activated
+DEBUG - 2019-03-11 16:07:20,708 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:36,261 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:07:36,262 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:07:36,293 - Enroller - Client key saved
+DEBUG - 2019-03-11 16:07:36,294 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:07:36,294 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 16:07:36,294 - Enroller - New client enrolled mMc=6I9@M25iZR?xcHEPk@(b)DV8zS]sT-BDdj@N
+DEBUG - 2019-03-11 16:07:36,295 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:07:36,295 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 16:07:36,299 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:07:36,370 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:36,383 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 16:07:36,383 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'mMc=6I9@M25iZR?xcHEPk@(b)DV8zS]sT-BDdj@N'
+DEBUG - 2019-03-11 16:07:36,384 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 16:07:36,384 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 16:07:36,385 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 16:07:36,386 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 16:08:05,088 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 16:08:06,303 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 16:08:06,304 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 16:08:06,305 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 16:08:06,395 - Authenticator - Authentication thread shutting down gracefully
+DEBUG - 2019-03-11 16:08:07,700 - MainThread - Main thread ending

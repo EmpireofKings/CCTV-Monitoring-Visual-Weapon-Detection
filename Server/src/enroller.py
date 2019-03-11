@@ -8,11 +8,15 @@ import threading
 
 
 class Enroller(Thread):
-	def __init__(self):
+	def __init__(self, feedListener, authListener):
 		Thread.__init__(self)
 		self.setName("Enroller")
 
+		self.feedListener = feedListener
+		self.authListener = authListener
+
 		self.terminator = Terminator.getInstance()
+
 		self.unsecuredCtx = zmq.Context()
 		self.unsecuredSocket = self.unsecuredCtx.socket(zmq.REP)
 		self.unsecuredSocket.bind('tcp://0.0.0.0:5002')
@@ -32,7 +36,12 @@ class Enroller(Thread):
 		while not self.terminator.isTerminating():
 			try:
 				clientKey = self.unsecuredSocket.recv_string()
+				print("RECEVIED", clientKey)
 				self.certHandler.saveClientKey(clientKey)
+				print("SAVED")
+				self.feedListener.ctxHandler.configureAuth()
+				self.authListener.ctxHandler.configureAuth()
+				print("CONFIGURED")
 				self.unsecuredSocket.send_string(str(self.publicKey))
 				logging.debug("New client enrolled %s", clientKey)
 			except:
