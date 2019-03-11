@@ -11,39 +11,36 @@ import logging
 
 
 class CertificateHandler():
-	def __init__(self, id):
-		self.id = id
+	def __init__(self, certID, mode):
+		self.certID = certID
+		self.mode = mode
+
 		self.basePath = '../Certificates'
 
 		self.publicFolderPath = (
-			self.basePath +
-			'/Public-' +
-			str(self.id) +
-			'/')
+			self.basePath + '/' + mode +
+			'-public-' + str(self.certID) + '/')
 
 		self.privateFolderPath = (
-			self.basePath +
-			'/Private-' +
-			str(self.id) +
-			'/')
+			self.basePath + '/' + mode +
+			'-private-' + str(self.certID) + '/')
 
 		self.publicFilePath = (
-			self.publicFolderPath +
-			"server-" +
-			str(self.id) +
-			".key")
+			self.publicFolderPath + mode + '-' +
+			str(self.certID) + ".key")
 
 		self.privateFilePath = (
-			self.privateFolderPath +
-			"server-" +
-			str(self.id) +
-			".key_secret")
+			self.privateFolderPath + mode + '-' +
+			str(self.certID) + ".key_secret")
 
-		self.clientKeysFolderPath = (
-			self.basePath +
-			'/Clients-' +
-			str(self.id) +
-			'/')
+		if mode == 'client':
+			self.enrolledKeysFolderPath = (
+				self.basePath + '/server-keys-' +
+				str(self.certID) + '/')
+		elif mode == 'server':
+			self.enrolledKeysFolderPath = (
+				self.basePath + '/client-keys-' +
+				str(self.certID) + '/')
 
 	def _generateCertificates(self):
 		if os.path.exists(self.publicFolderPath):
@@ -60,7 +57,7 @@ class CertificateHandler():
 
 		public, private = zmq.auth.create_certificates(
 			self.basePath,
-			"server-" + self.id)
+			"server-" + self.certID)
 
 		shutil.move(public, self.publicFilePath)
 		shutil.move(private, self.privateFilePath)
@@ -75,45 +72,51 @@ class CertificateHandler():
 	def getCertificateFilePaths(self):
 		return self.publicFilePath, self.privateFilePath
 
-	def getKeys(self):
+	def getKeyPair(self):
 		_, privatePath = self.getCertificateFilePaths()
 
 		publicKey, privateKey = zmq.auth.load_certificate(privatePath)
 
 		return publicKey, privateKey
 
-	def getClientKeysPath(self):
-		if not os.path.exists(self.clientKeysFolderPath):
-			os.mkdir(self.clientKeysFolderPath)
+	def getEnrolledKeysPath(self):
+		if not os.path.exists(self.enrolledKeysFolderPath):
+			os.mkdir(self.enrolledKeysFolderPath)
 
-		return self.clientKeysFolderPath
+		return self.enrolledKeysFolderPath
 
-	def saveClientKey(self, key):
-		try:
-			print("tryin")
-			path = "{0}.key".format(str(self.getClientKeysPath() + uuid.uuid4().hex))
-			print("after")
-		except:
-			logging.error('Exception while formatting', exc_info=True)
+	def getEnrolledKeys(self):
+		path = self.getEnrolledKeysPath()
+		certificates = zmq.auth.load_certificates(path)
 
+		# client will only have single server key
+		if self.mode == 'client':
+			for key, val in certificates.items():
+				if val:
+					return key
+
+		return certificates
+
+	def savePublicKey(self, key):
+		path = self.getEnrolledKeysPath() + str(uuid.uuid4().hex) + '.key'
 		print(path)
-		print(key)
 		now = datetime.datetime.now()
-		print(now)
 
 		try:
-			print("trying to save")
 			zmq.auth.certs._write_key_file(path, zmq.auth.certs._cert_public_banner.format(now), key)
-			logging.debug('Client key saved')
+			logging.debug('Enrolled key saved')
 		except:
 			logging.error('Exception while writing file', exc_info=True)
 
-		# fileContents = 'metadata\ncurve\n    public-key = \"' + key + '\"'
+	def prep(self):
+		self._generateCertificates()
 
-		# print("FILE CONTENTS\n", fileContents)
-		# with open(path, 'w') as fp:
-		# 	fp.write(fileContents)
+		if os.path.exists(self.enrolledKeysFolderPath):
+			shutil.rmtree(self.enrolledKeysFolderPath)
+
+		os.mkdir(self.enrolledKeysFolderPath)
 
 	def cleanup(self):
 		shutil.rmtree(self.publicFolderPath)
 		shutil.rmtree(self.privateFolderPath)
+		shutil.rmtree(self.enrolledKeysFolderPath)

@@ -1,6 +1,7 @@
 import signal
 import logging
 
+
 class Terminator():
 	__instance = None
 

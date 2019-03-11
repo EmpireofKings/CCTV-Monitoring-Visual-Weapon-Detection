@@ -2,6 +2,7 @@
 
 import base64 as b64
 import json
+import logging
 import math
 import sys
 import time
@@ -9,16 +10,16 @@ from collections import deque
 from pprint import pprint
 from threading import Thread
 
-import numpy as np
-
 import cv2
-from data_handler import *
-from feed_loader import FeedLoader
-from layout_gui import Layout, LayoutMode
-from networker import Networker, GlobalCertificateHandler, GlobalContextHandler
+import numpy as np
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
+from data_handler import *
+from feed_loader import FeedLoader
+from layout_gui import Layout, LayoutMode
+from networker import Networker
 
 
 class LiveAnalysis(QWidget):
@@ -31,11 +32,20 @@ class LiveAnalysis(QWidget):
 
 		drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
 
-		mainDisplay = FeedDisplayer(
-			QSize(1280, 720),
-			QSize(480, 270),
-			data[0][0].cameras[0],
-			drawSpace)
+		print("HERE : ", type(data), str(data))
+
+		if data[0] != []:
+			mainDisplay = FeedDisplayer(
+				QSize(1280, 720),
+				QSize(480, 270),
+				data[0][0].cameras[0],
+				drawSpace)
+		else:
+			mainDisplay = FeedDisplayer(
+				QSize(1280, 720),
+				QSize(480, 270),
+				None,
+				drawSpace)
 
 		mainDisplayDrawSpace = QVBoxLayout()
 		mainDisplayDrawSpace.addWidget(drawSpace)
@@ -102,18 +112,21 @@ class gridViewer(QGridLayout):
 
 					self.addWidget(feedDisplayer, row, col)
 
-					# instantiate singleton object before threads try to access them
-					certHandler = GlobalCertificateHandler.getInstance()
-					publicPath, _ = certHandler.getCertificatesPaths()
-					ctxHandler = GlobalContextHandler.getInstance(publicPath)
+					try:
+						networker = Networker(camera, feedDisplayer, mainDisplay)
+						networker.setDaemon(True)
+						networker.start()
+						logging.debug('Networker thread started')
+					except:
+						logging.critical('Networker thread failed to start', exc_info=True)
 
-					networker = Networker(camera, feedDisplayer, mainDisplay)
-					networker.setDaemon(True)
-					networker.start()
-
-					loader = FeedLoader(camera, networker, feedDisplayer, mainDisplay)
-					loader.setDaemon(True)
-					loader.start()
+					try:
+						loader = FeedLoader(camera, networker, feedDisplayer, mainDisplay)
+						loader.setDaemon(True)
+						loader.start()
+						logging.debug('Feed loader thread started')
+					except:
+						logging.critical('Feed loader thread failed to start', exc_info=True)
 
 					count += 1
 				else:

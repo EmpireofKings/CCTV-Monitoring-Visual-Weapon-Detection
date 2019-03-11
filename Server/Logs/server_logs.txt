@@ -39051,3 +39051,1006 @@ DEBUG - 2019-03-11 16:08:06,304 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
 DEBUG - 2019-03-11 16:08:06,305 - Monitor - EVENT_MONITOR_STOPPED b''
 DEBUG - 2019-03-11 16:08:06,395 - Authenticator - Authentication thread shutting down gracefully
 DEBUG - 2019-03-11 16:08:07,700 - MainThread - Main thread ending
+INFO - 2019-03-11 17:38:36,006 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 17:38:36,008 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 17:38:41,009 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 17:38:41,058 - Thread-2 - Starting
+DEBUG - 2019-03-11 17:38:41,066 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 17:38:41,066 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+INFO - 2019-03-11 17:38:41,074 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+DEBUG - 2019-03-11 17:38:41,076 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 17:38:41,098 - MainThread - Connected to database
+DEBUG - 2019-03-11 17:38:41,145 - Thread-4 - Starting
+DEBUG - 2019-03-11 17:38:41,152 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 17:38:41,153 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 17:38:41,157 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 17:38:41,172 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 17:38:41,173 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 17:38:41,239 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 17:39:10,721 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 17:39:10,721 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 17:39:10,789 - Enroller - Client key saved
+DEBUG - 2019-03-11 17:39:10,790 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 17:39:10,790 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 17:39:10,790 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 17:39:10,791 - Enroller - New client enrolled N%q9(0-G$$=LlT+&Za{h}{}@uM7QJ.oNXtf(u)$Q
+DEBUG - 2019-03-11 17:39:10,791 - CurveAuth - Configure curve: *[../Certificates/Clients-front/]
+DEBUG - 2019-03-11 17:39:10,800 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 17:39:10,868 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 17:39:10,882 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 17:39:10,882 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'N%q9(0-G$$=LlT+&Za{h}{}@uM7QJ.oNXtf(u)$Q'
+DEBUG - 2019-03-11 17:39:10,883 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 17:39:10,883 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 17:39:10,884 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 17:39:10,885 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 17:57:39,886 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 17:57:40,906 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 17:57:40,907 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 17:57:40,909 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 17:57:41,015 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-03-11 17:57:41,202 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 17:57:41,389 - MainThread - Main thread ending
+INFO - 2019-03-11 18:31:41,136 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 18:31:41,137 - MainThread - Terminator signals linked
+INFO - 2019-03-11 18:31:46,232 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+INFO - 2019-03-11 18:31:50,548 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 18:31:56,235 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 18:32:11,920 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 18:32:11,921 - MainThread - Terminator signals linked
+INFO - 2019-03-11 18:32:14,113 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 18:32:16,659 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+INFO - 2019-03-11 18:32:16,662 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 18:32:16,845 - Enroller - Enroller thread shutting down
+INFO - 2019-03-11 19:56:04,567 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 19:56:04,568 - MainThread - Terminator signals linked
+CRITICAL - 2019-03-11 19:56:09,704 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 15, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 19:56:09,706 - MainThread - Termination signal received, please wait.
+CRITICAL - 2019-03-11 19:56:09,725 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 38, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+CRITICAL - 2019-03-11 19:56:09,726 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 19:56:09,728 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+CRITICAL - 2019-03-11 19:56:09,728 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 19:56:09,759 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 19:56:18,740 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 19:56:18,741 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 19:56:23,526 - MainThread - Model/Graph ready
+CRITICAL - 2019-03-11 19:56:23,527 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 15, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 19:56:23,528 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:56:23,547 - MainThread - Connected to database
+CRITICAL - 2019-03-11 19:56:23,547 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 38, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+CRITICAL - 2019-03-11 19:56:23,549 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 19:56:23,550 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 19:56:23,551 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 19:56:23,552 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 19:56:23,554 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:56:23,554 - MainThread - Main thread ending
+INFO - 2019-03-11 19:58:19,263 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 19:58:19,264 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 19:58:24,091 - MainThread - Model/Graph ready
+CRITICAL - 2019-03-11 19:58:24,163 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 17, in __init__
+    clientsPath = certHandler.getClientKeysPath()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\CommonFiles\certificate_handler.py", line 78, in getClientKeysPath
+    if not os.path.exists(self.clientKeysFolderPath):
+AttributeError: 'CertificateHandler' object has no attribute 'clientKeysFolderPath'
+INFO - 2019-03-11 19:58:24,165 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:58:24,184 - MainThread - Connected to database
+CRITICAL - 2019-03-11 19:58:24,184 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 38, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+CRITICAL - 2019-03-11 19:58:24,185 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 19:58:24,187 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 19:58:24,187 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 19:58:24,189 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 19:58:24,190 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:58:24,190 - MainThread - Main thread ending
+INFO - 2019-03-11 19:59:44,886 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 19:59:44,887 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 19:59:49,808 - MainThread - Model/Graph ready
+CRITICAL - 2019-03-11 19:59:49,808 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 17, in __init__
+    clientsPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+INFO - 2019-03-11 19:59:49,810 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:59:49,829 - MainThread - Connected to database
+CRITICAL - 2019-03-11 19:59:49,830 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 38, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+CRITICAL - 2019-03-11 19:59:49,832 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 19:59:49,834 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 19:59:49,834 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 19:59:49,836 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 19:59:49,838 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 19:59:49,838 - MainThread - Main thread ending
+INFO - 2019-03-11 20:00:34,083 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:00:34,084 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:00:39,198 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:00:39,249 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:00:39,257 - CurveAuth - auth received API command b'CURVE'
+CRITICAL - 2019-03-11 20:00:39,257 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 24, in __init__
+    publicKey, privateKey = zmq.auth.load_certificate(privateFile)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\auth\certs.py", line 91, in load_certificate
+    raise IOError("Invalid certificate file: {0}".format(filename))
+OSError: Invalid certificate file: ../Certificates/server-private-front/server-front.key_secret
+DEBUG - 2019-03-11 20:00:39,258 - CurveAuth - Configure curve: *[../Certificates/server-keysfront/]
+INFO - 2019-03-11 20:00:39,261 - MainThread - Termination signal received, please wait.
+ERROR - 2019-03-11 20:00:39,262 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keysfront/: Invalid certificate directory: ../Certificates/server-keysfront/
+DEBUG - 2019-03-11 20:00:39,267 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:00:39,293 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:00:39,294 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 38, in __init__
+    certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+CRITICAL - 2019-03-11 20:00:39,297 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 20:00:39,299 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:00:39,299 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:00:39,301 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 20:00:39,303 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:00:39,305 - MainThread - Main thread ending
+INFO - 2019-03-11 20:01:46,009 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:01:46,010 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:01:51,202 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:01:51,260 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:01:51,269 - CurveAuth - auth received API command b'CURVE'
+CRITICAL - 2019-03-11 20:01:51,269 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 24, in __init__
+    publicKey, privateKey = zmq.auth.load_certificate(privateFile)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\auth\certs.py", line 91, in load_certificate
+    raise IOError("Invalid certificate file: {0}".format(filename))
+OSError: Invalid certificate file: ../Certificates/server-private-front/server-front.key_secret
+DEBUG - 2019-03-11 20:01:51,270 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+INFO - 2019-03-11 20:01:51,274 - MainThread - Termination signal received, please wait.
+ERROR - 2019-03-11 20:01:51,274 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-front/: Invalid certificate directory: ../Certificates/server-keys-front/
+DEBUG - 2019-03-11 20:01:51,275 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:01:51,299 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:01:51,300 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 40, in __init__
+    clientKeysPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+CRITICAL - 2019-03-11 20:01:51,302 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 20:01:51,307 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:01:51,307 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:01:51,311 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 20:01:51,313 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:01:51,313 - MainThread - Main thread ending
+INFO - 2019-03-11 20:03:25,923 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:03:25,924 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:03:30,718 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:03:30,770 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:03:30,786 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:03:30,786 - MainThread - Socket setup, public key: b'UX7]CPj165r9BF5/?%?dMxAPuY!%oQVqP)Jk!zEH'
+DEBUG - 2019-03-11 20:03:30,786 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+ERROR - 2019-03-11 20:03:30,787 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-front/: Invalid certificate directory: ../Certificates/server-keys-front/
+DEBUG - 2019-03-11 20:03:30,787 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:03:30,806 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:03:30,807 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 40, in __init__
+    clientKeysPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+CRITICAL - 2019-03-11 20:03:30,809 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+DEBUG - 2019-03-11 20:03:30,816 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:03:30,920 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 30, in __init__
+    self.certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 20:03:30,969 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:03:30,975 - MainThread - Main thread ending
+ERROR - 2019-03-11 20:03:30,975 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:03:30,975 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:03:30,977 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:04:12,427 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:04:12,430 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:04:17,585 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:04:17,638 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:04:17,655 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:04:17,655 - MainThread - Socket setup, public key: b'UX7]CPj165r9BF5/?%?dMxAPuY!%oQVqP)Jk!zEH'
+DEBUG - 2019-03-11 20:04:17,656 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+ERROR - 2019-03-11 20:04:17,656 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-front/: Invalid certificate directory: ../Certificates/server-keys-front/
+DEBUG - 2019-03-11 20:04:17,657 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:04:17,677 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:04:17,678 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 40, in __init__
+    clientKeysPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+CRITICAL - 2019-03-11 20:04:17,679 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+DEBUG - 2019-03-11 20:04:17,686 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:04:17,778 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 30, in __init__
+    self.certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 20:04:17,822 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:04:17,828 - MainThread - Main thread ending
+ERROR - 2019-03-11 20:04:17,828 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:04:17,828 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:04:17,830 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:06:09,701 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:06:09,702 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:06:14,948 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:06:14,999 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:06:15,017 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:06:15,017 - MainThread - Socket setup, public key: b'UX7]CPj165r9BF5/?%?dMxAPuY!%oQVqP)Jk!zEH'
+DEBUG - 2019-03-11 20:06:15,018 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+ERROR - 2019-03-11 20:06:15,019 - CurveAuth - Failed to load CURVE certs from ../Certificates/client-keys-front/: Invalid certificate directory: ../Certificates/client-keys-front/
+DEBUG - 2019-03-11 20:06:15,019 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:06:15,039 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:06:15,040 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 40, in __init__
+    clientKeysPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+CRITICAL - 2019-03-11 20:06:15,043 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+DEBUG - 2019-03-11 20:06:15,054 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:06:15,164 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 30, in __init__
+    self.certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 20:06:15,214 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:06:15,219 - MainThread - Main thread ending
+ERROR - 2019-03-11 20:06:15,219 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:06:15,219 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:06:15,220 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:07:13,129 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:07:13,131 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:07:18,020 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:07:18,080 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:07:18,095 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:07:18,096 - MainThread - Socket setup, public key: b'UX7]CPj165r9BF5/?%?dMxAPuY!%oQVqP)Jk!zEH'
+DEBUG - 2019-03-11 20:07:18,096 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:07:18,097 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:07:18,117 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:07:18,118 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 40, in __init__
+    clientKeysPath = certHandler.getClientKeysPath()
+AttributeError: 'CertificateHandler' object has no attribute 'getClientKeysPath'
+CRITICAL - 2019-03-11 20:07:18,120 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 59, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+DEBUG - 2019-03-11 20:07:18,127 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:07:18,209 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 30, in __init__
+    self.certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 20:07:18,247 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:07:18,253 - MainThread - Main thread ending
+ERROR - 2019-03-11 20:07:18,253 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 135, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:07:18,253 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:07:18,255 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:09:04,864 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:09:04,865 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:09:09,884 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:09:09,933 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:09:09,949 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:09:09,950 - MainThread - Socket setup, public key: b'UX7]CPj165r9BF5/?%?dMxAPuY!%oQVqP)Jk!zEH'
+DEBUG - 2019-03-11 20:09:09,950 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:09:09,952 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:09:09,972 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:09:10,024 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:09:10,039 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:09:10,039 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:09:10,040 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:09:10,056 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:09:10,057 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:09:10,117 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 30, in __init__
+    self.certHandler = CertificateHandler(id="front")
+TypeError: __init__() got an unexpected keyword argument 'id'
+INFO - 2019-03-11 20:09:10,120 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:09:10,120 - MainThread - Main thread ending
+DEBUG - 2019-03-11 20:09:10,120 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:09:10,121 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:09:19,957 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 20:10:19,376 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:10:19,377 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:10:24,454 - MainThread - Model/Graph ready
+CRITICAL - 2019-03-11 20:10:24,455 - MainThread - Exception occured starting feed listener thread
+Traceback (most recent call last):
+  File "server.py", line 64, in <module>
+    feedListener = FeedListener('tcp://0.0.0.0:5000')
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\feed_listener.py", line 18, in __init__
+    publicKey, privateKey = certHandler.getKeyPair()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\CommonFiles\certificate_handler.py", line 78, in getKeyPair
+    publicKey, privateKey = zmq.auth.load_certificate(privatePath)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\auth\certs.py", line 91, in load_certificate
+    raise IOError("Invalid certificate file: {0}".format(filename))
+OSError: Invalid certificate file: ../Certificates/server-public-front/server-front.key_secret
+INFO - 2019-03-11 20:10:24,457 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:10:24,476 - MainThread - Connected to database
+CRITICAL - 2019-03-11 20:10:24,477 - MainThread - Exception occured setting up auth socket
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 39, in __init__
+    publicKey, privateKey = certHandler.getKeyPair()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\CommonFiles\certificate_handler.py", line 78, in getKeyPair
+    publicKey, privateKey = zmq.auth.load_certificate(privatePath)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\auth\certs.py", line 91, in load_certificate
+    raise IOError("Invalid certificate file: {0}".format(filename))
+OSError: Invalid certificate file: ../Certificates/server-public-front/server-front.key_secret
+CRITICAL - 2019-03-11 20:10:24,480 - MainThread - Exception occured starting socket monitor thread
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 57, in __init__
+    monitorSocket = self.socket.get_monitor_socket()
+AttributeError: 'AuthenticationListener' object has no attribute 'socket'
+ERROR - 2019-03-11 20:10:24,482 - Authenticator - Exception occured while cleaning up authentication thread for shutdown
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 133, in run
+    self.monitor.stop = True
+AttributeError: 'AuthenticationListener' object has no attribute 'monitor'
+DEBUG - 2019-03-11 20:10:24,482 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:10:24,484 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 84, in <module>
+    enroller = Enroller(feedListener, authListener)
+NameError: name 'feedListener' is not defined
+INFO - 2019-03-11 20:10:24,485 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:10:24,486 - MainThread - Main thread ending
+INFO - 2019-03-11 20:13:02,649 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:13:02,650 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:13:08,059 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:13:08,111 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:13:08,127 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:13:08,127 - MainThread - Socket setup, public key: b'-]TrYf?ohR/!kr-BkK/RBBC=JJFsq#8F2C-VxG.F'
+DEBUG - 2019-03-11 20:13:08,128 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:13:08,128 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:13:08,147 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:13:08,207 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:13:08,222 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:13:08,222 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:13:08,223 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:13:08,241 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:13:08,242 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:13:08,301 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 87, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 31, in __init__
+    self.publicKey, _ = self.certHandler.getKeys()
+AttributeError: 'CertificateHandler' object has no attribute 'getKeys'
+INFO - 2019-03-11 20:13:08,303 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:13:08,305 - MainThread - Main thread ending
+DEBUG - 2019-03-11 20:13:08,306 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:13:08,306 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:13:18,132 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 20:13:55,131 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:13:55,132 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:14:00,143 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:14:00,210 - Thread-2 - Starting
+INFO - 2019-03-11 20:14:00,229 - MainThread - Socket setup, public key: b'mvT0rHtV5jiwpGX?>=$7W^kaO6Wo4?:^-71Fx5]M'
+DEBUG - 2019-03-11 20:14:00,229 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:14:00,230 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:14:00,230 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:14:00,254 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:14:00,309 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:14:00,322 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:14:00,322 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:14:00,322 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:14:00,338 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:14:00,339 - MainThread - Authentication thread started
+CRITICAL - 2019-03-11 20:14:00,397 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 87, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 31, in __init__
+    self.publicKey, _ = self.certHandler.getKeys()
+AttributeError: 'CertificateHandler' object has no attribute 'getKeys'
+INFO - 2019-03-11 20:14:00,399 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-11 20:14:00,399 - MainThread - Main thread ending
+DEBUG - 2019-03-11 20:14:00,399 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:14:00,400 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:14:10,231 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 20:14:35,952 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:14:35,953 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:14:41,554 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:14:41,616 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:14:41,633 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:14:41,633 - MainThread - Socket setup, public key: b'2c-Mp?r{&=]pn*Zp&!{wQfBj@I>ezKk089!lNG8B'
+DEBUG - 2019-03-11 20:14:41,634 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:14:41,635 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:14:41,654 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:14:41,714 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:14:41,727 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:14:41,727 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:14:41,743 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:14:41,744 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:14:41,744 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 20:14:41,800 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 20:16:55,537 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:16:55,537 - Monitor - EVENT_HANDSHAKE_FAILED_NO_DETAIL b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:16:55,538 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:17:47,348 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:17:47,348 - Monitor - EVENT_HANDSHAKE_FAILED_NO_DETAIL b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:17:47,349 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:00,930 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:00,930 - Monitor - EVENT_HANDSHAKE_FAILED_NO_DETAIL b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:00,931 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:34,957 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:34,957 - Monitor - EVENT_HANDSHAKE_FAILED_NO_DETAIL b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:18:34,958 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:19:14,424 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:19:14,424 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 20:20:00,916 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 20:20:00,917 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 20:20:00,918 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:20:00,919 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-11 20:20:01,695 - FeedListener - Feed listener thread shutting down
+DEBUG - 2019-03-11 20:20:01,825 - MainThread - Main thread ending
+INFO - 2019-03-11 20:20:07,270 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:20:07,272 - MainThread - Terminator signals linked
+INFO - 2019-03-11 20:20:22,808 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:20:22,809 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:20:27,654 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:20:27,715 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:20:27,734 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:20:27,735 - MainThread - Socket setup, public key: b'Uj%MhGMLY(s?.2LBs:SK50>7jb/.]W7X=G5zyQtx'
+DEBUG - 2019-03-11 20:20:27,735 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:20:27,738 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:20:27,760 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:20:27,835 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:20:27,850 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:20:27,850 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:20:27,851 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:20:27,871 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:20:27,872 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 20:20:27,943 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 20:21:04,170 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:21:04,170 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+INFO - 2019-03-11 20:21:42,444 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 20:21:42,445 - Enroller - Enroller thread shutting down
+DEBUG - 2019-03-11 20:21:42,446 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:21:42,452 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-11 20:21:42,946 - MainThread - Main thread ending
+INFO - 2019-03-11 20:21:47,752 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 20:21:54,229 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:21:54,230 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 20:21:59,531 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 20:21:59,581 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:21:59,596 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 20:21:59,597 - MainThread - Socket setup, public key: b'v7?9iTBp8+cp#y1Fy3{[Cl({XqHR!6M<L9.:j3!*'
+DEBUG - 2019-03-11 20:21:59,597 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:21:59,598 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 20:21:59,617 - MainThread - Connected to database
+DEBUG - 2019-03-11 20:21:59,673 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:21:59,686 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:21:59,687 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 20:21:59,687 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:21:59,702 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 20:21:59,704 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 20:21:59,760 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 20:22:00,012 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:22:00,012 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:22:02,310 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:22:05,248 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:22:05,258 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:22:05,273 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:22:05,274 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:05,274 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:05,274 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:22:05,275 - Enroller - New client enrolled zc)t.=6MEfJGzR&TEY.++55&p?Y6lQiaN32mJoL?
+DEBUG - 2019-03-11 20:22:05,275 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:22:05,282 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:38,676 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:38,677 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:38,682 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:25:38,683 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:25:38,683 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:25:38,683 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:25:38,684 - Enroller - New client enrolled n&]XvgiB5%D4g74cdb>J3@qlP<Ad&[*s1ho@Ozr-
+DEBUG - 2019-03-11 20:25:38,685 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:25:38,690 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:47,547 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:47,548 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:25:47,553 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:25:47,554 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:25:47,554 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:25:47,554 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:25:47,555 - Enroller - New client enrolled 257(Th*oGME99H[?!y3rS$r-]7x-VFn(US0pwbi9
+DEBUG - 2019-03-11 20:25:47,555 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:25:47,601 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:29:09,250 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:29:09,251 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:29:09,262 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:29:09,263 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:29:09,263 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:29:09,263 - Enroller - New client enrolled d6<c*cZ4a[F2zc?R5T4W)i}4]F<Ck?taC<$zY}dw
+DEBUG - 2019-03-11 20:29:09,263 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:29:09,264 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:29:09,277 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:02,773 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:02,774 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:02,782 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:30:02,784 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:02,784 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:02,784 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:02,785 - Enroller - New client enrolled nSdlo9sf#+PhEvyQkV+3!j/1!NU0-NQlSNDwfiTR
+DEBUG - 2019-03-11 20:30:02,786 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:02,794 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:22,320 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:22,320 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:22,343 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:30:22,344 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:22,345 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:22,345 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:22,347 - Enroller - New client enrolled :4M5>KOENg@[y7H{kPY/t1@I}J6Pg?BiOQgTO0Dl
+DEBUG - 2019-03-11 20:30:22,348 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:22,359 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:39,281 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:39,282 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:39,288 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:30:39,289 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:39,289 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:39,290 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:39,290 - Enroller - New client enrolled X.@2>JMNox1eunSjSqi@drUF}>?s7PBkZBc4>V=X
+DEBUG - 2019-03-11 20:30:39,290 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:39,337 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:54,349 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:54,350 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:30:54,357 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:30:54,358 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:54,359 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:30:54,359 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:54,359 - Enroller - New client enrolled ynkCJaE#^1o9Dp+si42$q+0:bx>=&vJ82=Oe<^UX
+DEBUG - 2019-03-11 20:30:54,359 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:30:54,367 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:32:34,789 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:32:34,789 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:32:34,794 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:32:34,795 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:32:34,796 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:32:34,796 - Enroller - New client enrolled <L({LgsUZ2kMVBQwO5Bs9Hz^qbT#J>6CX3[8jQkv
+DEBUG - 2019-03-11 20:32:34,796 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:32:34,796 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:32:34,803 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:32:38,938 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:38,953 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:32:38,954 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'<L({LgsUZ2kMVBQwO5Bs9Hz^qbT#J>6CX3[8jQkv'
+DEBUG - 2019-03-11 20:32:38,954 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:32:38,955 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:38,957 - Authenticator - Responded to login instruction: False, 
+	Username does not exists, N/A, N/A
+DEBUG - 2019-03-11 20:32:38,958 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:45,999 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:46,013 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:32:46,014 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'<L({LgsUZ2kMVBQwO5Bs9Hz^qbT#J>6CX3[8jQkv'
+DEBUG - 2019-03-11 20:32:46,014 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:32:46,015 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:46,127 - Authenticator - Responded to login instruction: False, Incorrect Password, 1, N/A
+DEBUG - 2019-03-11 20:32:46,128 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:53,592 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:53,608 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:32:53,608 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'<L({LgsUZ2kMVBQwO5Bs9Hz^qbT#J>6CX3[8jQkv'
+DEBUG - 2019-03-11 20:32:53,609 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:32:53,610 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:32:53,753 - Authenticator - Responded to login instruction: True, Authenticated, 1, b31ad35d89a848cfabf32764c0839e91
+DEBUG - 2019-03-11 20:32:53,754 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:38:25,835 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:38:25,836 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:38:25,855 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:38:25,856 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:25,857 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:25,857 - Enroller - New client enrolled c2u@Y%8z4tXdXi3]CY$10QtnCO08]5@r:+3ROBA=
+DEBUG - 2019-03-11 20:38:25,857 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:38:25,858 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:38:25,867 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:38:25,945 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:38:25,960 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:38:25,961 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'c2u@Y%8z4tXdXi3]CY$10QtnCO08]5@r:+3ROBA='
+DEBUG - 2019-03-11 20:38:25,961 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:38:25,962 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:38:25,962 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:38:25,963 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:51:40,142 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:51:40,142 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:51:40,148 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:51:40,149 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:40,149 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:40,149 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:51:40,150 - Enroller - New client enrolled pY@38-w.y].J}4!ctB7z!h2Zu}${J/PSL@nQa2tz
+DEBUG - 2019-03-11 20:51:40,150 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:51:40,166 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:51:40,232 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:51:40,246 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:51:40,246 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'pY@38-w.y].J}4!ctB7z!h2Zu}${J/PSL@nQa2tz'
+DEBUG - 2019-03-11 20:51:40,246 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:51:40,247 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:51:40,248 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:51:40,249 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:09,879 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:09,879 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:09,885 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:54:09,886 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:09,886 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:09,887 - Enroller - New client enrolled ^e0U+QTtvyDXeCd-]c>u[8VQ!{105j0/17EelwnY
+DEBUG - 2019-03-11 20:54:09,887 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:54:09,887 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:54:09,893 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:09,960 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:09,976 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:54:09,977 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'^e0U+QTtvyDXeCd-]c>u[8VQ!{105j0/17EelwnY'
+DEBUG - 2019-03-11 20:54:09,978 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:54:09,980 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:09,980 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:54:09,981 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:37,091 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:37,091 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:37,098 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:54:37,100 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:37,100 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:37,101 - Enroller - New client enrolled wO]^UB0Ss51(K<#ALEO67g0[nZy6T^x!1piQ6Y4M
+DEBUG - 2019-03-11 20:54:37,101 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:54:37,101 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:54:37,121 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:54:37,212 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:37,227 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:54:37,228 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'wO]^UB0Ss51(K<#ALEO67g0[nZy6T^x!1piQ6Y4M'
+DEBUG - 2019-03-11 20:54:37,228 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:54:37,229 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:54:37,229 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:54:37,230 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:55:46,756 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:55:46,757 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:55:46,764 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:55:46,765 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:55:46,766 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:55:46,766 - Enroller - New client enrolled 8I?exeR6=$px+gnQYI#gE1n@ntzgGza?{]sg3^aK
+DEBUG - 2019-03-11 20:55:46,766 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:55:46,767 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:55:46,773 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:55:46,843 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:55:46,857 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:55:46,857 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'8I?exeR6=$px+gnQYI#gE1n@ntzgGza?{]sg3^aK'
+DEBUG - 2019-03-11 20:55:46,858 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:55:46,859 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:55:46,859 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:55:46,860 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:59:17,490 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:59:17,490 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:59:17,496 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 20:59:17,497 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:59:17,498 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:59:17,498 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:59:17,498 - Enroller - New client enrolled Ir@#DXks=G/p]i*LU?4>]OMeT!K%juUs+Tk6=f+X
+DEBUG - 2019-03-11 20:59:17,498 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 20:59:17,506 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 20:59:17,587 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:59:17,604 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 20:59:17,604 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'Ir@#DXks=G/p]i*LU?4>]OMeT!K%juUs+Tk6=f+X'
+DEBUG - 2019-03-11 20:59:17,605 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 20:59:17,607 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 20:59:17,607 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 20:59:17,608 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 21:09:05,608 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:09:05,609 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:09:05,613 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 21:09:05,614 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:09:05,615 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:09:05,615 - Enroller - New client enrolled Eql6ILD)ifo3%RR})aRCo]R&e.?<f)*AJ2D]H[N>
+DEBUG - 2019-03-11 21:09:05,615 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:09:05,615 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:09:05,621 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:09:05,694 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 21:09:05,708 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 21:09:05,708 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'Eql6ILD)ifo3%RR})aRCo]R&e.?<f)*AJ2D]H[N>'
+DEBUG - 2019-03-11 21:09:05,709 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 21:09:05,709 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 21:09:05,710 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 21:09:05,711 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+INFO - 2019-03-11 21:12:17,702 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 21:12:17,703 - MainThread - Terminator signals linked
+DEBUG - 2019-03-11 21:12:22,778 - MainThread - Model/Graph ready
+DEBUG - 2019-03-11 21:12:22,832 - Thread-2 - Starting
+DEBUG - 2019-03-11 21:12:22,845 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-03-11 21:12:22,846 - MainThread - Socket setup, public key: b'6FY5(mlW3NW%EiBK}:q:rPS1$K.9cPdV?3Rb{6(I'
+DEBUG - 2019-03-11 21:12:22,846 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:12:22,847 - MainThread - Feed listener thread started
+DEBUG - 2019-03-11 21:12:22,865 - MainThread - Connected to database
+DEBUG - 2019-03-11 21:12:22,916 - Thread-4 - Starting
+DEBUG - 2019-03-11 21:12:22,928 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-03-11 21:12:22,929 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:12:22,946 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:12:22,947 - MainThread - Socket monitor thread started
+DEBUG - 2019-03-11 21:12:22,948 - MainThread - Authentication thread started
+DEBUG - 2019-03-11 21:12:23,015 - MainThread - Enroller thread started
+DEBUG - 2019-03-11 21:12:24,310 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:12:24,311 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:12:24,316 - Enroller - Enrolled key saved
+DEBUG - 2019-03-11 21:12:24,317 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:12:24,318 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:12:24,318 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:12:24,318 - Enroller - New client enrolled vQg[cLJRaz9oOFJjY$7HdU=)!/^*c<=PrcK&90J#
+DEBUG - 2019-03-11 21:12:24,319 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-03-11 21:12:24,325 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-03-11 21:12:24,405 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 21:12:24,419 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '127.0.0.1', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-03-11 21:12:24,420 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'vQg[cLJRaz9oOFJjY$7HdU=)!/^*c<=PrcK&90J#'
+DEBUG - 2019-03-11 21:12:24,420 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-03-11 21:12:24,421 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-03-11 21:12:24,422 - Authenticator - Responded to invalid instruction: False, Invalid Instruction
+DEBUG - 2019-03-11 21:12:24,422 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'

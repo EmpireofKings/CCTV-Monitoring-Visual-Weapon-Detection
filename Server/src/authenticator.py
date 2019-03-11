@@ -35,16 +35,14 @@ class AuthenticationListener(Thread):
 			self.terminator.autoTerminate()
 
 		try:
-			certHandler = CertificateHandler(id="front")
-			publicPath, privatePath = certHandler.getCertificatesPaths()
-			clientKeysPath = certHandler.getClientKeysPath()
+			certHandler = CertificateHandler("front", 'server')
+			publicKey, privateKey = certHandler.getKeyPair()
+			clientKeysPath = certHandler.getEnrolledKeysPath()
 
 			self.ctxHandler = ContextHandler(clientKeysPath)
 			context = self.ctxHandler.getContext()
 			self.socket = context.socket(zmq.REP)
 
-			privateFile = privatePath + "server-front.key_secret"
-			publicKey, privateKey = zmq.auth.load_certificate(privateFile)
 			self.socket.curve_secretkey = privateKey
 			self.socket.curve_publickey = publicKey
 			self.socket.curve_server = True

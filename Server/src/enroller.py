@@ -27,8 +27,8 @@ class Enroller(Thread):
 		monitor.setDaemon(True)
 		monitor.start()
 
-		self.certHandler = CertificateHandler(id="front")
-		self.publicKey, _ = self.certHandler.getKeys()
+		self.certHandler = CertificateHandler('front', 'server')
+		self.publicKey, _ = self.certHandler.getKeyPair()
 
 		self.publicKey = self.publicKey.decode('utf-8')
 
@@ -37,7 +37,7 @@ class Enroller(Thread):
 			try:
 				clientKey = self.unsecuredSocket.recv_string()
 				print("RECEVIED", clientKey)
-				self.certHandler.saveClientKey(clientKey)
+				self.certHandler.savePublicKey(clientKey)
 				print("SAVED")
 				self.feedListener.ctxHandler.configureAuth()
 				self.authListener.ctxHandler.configureAuth()

@@ -1,22 +1,29 @@
 # TODO
 
+import logging
 import os
+import string
 import sys
+import threading
+
+import zmq
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import threading
 
-from live_gui import LiveAnalysis
-from deferred_gui import DeferredAnalysis
+# Appending CommonFiles to system path for importing
+# relatively messy but not many options to do this.
+path = os.getcwd().split('\\')
+path = '\\'.join(path[:len(path) - 2])
+sys.path.append(path + '\\CommonFiles')
+
 from config_gui import Config
 from data_handler import *
-from networker import GlobalContextHandler, GlobalCertificateHandler
-
-import zmq
-import string
-
+from deferred_gui import DeferredAnalysis
+from live_gui import LiveAnalysis
 from validator import Validator
+from context_handler import ContextHandler
+from certificate_handler import CertificateHandler
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
@@ -34,17 +41,18 @@ class mainWindow(QMainWindow):
 		authenticated = False
 
 		if os.path.exists(userConfig):
+			logging.debug('Authenticating on saved user details')
 			authenticated = self.authenticateUserDetails()
 
 		if not authenticated:
+			logging.debug('Not already logged in, presenting dialog.')
 			loginDialog = LoginDialog()
 			authenticated, msg, userID, key = loginDialog.getUserData()
 
-			# print("FINAL WORD:", str(authenticated), str(msg), str(userID), str(key))
-			# print("FINAL WORD:", type(authenticated), type(msg), type(userID), type(key))
 			self.saveUserDetails(userID, key)
 
 		if authenticated:
+			logging.debug('User authenticated, initialising tabs.')
 			tabs = MainWindowTabs(app)
 			self.setCentralWidget(tabs)
 		else:
@@ -313,28 +321,6 @@ class LoginDialog(QDialog):
 		sys.exit()
 
 
-def setupGlobalSocket(addr):
-	certHandler = GlobalCertificateHandler.getInstance()
-	serverPath = certHandler.getServerKeyFilePath()
-	serverKey, _ = zmq.auth.load_certificate(serverPath)
-	print(serverKey)
-
-	publicPath, privatePath = certHandler.getCertificatesPaths()
-	ctxHandler = GlobalContextHandler.getInstance(publicPath)
-	context = ctxHandler.getContext()
-
-	socket = context.socket(zmq.REQ)
-	privateFile = privatePath + "client-front.key_secret"
-	publicKey, privateKey = zmq.auth.load_certificate(privateFile)
-	socket.curve_secretkey = privateKey
-	socket.curve_publickey = publicKey
-	socket.curve_serverkey = serverKey
-
-	socket.connect(localAddr + registrationPort)
-
-	return socket
-
-
 class ActivationDialog(QDialog):
 	def __init__(self):
 		QDialog.__init__(self)
@@ -397,15 +383,37 @@ class ActivationDialog(QDialog):
 		return self.authenticated, self.msg, self.key
 
 
+def setupGlobalSocket(addr):
+	certHandler = CertificateHandler('front', 'client')
+	serverKey = certHandler.getEnrolledKeys()
+	publicKey, privateKey = certHandler.getKeyPair()
+
+	ctxHandler = ContextHandler(certHandler.getEnrolledKeysPath())
+	context = ctxHandler.getContext()
+
+	socket = context.socket(zmq.REQ)
+	socket.curve_secretkey = privateKey
+	socket.curve_publickey = publicKey
+	socket.curve_serverkey = serverKey
+
+	socket.connect(localAddr + registrationPort)
+
+	return socket
+
+
 class MainWindowTabs(QTabWidget):
 	def __init__(self, app):
 		QTabWidget.__init__(self)
 
 		dataLoader = DataLoader()
 
-		self.configTab = Config(app, dataLoader)
-		self.liveTab = LiveAnalysis(app, dataLoader)
-		self.deferredTab = DeferredAnalysis(app)
+		try:
+			self.liveTab = LiveAnalysis(app, dataLoader)
+			#self.deferredTab = DeferredAnalysis(app)
+			self.configTab = Config(app, dataLoader)
+			logging.debug('Tabs initialised')
+		except:
+			logging.critical('Tabs failed to initialise', exc_info=True)
 
 		# Icons acquired from www.flaticon.com licensed by
 		# Creative Commons BY 3.0 http://creativecommons.org/licenses/by/3.0/
@@ -421,20 +429,20 @@ class MainWindowTabs(QTabWidget):
 		deferredIcon = QIcon("../data/icons/deferred.png")
 
 		self.addTab(self.liveTab, liveIcon, "Live Analysis")
-		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+		#self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
 
 		self.currentChanged.connect(self.tabChanged)
 
 	def tabChanged(self, index):
 		if index == 0:
-			print("config")
+			logging.debug('Live tab focused')
 		elif index == 1:
-			print("live")
+			logging.debug('Deferred tab focused')
 		elif index == 2:
-			print("deferred")
+			logging.debug('Config tab focused')
 		else:
-			print("Error getting index of new tab")
+			logging.error('Error interpreting tab index')
 
 
 def enroll():
@@ -442,28 +450,61 @@ def enroll():
 		unsecuredCtx = zmq.Context()
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
 		unsecuredSocket.connect(localAddr + unsecuredEnrollPort)
-		certHandler = GlobalCertificateHandler.getInstance()
-		publicKey, _ = certHandler.getKeys()
+		certHandler = CertificateHandler('front', 'client')
+		publicKey, _ = certHandler.getKeyPair()
 
 		publicKey = publicKey.decode('utf-8')
-		print(publicKey)
-
 		unsecuredSocket.send_string(str(publicKey))
 		serverKey = unsecuredSocket.recv_string()
 
-		certHandler.storeServerKey(serverKey)
+		certHandler.savePublicKey(serverKey)
+		logging.debug('Enrolled')
 		return True
-	except Exception as e:
-		print("Failed to enroll", e)
+	except:
+		logging.critical('Could not enroll', exc_info=True)
 		return False
 
 if __name__ == '__main__':
+	if len(sys.argv) == 2:
+			mode = sys.argv[1]
+			if mode == 'debug':
+				loggerMode = logging.DEBUG
+			elif mode == 'info':
+				loggerMode = logging.INFO
+			elif mode == 'warning':
+				loggerMode = logging.WARNING
+			elif mode == 'error':
+				loggerMode = logging.ERROR
+			elif mode == 'critical':
+				loggerMode = logging.CRITICAL
+	else:
+		loggerMode = logging.INFO
+
+	logging.basicConfig(
+		format='%(levelname)s - %(asctime)s - %(threadName)s - %(message)s',
+		level=loggerMode,
+		handlers=
+			[logging.FileHandler('../Logs/server_logs.txt'),
+			logging.StreamHandler(sys.stdout)])
+
+	logging.info('\n\n\n\t\tBegin new set of logs:\n\n\n')
+
 	app = QApplication(sys.argv)
 
-	enrolled = enroll()
+	certHandler = CertificateHandler('front', 'client')
+	certHandler.prep()
 
-	if enrolled:
-		mainWindow = mainWindow(app)
-		mainWindow.show()
+	try:
+		enrolled = enroll()
 
-		sys.exit(app.exec_())
+		if enrolled:
+			logging.debug('Enrollment Successful, starting main application')
+			mainWindow = mainWindow(app)
+			mainWindow.show()
+
+			sys.exit(app.exec_())
+		else:
+			logging.error('Enrollment Failed')
+
+	except:
+		logging.critical('Exception occured', exc_info=True)

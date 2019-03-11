@@ -1,12 +1,14 @@
+import copy
 import json
+import os
+from pprint import pprint
+
+import cv2
+import numpy as np
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-import os
-from pprint import pprint
-import copy
-import cv2
-import numpy as np
+
 
 class DataLoader():
 	def __init__(self):
@@ -21,7 +23,7 @@ class DataLoader():
 		with open(self.path, 'r') as fp:
 			levelData = json.load(fp)
 
-		#represent json data as objects
+		# represent json data as objects
 		levels = []
 		levelIDs = []
 		cameraIDs = []
@@ -55,33 +57,34 @@ class DataLoader():
 			levels.append(level)
 			levelIDs.append(levelID)
 
-		#CAP_DSHOW and CAP_MSMF removed as they were producing duplicate cameras
-		apis =   {"CAP_ANY" : 0,
-				  #"CAP_VFW" : 200,
-				  #"CAP_V4L" : 200,
-				  "CAP_FIREWIRE" : 300,
-				  "CAP_QT" : 500,
-				  "CAP_UNICAP" : 600,
-				  #"CAP_DSHOW" : 700,
-				  "CAP_PVAPI" : 800,
-				  "CAP_OPENNI" : 900,
-				  "CAP_OPENNI_ASUS" : 910,
-				  "CAP_ANDROID" : 1000,
-				  "CAP_XIAPI" : 1100,
-				  "CAP_AVFOUNDATION" : 1200,
-				  "CAP_GIGANETIX" : 1300,
-				  #"CAP_MSMF" : 1400,
-				  "CAP_WINRT" : 1410,
-				  "CAP_INTELPERC" : 1500,
-				  "CAP_OPENNI2" : 1600,
-				  "CAP_OPENNI2_ASUS" : 1610,
-				  "CAP_GPHOTO2" : 1700,
-				  "CAP_GSTREAMER" : 1800,
-				  "CAP_FFMPEG" : 1900,
-				  "CAP_IMAGES" : 2000,
-				  "CAP_ARAVIS" : 2100,
-				  "CAP_OPENCV_MJPEG" : 2200,
-				  "CAP_INTEL_MFX" : 2300}
+		# CAP_DSHOW and CAP_MSMF removed as they were producing duplicate cameras
+		apis = {
+			"CAP_ANY": 0,
+			# "CAP_VFW": 200,
+			# "CAP_V4L": 200,
+			"CAP_FIREWIRE": 300,
+			"CAP_QT": 500,
+			"CAP_UNICAP": 600,
+			# "CAP_DSHOW" : 700,
+			"CAP_PVAPI": 800,
+			"CAP_OPENNI": 900,
+			"CAP_OPENNI_ASUS": 910,
+			"CAP_ANDROID": 1000,
+			"CAP_XIAPI": 1100,
+			"CAP_AVFOUNDATION": 1200,
+			"CAP_GIGANETIX": 1300,
+			# "CAP_MSMF": 1400,
+			"CAP_WINRT": 1410,
+			"CAP_INTELPERC": 1500,
+			"CAP_OPENNI2": 1600,
+			"CAP_OPENNI2_ASUS": 1610,
+			"CAP_GPHOTO2": 1700,
+			"CAP_GSTREAMER": 1800,
+			"CAP_FFMPEG": 1900,
+			"CAP_IMAGES": 2000,
+			"CAP_ARAVIS": 2100,
+			"CAP_OPENCV_MJPEG": 2200,
+			"CAP_INTEL_MFX": 2300}
 
 		unassignedCameras = []
 
@@ -114,12 +117,13 @@ class DataLoader():
 		with open('../data/config.json', 'w') as fp:
 			json.dump(data, fp)
 
-#Encapuslators:
+# Encapuslators:
+
 
 class Level():
-	def __init__(self, id, drawPath, cameras):
-		self.id = id
-		self.drawPath = drawPath
+	def __init__(self, levelID, drawPath, cameras):
+		self.levelID = id
+		self.drawPath = os.path.relpath(drawPath)
 		self.cameras = cameras
 		self.pmap = None
 
@@ -133,7 +137,7 @@ class Level():
 
 	def getSaveableForm(self):
 		level = {}
-		level["levelID"] = self.id
+		level["levelID"] = self.levelID
 		level["levelDrawPath"] = self.drawPath
 		cams = []
 
@@ -143,9 +147,17 @@ class Level():
 		level["levelCameras"] = cams
 		return level
 
+
 class Camera():
-	def __init__(self, id, name, levelID = None, location = None, position = None, angle = None, color = None, size = None, staticBackground = None, assigned = False):
-		self.id = id
+	def __init__(
+		self, camID, name, levelID=None, location=None, position=None,
+		angle=None, color=None, size=None, staticBackground=None, assigned=False):
+
+		if camID.isdigit():
+			self.camID = camID
+		else:
+			self.camID = os.path.relpath(camID)
+
 		self.name = name
 		self.levelID = levelID
 		self.location = location
@@ -159,10 +171,10 @@ class Camera():
 
 	def getPreview(self, width, height):
 		if self.preview is None:
-			if self.id.isdigit():
-				feed = cv2.VideoCapture(int(self.id))
+			if self.camID.isdigit():
+				feed = cv2.VideoCapture(int(self.camID))
 			else:
-				feed = cv2.VideoCapture(self.id)
+				feed = cv2.VideoCapture(self.camID)
 
 			if feed.isOpened():
 				check, frame = feed.read()
@@ -171,14 +183,14 @@ class Camera():
 					feed.release()
 					self.preview = getLabelledPixmap(width, height, self.name, path = None, pmap = nd2pmap(frame))
 			else:
-				print("Error acquiring feed preview. (ID:", self.id, ")" )
+				print("Error acquiring feed preview. (ID:", self.camID, ")" )
 
 		return self.preview
 
 
 	def getSaveableForm(self):
 		cam = {}
-		cam["cameraID"] = str(self.id)
+		cam["cameraID"] = str(self.camID)
 		cam["cameraName"] = str(self.name)
 		cam["cameraLocation"] = self.location
 		cam["cameraCoordinates"] = [self.position.x(), self.position.y()]

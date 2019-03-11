@@ -7,16 +7,18 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from data_handler import *
 
+
 class LayoutMode(Enum):
 	VIEW = 1
 	EDIT = 2
+
 
 class Layout(QFrame):
 	def __init__(self, app, data, modes, config):
 		QFrame.__init__(self)
 		self.data = data
 		self.setFrameStyle(QFrame.Box)
-		self.setMinimumSize(QSize(700,700))
+		self.setMinimumSize(QSize(700, 700))
 
 		self.painter = LayoutPainter(app, data, modes, config)
 		self.controls = LayoutControls(app, data, modes, self.painter, config)
@@ -46,7 +48,7 @@ class LayoutPainter(QFrame):
 		self.tooltip = QToolTip()
 
 		self.setMinimumSize(QSize(700, 300))
-		#self.setMaximumSize(QSize(700, 300))
+		# self.setMaximumSize(QSize(700, 300))
 
 		self.setMouseTracking(True)
 
@@ -58,19 +60,23 @@ class LayoutPainter(QFrame):
 			index = self.levelIDs.index(int(self.currentLevel))
 			self.level = self.data[0][index]
 
-			self.currentpmap = getPixmap(self.width(), self.height(), self.level.drawPath)
+			self.currentpmap = getPixmap(
+				self.width(), self.height(), self.level.drawPath)
 			pmapDrawX = (self.width() - self.currentpmap.width()) / 2
 
-			painter.drawPixmap(QPoint(pmapDrawX,0), self.currentpmap)
-			#print(self.width(), self.height(), self.currentpmap.width(), self.currentpmap.height())
+			painter.drawPixmap(QPoint(pmapDrawX, 0), self.currentpmap)
+			# print(self.width(), self.height(), self.currentpmap.width(),
+			#  self.currentpmap.height())
 
 			for camera in self.level.cameras:
-				camX = self.range2range(camera.position.x(), 0, 500, 0, self.currentpmap.width() + pmapDrawX)
-				camY = self.range2range(camera.position.y(), 0,500, 0, self.currentpmap.height())
+				camX = self.range2range(
+					camera.position.x(), 0, 500, 0, self.currentpmap.width() + pmapDrawX)
+
+				camY = self.range2range(
+					camera.position.y(), 0, 500, 0, self.currentpmap.height())
 
 				painter.setPen(camera.color)
 				painter.setBrush(QBrush(camera.color, Qt.SolidPattern))
-
 
 				radius = 20
 				arrowX = int((radius * math.sin(math.radians(camera.angle)))) + camX
@@ -87,7 +93,7 @@ class LayoutPainter(QFrame):
 					painter.setPen(pen)
 					painter.drawEllipse(QPoint(camX, camY), camera.size, camera.size)
 
-			if self.placing == True:
+			if self.placing is True:
 				painter.setPen(QPen(QColor(255, 0, 0)))
 				painter.setBrush(QBrush(QColor(255, 0, 0)))
 				painter.drawEllipse(self.lastMousePos, 10, 10)
@@ -102,13 +108,18 @@ class LayoutPainter(QFrame):
 
 			if self.placing is True:
 				cameraDialog = self.CameraDialog(self.mainFeedID, self.currentLevel)
-				name, location, angle, color, size, staticBackground = cameraDialog.getCameraInfo()
+
+				name, location, angle, color, size, staticBackground =
+				cameraDialog.getCameraInfo()
 
 				rawX = self.lastMousePos.x()
 				rawY = self.lastMousePos.y()
 				mappedX = self.range2range(rawX, 0, self.width(), 0, 500)
 				mappedY = self.range2range(rawY, 0, self.height(), 0, 500)
-				newCamera = Camera(self.mainFeedID, name, self.currentLevel, location, QPoint(mappedX, mappedY), angle, color, size, staticBackground, True)
+				newCamera = Camera(
+					self.mainFeedID, name, self.currentLevel,
+					location, QPoint(mappedX, mappedY), angle,
+					color, size, staticBackground, True)
 
 				index = self.levelIDs.index(int(self.currentLevel))
 				self.level = self.data[0][index]
@@ -116,7 +127,6 @@ class LayoutPainter(QFrame):
 				self.config.cameraMenu.update(self.data)
 
 				self.placing = False
-
 
 	class CameraDialog(QDialog):
 		def __init__(self, id, levelID):
@@ -150,7 +160,8 @@ class LayoutPainter(QFrame):
 			self.sizeInput.setSpecialValueText("Camera Size (5-40 Pixels)")
 
 			self.backgroundName = QLineEdit()
-			self.backgroundName.setPlaceholderText("Static Background Image Path (Optional)")
+			self.backgroundName.setPlaceholderText(
+				"Static Background Image Path (Optional)")
 			self.backgroundButton = QPushButton("Browse")
 			self.backgroundButton.clicked.connect(self.getStaticBackground)
 
@@ -164,7 +175,6 @@ class LayoutPainter(QFrame):
 			self.layout.addWidget(self.backgroundName)
 			self.layout.addWidget(self.backgroundButton)
 			self.layout.addWidget(self.submitButton)
-
 
 			self.setLayout(self.layout)
 
@@ -189,7 +199,7 @@ class LayoutPainter(QFrame):
 				QLabel.__init__(self)
 				self.color = QColor(0, 0, 0)
 				self.setMinimumSize(QSize(30, 30))
-				self.setMaximumSize(QSize(30,30))
+				self.setMaximumSize(QSize(30, 30))
 
 			def paintEvent(self, event):
 				painter = QPainter(self)
@@ -197,7 +207,7 @@ class LayoutPainter(QFrame):
 				painter.setPen(self.color)
 				painter.setBrush(self.color)
 
-				painter.drawRect(QRect(0,0,30,30))
+				painter.drawRect(QRect(0, 0, 30, 30))
 
 		def submitted(self):
 			name = self.nameInput.displayText()
@@ -207,7 +217,9 @@ class LayoutPainter(QFrame):
 			size = self.sizeInput.text()
 			backgroundPath = self.backgroundName
 
-			self.result = [name, location, int(angle[:len(angle)-1]), color, int(size[:len(size)-2]), backgroundPath]
+			self.result = [
+				name, location, int(angle[:len(angle) - 1]),
+				color, int(size[:len(size) - 2]), backgroundPath]
 			self.accept()
 
 		def getCameraInfo(self):
@@ -223,7 +235,7 @@ class LayoutPainter(QFrame):
 			if id is not None:
 				self.tooltip.showText(pos, str(id))
 
-			if self.placing == True:
+			if self.placing is True:
 				self.repaint()
 
 	def getCloseCam(self, x1, y1):
@@ -231,13 +243,14 @@ class LayoutPainter(QFrame):
 			dists = {}
 
 			for camera in self.level.cameras:
-				x2 = self.range2range(camera.position.x(), 0, 500, 0, self.currentpmap.width())
-				y2= self.range2range(camera.position.y(), 0,500, 0, self.currentpmap.height())
+				x2 = self.range2range(
+					camera.position.x(), 0, 500, 0, self.currentpmap.width())
+				y2 = self.range2range(
+					camera.position.y(), 0, 500, 0, self.currentpmap.height())
 
 				dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
 				dists[camera.id] = dist
-
 
 			closestID = min(dists, key=dists.get)
 			closestDist = dists.get(closestID)
@@ -250,7 +263,8 @@ class LayoutPainter(QFrame):
 			return None
 
 	def range2range(self, value, oldMin, oldMax, newMin, newMax):
-		return ((value-oldMin)/(oldMax-oldMin)) * (newMax-newMin) + newMin
+		return ((value - oldMin) / (oldMax - oldMin)) * (newMax - newMin) + newMin
+
 
 class LayoutControls(QFrame):
 	def __init__(self, app, data, modes, painter, config):
@@ -274,7 +288,7 @@ class LayoutControls(QFrame):
 			self.dropdown.currentIndexChanged.connect(self.indexChanged)
 
 			for i in range(len(data[0])):
-				self.dropdown.addItem("Level " + str(data[0][i].id))#??
+				self.dropdown.addItem("Level " + str(data[0][i].id))
 
 			viewLayout = QHBoxLayout()
 			viewControlBox = QWidget()
@@ -307,7 +321,6 @@ class LayoutControls(QFrame):
 			resetButton = QPushButton("Reset")
 			resetButton.clicked.connect(self.resetConfig)
 
-
 			editLayout = QHBoxLayout()
 			editLayout.addWidget(addLevelButton)
 			editLayout.addWidget(deleteLevelButton)
@@ -336,7 +349,7 @@ class LayoutControls(QFrame):
 			index = self.dropdown.findText(text)
 
 			if index != -1:
-				self.dropdown.setCurrentIndex(index)#triggers indexChanged
+				self.dropdown.setCurrentIndex(index)  # triggers indexChanged
 
 	def indexChanged(self):
 		level = int(self.dropdown.currentText()[len("Level "):])
@@ -348,10 +361,10 @@ class LayoutControls(QFrame):
 		index = self.dropdown.findText(text)
 
 		if index != -1:
-			self.dropdown.setCurrentIndex(index)#triggers indexChanged
+			self.dropdown.setCurrentIndex(index)  # triggers indexChanged
 
 	def setMainFeedID(self, camera):
-		self.painter.mainFeedID = camera.id
+		self.painter.mainFeedID = camera.camID
 		self.setLevel(camera.levelID)
 		self.painter.repaint()
 
@@ -374,7 +387,7 @@ class LayoutControls(QFrame):
 	def deleteLevel(self):
 		print("delete level called")
 
-#TODO IGNORE DUPLICATES
+# TODO IGNORE DUPLICATES
 	def simulateCameras(self):
 		dialog = QFileDialog()
 		paths, check = dialog.getOpenFileNames()
@@ -383,7 +396,7 @@ class LayoutControls(QFrame):
 			simCams = []
 			for id in paths:
 				parts = id.split('/')
-				name = parts[len(parts)-1]
+				name = parts[len(parts) - 1]
 				camera = Camera(id, name)
 				simCams.append(camera)
 
@@ -403,7 +416,8 @@ class LayoutControls(QFrame):
 				self.setColor(result.getRgb()[:3])
 		else:
 			msgBox = QMessageBox()
-			msgBox.setText("You must select a placed camera before you can edit its color")
+			msgBox.setText(
+				"You must select a placed camera before you can edit its color")
 			msgBox.exec()
 
 	def setColor(self, color):
@@ -415,7 +429,10 @@ class LayoutControls(QFrame):
 	def saveConfig(self):
 		if self.data[0] != []:
 			msgBox = QMessageBox()
-			msgBox.setText("A restart will be required to begin live analysis with the new configuration data, do you wish to continue?")
+			msgBox.setText(
+				"""A restart will be required to begin live analysis with 
+				the new configuration data, do you wish to continue?""")
+
 			msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
 			result = msgBox.exec()
 
@@ -424,7 +441,8 @@ class LayoutControls(QFrame):
 				dataLoader.saveConfigData(self.data[0])
 
 				msgBox = QMessageBox()
-				msgBox.setText("Configuration data saved successfully. Program will now restart.")
+				msgBox.setText(
+					"Configuration data saved successfully. Program will now restart.")
 				msgBox.exec()
 
 				program = sys.executable
@@ -438,13 +456,15 @@ class LayoutControls(QFrame):
 		if self.data[0] != []:
 			dialog = QInputDialog()
 			camera = self.getSelectedCamera()
-			result = dialog.getInt(self, "Set Camera Size", "Label", camera.size, 5, 30, 1)
+			result = dialog.getInt(
+				self, "Set Camera Size", "Label", camera.size, 5, 30, 1)
 			if result[1]:
 				camera.size = result[0]
 				self.painter.repaint()
 		else:
 			msgBox = QMessageBox()
-			msgBox.setText("You must select a placed camera before you can edit its size")
+			msgBox.setText(
+				"You must select a placed camera before you can edit its size")
 			msgBox.exec()
 
 	def setPlacing(self, bool, id):
@@ -461,7 +481,8 @@ class LayoutControls(QFrame):
 	def resetConfig(self):
 		dialog = QMessageBox()
 		dialog.setText("Are you sure?")
-		dialog.setInformativeText("The configuration data will be permanently deleted.")
+		dialog.setInformativeText(
+			"The configuration data will be permanently deleted.")
 		dialog.setStandardButtons(QMessageBox.Reset | QMessageBox.Cancel)
 		dialog.setDefaultButton(QMessageBox.Reset)
 		result = dialog.exec()

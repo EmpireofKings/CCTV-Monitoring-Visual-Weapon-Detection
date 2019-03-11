@@ -1,33 +1,26 @@
 # TODO
 
-import base64 as b64
 import logging
 import os
-import shutil
-import signal
-import socket as s
 import sys
-import threading
 import time
-from collections import deque
-from threading import Thread
 
-import cv2
-import numpy as np
 import tensorflow as tf
-import zmq
-import zmq.auth
-from zmq.auth.thread import ThreadAuthenticator
-from zmq.utils.monitor import recv_monitor_message
 
-import _pickle as pickle
+# Appending CommonFiles to system path for importing
+# relatively messy but not many options to do this.
+path = os.getcwd().split('\\')
+path = '\\'.join(path[:len(path) - 2])
+sys.path.append(path + '\\CommonFiles')
+
 from authenticator import AuthenticationListener
+from enroller import Enroller
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
 from feed_listener import FeedListener
-from monitor import Monitor
 from terminator import Terminator
-from enroller import Enroller
+
+
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:
@@ -48,13 +41,16 @@ if __name__ == '__main__':
 	logging.basicConfig(
 		format='%(levelname)s - %(asctime)s - %(threadName)s - %(message)s',
 		level=loggerMode,
-		handlers=
-			[logging.FileHandler('./Logs/server_logs.txt'),
+		handlers=[
+			logging.FileHandler('../Logs/server_logs.txt'),
 			logging.StreamHandler(sys.stdout)])
 
 	logging.info('\n\n\n\t\tBegin new set of logs:\n\n\n')
 
 	terminator = Terminator.getInstance()
+
+	certHandler = CertificateHandler('front', 'server')
+	certHandler.prep()
 
 	try:
 		model = tf.keras.models.load_model("../../Decent Models/model-current.h5")

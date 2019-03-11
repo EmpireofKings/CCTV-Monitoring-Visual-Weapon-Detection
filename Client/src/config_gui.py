@@ -25,6 +25,7 @@ class Config(QWidget):
 
 		self.setLayout(layout)
 
+
 class LevelMenu(QScrollArea):
 	def __init__(self, data, drawSpace):
 		QScrollArea.__init__(self)
@@ -33,9 +34,9 @@ class LevelMenu(QScrollArea):
 
 	def update(self, data):
 		self.layout = QVBoxLayout()
-		self.setMaximumSize(QSize(300,1000))
+		self.setMaximumSize(QSize(300, 1000))
 
-		#data[0].sort(key=lambda level: level.id)
+		# data[0].sort(key=lambda level: level.id)
 
 		for level in data[0]:
 			disp = LevelDisplay(level, self.drawSpace)
@@ -58,6 +59,7 @@ class LevelDisplay(QLabel):
 
 	def mousePressEvent(self, event):
 		self.drawSpace.controls.setLevel(self.level.id)
+
 
 class CameraMenu(QWidget):
 	def __init__(self, data, drawSpace):

@@ -1,10 +1,12 @@
-from terminator import Terminator
+import logging
+from threading import Thread
+
+import zmq
+
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
-import zmq
 from feed_handler import FeedHandler
-from threading import Thread
-import logging
+from terminator import Terminator
 
 
 class FeedListener(Thread):
@@ -12,16 +14,16 @@ class FeedListener(Thread):
 		Thread.__init__(self)
 		self.setName("FeedListener")
 		self.terminator = Terminator.getInstance()
-		certHandler = CertificateHandler(id="front")
-		publicPath, privatePath = certHandler.getCertificatesPaths()
-		clientsPath = certHandler.getClientKeysPath()
+
+		certHandler = CertificateHandler("front", 'server')
+
+		publicKey, privateKey = certHandler.getKeyPair()
+		clientsPath = certHandler.getEnrolledKeysPath()
 
 		self.ctxHandler = ContextHandler(clientsPath)
 		context = self.ctxHandler.getContext()
 		self.socket = context.socket(zmq.REP)
 
-		privateFile = privatePath + "server-front.key_secret"
-		publicKey, privateKey = zmq.auth.load_certificate(privateFile)
 		self.socket.curve_secretkey = privateKey
 		self.socket.curve_publickey = publicKey
 		self.socket.curve_server = True

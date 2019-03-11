@@ -1,0 +1,583 @@
+INFO - 2019-03-11 20:16:55,383 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+ERROR - 2019-03-11 20:16:55,537 - MainThread - Enrollment Failed
+INFO - 2019-03-11 20:17:47,246 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+ERROR - 2019-03-11 20:17:47,349 - MainThread - Enrollment Failed
+INFO - 2019-03-11 20:18:00,841 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+ERROR - 2019-03-11 20:18:00,931 - MainThread - Enrollment Failed
+NoneType: None
+INFO - 2019-03-11 20:18:34,863 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+ERROR - 2019-03-11 20:18:34,958 - MainThread - Enrollment Failed
+INFO - 2019-03-11 20:19:14,323 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:20:41,913 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:21:04,088 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:22:05,165 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:22:05,280 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:22:05,281 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:22:05,283 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:22:05,286 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:22:12,499 - Thread-3 - Starting
+DEBUG - 2019-03-11 20:22:12,551 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,564 - Thread-6 - Starting
+DEBUG - 2019-03-11 20:22:12,564 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,628 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,629 - Thread-9 - Starting
+DEBUG - 2019-03-11 20:22:12,629 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,631 - Thread-9 - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,646 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,690 - Thread-12 - Starting
+DEBUG - 2019-03-11 20:22:12,704 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,705 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,765 - Thread-15 - Starting
+DEBUG - 2019-03-11 20:22:12,776 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,777 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,789 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:12,813 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:12,833 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:12,835 - Thread-20 - Starting
+DEBUG - 2019-03-11 20:22:12,835 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:12,836 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:12,851 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,866 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,913 - Thread-26 - Starting
+DEBUG - 2019-03-11 20:22:12,976 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:12,977 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:12,987 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:13,000 - Thread-29 - Starting
+DEBUG - 2019-03-11 20:22:13,053 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:13,054 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:13,067 - Thread-33 - Starting
+DEBUG - 2019-03-11 20:22:13,131 - Thread-36 - Starting
+DEBUG - 2019-03-11 20:22:13,131 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:13,132 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:13,143 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:13,144 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:22:13,145 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:22:13,151 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:22:13,152 - CurveAuth - auth received API command b'TERMINATE'
+CRITICAL - 2019-03-11 20:22:18,694 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 504, in <module>
+    sys.exit(app.exec_())
+SystemExit: 0
+INFO - 2019-03-11 20:25:38,585 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:25:38,688 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:25:38,689 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:25:38,693 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:25:38,694 - MainThread - Not already logged in, presenting dialog.
+INFO - 2019-03-11 20:25:47,462 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:25:47,599 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:25:47,600 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:25:47,602 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:25:47,603 - MainThread - Not already logged in, presenting dialog.
+INFO - 2019-03-11 20:29:09,150 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:29:09,276 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:29:09,276 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:29:09,278 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:29:09,282 - MainThread - Not already logged in, presenting dialog.
+DEBUG - 2019-03-11 20:29:17,099 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:29:17,108 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:29:17,109 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:30:00,936 - CurveAuth - auth received API command b'TERMINATE'
+INFO - 2019-03-11 20:30:02,650 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:30:02,793 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:30:02,793 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:30:02,795 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:30:02,796 - MainThread - Not already logged in, presenting dialog.
+INFO - 2019-03-11 20:30:22,220 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:30:22,358 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:30:22,358 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:30:22,360 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:30:22,361 - MainThread - Not already logged in, presenting dialog.
+CRITICAL - 2019-03-11 20:30:28,383 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 498, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 50, in __init__
+    authenticated, msg, userID, key = loginDialog.getUserData()
+  File "client.py", line 318, in getUserData
+    return self.authenticated, self.msg, self.userID, self.key
+AttributeError: 'LoginDialog' object has no attribute 'authenticated'
+INFO - 2019-03-11 20:30:39,194 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 20:30:54,250 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:30:54,366 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:30:54,366 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:30:54,368 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:30:54,369 - MainThread - Not already logged in, presenting dialog.
+DEBUG - 2019-03-11 20:31:02,157 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:31:02,165 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:31:02,166 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+INFO - 2019-03-11 20:32:34,699 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:32:34,801 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:32:34,801 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:32:34,803 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:32:34,804 - MainThread - Not already logged in, presenting dialog.
+DEBUG - 2019-03-11 20:32:38,925 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:32:38,937 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:32:38,938 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:32:38,939 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:32:45,990 - Thread-2 - Starting
+DEBUG - 2019-03-11 20:32:45,999 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:32:45,999 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:32:46,001 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:32:53,583 - Thread-3 - Starting
+DEBUG - 2019-03-11 20:32:53,592 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:32:53,593 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:32:53,596 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:32:53,775 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:33:00,457 - Thread-6 - Starting
+DEBUG - 2019-03-11 20:33:00,496 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,505 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,517 - Thread-9 - Starting
+DEBUG - 2019-03-11 20:33:00,565 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,577 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,592 - Thread-12 - Starting
+DEBUG - 2019-03-11 20:33:00,616 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,651 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,673 - Thread-15 - Starting
+DEBUG - 2019-03-11 20:33:00,685 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,686 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,740 - Thread-18 - Starting
+DEBUG - 2019-03-11 20:33:00,756 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,756 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,806 - Thread-21 - Starting
+DEBUG - 2019-03-11 20:33:00,817 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,818 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,872 - Thread-24 - Starting
+DEBUG - 2019-03-11 20:33:00,881 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,882 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:00,930 - Thread-27 - Starting
+DEBUG - 2019-03-11 20:33:00,940 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:00,941 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:01,004 - Thread-30 - Starting
+DEBUG - 2019-03-11 20:33:01,065 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:01,066 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:33:01,078 - Thread-33 - Starting
+DEBUG - 2019-03-11 20:33:01,088 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:33:01,089 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+INFO - 2019-03-11 20:38:25,741 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:38:25,865 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:38:25,866 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:38:25,868 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:38:25,869 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:38:25,927 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:38:25,944 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:25,945 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:25,947 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:38:25,964 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:38:27,959 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:38:28,017 - Thread-7 - Starting
+DEBUG - 2019-03-11 20:38:28,017 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,026 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,075 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,076 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,087 - Thread-10 - Starting
+DEBUG - 2019-03-11 20:38:28,099 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,100 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,160 - Thread-13 - Starting
+DEBUG - 2019-03-11 20:38:28,169 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,170 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,225 - Thread-16 - Starting
+DEBUG - 2019-03-11 20:38:28,282 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,295 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,295 - Thread-19 - Starting
+DEBUG - 2019-03-11 20:38:28,308 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,308 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,375 - Thread-22 - Starting
+DEBUG - 2019-03-11 20:38:28,432 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,441 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,442 - Thread-25 - Starting
+DEBUG - 2019-03-11 20:38:28,494 - Thread-28 - Starting
+DEBUG - 2019-03-11 20:38:28,507 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,522 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,522 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,524 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:38:28,589 - Thread-31 - Starting
+DEBUG - 2019-03-11 20:38:28,600 - MainThread - Tabs initialised
+DEBUG - 2019-03-11 20:38:28,600 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:38:28,601 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+INFO - 2019-03-11 20:51:40,005 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:51:40,165 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:51:40,165 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:51:40,167 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:51:40,168 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:51:40,222 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:51:40,231 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:40,232 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:40,233 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:51:40,249 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:51:42,230 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,270 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,285 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:51:42,286 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,351 - Thread-6 - Starting
+DEBUG - 2019-03-11 20:51:42,352 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,352 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,359 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,360 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,365 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,412 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,423 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,423 - Thread-9 - Starting
+DEBUG - 2019-03-11 20:51:42,435 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,472 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,490 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,502 - Thread-12 - Starting
+DEBUG - 2019-03-11 20:51:42,504 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,518 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,519 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,522 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,564 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,574 - Thread-16 - Starting
+DEBUG - 2019-03-11 20:51:42,575 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,618 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,626 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,626 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,637 - Thread-19 - Starting
+DEBUG - 2019-03-11 20:51:42,647 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,648 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,650 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,709 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,723 - Thread-22 - Starting
+DEBUG - 2019-03-11 20:51:42,732 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,748 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,779 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,790 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,790 - Thread-25 - Starting
+DEBUG - 2019-03-11 20:51:42,796 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,860 - Thread-27 - Starting
+DEBUG - 2019-03-11 20:51:42,870 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,870 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,880 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,881 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,881 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:51:42,885 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:51:42,949 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:51:42,949 - Thread-31 - Starting
+DEBUG - 2019-03-11 20:51:42,955 - MainThread - Tabs initialised
+DEBUG - 2019-03-11 20:51:42,967 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:51:42,967 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+INFO - 2019-03-11 20:54:09,784 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:54:09,892 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:54:09,892 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:54:09,894 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:54:09,895 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:54:09,951 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:54:09,960 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:09,961 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:09,964 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:54:09,982 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:54:11,980 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,026 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,039 - Thread-4 - Starting
+DEBUG - 2019-03-11 20:54:12,039 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,096 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,097 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,107 - Thread-6 - Starting
+DEBUG - 2019-03-11 20:54:12,108 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,119 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,121 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,127 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,186 - Thread-9 - Starting
+DEBUG - 2019-03-11 20:54:12,187 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,196 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,197 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,198 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,255 - Thread-12 - Starting
+DEBUG - 2019-03-11 20:54:12,257 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,266 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,268 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,276 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,320 - Thread-15 - Starting
+DEBUG - 2019-03-11 20:54:12,320 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,329 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,331 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,341 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,373 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,383 - Thread-19 - Starting
+DEBUG - 2019-03-11 20:54:12,405 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,430 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,430 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,451 - Thread-21 - Starting
+DEBUG - 2019-03-11 20:54:12,451 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,462 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,462 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,464 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,521 - Thread-25 - Starting
+DEBUG - 2019-03-11 20:54:12,522 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,532 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,533 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,534 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,594 - Thread-27 - Starting
+DEBUG - 2019-03-11 20:54:12,595 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,605 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,606 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:12,608 - MainThread - Networker thread started
+DEBUG - 2019-03-11 20:54:12,653 - MainThread - Feed loader thread started
+DEBUG - 2019-03-11 20:54:12,662 - Thread-31 - Starting
+DEBUG - 2019-03-11 20:54:12,674 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:12,677 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:16,198 - MainThread - Tabs initialised
+DEBUG - 2019-03-11 20:54:17,934 - MainThread - Deferred tab focused
+INFO - 2019-03-11 20:54:37,004 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:54:37,119 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:54:37,119 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:54:37,122 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:54:37,127 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:54:37,203 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:54:37,211 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:54:37,212 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:54:37,213 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:54:37,231 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-11 20:54:43,218 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 411, in __init__
+    self.liveTab = LiveAnalysis(app, dataLoader)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\live_gui.py", line 38, in __init__
+    data[0][0].cameras[0],
+IndexError: list index out of range
+CRITICAL - 2019-03-11 20:54:43,341 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 502, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 56, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 431, in __init__
+    self.addTab(self.liveTab, liveIcon, "Live Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'liveTab'
+INFO - 2019-03-11 20:55:46,668 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:55:46,772 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:55:46,772 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:55:46,774 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:55:46,776 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:55:46,833 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:55:46,842 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:55:46,843 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:55:46,844 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:55:46,861 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-11 20:55:53,328 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 411, in __init__
+    self.liveTab = LiveAnalysis(app, dataLoader)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\live_gui.py", line 39, in __init__
+    data[0][0].cameras[0],
+IndexError: list index out of range
+CRITICAL - 2019-03-11 20:55:53,451 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 502, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 56, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 431, in __init__
+    self.addTab(self.liveTab, liveIcon, "Live Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'liveTab'
+INFO - 2019-03-11 20:59:17,413 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 20:59:17,504 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 20:59:17,504 - MainThread - Enrolled
+DEBUG - 2019-03-11 20:59:17,507 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 20:59:17,508 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 20:59:17,576 - Thread-1 - Starting
+DEBUG - 2019-03-11 20:59:17,587 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 20:59:17,588 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 20:59:17,590 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 20:59:17,609 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 20:59:27,307 - MainThread - Tabs initialised
+DEBUG - 2019-03-11 20:59:31,890 - MainThread - Deferred tab focused
+DEBUG - 2019-03-11 21:01:05,980 - MainThread - Live tab focused
+DEBUG - 2019-03-11 21:01:06,462 - MainThread - Deferred tab focused
+CRITICAL - 2019-03-11 21:01:07,781 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 505, in <module>
+    sys.exit(app.exec_())
+SystemExit: 0
+INFO - 2019-03-11 21:09:05,517 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 21:09:05,619 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 21:09:05,620 - MainThread - Enrolled
+DEBUG - 2019-03-11 21:09:05,622 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 21:09:05,622 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 21:09:05,682 - Thread-1 - Starting
+DEBUG - 2019-03-11 21:09:05,694 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:09:05,694 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 21:09:05,695 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 21:09:05,711 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-11 21:09:15,726 - MainThread - Tabs initialised
+DEBUG - 2019-03-11 21:09:21,072 - MainThread - Deferred tab focused
+CRITICAL - 2019-03-11 21:12:12,822 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 505, in <module>
+    sys.exit(app.exec_())
+SystemExit: 0
+INFO - 2019-03-11 21:12:24,229 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-11 21:12:24,323 - MainThread - Enrolled key saved
+DEBUG - 2019-03-11 21:12:24,324 - MainThread - Enrolled
+DEBUG - 2019-03-11 21:12:24,325 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-11 21:12:24,331 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-11 21:12:24,396 - Thread-1 - Starting
+DEBUG - 2019-03-11 21:12:24,404 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-11 21:12:24,405 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-11 21:12:24,406 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-11 21:12:24,423 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-11 21:12:24,424 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 502, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 56, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 408, in __init__
+    dataLoader = DataLoader()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\data_handler.py", line 16, in __init__
+    self.configData = self.parseData()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\data_handler.py", line 24, in parseData
+    levelData = json.load(fp)
+  File "D:\CompSci\Python3.6\lib\json\__init__.py", line 299, in load
+    parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "D:\CompSci\Python3.6\lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "D:\CompSci\Python3.6\lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\CompSci\Python3.6\lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 14 (char 13)
