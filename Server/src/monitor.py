@@ -3,6 +3,7 @@ from threading import Thread
 from zmq.utils.monitor import recv_monitor_message
 import logging
 
+
 class Monitor(Thread):
 	def __init__(self, socket, feedID):
 		Thread.__init__(self)

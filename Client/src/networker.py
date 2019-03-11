@@ -127,9 +127,11 @@ class GlobalCertificateHandler():
 		return serverKeyPath
 
 	def storeServerKey(self, key):
-		path = self.getServerKeyPath()
+		path = self.getServerKeyFilePath()
 
-		fileContents = 'metadata\ncurve\n    public-key = "' + str(key) + '"'
+		fileContents = 'metadata\ncurve\n    public-key = "' + key + '"'
+
+		print("FILE CONTENTS:\n", fileContents)
 
 		with open(path, 'w') as fp:
 			fp.write(fileContents)

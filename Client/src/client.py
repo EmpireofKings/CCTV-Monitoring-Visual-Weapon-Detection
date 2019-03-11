@@ -279,8 +279,10 @@ class LoginDialog(QDialog):
 
 def setupGlobalSocket(addr):
 	certHandler = GlobalCertificateHandler.getInstance()
-	serverPath = certHandler.getServerKey()
-	serverKey = zmq.auth.load_certificate(serverPath)[0]
+	serverPath = certHandler.getServerKeyFilePath()
+	serverKey, _ = zmq.auth.load_certificate(serverPath)
+	print(serverKey)
+
 	publicPath, privatePath = certHandler.getCertificatesPaths()
 	ctxHandler = GlobalContextHandler.getInstance(publicPath)
 	context = ctxHandler.getContext()
@@ -405,18 +407,20 @@ def enroll():
 	try:
 		unsecuredCtx = zmq.Context()
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
-		unsercuredSocket.connect(serverAddr + unsecuredEnrollPort)
-
+		unsecuredSocket.connect(serverAddr + unsecuredEnrollPort)
 		certHandler = GlobalCertificateHandler.getInstance()
 		publicKey, _ = certHandler.getKeys()
+
+		publicKey = publicKey.decode('utf-8')
+		print(publicKey)
 
 		unsecuredSocket.send_string(str(publicKey))
 		serverKey = unsecuredSocket.recv_string()
 
 		certHandler.storeServerKey(serverKey)
 		return True
-	except:
-		print("Failed to enroll")
+	except Exception as e:
+		print("Failed to enroll", e)
 		return False
 
 if __name__ == '__main__':
