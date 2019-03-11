@@ -3,6 +3,8 @@ import zmq
 from terminator import Terminator
 from certificate_handler import CertificateHandler
 import logging
+from monitor import Monitor
+import threading
 
 
 class Enroller(Thread):
@@ -16,19 +18,24 @@ class Enroller(Thread):
 		self.unsecuredSocket.bind('tcp://0.0.0.0:5002')
 		self.unsecuredSocket.setsockopt(zmq.RCVTIMEO, 10000)
 
+		monitorSocket = self.unsecuredSocket.get_monitor_socket()
+		monitor = Monitor(monitorSocket, "Enroller")
+		monitor.setDaemon(True)
+		monitor.start()
+
 		self.certHandler = CertificateHandler(id="front")
 		self.publicKey, _ = self.certHandler.getKeys()
 
-		def run(self):
-			while not self.terminator.isTerminating():
-				try:
-					clientKey = self.unsecuredSocket.recv_string()
-					self.certHandler.saveClientKey(clientKey)
+		self.publicKey = self.publicKey.decode('utf-8')
 
-					self.unsecuredSocket.send_string(str(self.publicKey))
-
-					logging.debug("New client enrolled %s", clientKey)
-				except:
-					pass
-
-			self.unsecuredSocket.close()
+	def run(self):
+		while not self.terminator.isTerminating():
+			try:
+				clientKey = self.unsecuredSocket.recv_string()
+				self.certHandler.saveClientKey(clientKey)
+				self.unsecuredSocket.send_string(str(self.publicKey))
+				logging.debug("New client enrolled %s", clientKey)
+			except:
+				pass
+		self.unsecuredSocket.close()
+		logging.info('Enroller thread shutting down')

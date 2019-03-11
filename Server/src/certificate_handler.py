@@ -1,7 +1,7 @@
 import zmq
 import shutil
 import os
-
+import uuid
 
 class CertificateHandler():
 	def __init__(self, id):
@@ -76,13 +76,17 @@ class CertificateHandler():
 		return publicKey, privateKey
 
 	def getClientKeysPath(self):
+		if not os.path.exists(self.clientKeysFolderPath):
+			os.mkdir(self.clientKeysFolderPath)
+
 		return self.clientKeysFolderPath
 
 	def saveClientKey(self, key):
-		path = self.getClientKeysPath()
+		path = self.getClientKeysPath() + uuid.uuid4().hex + '.key'
 
-		fileContents = 'metadata\ncurve\n    public-key = "' + str(key) + '"'
+		fileContents = 'metadata\ncurve\n    public-key = \"' + key + '\"'
 
+		print("FILE CONTENTS\n", fileContents)
 		with open(path, 'w') as fp:
 			fp.write(fileContents)
 
