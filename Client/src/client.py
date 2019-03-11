@@ -20,14 +20,15 @@ from validator import Validator
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
+connectCamPort = ':5000'
 registrationPort = ':5001'
+unsecuredEnrollPort = ':5002'
 
 
 class mainWindow(QMainWindow):
 	def __init__(self, app):
 		QMainWindow.__init__(self)
 		self.app = app
-
 		authenticated = False
 
 		if os.path.exists("../userDetails.config"):
@@ -399,10 +400,32 @@ class MainWindowTabs(QTabWidget):
 		else:
 			print("Error getting index of new tab")
 
+
+def enroll():
+	try:
+		unsecuredCtx = zmq.Context()
+		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
+		unsercuredSocket.connect(serverAddr + unsecuredEnrollPort)
+
+		certHandler = GlobalCertificateHandler.getInstance()
+		publicKey, _ = certHandler.getKeys()
+
+		unsecuredSocket.send_string(str(publicKey))
+		serverKey = unsecuredSocket.recv_string()
+
+		certHandler.storeServerKey(serverKey)
+		return True
+	except:
+		print("Failed to enroll")
+		return False
+
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
 
-	mainWindow = mainWindow(app)
-	mainWindow.show()
+	enrolled = enroll()
 
-	sys.exit(app.exec_())
+	if enrolled:
+		mainWindow = mainWindow(app)
+		mainWindow.show()
+
+		sys.exit(app.exec_())

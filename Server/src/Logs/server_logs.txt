@@ -409,3 +409,128 @@ DEBUG - 2019-03-10 21:00:25,908 - CurveAuth - Configure curve: *[../Certificates
 INFO - 2019-03-10 21:00:45,044 - MainThread - Termination signal received, please wait.
 INFO - 2019-03-10 21:00:45,917 - FeedListener - Feed listener thread shutting down
 DEBUG - 2019-03-10 21:00:45,924 - MainThread - Main thread ending
+INFO - 2019-03-11 11:08:42,854 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 11:08:42,855 - MainThread - Terminator signals linked
+CRITICAL - 2019-03-11 11:08:53,489 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 71, in <module>
+    enroller = Enroller()
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\enroller.py", line 15, in __init__
+    self.unsecuredSocket = unsecuredCtx.socket(zmq.REP)
+NameError: name 'unsecuredCtx' is not defined
+INFO - 2019-03-11 11:08:53,491 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:08:53,568 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 11:08:53,569 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 11:08:53,570 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 11:08:53,572 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:09:28,560 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 11:09:28,561 - MainThread - Terminator signals linked
+CRITICAL - 2019-03-11 11:09:34,128 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 71, in <module>
+    enroller = Enroller()
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\enroller.py", line 20, in __init__
+    self.publicKey, _ = certHandler.getKeys()
+NameError: name 'certHandler' is not defined
+INFO - 2019-03-11 11:09:34,132 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:09:34,220 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 11:09:34,221 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 11:09:34,223 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 11:09:34,225 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:09:52,033 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 11:09:52,034 - MainThread - Terminator signals linked
+CRITICAL - 2019-03-11 11:09:57,021 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 71, in <module>
+    enroller = Enroller()
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\enroller.py", line 20, in __init__
+    self.publicKey, _ = self.certHandler.getKeys()
+AttributeError: 'CertificateHandler' object has no attribute 'getKeys'
+INFO - 2019-03-11 11:09:57,023 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:09:57,099 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 11:09:57,100 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 11:09:57,101 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 11:09:57,103 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:11:23,680 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 11:11:23,681 - MainThread - Terminator signals linked
+CRITICAL - 2019-03-11 11:11:28,532 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 71, in <module>
+    enroller = Enroller()
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\enroller.py", line 20, in __init__
+    self.publicKey, _ = self.certHandler.getKeys()
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\certificate_handler.py", line 74, in getKeys
+    publicKey, privateKey = zmq.auth.load_certificates(privatePath)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\auth\certs.py", line 115, in load_certificates
+    raise IOError("Invalid certificate directory: {0}".format(directory))
+OSError: Invalid certificate directory: ../Certificates/Private-front/server-front.key_secret
+INFO - 2019-03-11 11:11:28,534 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:11:28,589 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 11:11:28,591 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 11:11:28,592 - FeedListener - Feed listener thread shutting down
+INFO - 2019-03-11 11:11:28,594 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-11 11:12:30,327 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-11 11:12:30,328 - MainThread - Terminator signals linked
+INFO - 2019-03-11 11:12:35,092 - MainThread - Socket setup, public key: b'v5v1#*i[8{z$r0:B@AH5(K#Q?nAC$n8I%l}T@@GW'
+CRITICAL - 2019-03-11 11:12:35,093 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year 4\Final Year Project\Semester 2\Dev\Server\src\authenticator.py", line 27, in __init__
+    os.environ["DBHOST"], os.environ["DBUSER"],
+  File "D:\CompSci\Python3.6\lib\os.py", line 669, in __getitem__
+    raise KeyError(key) from None
+KeyError: 'DBHOST'
+INFO - 2019-03-11 11:12:35,095 - MainThread - Termination signal received, please wait.

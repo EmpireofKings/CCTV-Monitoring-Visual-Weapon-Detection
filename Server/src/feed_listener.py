@@ -6,6 +6,7 @@ from feed_handler import FeedHandler
 from threading import Thread
 import logging
 
+
 class FeedListener(Thread):
 	def __init__(self, addr):
 		Thread.__init__(self)

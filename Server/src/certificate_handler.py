@@ -32,6 +32,12 @@ class CertificateHandler():
 			str(self.id) +
 			".key_secret")
 
+		self.clientKeysFolderPath = (
+			self.basePath +
+			'/Clients-' +
+			str(self.id) +
+			'/')
+
 	def _generateCertificates(self):
 		if os.path.exists(self.publicFolderPath):
 			shutil.rmtree(self.publicFolderPath)
@@ -58,6 +64,27 @@ class CertificateHandler():
 			self._generateCertificates()
 
 		return self.publicFolderPath, self.privateFolderPath
+
+	def getCertificateFilePaths(self):
+		return self.publicFilePath, self.privateFilePath
+
+	def getKeys(self):
+		_, privatePath = self.getCertificateFilePaths()
+
+		publicKey, privateKey = zmq.auth.load_certificate(privatePath)
+
+		return publicKey, privateKey
+
+	def getClientKeysPath(self):
+		return self.clientKeysFolderPath
+
+	def saveClientKey(self, key):
+		path = self.getClientKeysPath()
+
+		fileContents = 'metadata\ncurve\n    public-key = "' + str(key) + '"'
+
+		with open(path, 'w') as fp:
+			fp.write(fileContents)
 
 	def cleanup(self):
 		shutil.rmtree(self.publicFolderPath)

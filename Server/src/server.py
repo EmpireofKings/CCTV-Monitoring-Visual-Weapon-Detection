@@ -27,6 +27,7 @@ from context_handler import ContextHandler
 from feed_listener import FeedListener
 from monitor import Monitor
 from terminator import Terminator
+from enroller import Enroller
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:
@@ -64,6 +65,17 @@ if __name__ == '__main__':
 		logging.debug('Model/Graph ready')
 	except:
 		logging.critical('Exception loading model/graph', exc_info=True)
+		terminator.autoTerminate()
+
+	try:
+		enroller = Enroller()
+		enroller.setDaemon(True)
+		enroller.start()
+		logging.debug('Enroller thread started')
+	except:
+		logging.critical(
+			'Exception occured starting enroller thread',
+			exc_info=True)
 		terminator.autoTerminate()
 
 	try:

@@ -104,17 +104,35 @@ class GlobalCertificateHandler():
 		shutil.move(public, self.publicFilePath)
 		shutil.move(private, self.privateFilePath)
 
+	# to be deprecated
 	def getCertificatesPaths(self):
 		return self.publicFolderPath, self.privateFolderPath
 
-	def getServerKey(self):
+	def getCertificateFilePaths(self):
+		return self.publicFilePath, self.privateFilePath
+
+	def getCertificateFolderPaths(self):
+		return self.privateFolderPath, self.privateFolderPath
+
+	def getKeys(self):
+		_, privatePath = self.getCertificateFilePaths()
+
+		publicKey, privateKey = zmq.auth.load_certificate(privatePath)
+
+		return publicKey, privateKey
+
+	def getServerKeyFilePath(self):
 		serverKeyPath = '../server-front.key'
 
-		if os.path.exists(serverKeyPath):
-			return serverKeyPath
-		else:
-			print("Error: Missing Certificates at", serverKeyPath)
-			sys.exit()
+		return serverKeyPath
+
+	def storeServerKey(self, key):
+		path = self.getServerKeyPath()
+
+		fileContents = 'metadata\ncurve\n    public-key = "' + str(key) + '"'
+
+		with open(path, 'w') as fp:
+			fp.write(fileContents)
 
 	def cleanup():
 		pass
