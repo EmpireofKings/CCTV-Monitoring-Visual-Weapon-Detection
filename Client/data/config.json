@@ -1,1 +1,72 @@
-[{"levelID": 
+[
+    {
+        "levelID": 0,
+        "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
+        "levelCameras": [
+            {
+                "cameraID": "0",
+                "cameraName": "kitchen",
+                "cameraLocation": "kitchen",
+                "cameraCoordinates": [
+                    122,
+                    269
+                ],
+                "cameraAngle": 40,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 30
+            },
+            {
+                "cameraID": "..\\data\\videos\\0.mp4",
+                "cameraName": "Laundry",
+                "cameraLocation": "Laundry",
+                "cameraCoordinates": [
+                    120,
+                    359
+                ],
+                "cameraAngle": 40,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 10
+            },
+            {
+                "cameraID": "..\\data\\videos\\1.mp4",
+                "cameraName": "bedroom",
+                "cameraLocation": "bedroom",
+                "cameraCoordinates": [
+                    466,
+                    428
+                ],
+                "cameraAngle": 150,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 10
+            },
+            {
+                "cameraID": "..\\data\\videos\\4.mp4",
+                "cameraName": "living room",
+                "cameraLocation": "living room",
+                "cameraCoordinates": [
+                    311,
+                    203
+                ],
+                "cameraAngle": 140,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 10
+            }
+        ]
+    }
+]

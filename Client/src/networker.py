@@ -2,6 +2,8 @@ import os
 import shutil
 import sys
 from threading import Thread
+import time
+import logging
 
 import zmq
 import zmq.auth
@@ -13,217 +15,6 @@ from zmq.auth.thread import ThreadAuthenticator
 from monitor import Monitor
 from context_handler import ContextHandler
 from certificate_handler import CertificateHandler
-
-# class GlobalContextHandler():
-# 	__instance = None
-
-# 	def __init__(self, publicPath):
-# 		if GlobalContextHandler.__instance is None:
-# 			self.__context = zmq.Context()
-# 			self.__auth = ThreadAuthenticator(self.__context)
-# 			self.__auth.start()
-# 			self.__auth.configure_curve(domain='*', location=publicPath)
-
-# 			GlobalContextHandler.__instance = self
-# 		else:
-# 			return GlobalContextHandler.__instance
-
-# 	@staticmethod
-# 	def getInstance(publicPath):
-# 		if GlobalContextHandler.__instance is None:
-# 			GlobalContextHandler(publicPath)
-
-# 		return GlobalContextHandler.__instance
-
-# 	def getContext(self):
-# 		return self.__context
-
-# 	def getAuth(self):
-# 		return self.__auth
-
-# 	def cleanup(self):
-# 		self.__auth.stop()
-# 		self.__context.destroy()
-
-
-# class GlobalCertificateHandler():
-# 	__instance = None
-
-# 	def __init__(self):
-# 		if GlobalCertificateHandler.__instance is None:
-# 			self.id = 'front'
-# 			self.basePath = '../Certificates'
-
-# 			self.publicFolderPath = (
-# 				self.basePath +
-# 				'/Public-' +
-# 				str(self.id) +
-# 				'/')
-
-# 			self.privateFolderPath = (
-# 				self.basePath +
-# 				'/Private-' +
-# 				str(self.id) +
-# 				'/')
-
-# 			self.publicFilePath = (
-# 				self.publicFolderPath +
-# 				"client-" +
-# 				self.id +
-# 				".key")
-
-# 			self.privateFilePath = (
-# 				self.privateFolderPath +
-# 				"client-" +
-# 				self.id +
-# 				".key_secret")
-
-# 			self._generateCertificates()
-
-# 			GlobalCertificateHandler.__instance = self
-# 		else:
-# 			return GlobalCertificateHandler.__instance
-
-# 	@staticmethod
-# 	def getInstance():
-# 		if GlobalCertificateHandler.__instance is None:
-# 			GlobalCertificateHandler()
-
-# 		return GlobalCertificateHandler.__instance
-
-# 	def _generateCertificates(self):
-# 		if os.path.exists(self.basePath):
-# 			shutil.rmtree(self.basePath)
-
-# 		os.mkdir(self.basePath)
-# 		os.mkdir(self.publicFolderPath)
-# 		os.mkdir(self.privateFolderPath)
-
-# 		public, private = zmq.auth.create_certificates(
-# 			self.basePath, "client-" + self.id)
-
-# 		shutil.move(public, self.publicFilePath)
-# 		shutil.move(private, self.privateFilePath)
-
-# 	# to be deprecated
-# 	def getCertificatesPaths(self):
-# 		return self.publicFolderPath, self.privateFolderPath
-
-# 	def getCertificateFilePaths(self):
-# 		return self.publicFilePath, self.privateFilePath
-
-# 	def getCertificateFolderPaths(self):
-# 		return self.privateFolderPath, self.privateFolderPath
-
-# 	def getKeys(self):
-# 		_, privatePath = self.getCertificateFilePaths()
-
-# 		publicKey, privateKey = zmq.auth.load_certificate(privatePath)
-
-# 		return publicKey, privateKey
-
-# 	def getServerKeyFilePath(self):
-# 		serverKeyPath = '../server-front.key'
-
-# 		return serverKeyPath
-
-# 	def storeServerKey(self, key):
-# 		path = self.getServerKeyFilePath()
-
-# 		fileContents = 'metadata\ncurve\n    public-key = "' + key + '"'
-
-# 		print("FILE CONTENTS:\n", fileContents)
-
-# 		with open(path, 'w') as fp:
-# 			fp.write(fileContents)
-
-# 	def cleanup():
-# 		pass
-
-
-# class ContextHandler():
-# 	def __init__(self, publicPath):
-# 		self.__context = zmq.Context()
-# 		self.__auth = ThreadAuthenticator(self.__context)
-# 		self.__auth.start()
-# 		self.__auth.configure_curve(domain='*', location=publicPath)
-
-# 	def getContext(self):
-# 		return self.__context
-
-# 	def getAuth(self):
-# 		return self.__auth
-
-# 	def cleanup(self):
-# 		self.__auth.stop()
-# 		self.__context.destroy()
-
-
-# class CertificateHandler():
-# 	def __init__(self, id):
-# 		self.id = id
-# 		self.basePath = '../Certificates'
-
-# 		self.publicFolderPath = (
-# 			self.basePath +
-# 			'/Public-' +
-# 			str(id) +
-# 			'/')
-
-# 		self.privateFolderPath = (
-# 			self.basePath +
-# 			'/Private-' +
-# 			str(id) +
-# 			'/')
-
-# 		self.publicFilePath = (
-# 			self.publicFolderPath +
-# 			"client-" +
-# 			self.id +
-# 			".key")
-
-# 		self.privateFilePath = (
-# 			self.privateFolderPath +
-# 			"client-" +
-# 			self.id +
-# 			".key_secret")
-
-# 		self._generateCertificates()
-
-# 	def _generateCertificates(self):
-# 		if os.path.exists(self.publicFolderPath):
-# 				shutil.rmtree(self.publicFolderPath)
-
-# 		if os.path.exists(self.privateFolderPath):
-# 			shutil.rmtree(self.privateFolderPath)
-
-# 		if not os.path.exists(self.basePath):
-# 			os.mkdir(self.basePath)
-
-# 		os.mkdir(self.publicFolderPath)
-# 		os.mkdir(self.privateFolderPath)
-
-# 		public, private = zmq.auth.create_certificates(
-# 			self.basePath, "client-" + self.id)
-
-# 		shutil.move(public, self.publicFilePath)
-# 		shutil.move(private, self.privateFilePath)
-
-# 	def getCertificatesPaths(self):
-# 		return self.publicFolderPath, self.privateFolderPath
-
-# 	def getServerKey(self):
-# 		serverKeyPath = '../server-front.key'
-
-# 		if os.path.exists(serverKeyPath):
-# 			return serverKeyPath
-# 		else:
-# 			print("Error: Missing Certificates at", serverKeyPath)
-# 			sys.exit()
-
-# 	def cleanup(self):
-# 		shutil.rmtree(self.publicFolderPath)
-# 		shutil.rmtree(self.privateFolderPath)
 
 
 class Networker(Thread):
@@ -242,45 +33,67 @@ class Networker(Thread):
 		self.mainDisplayConn = self.displayConnector(mainDisplay)
 		self.mainDisplay = mainDisplay
 
-	def setupSocket(self, certID, addr):
-		self.certHandler = CertificateHandler(certID, 'client')
-		self.ctxHandler = ContextHandler(self.certHandler.getEnrolledKeysPath())
+	def setupSocket(self, certID, serverKey=True):
+		certHandler = CertificateHandler(certID, 'client')
+		ctxHandler = ContextHandler(certHandler.getEnrolledKeysPath())
 
-		context = self.ctxHandler.getContext()
+		context = ctxHandler.getContext()
 		socket = context.socket(zmq.REQ)
 
-		publicKey, privateKey = self.certHandler.getKeyPair()
-		serverKey = self.certHandler.getEnrolledKeys()
+		monitorSocket = socket.get_monitor_socket()
+		monitor = Monitor(monitorSocket, certID)
+		monitor.setDaemon(True)
+		monitor.start()
+
+		if certID != 'front':
+			certHandler.prep()
+
+		publicKey, privateKey = certHandler.getKeyPair()
+
+		if serverKey:
+			serverKey = certHandler.getEnrolledKeys()
+			socket.curve_serverkey = serverKey
 
 		socket.curve_secretkey = privateKey
 		socket.curve_publickey = publicKey
-		socket.curve_serverkey = serverKey
 
-		socket.connect(addr)
-
-		return socket
+		#logging.debug('Socket: %s, private %s, public %s, server %s', socket, privateKey, publicKey, serverKey)
+		return socket, certHandler, ctxHandler
 
 	def initialize(self, feedID):
-		socket = self.setupSocket('front', self.serverAddr + self.initPort)
-		socket.send_string(feedID)
-		initData = socket.recv_string()
-		parts = initData.split(" ")
+		initSocket, frontCert, frontCtx = self.setupSocket('front', True)
+		feedSocket, feedCert, feedCtx = self.setupSocket(feedID, False)
 
-		mainPort = ':' + parts[0]
+		publicKey, _ = feedCert.getKeyPair()
+		initSocket.connect(self.localAddr + self.initPort)
+		print("SENDING", feedID + '  ' + publicKey.decode('utf-8'))
+		initSocket.send_string(feedID + '  ' + publicKey.decode('utf-8'))
+		print("SENT WAITING")
+		initData = initSocket.recv_string()
+		print("RECEIVED", initData)
+		parts = initData.split('  ')
+
+		port = ':' + parts[0]
 		serverKey = parts[1]
+		logging.debug('Assigned Port: %s using server key %s', port, serverKey)
 
-		return mainPort, serverKey
+		feedCert.savePublicKey(serverKey)
+		serverKey = feedCert.getEnrolledKeys()
+		feedSocket.curve_serverkey = serverKey
+
+		feedSocket.connect(self.localAddr + port)
+
+		return feedSocket, feedCert, feedCtx
 
 	def run(self):
 		global mainFeedID
-		feedID = str(self.camera.id).replace(' ', '')
+		feedID = str(self.camera.camID).replace(' ', '')
 		feedID = feedID.replace('/', '')
 		feedID = feedID.replace('\\', '')
 		feedID = feedID.replace(':', '')
 
-		port, serverKey = self.initialize(feedID)
+		socket, certHandler, ctxHandler = self.initialize(feedID)
 
-		socket = self.setupSocket(feedID, self.serverAddr + port, serverKey)
 		monitorSocket = socket.get_monitor_socket()
 		monitor = Monitor(monitorSocket, feedID)
 		monitor.setDaemon(True)
@@ -296,13 +109,14 @@ class Networker(Thread):
 				self.displayConn.emitFrame(frames[1])
 
 				# if this display is the main, emit the frame signal to both displays
-				if self.camera.id == self.mainDisplay.camera.id:
+				if self.camera.camID == self.mainDisplay.camera.camID:
 					self.mainDisplayConn.emitFrame(frames[1])
+					self.mainDisplay.camera = self.camera
 
 		socket.disable_monitor()
 		socket.close()
-		self.ctxHandler.cleanup()
-		self.certHandler.cleanup()
+		ctxHandler.cleanup()
+		certHandler.cleanup()
 		print("clean up finished")
 
 	class displayConnector(QObject):

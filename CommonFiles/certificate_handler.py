@@ -2,6 +2,7 @@ import zmq
 import shutil
 import os
 import uuid
+import time
 
 import datetime
 import glob
@@ -103,8 +104,9 @@ class CertificateHandler():
 		now = datetime.datetime.now()
 
 		try:
-			zmq.auth.certs._write_key_file(path, zmq.auth.certs._cert_public_banner.format(now), key)
-			logging.debug('Enrolled key saved')
+			zmq.auth.certs._write_key_file(
+				path, zmq.auth.certs._cert_public_banner.format(now), key)
+			logging.debug('Enrolled %s saved at %s', key, path)
 		except:
 			logging.error('Exception while writing file', exc_info=True)
 
@@ -114,6 +116,7 @@ class CertificateHandler():
 		if os.path.exists(self.enrolledKeysFolderPath):
 			shutil.rmtree(self.enrolledKeysFolderPath)
 
+		time.sleep(1)
 		os.mkdir(self.enrolledKeysFolderPath)
 
 	def cleanup(self):

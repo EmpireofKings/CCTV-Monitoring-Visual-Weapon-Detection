@@ -115,14 +115,14 @@ class DataLoader():
 			data.append(level.getSaveableForm())
 
 		with open('../data/config.json', 'w') as fp:
-			json.dump(data, fp)
+			json.dump(data, fp, indent=4)
 
 # Encapuslators:
 
 
 class Level():
 	def __init__(self, levelID, drawPath, cameras):
-		self.levelID = id
+		self.levelID = levelID
 		self.drawPath = os.path.relpath(drawPath)
 		self.cameras = cameras
 		self.pmap = None
@@ -181,6 +181,7 @@ class Camera():
 
 				if check:
 					feed.release()
+					del feed
 					self.preview = getLabelledPixmap(width, height, self.name, path = None, pmap = nd2pmap(frame))
 			else:
 				print("Error acquiring feed preview. (ID:", self.camID, ")" )

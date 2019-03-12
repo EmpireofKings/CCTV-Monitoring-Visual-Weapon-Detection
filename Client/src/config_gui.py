@@ -6,10 +6,11 @@ from PySide2.QtWidgets import *
 from layout_gui import Layout, LayoutMode
 from data_handler import *
 
+
 class Config(QWidget):
 	def __init__(self, app, dataLoader):
 		QWidget.__init__(self)
-		self.setMinimumSize(QSize(1280,800))
+		self.setMinimumSize(QSize(1280, 800))
 
 		layout = QHBoxLayout()
 		data = dataLoader.getConfigData()
@@ -36,7 +37,7 @@ class LevelMenu(QScrollArea):
 		self.layout = QVBoxLayout()
 		self.setMaximumSize(QSize(300, 1000))
 
-		# data[0].sort(key=lambda level: level.id)
+		# data[0].sort(key=lambda level: level.levelID)
 
 		for level in data[0]:
 			disp = LevelDisplay(level, self.drawSpace)
@@ -54,11 +55,11 @@ class LevelDisplay(QLabel):
 		self.setFrameStyle(QFrame.Box)
 		self.drawSpace = drawSpace
 		self.level = level
-		pmap = getLabelledPixmap(256, 144, "Level " + str(self.level.id), self.level.drawPath)
+		pmap = getLabelledPixmap(256, 144, "Level " + str(self.level.levelID), self.level.drawPath)
 		self.setPixmap(pmap)
 
 	def mousePressEvent(self, event):
-		self.drawSpace.controls.setLevel(self.level.id)
+		self.drawSpace.controls.setLevel(self.level.levelID)
 
 
 class CameraMenu(QWidget):
@@ -130,7 +131,7 @@ class CameraDisplay(QLabel):
 		self.drawSpace = drawSpace
 		self.camera = camera
 
-		#print(self.camera.id)
+		#print(self.camera.camID)
 		pmap = camera.getPreview(256, 144)
 		self.setPixmap(pmap)
 
@@ -138,6 +139,6 @@ class CameraDisplay(QLabel):
 		self.drawSpace.controls.setMainFeedID(self.camera)
 
 		if not self.camera.assigned:
-			self.drawSpace.controls.setPlacing(True, self.camera.id)
+			self.drawSpace.controls.setPlacing(True, self.camera.camID)
 		else:
-			self.drawSpace.controls.setPlacing(False, self.camera.id)
+			self.drawSpace.controls.setPlacing(False, self.camera.camID)

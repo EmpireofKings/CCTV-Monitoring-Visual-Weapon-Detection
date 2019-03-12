@@ -19,6 +19,7 @@ from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
 from feed_listener import FeedListener
 from terminator import Terminator
+from modelHandler import ModelHandler
 
 
 
@@ -53,12 +54,7 @@ if __name__ == '__main__':
 	certHandler.prep()
 
 	try:
-		model = tf.keras.models.load_model("../../Decent Models/model-current.h5")
-		model._make_predict_function()
-		session = tf.keras.backend.get_session()
-		graph = tf.get_default_graph()
-		graph.finalize()
-		logging.debug('Model/Graph ready')
+		modelHandler = ModelHandler.getInstance()
 	except:
 		logging.critical('Exception loading model/graph', exc_info=True)
 		terminator.autoTerminate()

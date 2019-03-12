@@ -1,4 +1,5 @@
 import base64 as b64
+import logging
 import time
 from threading import Thread
 
@@ -10,17 +11,6 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 
-class displayConnector(QObject):
-		newFrameSignal = Signal(QPixmap)
-
-		def __init__(self, display):
-			QObject.__init__(self)
-			self.newFrameSignal.connect(display.updateDisplay)
-
-		def emitFrame(self, pmap):
-			self.newFrameSignal.emit(pmap)
-
-
 class FeedLoader(Thread):
 	# GUI Thread launches this thread
 	# to prevent holding GUI Thread for too long keep __init__ minimal
@@ -30,35 +20,32 @@ class FeedLoader(Thread):
 		self.networker = networker
 		self.stop = False
 		self.camera = camera
-		self.displayConn = displayConnector(display)
-		self.mainDisplayConn = displayConnector(mainDisplay)
+		self.displayConn = self.displayConnector(display)
+		self.mainDisplayConn = self.displayConnector(mainDisplay)
 		self.mainDisplay = mainDisplay
-
-	def setup(self):
-		if self.camera.id.isdigit():
-			self.feed = cv2.VideoCapture(int(self.camera.id))
-		else:
-			self.feed = cv2.VideoCapture(self.camera.id)
-
-		self.FPS = self.feed.get(cv2.CAP_PROP_FPS)
 
 	def run(self):
 		displaySize = (640, 360)
 		processSize = (256, 144)
 
-		self.setup()
+		if self.camera.camID.isdigit():
+			camID = int(self.camera.camID)
+		else:
+			camID = self.camera.camID
+
+		feed = cv2.VideoCapture(camID)
+		fps = feed.get(cv2.CAP_PROP_FPS)
 
 		timer = time.time()
-		while self.feed.isOpened() and self.stop is False:
-			while time.time() - timer < 1 / self.FPS:
+
+		while feed.isOpened() and self.stop is False:
+			while time.time() - timer < 1 / fps:
 				time.sleep(0.01)
 
-			loadCheck, frame = self.feed.read()
+			loadCheck, frame = feed.read()
 			timer = time.time()
 
 			if loadCheck:
-				# cv2.imshow(str(self.camera.id), frame)
-				# cv2.waitKey(0)
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 				displayFrame = cv2.resize(frame, displaySize)
 				processFrame = cv2.resize(frame, processSize)
@@ -76,8 +63,19 @@ class FeedLoader(Thread):
 				# self.displayConn.emitFrame(pmap)
 
 				# # if this display is the main, emit the frame signal to both displays
-				# if self.camera.id == self.mainDisplay.camera.id:
+				# if self.camera.camID == self.mainDisplay.camera.camID:
 				# 	self.mainDisplayConn.emitFrame(pmap)
+				# 	self.mainDisplay.camera = self.camera
 
 			else:
-				self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+				feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+
+	class displayConnector(QObject):
+		newFrameSignal = Signal(QPixmap)
+
+		def __init__(self, display):
+			QObject.__init__(self)
+			self.newFrameSignal.connect(display.updateDisplay)
+
+		def emitFrame(self, pmap):
+			self.newFrameSignal.emit(pmap)

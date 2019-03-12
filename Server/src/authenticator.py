@@ -107,7 +107,7 @@ class AuthenticationListener(Thread):
 					except:
 						logging.error('Exception occured when logging in', exc_info=True)
 
-				elif parts[0] == 'AUTHENICATE':
+				elif parts[0] == 'AUTHENTICATE':
 					try:
 						success, msg = self.authenticate(parts[1], parts[2])
 						self.socket.send_string(str(success) + '  ' + msg)
@@ -122,8 +122,8 @@ class AuthenticationListener(Thread):
 						success, msg = False, 'Invalid Instruction'
 						self.socket.send_string(str(success) + '  ' + msg)
 						logging.debug(
-							'Responded to invalid instruction: %s, %s',
-							success, msg)
+							'Responded to invalid instruction: %s, %s, %s',
+							success, msg, data)
 					except:
 						logging.error(
 							'Exception occured when repsonding to invalid instruction',
@@ -301,5 +301,5 @@ class AuthenticationListener(Thread):
 
 		return success, msg, userID, key
 
-	def authenticate(self):
-		return True, '', 'N/A'
+	def authenticate(self, userID, key):
+		return True, 'Authenticated'

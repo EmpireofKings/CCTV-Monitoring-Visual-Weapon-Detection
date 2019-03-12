@@ -7,6 +7,7 @@ from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
 from feed_handler import FeedHandler
 from terminator import Terminator
+from monitor import Monitor
 
 
 class FeedListener(Thread):
@@ -24,6 +25,11 @@ class FeedListener(Thread):
 		context = self.ctxHandler.getContext()
 		self.socket = context.socket(zmq.REP)
 
+		monitorSocket = self.socket.get_monitor_socket()
+		monitor = Monitor(monitorSocket, 'front')
+		monitor.setDaemon(True)
+		monitor.start()
+
 		self.socket.curve_secretkey = privateKey
 		self.socket.curve_publickey = publicKey
 		self.socket.curve_server = True
@@ -37,15 +43,25 @@ class FeedListener(Thread):
 			try:
 				received = self.socket.recv_string()
 
-				print("New connection from ", received)
-				handler = FeedHandler(received)
-				handler.setDaemon(True)
-				handler.start()
+				parts = received.split('  ')
+				feedID = parts[0]
+				clientKey = parts[1]
+
+				logging.debug('Client key received %s for %s', clientKey, feedID)
+
+				try:
+					handler = FeedHandler(feedID, clientKey)
+					handler.setDaemon(True)
+					handler.start()
+
+					logging.debug('Feed Handler thread started')
+				except:
+					logging.critical('Feed Handler thread failed to start', exc_info=True)
 
 				assignedPort = handler.getPort()
 				publicKey = handler.getPublicKey()
 
-				self.socket.send_string(str(assignedPort) + " " + str(publicKey, 'utf-8'))
+				self.socket.send_string(str(assignedPort) + '  ' + str(publicKey, 'utf-8'))
 			except:
 				pass
 

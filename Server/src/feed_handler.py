@@ -1,33 +1,45 @@
-from results_handler import ResultsHandler
-from feed_process_helper import FeedProcessHelper
-from terminator import Terminator
-from certificate_handler import CertificateHandler
-from context_handler import ContextHandler
-import zmq
-from monitor import Monitor
 import base64 as b64
+import cv2
+import logging
 from threading import Thread
 
+import numpy as np
+import zmq
+
+from certificate_handler import CertificateHandler
+from context_handler import ContextHandler
+from feed_process_helper import FeedProcessHelper
+from modelHandler import ModelHandler
+from monitor import Monitor
+from results_handler import ResultsHandler
+from terminator import Terminator
+
+
 class FeedHandler(Thread):
-	def __init__(self, feedID):
+	def __init__(self, feedID, clientKey):
 		Thread.__init__(self)
 		self.setName("FeedHandler")
 		self.terminator = Terminator.getInstance()
 
-		self.certHandler = CertificateHandler(id=feedID)
-		publicPath, privatePath = self.certHandler.getCertificatesPaths()
+		self.certHandler = CertificateHandler(feedID, 'server')
+		self.certHandler.prep()
 
-		self.ctxHandler = ContextHandler(publicPath)
+		self.publicKey, privateKey = self.certHandler.getKeyPair()
+		clientsPath = self.certHandler.getEnrolledKeysPath()
+
+		self.ctxHandler = ContextHandler(clientsPath)
 		context = self.ctxHandler.getContext()
 
+		self.saveClientKey(clientKey)
+
 		self.socket = context.socket(zmq.REP)
+		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
+
 		monitorSocket = self.socket.get_monitor_socket()
 		self.monitor = Monitor(monitorSocket, feedID)
 		self.monitor.setDaemon(True)
 		self.monitor.start()
 
-		privateFile = privatePath + "server-" + feedID + ".key_secret"
-		self.publicKey, privateKey = zmq.auth.load_certificate(privateFile)
 		self.socket.curve_secretkey = privateKey
 		self.socket.curve_publickey = self.publicKey
 		self.socket.curve_server = True
@@ -43,16 +55,23 @@ class FeedHandler(Thread):
 	def getPublicKey(self):
 		return self.publicKey
 
+	def saveClientKey(self, key):
+		print('saving', key)
+		self.certHandler.savePublicKey(key)
+		print('cofiguring')
+		self.ctxHandler.configureAuth()
+
 	def run(self):
-		helper = Helper()
-		global model
-		global session
-		global graph
+		helper = FeedProcessHelper()
+		modelHandler = ModelHandler.getInstance()
+
+		model = modelHandler.getModel()
+		session = modelHandler.getSession()
+		graph = modelHandler.getGraph()
 
 		resultHandler = ResultsHandler(9, 30)
 		# bgRemover = BackgroundRemover(feed)
 
-		self.socket.setsockopt(zmq.RCVTIMEO, 60000)
 		with session.as_default():
 			with graph.as_default():
 				while not self.terminator.isTerminating():
@@ -72,7 +91,7 @@ class FeedHandler(Thread):
 
 					# frame = bgRemover.drawBoundingBox(frame)
 
-					self.socket.send_string(str(alert))
+					self.socket.send_string(str(results))
 
 		self.monitor.stop = True
 		self.socket.disable_monitor()

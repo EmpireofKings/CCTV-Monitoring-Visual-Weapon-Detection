@@ -34,7 +34,7 @@ class LiveAnalysis(QWidget):
 
 		print("HERE : ", type(data), str(data))
 
-		if data[0] != []:
+		if data[0][0].cameras != []:
 			mainDisplay = FeedDisplayer(
 				QSize(1280, 720),
 				QSize(480, 270),
@@ -87,7 +87,7 @@ class gridViewer(QGridLayout):
 		cameras = []
 
 		for level in data[0]:
-			lid = level.id
+			lid = level.levelID
 
 			for camera in level.cameras:
 				cameras.append(camera)

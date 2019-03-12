@@ -43,7 +43,7 @@ class LayoutPainter(QFrame):
 		self.levelIDs = []
 
 		for level in self.data[0]:
-			self.levelIDs.append(level.id)
+			self.levelIDs.append(level.levelID)
 
 		self.tooltip = QToolTip()
 
@@ -86,7 +86,7 @@ class LayoutPainter(QFrame):
 				painter.drawEllipse(QPoint(camX, camY), camera.size, camera.size)
 				painter.drawLine(QPoint(camX, camY), arrowPoint)
 
-				if camera.id == self.mainFeedID:
+				if camera.camID == self.mainFeedID:
 					painter.setBrush(Qt.NoBrush)
 					pen = QPen(QColor(0, 255, 0))
 					pen.setWidth(3)
@@ -109,8 +109,7 @@ class LayoutPainter(QFrame):
 			if self.placing is True:
 				cameraDialog = self.CameraDialog(self.mainFeedID, self.currentLevel)
 
-				name, location, angle, color, size, staticBackground =
-				cameraDialog.getCameraInfo()
+				name, location, angle, color, size, staticBackground = cameraDialog.getCameraInfo()
 
 				rawX = self.lastMousePos.x()
 				rawY = self.lastMousePos.y()
@@ -250,7 +249,7 @@ class LayoutPainter(QFrame):
 
 				dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
-				dists[camera.id] = dist
+				dists[camera.camID] = dist
 
 			closestID = min(dists, key=dists.get)
 			closestDist = dists.get(closestID)
@@ -288,7 +287,7 @@ class LayoutControls(QFrame):
 			self.dropdown.currentIndexChanged.connect(self.indexChanged)
 
 			for i in range(len(data[0])):
-				self.dropdown.addItem("Level " + str(data[0][i].id))
+				self.dropdown.addItem("Level " + str(data[0][i].levelID))
 
 			viewLayout = QHBoxLayout()
 			viewControlBox = QWidget()
@@ -382,7 +381,7 @@ class LayoutControls(QFrame):
 				self.painter.levelIDs.append(id)
 				self.dropdown.addItem("Level " + str(id))
 				self.painter.repaint()
-				self.config.levelMenu.update(self.data[0])
+				self.config.levelMenu.update(self.data)
 
 	def deleteLevel(self):
 		print("delete level called")
@@ -475,7 +474,7 @@ class LayoutControls(QFrame):
 	def getSelectedCamera(self):
 		for level in self.data[0]:
 			for camera in level.cameras:
-				if camera.id == self.painter.mainFeedID:
+				if camera.camID == self.painter.mainFeedID:
 					return camera
 
 	def resetConfig(self):
@@ -491,7 +490,7 @@ class LayoutControls(QFrame):
 			dataLoader = DataLoader()
 			dataLoader.saveConfigData([])
 			self.painter.data[0] = []
-			self.config.levelMenu.update(self.painter.data[0])
+			self.config.levelMenu.update(self.painter.data)
 			msgBox = QMessageBox()
 			msgBox.setText("Configuration data reset successfully.")
 			msgBox.exec()

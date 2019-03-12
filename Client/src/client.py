@@ -42,7 +42,7 @@ class mainWindow(QMainWindow):
 
 		if os.path.exists(userConfig):
 			logging.debug('Authenticating on saved user details')
-			authenticated = self.authenticateUserDetails()
+			authenticated, msg = self.authenticateUserDetails()
 
 		if not authenticated:
 			logging.debug('Not already logged in, presenting dialog.')
@@ -77,6 +77,7 @@ class mainWindow(QMainWindow):
 			socket = setupGlobalSocket(localAddr + registrationPort)
 			socket.send_string('AUTHENTICATE' + ' ' + userID + ' ' + key)
 			result = socket.recv_string()
+			print("RAW RESULT", result)
 			parts = result.split('  ')
 
 			if parts[0] == 'True':
@@ -408,9 +409,9 @@ class MainWindowTabs(QTabWidget):
 		dataLoader = DataLoader()
 
 		try:
-			self.liveTab = LiveAnalysis(app, dataLoader)
-			#self.deferredTab = DeferredAnalysis(app)
 			self.configTab = Config(app, dataLoader)
+			self.liveTab = LiveAnalysis(app, dataLoader)
+			self.deferredTab = DeferredAnalysis(app)
 			logging.debug('Tabs initialised')
 		except:
 			logging.critical('Tabs failed to initialise', exc_info=True)
@@ -429,7 +430,7 @@ class MainWindowTabs(QTabWidget):
 		deferredIcon = QIcon("../data/icons/deferred.png")
 
 		self.addTab(self.liveTab, liveIcon, "Live Analysis")
-		#self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
 
 		self.currentChanged.connect(self.tabChanged)
@@ -451,6 +452,7 @@ def enroll():
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
 		unsecuredSocket.connect(localAddr + unsecuredEnrollPort)
 		certHandler = CertificateHandler('front', 'client')
+		certHandler.prep()
 		publicKey, _ = certHandler.getKeyPair()
 
 		publicKey = publicKey.decode('utf-8')
@@ -491,8 +493,8 @@ if __name__ == '__main__':
 
 	app = QApplication(sys.argv)
 
-	certHandler = CertificateHandler('front', 'client')
-	certHandler.prep()
+	# certHandler = CertificateHandler('front', 'client')
+	# certHandler.prep()
 
 	try:
 		enrolled = enroll()

@@ -36,12 +36,9 @@ class Enroller(Thread):
 		while not self.terminator.isTerminating():
 			try:
 				clientKey = self.unsecuredSocket.recv_string()
-				print("RECEVIED", clientKey)
 				self.certHandler.savePublicKey(clientKey)
-				print("SAVED")
 				self.feedListener.ctxHandler.configureAuth()
 				self.authListener.ctxHandler.configureAuth()
-				print("CONFIGURED")
 				self.unsecuredSocket.send_string(str(self.publicKey))
 				logging.debug("New client enrolled %s", clientKey)
 			except:
