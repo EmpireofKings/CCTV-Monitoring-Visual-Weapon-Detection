@@ -22,6 +22,7 @@ class AuthenticationListener(Thread):
 		Thread.__init__(self)
 		self.terminator = Terminator.getInstance()
 		self.setName("Authenticator")
+
 		try:
 			self.db = sql.connect(
 				os.environ["DBHOST"], os.environ["DBUSER"],
@@ -43,6 +44,18 @@ class AuthenticationListener(Thread):
 			context = self.ctxHandler.getContext()
 			self.socket = context.socket(zmq.REP)
 
+			try:
+				monitorSocket = self.socket.get_monitor_socket()
+				self.monitor = Monitor(monitorSocket, 'Registration')
+				self.monitor.setDaemon(True)
+				self.monitor.start()
+
+				logging.debug('Socket monitor thread started')
+			except:
+				logging.error(
+					'Exception occured starting socket monitor thread',
+					exc_info=True)
+
 			self.socket.curve_secretkey = privateKey
 			self.socket.curve_publickey = publicKey
 			self.socket.curve_server = True
@@ -52,18 +65,6 @@ class AuthenticationListener(Thread):
 			logging.debug('Socket setup and bound, listening')
 		except:
 			logging.critical('Exception occured setting up auth socket', exc_info=True)
-
-		try:
-			monitorSocket = self.socket.get_monitor_socket()
-			self.monitor = Monitor(monitorSocket, 'Registration')
-			self.monitor.setDaemon(True)
-			self.monitor.start()
-
-			logging.debug('Socket monitor thread started')
-		except:
-			logging.critical(
-				'Exception occured starting socket monitor thread',
-				exc_info=True)
 
 	def run(self):
 		while not self.terminator.isTerminating():
@@ -100,7 +101,8 @@ class AuthenticationListener(Thread):
 				elif parts[0] == 'LOGIN':
 					try:
 						success, msg, userID, key = self.login(parts[1], parts[2])
-						self.socket.send_string(str(success) + '  ' + msg + '  ' + str(userID) + '  ' + str(key))
+						self.socket.send_string(
+							str(success) + '  ' + msg + '  ' + str(userID) + '  ' + str(key))
 						logging.debug(
 							'Responded to login instruction: %s, %s, %s, %s',
 							success, msg, userID, key)
@@ -302,4 +304,25 @@ class AuthenticationListener(Thread):
 		return success, msg, userID, key
 
 	def authenticate(self, userID, key):
-		return True, 'Authenticated'
+		success = False
+		msg = ''
+
+		self.cursor.execute(
+			"""select * from productKey
+			where userID = %s
+			and activationKey = %s
+			and activationCount > 0""",
+			(userID, key)
+		)
+
+		if self.cursor.rowcount == 1:
+			success = True
+			msg = 'Authenticated'
+		elif self.cursor.rowcount == 0:
+			success = False
+			msg = 'Key/ID pair does not match'
+		else:
+			success = False
+			msg = 'Unknown Error'
+
+		return success, msg

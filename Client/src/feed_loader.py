@@ -60,13 +60,7 @@ class FeedLoader(Thread):
 					encoded = b64.b64encode(jpegBuf)
 					self.networker.nextFrame = (encoded, pmap)
 
-				# self.displayConn.emitFrame(pmap)
-
-				# # if this display is the main, emit the frame signal to both displays
-				# if self.camera.camID == self.mainDisplay.camera.camID:
-				# 	self.mainDisplayConn.emitFrame(pmap)
-				# 	self.mainDisplay.camera = self.camera
-
+				self.displayConn.emitFrame(pmap)
 			else:
 				feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
 

@@ -19,13 +19,14 @@ class Enroller(Thread):
 
 		self.unsecuredCtx = zmq.Context()
 		self.unsecuredSocket = self.unsecuredCtx.socket(zmq.REP)
-		self.unsecuredSocket.bind('tcp://0.0.0.0:5002')
-		self.unsecuredSocket.setsockopt(zmq.RCVTIMEO, 10000)
 
 		monitorSocket = self.unsecuredSocket.get_monitor_socket()
-		monitor = Monitor(monitorSocket, "Enroller")
-		monitor.setDaemon(True)
-		monitor.start()
+		self.monitor = Monitor(monitorSocket, "Enroller")
+		self.monitor.setDaemon(True)
+		self.monitor.start()
+
+		self.unsecuredSocket.bind('tcp://0.0.0.0:5002')
+		self.unsecuredSocket.setsockopt(zmq.RCVTIMEO, 10000)
 
 		self.certHandler = CertificateHandler('front', 'server')
 		self.publicKey, _ = self.certHandler.getKeyPair()
@@ -43,5 +44,7 @@ class Enroller(Thread):
 				logging.debug("New client enrolled %s", clientKey)
 			except:
 				pass
+
 		self.unsecuredSocket.close()
+		self.monitor.stop = True
 		logging.info('Enroller thread shutting down')

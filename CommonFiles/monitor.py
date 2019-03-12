@@ -2,6 +2,7 @@ import zmq
 from threading import Thread
 from zmq.utils.monitor import recv_monitor_message
 import logging
+from terminator import Terminator
 
 
 class Monitor(Thread):
@@ -30,7 +31,8 @@ class Monitor(Thread):
 			"EVENT_HANDSHAKE_FAILED_AUTH": zmq.EVENT_HANDSHAKE_FAILED_AUTH}
 
 	def run(self):
-		while self.stop is False:
+		terminator = Terminator.getInstance()
+		while not terminator.isTerminating():
 			try:
 				msg = recv_monitor_message(self.socket)
 			except:
@@ -43,7 +45,9 @@ class Monitor(Thread):
 			for key, val in self.events.items():
 				if event == val:
 					assigned = True
-					logging.debug(str(key) +' ' + str(endpoint))
+					logging.debug(str(key) + ' ' + str(endpoint))
 
 			if assigned is False:
 				logging.error('Unknown monitor message: %s', msg)
+
+		logging.debug('Monitor thread %s shutting down', self.feedID)

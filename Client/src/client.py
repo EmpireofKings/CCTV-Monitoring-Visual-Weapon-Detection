@@ -5,11 +5,13 @@ import os
 import string
 import sys
 import threading
+import time 
 
 import zmq
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from pprint import pprint
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
@@ -24,9 +26,11 @@ from live_gui import LiveAnalysis
 from validator import Validator
 from context_handler import ContextHandler
 from certificate_handler import CertificateHandler
+from terminator import Terminator
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
+mainAddr = localAddr
 connectCamPort = ':5000'
 registrationPort = ':5001'
 unsecuredEnrollPort = ':5002'
@@ -39,6 +43,8 @@ class mainWindow(QMainWindow):
 		QMainWindow.__init__(self)
 		self.app = app
 		authenticated = False
+
+		self.terminator = Terminator.getInstance()
 
 		if os.path.exists(userConfig):
 			logging.debug('Authenticating on saved user details')
@@ -74,7 +80,7 @@ class mainWindow(QMainWindow):
 				userID = parts[0]
 				key = parts[1]
 
-			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket = setupGlobalSocket(mainAddr + registrationPort)
 			socket.send_string('AUTHENTICATE' + ' ' + userID + ' ' + key)
 			result = socket.recv_string()
 			print("RAW RESULT", result)
@@ -94,21 +100,7 @@ class mainWindow(QMainWindow):
 		return authenticated, msg
 
 	def closeEvent(self, event):
-		activeThreads = threading.enumerate()
-		for thread in activeThreads:
-			if thread is not threading.currentThread():
-				try:
-					if thread.stop is False:
-						thread.stop = True
-						thread.join()
-				except:
-					pass
-
-		certHandler = GlobalCertificateHandler.getInstance()
-		publicPath, _ = certHandler.getCertificatesPaths()
-		ctxHandler = GlobalContextHandler.getInstance(publicPath)
-		ctxHandler.cleanup()
-
+		self.terminator.autoTerminate()
 		self.app.exit()
 		sys.exit()
 
@@ -231,7 +223,7 @@ class LoginDialog(QDialog):
 		authenticated = False
 		msg = ''
 
-		socket = setupGlobalSocket(localAddr + registrationPort)
+		socket = setupGlobalSocket(mainAddr + registrationPort)
 		socket.send_string('LOGIN' + ' ' + username + ' ' + password)
 		result = socket.recv_string()
 		parts = result.split('  ')
@@ -294,7 +286,7 @@ class LoginDialog(QDialog):
 
 	def registerUser(self, username, password, email):
 		print("register user")
-		socket = setupGlobalSocket(localAddr + registrationPort)
+		socket = setupGlobalSocket(mainAddr + registrationPort)
 		socket.send_string('REGISTER ' + username + ' ' + password + ' ' + email)
 		print("sent")
 		result = socket.recv_string()
@@ -355,7 +347,7 @@ class ActivationDialog(QDialog):
 		validKey, self.msg = validator.validateKey(self.key)
 
 		if validKey:
-			socket = setupGlobalSocket(localAddr + registrationPort)
+			socket = setupGlobalSocket(mainAddr + registrationPort)
 			socket.send_string('ACTIVATE ' + self.key + ' ' + self.userID)
 			result = socket.recv_string()
 			parts = result.split('  ')
@@ -397,7 +389,7 @@ def setupGlobalSocket(addr):
 	socket.curve_publickey = publicKey
 	socket.curve_serverkey = serverKey
 
-	socket.connect(localAddr + registrationPort)
+	socket.connect(mainAddr + registrationPort)
 
 	return socket
 
@@ -450,7 +442,7 @@ def enroll():
 	try:
 		unsecuredCtx = zmq.Context()
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
-		unsecuredSocket.connect(localAddr + unsecuredEnrollPort)
+		unsecuredSocket.connect(mainAddr + unsecuredEnrollPort)
 		certHandler = CertificateHandler('front', 'client')
 		certHandler.prep()
 		publicKey, _ = certHandler.getKeyPair()
@@ -502,9 +494,12 @@ if __name__ == '__main__':
 		if enrolled:
 			logging.debug('Enrollment Successful, starting main application')
 			mainWindow = mainWindow(app)
-			mainWindow.show()
+			mainWindow.showMaximized()
 
-			sys.exit(app.exec_())
+			try:
+				sys.exit(app.exec_())
+			except:
+				pass
 		else:
 			logging.error('Enrollment Failed')
 

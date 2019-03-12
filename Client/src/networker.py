@@ -15,6 +15,7 @@ from zmq.auth.thread import ThreadAuthenticator
 from monitor import Monitor
 from context_handler import ContextHandler
 from certificate_handler import CertificateHandler
+from terminator import Terminator
 
 
 class Networker(Thread):
@@ -28,6 +29,7 @@ class Networker(Thread):
 		self.mainDisplay = mainDisplay
 		self.serverAddr = 'tcp://35.204.135.105'
 		self.localAddr = 'tcp://127.0.0.1'
+		self.mainAddr = self.localAddr
 		self.initPort = ':5000'
 		self.displayConn = self.displayConnector(display)
 		self.mainDisplayConn = self.displayConnector(mainDisplay)
@@ -65,7 +67,7 @@ class Networker(Thread):
 		feedSocket, feedCert, feedCtx = self.setupSocket(feedID, False)
 
 		publicKey, _ = feedCert.getKeyPair()
-		initSocket.connect(self.localAddr + self.initPort)
+		initSocket.connect(self.mainAddr + self.initPort)
 		print("SENDING", feedID + '  ' + publicKey.decode('utf-8'))
 		initSocket.send_string(feedID + '  ' + publicKey.decode('utf-8'))
 		print("SENT WAITING")
@@ -81,7 +83,7 @@ class Networker(Thread):
 		serverKey = feedCert.getEnrolledKeys()
 		feedSocket.curve_serverkey = serverKey
 
-		feedSocket.connect(self.localAddr + port)
+		feedSocket.connect(self.mainAddr + port)
 
 		return feedSocket, feedCert, feedCtx
 
@@ -99,14 +101,12 @@ class Networker(Thread):
 		monitor.setDaemon(True)
 		monitor.start()
 
-		while self.stop is False:
+		terminator = Terminator.getInstance()
+		while not terminator.isTerminating():
 			if self.nextFrame is not None:
 				frames = self.nextFrame
 				socket.send(frames[0])
 				result = socket.recv_string()
-
-				# TODO SWAP BACK TO DECOUPLED MODE
-				self.displayConn.emitFrame(frames[1])
 
 				# if this display is the main, emit the frame signal to both displays
 				if self.camera.camID == self.mainDisplay.camera.camID:
@@ -117,7 +117,6 @@ class Networker(Thread):
 		socket.close()
 		ctxHandler.cleanup()
 		certHandler.cleanup()
-		print("clean up finished")
 
 	class displayConnector(QObject):
 		newFrameSignal = Signal(QPixmap)

@@ -93,8 +93,8 @@ class FeedHandler(Thread):
 
 					self.socket.send_string(str(results))
 
-		self.monitor.stop = True
 		self.socket.disable_monitor()
+		self.monitor.stop = True
 		self.socket.close()
 		self.ctxHandler.cleanup()
 		self.certHandler.cleanup()

@@ -4394,3 +4394,2132 @@ DEBUG - 2019-03-12 16:01:04,822 - Monitor - EVENT_MONITOR_STOPPED b''
 DEBUG - 2019-03-12 16:01:04,822 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:54280'
 DEBUG - 2019-03-12 16:01:04,824 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:54280'
 DEBUG - 2019-03-12 16:01:04,848 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:54280'
+INFO - 2019-03-12 16:24:23,977 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 16:24:25,115 - MainThread - Enrolled MbppWb7MJS3)LpvVBUXah1mTzU{z{h]CusC%0(+g saved at ../Certificates/server-keys-front/41cefe448a754e409694cd8cf376be05.key
+DEBUG - 2019-03-12 16:24:25,116 - MainThread - Enrolled
+DEBUG - 2019-03-12 16:24:25,117 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 16:24:25,118 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 16:24:25,173 - Thread-1 - Starting
+DEBUG - 2019-03-12 16:24:25,181 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:25,183 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:24:25,184 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:24:25,384 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 16:24:31,989 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:24:32,021 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:24:32,028 - Thread-4 - Starting
+DEBUG - 2019-03-12 16:24:32,036 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,080 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:24:32,080 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:24:32,094 - Thread-7 - Starting
+DEBUG - 2019-03-12 16:24:32,094 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:24:32,121 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,121 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:24:32,124 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:24:32,202 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:24:32,220 - Thread-13 - Starting
+DEBUG - 2019-03-12 16:24:32,220 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:24:32,220 - Thread-12 - Starting
+DEBUG - 2019-03-12 16:24:32,314 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,326 - Thread-16 - Starting
+DEBUG - 2019-03-12 16:24:32,336 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:24:32,337 - Thread-17 - Starting
+DEBUG - 2019-03-12 16:24:32,346 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:24:32,390 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,403 - Thread-19 - Starting
+DEBUG - 2019-03-12 16:24:32,418 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,428 - Thread-17 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,438 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 16:24:32,459 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:24:32,467 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 16:24:32,474 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,482 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 16:24:32,483 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 16:24:32,590 - Thread-24 - Starting
+DEBUG - 2019-03-12 16:24:32,599 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:24:32,607 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 16:24:33,649 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,668 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,681 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,690 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,698 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,718 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,738 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,755 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,858 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,865 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,897 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:33,906 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:24:34,892 - Thread-2 - Assigned Port: :57885 using server key 7dNrCDNpw<sj:h$<QIbZ<6MBYS=70GC4jO5oBNG$
+DEBUG - 2019-03-12 16:24:34,902 - Thread-2 - Enrolled 7dNrCDNpw<sj:h$<QIbZ<6MBYS=70GC4jO5oBNG$ saved at ../Certificates/server-keys-0/ce2d54f294ab4f8399b2994d2f634f1f.key
+DEBUG - 2019-03-12 16:24:34,904 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:24:34,905 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:57885'
+DEBUG - 2019-03-12 16:24:34,905 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:24:35,902 - Thread-14 - Assigned Port: :58911 using server key V*@P&qmYHmct-HU[p0$[kG0G9Gl!<T+yztUC@p7z
+DEBUG - 2019-03-12 16:24:35,915 - Thread-14 - Enrolled V*@P&qmYHmct-HU[p0$[kG0G9Gl!<T+yztUC@p7z saved at ../Certificates/server-keys-..datavideos4.mp4/1ff58d072a71488f8ca82523283dbbd5.key
+DEBUG - 2019-03-12 16:24:35,919 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:24:35,920 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:58911'
+DEBUG - 2019-03-12 16:24:35,920 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:24:35,948 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:58911'
+DEBUG - 2019-03-12 16:24:36,910 - Thread-5 - Assigned Port: :51633 using server key (efl>HV@}<lA-0&k^-uMiXLp>M6U<Fr}M2^(4ARD
+DEBUG - 2019-03-12 16:24:36,924 - Thread-5 - Enrolled (efl>HV@}<lA-0&k^-uMiXLp>M6U<Fr}M2^(4ARD saved at ../Certificates/server-keys-..datavideos0.mp4/0ca24bb4073d4470958616846a956607.key
+DEBUG - 2019-03-12 16:24:36,929 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:24:36,929 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:51633'
+DEBUG - 2019-03-12 16:24:36,929 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:24:37,089 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:51633'
+DEBUG - 2019-03-12 16:24:37,917 - Thread-10 - Assigned Port: :49950 using server key V(#*@2e0k)q364(bEW01O^qx4KoGTG[EvxShIr[J
+DEBUG - 2019-03-12 16:24:37,950 - Thread-10 - Enrolled V(#*@2e0k)q364(bEW01O^qx4KoGTG[EvxShIr[J saved at ../Certificates/server-keys-..datavideos1.mp4/67b7092d5df84f08b04d61a80e9dcde4.key
+DEBUG - 2019-03-12 16:24:37,985 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:24:37,986 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:49950'
+DEBUG - 2019-03-12 16:24:37,986 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:24:38,017 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:49950'
+DEBUG - 2019-03-12 16:24:38,148 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:49950'
+DEBUG - 2019-03-12 16:25:34,625 - MainThread - Config tab focused
+INFO - 2019-03-12 16:28:45,608 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 16:28:46,758 - MainThread - Enrolled MbppWb7MJS3)LpvVBUXah1mTzU{z{h]CusC%0(+g saved at ../Certificates/server-keys-front/b2c1548f800f459da90590411bd6dbfb.key
+DEBUG - 2019-03-12 16:28:46,759 - MainThread - Enrolled
+DEBUG - 2019-03-12 16:28:46,761 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 16:28:46,763 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 16:28:46,833 - Thread-1 - Starting
+DEBUG - 2019-03-12 16:28:46,845 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:46,846 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:46,848 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:28:47,043 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 16:28:53,860 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:53,897 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:53,907 - Thread-4 - Starting
+DEBUG - 2019-03-12 16:28:53,923 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:53,939 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:53,975 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:53,976 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:53,983 - Thread-8 - Starting
+DEBUG - 2019-03-12 16:28:53,998 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:53,999 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,008 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,047 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,096 - Thread-12 - Starting
+DEBUG - 2019-03-12 16:28:54,104 - Thread-13 - Starting
+DEBUG - 2019-03-12 16:28:54,106 - Thread-12 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,121 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,153 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,193 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,216 - Thread-16 - Starting
+DEBUG - 2019-03-12 16:28:54,255 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 16:28:54,283 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,293 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,294 - Thread-19 - Starting
+DEBUG - 2019-03-12 16:28:54,295 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,363 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,364 - Thread-21 - Starting
+DEBUG - 2019-03-12 16:28:54,372 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 16:28:54,373 - Thread-21 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,405 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 16:28:54,457 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,457 - Thread-25 - Starting
+DEBUG - 2019-03-12 16:28:54,524 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,532 - Thread-27 - Starting
+DEBUG - 2019-03-12 16:28:54,535 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,538 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 16:28:54,564 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,571 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,574 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,576 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,577 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,595 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,670 - Thread-34 - Starting
+DEBUG - 2019-03-12 16:28:54,739 - Thread-35 - Starting
+DEBUG - 2019-03-12 16:28:54,748 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,771 - Thread-37 - Starting
+DEBUG - 2019-03-12 16:28:54,773 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:54,774 - Thread-35 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,783 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,806 - Thread-37 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:54,930 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:54,948 - Thread-42 - Starting
+DEBUG - 2019-03-12 16:28:54,950 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:54,975 - Thread-43 - Starting
+DEBUG - 2019-03-12 16:28:55,042 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 16:28:55,054 - Thread-44 - Starting
+DEBUG - 2019-03-12 16:28:55,109 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:55,177 - MainThread - Networker thread started
+DEBUG - 2019-03-12 16:28:55,189 - CurveAuth - auth received API command b'CURVE'
+ERROR - 2019-03-12 16:28:55,206 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-..datavideos3.mp4/: Invalid certificate directory: ../Certificates/server-keys-..datavideos3.mp4/
+DEBUG - 2019-03-12 16:28:55,223 - Thread-47 - Starting
+DEBUG - 2019-03-12 16:28:55,224 - Thread-44 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:55,241 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:55,299 - Thread-49 - Starting
+DEBUG - 2019-03-12 16:28:55,316 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 16:28:55,328 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 16:28:55,336 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 16:28:55,345 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:55,379 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:55,394 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+ERROR - 2019-03-12 16:28:55,420 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-..datavideos8.mp4/: Invalid certificate directory: ../Certificates/server-keys-..datavideos8.mp4/
+DEBUG - 2019-03-12 16:28:55,466 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 16:28:55,473 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 16:28:55,490 - Thread-54 - Starting
+DEBUG - 2019-03-12 16:28:55,508 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 16:28:55,517 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 16:28:55,747 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:55,775 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:55,946 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:55,984 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,011 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,039 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,042 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,046 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,058 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,150 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,163 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,164 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,274 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,290 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,290 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,409 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,421 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,422 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,435 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,454 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,488 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,571 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,579 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,604 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,620 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,673 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:56,783 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:5000'
+DEBUG - 2019-03-12 16:28:57,100 - Thread-2 - Assigned Port: :63455 using server key I)}xY9cyXLa2R^-vRyzWd1y?Anf5Hs3Z+2?g4wN%
+DEBUG - 2019-03-12 16:28:57,111 - Thread-2 - Enrolled I)}xY9cyXLa2R^-vRyzWd1y?Anf5Hs3Z+2?g4wN% saved at ../Certificates/server-keys-0/40fb49193cb544638be303f299ca5aa5.key
+DEBUG - 2019-03-12 16:28:57,116 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:28:57,116 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:28:57,116 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:63455'
+DEBUG - 2019-03-12 16:28:58,106 - Thread-46 - Assigned Port: :59306 using server key ZPg%tOGTX^5)EFM@19)ma!+5&B&9T--13MwZ5?NJ
+DEBUG - 2019-03-12 16:28:58,120 - Thread-46 - Enrolled ZPg%tOGTX^5)EFM@19)ma!+5&B&9T--13MwZ5?NJ saved at ../Certificates/server-keys-..datavideos9.mp4/78a050a0932545d5baa238fd244d5061.key
+DEBUG - 2019-03-12 16:28:58,128 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:28:58,129 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:59306'
+DEBUG - 2019-03-12 16:28:58,130 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:28:58,156 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:59306'
+DEBUG - 2019-03-12 16:28:59,113 - Thread-14 - Assigned Port: :60043 using server key +G[)DG1f1I]cOzRT/7uWV*UeG5AT+xdE^Y1K:%9K
+DEBUG - 2019-03-12 16:28:59,125 - Thread-14 - Enrolled +G[)DG1f1I]cOzRT/7uWV*UeG5AT+xdE^Y1K:%9K saved at ../Certificates/server-keys-..datavideos4.mp4/94129a6ffd5e402d9892058bc69a3424.key
+DEBUG - 2019-03-12 16:28:59,134 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:28:59,134 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:60043'
+DEBUG - 2019-03-12 16:28:59,134 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:28:59,162 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:60043'
+DEBUG - 2019-03-12 16:29:00,119 - Thread-24 - Assigned Port: :55301 using server key bikYb[!WIN+#}RmT&!PnW.t6S1k-xDmz]qXBfs)z
+DEBUG - 2019-03-12 16:29:00,145 - Thread-24 - Enrolled bikYb[!WIN+#}RmT&!PnW.t6S1k-xDmz]qXBfs)z saved at ../Certificates/server-keys-..datavideos3.mp4/ea278f22fe95496b88a29c811dec1996.key
+DEBUG - 2019-03-12 16:29:00,156 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:00,156 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:55301'
+DEBUG - 2019-03-12 16:29:00,157 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:00,187 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:55301'
+DEBUG - 2019-03-12 16:29:01,125 - Thread-5 - Assigned Port: :58293 using server key ^bft!bZNz^iPXyijCxmMT):jRP}tQ}*qe[LyLPIL
+DEBUG - 2019-03-12 16:29:01,137 - Thread-5 - Enrolled ^bft!bZNz^iPXyijCxmMT):jRP}tQ}*qe[LyLPIL saved at ../Certificates/server-keys-..datavideos0.mp4/df4edd41c16a4b4e9e247e36fc8f9a79.key
+DEBUG - 2019-03-12 16:29:01,142 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:01,142 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:01,142 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:58293'
+DEBUG - 2019-03-12 16:29:02,136 - Thread-9 - Assigned Port: :58303 using server key S/6*.(0rfY38dK!akRM?DoiyI6dG%S]3H@pz70^?
+DEBUG - 2019-03-12 16:29:02,149 - Thread-9 - Enrolled S/6*.(0rfY38dK!akRM?DoiyI6dG%S]3H@pz70^? saved at ../Certificates/server-keys-..datavideos1.mp4/ca72c441796745cb9560dd3087775099.key
+DEBUG - 2019-03-12 16:29:02,161 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:02,161 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:58303'
+DEBUG - 2019-03-12 16:29:02,162 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:02,190 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:58303'
+DEBUG - 2019-03-12 16:29:03,148 - Thread-30 - Assigned Port: :50358 using server key +:W<OsR<6Ky#LX0=X0E1^4]+9c$2:@^^9AimXrvl
+DEBUG - 2019-03-12 16:29:03,160 - Thread-30 - Enrolled +:W<OsR<6Ky#LX0=X0E1^4]+9c$2:@^^9AimXrvl saved at ../Certificates/server-keys-..datavideos6.mp4/0f76d6b0bcba4779b44bb03aa2ca6369.key
+DEBUG - 2019-03-12 16:29:03,167 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:03,168 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:50358'
+DEBUG - 2019-03-12 16:29:03,168 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:03,198 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:50358'
+DEBUG - 2019-03-12 16:29:04,173 - Thread-32 - Assigned Port: :54846 using server key fJynHOqm^@DWAI=A1r^x)zvV(U?25.eUj}.oOn{c
+DEBUG - 2019-03-12 16:29:04,191 - Thread-32 - Enrolled fJynHOqm^@DWAI=A1r^x)zvV(U?25.eUj}.oOn{c saved at ../Certificates/server-keys-..datavideos7.mp4/ef8449f8f67b43c9b2016e419f92f5b3.key
+DEBUG - 2019-03-12 16:29:04,205 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:04,205 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:29:04,206 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:04,241 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:29:04,397 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:29:05,265 - Thread-36 - Assigned Port: :55876 using server key A:GqQsdfr#BbS&Dj^j?GqdJu./9flL>}@PaDKU=j
+DEBUG - 2019-03-12 16:29:05,280 - Thread-36 - Enrolled A:GqQsdfr#BbS&Dj^j?GqdJu./9flL>}@PaDKU=j saved at ../Certificates/server-keys-..datavideos8.mp4/2a4659df36284394a9c0d165e6cf296a.key
+DEBUG - 2019-03-12 16:29:05,289 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 16:29:05,289 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:55876'
+DEBUG - 2019-03-12 16:29:05,289 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 16:29:05,319 - Monitor - EVENT_CONNECTED b'tcp://35.204.135.105:55876'
+DEBUG - 2019-03-12 16:29:05,514 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://35.204.135.105:55876'
+DEBUG - 2019-03-12 16:32:25,806 - MainThread - Deferred tab focused
+DEBUG - 2019-03-12 16:32:27,166 - MainThread - Live tab focused
+DEBUG - 2019-03-12 16:32:30,547 - MainThread - Deferred tab focused
+DEBUG - 2019-03-12 16:32:32,746 - MainThread - Live tab focused
+DEBUG - 2019-03-12 16:36:16,588 - MainThread - Config tab focused
+DEBUG - 2019-03-12 16:36:17,456 - MainThread - Deferred tab focused
+DEBUG - 2019-03-12 16:36:17,934 - MainThread - Live tab focused
+DEBUG - 2019-03-12 16:36:18,987 - MainThread - Config tab focused
+DEBUG - 2019-03-12 16:36:37,737 - Monitor - EVENT_DISCONNECTED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:36:37,739 - Monitor - EVENT_CONNECT_RETRIED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:36:37,939 - Monitor - EVENT_CONNECT_DELAYED b'tcp://35.204.135.105:54846'
+DEBUG - 2019-03-12 16:36:43,838 - MainThread - Deferred tab focused
+DEBUG - 2019-03-12 16:36:44,309 - MainThread - Live tab focused
+INFO - 2019-03-12 19:42:12,712 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-12 19:45:46,783 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-12 19:47:01,945 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 19:47:03,038 - MainThread - Enrolled ?@zvGa9Xa)&cFcIw9x&$}3L20.UoY9&]F(yT3[GW saved at ../Certificates/server-keys-front/cebdf8d18cd64ab291672a7ad2afe1a4.key
+DEBUG - 2019-03-12 19:47:03,038 - MainThread - Enrolled
+DEBUG - 2019-03-12 19:47:03,041 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 19:47:03,041 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 19:47:03,087 - Thread-1 - Starting
+DEBUG - 2019-03-12 19:47:03,096 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:47:03,097 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:47:03,099 - CurveAuth - auth received API command b'TERMINATE'
+INFO - 2019-03-12 19:48:13,645 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 19:48:15,444 - MainThread - Enrolled /2=[wHulz!@#X#v@a-^8HR<Vt+ACx9>9c%oe![u< saved at ../Certificates/server-keys-front/b31210a8fd3848eaa3bebc703f0d6c68.key
+DEBUG - 2019-03-12 19:48:15,444 - MainThread - Enrolled
+DEBUG - 2019-03-12 19:48:15,447 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 19:48:15,448 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 19:48:15,502 - Thread-1 - Starting
+DEBUG - 2019-03-12 19:48:15,511 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:15,512 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:15,516 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:15,599 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 19:48:21,970 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,003 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,011 - Thread-4 - Starting
+DEBUG - 2019-03-12 19:48:22,030 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,047 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,077 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,084 - Thread-7 - Starting
+DEBUG - 2019-03-12 19:48:22,084 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,093 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,109 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,120 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,191 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,206 - Thread-13 - Starting
+DEBUG - 2019-03-12 19:48:22,206 - Thread-11 - Starting
+DEBUG - 2019-03-12 19:48:22,252 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,254 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,262 - Thread-11 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,306 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,307 - Thread-14 - Starting
+DEBUG - 2019-03-12 19:48:22,343 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 19:48:22,367 - Thread-18 - Starting
+DEBUG - 2019-03-12 19:48:22,378 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,393 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,424 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,424 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 19:48:22,425 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,479 - Thread-22 - Starting
+DEBUG - 2019-03-12 19:48:22,502 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,502 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,551 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 19:48:22,560 - Thread-25 - Starting
+DEBUG - 2019-03-12 19:48:22,560 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,646 - Thread-27 - Starting
+DEBUG - 2019-03-12 19:48:22,646 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,649 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,678 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,679 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 19:48:22,703 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,780 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,804 - Thread-31 - Starting
+DEBUG - 2019-03-12 19:48:22,835 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:22,848 - Thread-33 - Starting
+DEBUG - 2019-03-12 19:48:22,860 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,884 - Thread-35 - Starting
+DEBUG - 2019-03-12 19:48:22,894 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 19:48:22,895 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:22,923 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,940 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:22,941 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:22,955 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:23,068 - Thread-40 - Starting
+DEBUG - 2019-03-12 19:48:23,077 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:23,078 - Thread-42 - Starting
+DEBUG - 2019-03-12 19:48:23,159 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:23,166 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,188 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 19:48:23,189 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,202 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 19:48:23,209 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:48:23,272 - Thread-45 - Starting
+DEBUG - 2019-03-12 19:48:23,283 - Thread-49 - Starting
+DEBUG - 2019-03-12 19:48:23,295 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,328 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:23,328 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,345 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:48:23,348 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:48:23,419 - Thread-52 - Starting
+DEBUG - 2019-03-12 19:48:23,452 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,459 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 19:48:23,556 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 19:48:23,558 - Thread-54 - Starting
+DEBUG - 2019-03-12 19:48:23,571 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:48:23,587 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 19:48:23,919 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:23,920 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:23,950 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,103 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,108 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,131 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,174 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,177 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,193 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,265 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,271 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,290 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,358 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,359 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,388 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,537 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,541 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,563 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,564 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,575 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,587 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,604 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,613 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,631 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,676 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,678 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:24,699 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:48:25,087 - Thread-2 - Assigned Port: :59497 using server key u7@I1--CYbGC:o(S8tNspud4l**)031MbzFsB[ds
+DEBUG - 2019-03-12 19:48:25,094 - Thread-2 - Enrolled u7@I1--CYbGC:o(S8tNspud4l**)031MbzFsB[ds saved at ../Certificates/server-keys-0/d25ec3cbf4c84e549663e06c87bc383e.key
+DEBUG - 2019-03-12 19:48:25,101 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:25,101 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:59497'
+DEBUG - 2019-03-12 19:48:25,102 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:25,103 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:59497'
+DEBUG - 2019-03-12 19:48:25,122 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:59497'
+DEBUG - 2019-03-12 19:48:26,260 - Thread-41 - Assigned Port: :56168 using server key gJuSmc#$oO7l^Pz-Rc{L282.aqHUE:IW>@c2Xt8%
+DEBUG - 2019-03-12 19:48:26,275 - Thread-41 - Enrolled gJuSmc#$oO7l^Pz-Rc{L282.aqHUE:IW>@c2Xt8% saved at ../Certificates/server-keys-..datavideos8.mp4/4b3e1dd521a2478390a564757abb0074.key
+DEBUG - 2019-03-12 19:48:26,280 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:26,280 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56168'
+DEBUG - 2019-03-12 19:48:26,281 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:26,281 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56168'
+DEBUG - 2019-03-12 19:48:27,500 - Thread-10 - Assigned Port: :58078 using server key xrZH[*GyygPV-I.iZv+7+?uA7-nTohA=Ibh7+J4b
+DEBUG - 2019-03-12 19:48:27,547 - Thread-10 - Enrolled xrZH[*GyygPV-I.iZv+7+?uA7-nTohA=Ibh7+J4b saved at ../Certificates/server-keys-..datavideos1.mp4/7e359ffb7cf44d03af2bf3bf6b3e13f4.key
+DEBUG - 2019-03-12 19:48:27,554 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:27,555 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58078'
+DEBUG - 2019-03-12 19:48:27,555 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:27,556 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58078'
+DEBUG - 2019-03-12 19:48:27,581 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:58078'
+DEBUG - 2019-03-12 19:48:28,783 - Thread-5 - Assigned Port: :64558 using server key :n>PkWHE/a^W#LR]y4Mq9WdKGDplGxPz6V*=XQV@
+DEBUG - 2019-03-12 19:48:28,805 - Thread-5 - Enrolled :n>PkWHE/a^W#LR]y4Mq9WdKGDplGxPz6V*=XQV@ saved at ../Certificates/server-keys-..datavideos0.mp4/ad5b69f502434a97ae3eead8977b0eec.key
+DEBUG - 2019-03-12 19:48:28,809 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:28,809 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:64558'
+DEBUG - 2019-03-12 19:48:28,810 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:28,814 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:64558'
+DEBUG - 2019-03-12 19:48:30,105 - Thread-15 - Assigned Port: :53702 using server key fbXmPi{V70Yb&S8V?D.!O]os:O!4FuzK58A-yH$2
+DEBUG - 2019-03-12 19:48:30,204 - Thread-15 - Enrolled fbXmPi{V70Yb&S8V?D.!O]os:O!4FuzK58A-yH$2 saved at ../Certificates/server-keys-..datavideos4.mp4/533b99100e5149cca02072fd10a07fc7.key
+DEBUG - 2019-03-12 19:48:30,213 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53702'
+DEBUG - 2019-03-12 19:48:30,214 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:30,214 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:30,218 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53702'
+DEBUG - 2019-03-12 19:48:30,252 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:53702'
+DEBUG - 2019-03-12 19:48:31,420 - Thread-23 - Assigned Port: :63358 using server key s/#D#jQ3KeQ#%ba(?pW@zs7Enxg/QGx&=:zF}IJ=
+DEBUG - 2019-03-12 19:48:31,552 - Thread-23 - Enrolled s/#D#jQ3KeQ#%ba(?pW@zs7Enxg/QGx&=:zF}IJ= saved at ../Certificates/server-keys-..datavideos3.mp4/f8b12dda97a347bbb17e64b6b3850fb4.key
+DEBUG - 2019-03-12 19:48:31,609 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:31,609 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:31,611 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63358'
+DEBUG - 2019-03-12 19:48:31,618 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63358'
+DEBUG - 2019-03-12 19:48:31,641 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63358'
+DEBUG - 2019-03-12 19:48:32,870 - Thread-30 - Assigned Port: :59591 using server key Bk>:MhZ}CI>Q@u2m>6:Cbk$*k.^lKC6W5I}13}!M
+DEBUG - 2019-03-12 19:48:32,951 - Thread-30 - Enrolled Bk>:MhZ}CI>Q@u2m>6:Cbk$*k.^lKC6W5I}13}!M saved at ../Certificates/server-keys-..datavideos6.mp4/7e9f532f34d3471e94c36491a3ffa515.key
+DEBUG - 2019-03-12 19:48:32,971 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:32,972 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:59591'
+DEBUG - 2019-03-12 19:48:32,973 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:32,980 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:59591'
+DEBUG - 2019-03-12 19:48:32,999 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:59591'
+DEBUG - 2019-03-12 19:48:34,200 - Thread-34 - Assigned Port: :65255 using server key ZVS?R>NAEH.y6kyMpNtTraMwz[NhU0bWjN6Kd!uY
+DEBUG - 2019-03-12 19:48:34,293 - Thread-34 - Enrolled ZVS?R>NAEH.y6kyMpNtTraMwz[NhU0bWjN6Kd!uY saved at ../Certificates/server-keys-..datavideos7.mp4/e04e52827c9644d3ae27264ed53dfb99.key
+DEBUG - 2019-03-12 19:48:34,356 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:34,356 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65255'
+DEBUG - 2019-03-12 19:48:34,356 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:34,395 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:65255'
+DEBUG - 2019-03-12 19:48:34,420 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:65255'
+DEBUG - 2019-03-12 19:48:35,595 - Thread-47 - Assigned Port: :63052 using server key cmd?^*^BzoKVx&#Vwi:W(HGG]IEJqf5CU0qNJWR#
+DEBUG - 2019-03-12 19:48:35,638 - Thread-47 - Enrolled cmd?^*^BzoKVx&#Vwi:W(HGG]IEJqf5CU0qNJWR# saved at ../Certificates/server-keys-..datavideos9.mp4/2fc7914eafb24e06bcb79afb1ccaffe7.key
+DEBUG - 2019-03-12 19:48:35,644 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:48:35,645 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63052'
+DEBUG - 2019-03-12 19:48:35,645 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:48:35,649 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63052'
+DEBUG - 2019-03-12 19:48:35,696 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63052'
+INFO - 2019-03-12 19:50:15,924 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 19:50:17,018 - MainThread - Enrolled /2=[wHulz!@#X#v@a-^8HR<Vt+ACx9>9c%oe![u< saved at ../Certificates/server-keys-front/ed1a8aee193f46ed86ebe608a4e56e9d.key
+DEBUG - 2019-03-12 19:50:17,018 - MainThread - Enrolled
+DEBUG - 2019-03-12 19:50:17,020 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 19:50:17,021 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 19:50:17,070 - Thread-1 - Starting
+DEBUG - 2019-03-12 19:50:17,080 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:17,081 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:17,082 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:50:17,102 - MainThread - Not already logged in, presenting dialog.
+DEBUG - 2019-03-12 19:50:36,875 - Thread-2 - Starting
+DEBUG - 2019-03-12 19:50:36,882 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:36,882 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:36,884 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:50:49,467 - Thread-3 - Starting
+DEBUG - 2019-03-12 19:50:49,482 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:49,482 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:49,485 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:50:49,665 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 19:50:55,694 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:55,732 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:55,739 - Thread-6 - Starting
+DEBUG - 2019-03-12 19:50:55,757 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:55,801 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:55,809 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:55,809 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:55,822 - Thread-10 - Starting
+DEBUG - 2019-03-12 19:50:55,875 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:55,899 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:55,899 - Thread-12 - Starting
+DEBUG - 2019-03-12 19:50:55,901 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:55,901 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:55,911 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:55,979 - Thread-16 - Starting
+DEBUG - 2019-03-12 19:50:55,979 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:56,040 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,086 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,108 - Thread-18 - Starting
+DEBUG - 2019-03-12 19:50:56,133 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 19:50:56,134 - Thread-19 - Starting
+DEBUG - 2019-03-12 19:50:56,172 - Thread-18 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,172 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,209 - Thread-22 - Starting
+DEBUG - 2019-03-12 19:50:56,210 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 19:50:56,218 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,249 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,269 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:56,271 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 19:50:56,281 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,324 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,378 - Thread-28 - Starting
+DEBUG - 2019-03-12 19:50:56,390 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,422 - Thread-29 - Starting
+DEBUG - 2019-03-12 19:50:56,446 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,493 - Thread-31 - Starting
+DEBUG - 2019-03-12 19:50:56,493 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,493 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,494 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:56,495 - Thread-31 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,526 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 19:50:56,573 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:56,601 - Thread-36 - Starting
+DEBUG - 2019-03-12 19:50:56,615 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,626 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 19:50:56,689 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,738 - Thread-39 - Starting
+DEBUG - 2019-03-12 19:50:56,767 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,769 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,769 - Thread-41 - Starting
+DEBUG - 2019-03-12 19:50:56,788 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 19:50:56,811 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:56,820 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:56,879 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,887 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,892 - MainThread - Networker thread started
+DEBUG - 2019-03-12 19:50:56,932 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 19:50:56,971 - Thread-45 - Starting
+DEBUG - 2019-03-12 19:50:57,018 - Thread-49 - Starting
+DEBUG - 2019-03-12 19:50:57,019 - Thread-50 - Starting
+DEBUG - 2019-03-12 19:50:57,043 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:57,057 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:57,087 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 19:50:57,098 - Thread-50 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:57,118 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 19:50:57,148 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:57,204 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 19:50:57,281 - Thread-54 - Starting
+DEBUG - 2019-03-12 19:50:57,281 - Thread-55 - Starting
+DEBUG - 2019-03-12 19:50:57,305 - Thread-54 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:57,326 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 19:50:57,328 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 19:50:57,338 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 19:50:57,414 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,418 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,435 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,796 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,819 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,822 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,841 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,848 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,868 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,936 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,939 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:57,971 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,151 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,168 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,188 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,230 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,240 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,261 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,377 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,381 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,400 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,422 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,429 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,443 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,451 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,454 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,480 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 19:50:58,642 - Thread-4 - Assigned Port: :58623 using server key puv(:IANtDdL)8L[btc{BO91KGIXp[pGlt}bANT+
+DEBUG - 2019-03-12 19:50:58,671 - Thread-4 - Enrolled puv(:IANtDdL)8L[btc{BO91KGIXp[pGlt}bANT+ saved at ../Certificates/server-keys-0/60fc0b3f8d534ff0994880bc5a1317ee.key
+DEBUG - 2019-03-12 19:50:58,678 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:50:58,679 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58623'
+DEBUG - 2019-03-12 19:50:58,679 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:50:58,688 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58623'
+DEBUG - 2019-03-12 19:50:58,704 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:58623'
+DEBUG - 2019-03-12 19:50:59,828 - Thread-44 - Assigned Port: :55576 using server key !hl[6sIVCh5b2D[[aFbh483HW9LP&J18@YNrx.ix
+DEBUG - 2019-03-12 19:50:59,835 - Thread-44 - Enrolled !hl[6sIVCh5b2D[[aFbh483HW9LP&J18@YNrx.ix saved at ../Certificates/server-keys-..datavideos8.mp4/cef9e4471f174573ae6e37717a5c9e46.key
+DEBUG - 2019-03-12 19:50:59,843 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:50:59,844 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:50:59,844 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55576'
+DEBUG - 2019-03-12 19:50:59,847 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55576'
+DEBUG - 2019-03-12 19:50:59,870 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:55576'
+DEBUG - 2019-03-12 19:51:01,054 - Thread-11 - Assigned Port: :50264 using server key v{Y0)yi{pe9TSY+Z0VOODp3S)>+i:h.0sX=Dx4=x
+DEBUG - 2019-03-12 19:51:01,065 - Thread-11 - Enrolled v{Y0)yi{pe9TSY+Z0VOODp3S)>+i:h.0sX=Dx4=x saved at ../Certificates/server-keys-..datavideos1.mp4/53fe7a849ccc408492725b8efc16ba31.key
+DEBUG - 2019-03-12 19:51:01,087 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:01,087 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50264'
+DEBUG - 2019-03-12 19:51:01,087 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:01,100 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50264'
+DEBUG - 2019-03-12 19:51:02,320 - Thread-7 - Assigned Port: :65176 using server key bVh}6[F<64qE3e>W/6I}fJ=o]@U!zh53C1t[JeTz
+DEBUG - 2019-03-12 19:51:02,342 - Thread-7 - Enrolled bVh}6[F<64qE3e>W/6I}fJ=o]@U!zh53C1t[JeTz saved at ../Certificates/server-keys-..datavideos0.mp4/738e65ba32a84a898df247d41f71bb7e.key
+DEBUG - 2019-03-12 19:51:02,353 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:02,353 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65176'
+DEBUG - 2019-03-12 19:51:02,354 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:02,357 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:65176'
+DEBUG - 2019-03-12 19:51:02,388 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:65176'
+DEBUG - 2019-03-12 19:51:03,528 - Thread-17 - Assigned Port: :57482 using server key w!f%scdzow+6TnL6)QGcm4g:Jz>U*&?GQkhuxstM
+DEBUG - 2019-03-12 19:51:03,543 - Thread-17 - Enrolled w!f%scdzow+6TnL6)QGcm4g:Jz>U*&?GQkhuxstM saved at ../Certificates/server-keys-..datavideos4.mp4/dc61a2f97999417a8b405a12e7d93bba.key
+DEBUG - 2019-03-12 19:51:03,560 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:03,561 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57482'
+DEBUG - 2019-03-12 19:51:03,561 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:03,629 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57482'
+DEBUG - 2019-03-12 19:51:03,655 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:57482'
+DEBUG - 2019-03-12 19:51:04,994 - Thread-26 - Assigned Port: :65434 using server key dWk7rpEs$JD[9&amY=%eDQ}up<h+6P[E.e2@z&@u
+DEBUG - 2019-03-12 19:51:05,061 - Thread-26 - Enrolled dWk7rpEs$JD[9&amY=%eDQ}up<h+6P[E.e2@z&@u saved at ../Certificates/server-keys-..datavideos3.mp4/c6c6884370c64081bba1d0bfa1d5900d.key
+DEBUG - 2019-03-12 19:51:05,074 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:05,074 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:05,074 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65434'
+DEBUG - 2019-03-12 19:51:05,079 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:65434'
+DEBUG - 2019-03-12 19:51:05,111 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:65434'
+DEBUG - 2019-03-12 19:51:06,319 - Thread-30 - Assigned Port: :49967 using server key p[-a{Z^eIG3)SzCp4TdBWvFEjrE}z+PMvp%V)HxJ
+DEBUG - 2019-03-12 19:51:06,342 - Thread-30 - Enrolled p[-a{Z^eIG3)SzCp4TdBWvFEjrE}z+PMvp%V)HxJ saved at ../Certificates/server-keys-..datavideos6.mp4/decd8eeddda14f70a2915491513ab4a2.key
+DEBUG - 2019-03-12 19:51:06,346 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:06,347 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:49967'
+DEBUG - 2019-03-12 19:51:06,347 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:06,349 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:49967'
+DEBUG - 2019-03-12 19:51:06,384 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:49967'
+DEBUG - 2019-03-12 19:51:07,681 - Thread-37 - Assigned Port: :53540 using server key WG70=5(0jf4Giw>5oD9/ebHcW!G8bKnJ?*X9V($h
+DEBUG - 2019-03-12 19:51:07,775 - Thread-37 - Enrolled WG70=5(0jf4Giw>5oD9/ebHcW!G8bKnJ?*X9V($h saved at ../Certificates/server-keys-..datavideos7.mp4/c730c669c116419aadb83f09ddc55818.key
+DEBUG - 2019-03-12 19:51:07,819 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:07,820 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:07,820 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53540'
+DEBUG - 2019-03-12 19:51:07,873 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53540'
+DEBUG - 2019-03-12 19:51:07,874 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:53540'
+DEBUG - 2019-03-12 19:51:09,244 - Thread-47 - Assigned Port: :50521 using server key BM[B!qXeZgG#]b!o(eim+<^rv1484<b<9di525em
+DEBUG - 2019-03-12 19:51:09,263 - Thread-47 - Enrolled BM[B!qXeZgG#]b!o(eim+<^rv1484<b<9di525em saved at ../Certificates/server-keys-..datavideos9.mp4/21f3877201d5446db9534bd18df8887e.key
+DEBUG - 2019-03-12 19:51:09,271 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 19:51:09,271 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50521'
+DEBUG - 2019-03-12 19:51:09,271 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 19:51:09,273 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50521'
+DEBUG - 2019-03-12 19:51:09,363 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:50521'
+INFO - 2019-03-12 20:05:34,781 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:05:35,912 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/f482f18177754a0b948415ca44f376da.key
+DEBUG - 2019-03-12 20:05:35,912 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:05:35,916 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 20:05:35,917 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:05:35,975 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:05:35,985 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:35,985 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:35,993 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:36,004 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:05:42,273 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,307 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:42,316 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:05:42,343 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,351 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:42,352 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,392 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:42,401 - Thread-8 - Starting
+DEBUG - 2019-03-12 20:05:42,409 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,426 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:42,429 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,430 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:42,506 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,570 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:05:42,633 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:42,633 - Thread-15 - Starting
+DEBUG - 2019-03-12 20:05:42,641 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,658 - Thread-14 - Starting
+DEBUG - 2019-03-12 20:05:42,663 - Thread-15 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,664 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,710 - Thread-18 - Starting
+DEBUG - 2019-03-12 20:05:42,710 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:42,747 - Thread-14 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,754 - Thread-20 - Starting
+DEBUG - 2019-03-12 20:05:42,763 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:42,806 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:42,835 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,835 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:05:42,845 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:05:42,912 - Thread-26 - Starting
+DEBUG - 2019-03-12 20:05:42,916 - Thread-20 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:42,916 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:05:42,942 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:42,974 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,027 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:43,035 - Thread-30 - Starting
+DEBUG - 2019-03-12 20:05:43,036 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,042 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:05:43,052 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:05:43,072 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,073 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:43,118 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:43,149 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:43,182 - Thread-34 - Starting
+DEBUG - 2019-03-12 20:05:43,229 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:43,230 - Thread-37 - Starting
+DEBUG - 2019-03-12 20:05:43,248 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:05:43,265 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,300 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:43,332 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,365 - Thread-42 - Starting
+DEBUG - 2019-03-12 20:05:43,365 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:05:43,366 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,380 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:05:43,384 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:43,415 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,430 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:43,538 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:43,539 - Thread-46 - Starting
+DEBUG - 2019-03-12 20:05:43,586 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,588 - Thread-47 - Starting
+DEBUG - 2019-03-12 20:05:43,596 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:05:43,609 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,619 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:05:43,629 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:05:43,696 - Thread-51 - Starting
+DEBUG - 2019-03-12 20:05:43,725 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:05:43,726 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,738 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:05:43,739 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:05:43,845 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:05:43,867 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:05:43,876 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:05:44,135 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,138 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,142 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,142 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,169 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,203 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,420 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,424 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,451 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,477 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,487 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,499 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,706 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,713 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,731 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,754 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,757 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,775 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,866 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,868 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,892 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,901 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,904 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,922 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,934 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,934 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:44,954 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:05:45,352 - Thread-2 - Assigned Port: :54998 using server key lm=o^Ovb8YEBTfIeLXpPtPZmg<vgoDi@?ov/@zSh
+DEBUG - 2019-03-12 20:05:45,358 - Thread-2 - Enrolled lm=o^Ovb8YEBTfIeLXpPtPZmg<vgoDi@?ov/@zSh saved at ../Certificates/server-keys-0/d12cefec04974cba8f211c63a84bc219.key
+DEBUG - 2019-03-12 20:05:45,361 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:45,361 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:54998'
+DEBUG - 2019-03-12 20:05:45,362 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:45,364 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:54998'
+DEBUG - 2019-03-12 20:05:46,550 - Thread-49 - Assigned Port: :53594 using server key I+U?EZ^#C32rp#@]dSSWa^R)i>!>XPgPdVKw8>Tp
+DEBUG - 2019-03-12 20:05:46,561 - Thread-49 - Enrolled I+U?EZ^#C32rp#@]dSSWa^R)i>!>XPgPdVKw8>Tp saved at ../Certificates/server-keys-..datavideos9.mp4/96e3ae64e4ce4f5a8ebe924758ac43d5.key
+DEBUG - 2019-03-12 20:05:46,565 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:46,565 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53594'
+DEBUG - 2019-03-12 20:05:46,565 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:46,567 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53594'
+DEBUG - 2019-03-12 20:05:46,596 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:53594'
+DEBUG - 2019-03-12 20:05:47,695 - Thread-5 - Assigned Port: :53560 using server key O(8U)y{#6hJGnD!%dTCQP-/Sj-2#2N:!pol6W%]a
+DEBUG - 2019-03-12 20:05:47,702 - Thread-5 - Enrolled O(8U)y{#6hJGnD!%dTCQP-/Sj-2#2N:!pol6W%]a saved at ../Certificates/server-keys-..datavideos0.mp4/650c8f4d3a374da79a2a2b3911e53d25.key
+DEBUG - 2019-03-12 20:05:47,704 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:47,705 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53560'
+DEBUG - 2019-03-12 20:05:47,705 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:47,708 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53560'
+DEBUG - 2019-03-12 20:05:47,727 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:53560'
+DEBUG - 2019-03-12 20:05:48,909 - Thread-12 - Assigned Port: :51339 using server key N@$vcRw6^0dxlHRT7]+)Ig8>ap*idc<H?e2^>)Om
+DEBUG - 2019-03-12 20:05:48,929 - Thread-12 - Enrolled N@$vcRw6^0dxlHRT7]+)Ig8>ap*idc<H?e2^>)Om saved at ../Certificates/server-keys-..datavideos4.mp4/b355fb58db9a4161b247084f73d6af30.key
+DEBUG - 2019-03-12 20:05:48,935 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:48,935 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51339'
+DEBUG - 2019-03-12 20:05:48,936 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:48,941 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51339'
+DEBUG - 2019-03-12 20:05:48,957 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51339'
+DEBUG - 2019-03-12 20:05:50,198 - Thread-10 - Assigned Port: :53346 using server key bc[opW/a/-D:[<#a^=TKe8=9}aJ%]mz3OUYy4]R*
+DEBUG - 2019-03-12 20:05:50,228 - Thread-10 - Enrolled bc[opW/a/-D:[<#a^=TKe8=9}aJ%]mz3OUYy4]R* saved at ../Certificates/server-keys-..datavideos1.mp4/7425806be14244c6a66dccfff5d45126.key
+DEBUG - 2019-03-12 20:05:50,250 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:50,251 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53346'
+DEBUG - 2019-03-12 20:05:50,251 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:50,347 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53346'
+DEBUG - 2019-03-12 20:05:50,348 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:53346'
+DEBUG - 2019-03-12 20:05:51,554 - Thread-19 - Assigned Port: :65419 using server key 3JBh2ryi(yyZkJU}oi8<pk2Ld&}j]I9gQDg6+gxU
+DEBUG - 2019-03-12 20:05:51,615 - Thread-19 - Enrolled 3JBh2ryi(yyZkJU}oi8<pk2Ld&}j]I9gQDg6+gxU saved at ../Certificates/server-keys-..datavideos3.mp4/df7c64a38450487ca75f3d56fc333744.key
+DEBUG - 2019-03-12 20:05:51,662 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:51,662 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65419'
+DEBUG - 2019-03-12 20:05:51,662 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:51,697 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:65419'
+DEBUG - 2019-03-12 20:05:51,703 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:65419'
+DEBUG - 2019-03-12 20:05:52,831 - Thread-27 - Assigned Port: :51038 using server key @Cz!J=aPybw(6k#iKalx9CsZW9+:S2Mr8uMe]+29
+DEBUG - 2019-03-12 20:05:52,852 - Thread-27 - Enrolled @Cz!J=aPybw(6k#iKalx9CsZW9+:S2Mr8uMe]+29 saved at ../Certificates/server-keys-..datavideos6.mp4/a0046f39c69f4ea299293c2499adc0b2.key
+DEBUG - 2019-03-12 20:05:52,857 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:52,858 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51038'
+DEBUG - 2019-03-12 20:05:52,859 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:52,867 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51038'
+DEBUG - 2019-03-12 20:05:52,893 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51038'
+DEBUG - 2019-03-12 20:05:54,343 - Thread-35 - Assigned Port: :50728 using server key D%{AQ{Pi}Zl>t82>sBAVBZfmswpT?N)N/rIKJm>V
+DEBUG - 2019-03-12 20:05:54,405 - Thread-35 - Enrolled D%{AQ{Pi}Zl>t82>sBAVBZfmswpT?N)N/rIKJm>V saved at ../Certificates/server-keys-..datavideos7.mp4/f000d7426488450aa5a71145236c90f2.key
+DEBUG - 2019-03-12 20:05:54,415 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:54,416 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:54,416 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50728'
+DEBUG - 2019-03-12 20:05:54,418 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50728'
+DEBUG - 2019-03-12 20:05:54,496 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:50728'
+DEBUG - 2019-03-12 20:05:55,737 - Thread-40 - Assigned Port: :61829 using server key YlH%tMLw46I$H/O]jwGBzSV1LER%:-PMwA<QT7n!
+DEBUG - 2019-03-12 20:05:55,806 - Thread-40 - Enrolled YlH%tMLw46I$H/O]jwGBzSV1LER%:-PMwA<QT7n! saved at ../Certificates/server-keys-..datavideos8.mp4/a9f420e284e74d27aa6a747151befaf4.key
+DEBUG - 2019-03-12 20:05:55,830 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:05:55,830 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:61829'
+DEBUG - 2019-03-12 20:05:55,831 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:05:55,842 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:61829'
+DEBUG - 2019-03-12 20:05:55,869 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:61829'
+DEBUG - 2019-03-12 20:06:11,623 - Monitor - Monitor thread 0 shutting down
+INFO - 2019-03-12 20:07:07,757 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:07:08,877 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/719ebc27cbcc498fa56479a0ea6d5bb1.key
+DEBUG - 2019-03-12 20:07:08,877 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:07:08,886 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 20:07:08,890 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:07:08,990 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:07:08,999 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:09,000 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:09,001 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:09,021 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:07:16,117 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,186 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,203 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:07:16,222 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,228 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,264 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:16,264 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,272 - Thread-8 - Starting
+DEBUG - 2019-03-12 20:07:16,296 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,297 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:16,298 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,382 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,401 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:07:16,401 - Thread-12 - Starting
+DEBUG - 2019-03-12 20:07:16,409 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,409 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:07:16,437 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,483 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:16,491 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,510 - Thread-16 - Starting
+DEBUG - 2019-03-12 20:07:16,558 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,567 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,584 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:07:16,584 - Thread-19 - Starting
+DEBUG - 2019-03-12 20:07:16,596 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,605 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:16,623 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,748 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,749 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:07:16,764 - Thread-26 - Starting
+DEBUG - 2019-03-12 20:07:16,765 - Thread-25 - Starting
+DEBUG - 2019-03-12 20:07:16,770 - Thread-24 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,788 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,797 - Thread-25 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,817 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:16,860 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:16,887 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:07:16,892 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:07:16,897 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:16,909 - Thread-32 - Starting
+DEBUG - 2019-03-12 20:07:16,930 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:16,930 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,000 - Thread-34 - Starting
+DEBUG - 2019-03-12 20:07:17,002 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:17,003 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:17,012 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,039 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:17,127 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:07:17,139 - Thread-40 - Starting
+DEBUG - 2019-03-12 20:07:17,140 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:17,219 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,230 - Thread-41 - Starting
+DEBUG - 2019-03-12 20:07:17,238 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,238 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:07:17,241 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:17,251 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:07:17,260 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,326 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:17,368 - Thread-46 - Starting
+DEBUG - 2019-03-12 20:07:17,378 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:07:17,401 - Thread-46 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,426 - Thread-48 - Starting
+DEBUG - 2019-03-12 20:07:17,466 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:07:17,477 - Thread-49 - Starting
+DEBUG - 2019-03-12 20:07:17,477 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:07:17,505 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,539 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:07:17,556 - Thread-49 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,566 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:07:17,594 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:07:17,687 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:07:17,706 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:07:17,713 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:07:17,775 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:17,779 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:17,800 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,154 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,155 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,183 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,329 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,331 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,355 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,491 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,492 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,497 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,499 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,520 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,524 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,535 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,535 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,555 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,674 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,674 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,698 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,729 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,729 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,752 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,784 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,785 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,804 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:07:18,948 - Thread-2 - Assigned Port: :65531 using server key }-=HE%d}i{UNa]wyAkvI}D^>JEH(CzFwmZ8C72-!
+DEBUG - 2019-03-12 20:07:18,960 - Thread-2 - Enrolled }-=HE%d}i{UNa]wyAkvI}D^>JEH(CzFwmZ8C72-! saved at ../Certificates/server-keys-0/f3bae1745ae945e4a81ddf5cadea638a.key
+DEBUG - 2019-03-12 20:07:18,964 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:18,965 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65531'
+DEBUG - 2019-03-12 20:07:18,965 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:18,970 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:65531'
+DEBUG - 2019-03-12 20:07:18,990 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:65531'
+DEBUG - 2019-03-12 20:07:20,151 - Thread-47 - Assigned Port: :56317 using server key %8xQ9+I3=1t!ayBTkDV[n(XB+a[QA!F?nTDD2K*D
+DEBUG - 2019-03-12 20:07:20,164 - Thread-47 - Enrolled %8xQ9+I3=1t!ayBTkDV[n(XB+a[QA!F?nTDD2K*D saved at ../Certificates/server-keys-..datavideos9.mp4/79e0ecf668a54a898feb74841be4a427.key
+DEBUG - 2019-03-12 20:07:20,167 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:20,167 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56317'
+DEBUG - 2019-03-12 20:07:20,167 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:20,168 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56317'
+DEBUG - 2019-03-12 20:07:20,198 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:56317'
+DEBUG - 2019-03-12 20:07:21,418 - Thread-5 - Assigned Port: :56025 using server key 6ZWhD7?kP9fX-B^-t(($f!9y{^?17V?Z%)Y<hi63
+DEBUG - 2019-03-12 20:07:21,450 - Thread-5 - Enrolled 6ZWhD7?kP9fX-B^-t(($f!9y{^?17V?Z%)Y<hi63 saved at ../Certificates/server-keys-..datavideos0.mp4/1862eadb42bf4bb281868726f449d371.key
+DEBUG - 2019-03-12 20:07:21,472 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:21,472 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56025'
+DEBUG - 2019-03-12 20:07:21,472 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:21,479 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56025'
+DEBUG - 2019-03-12 20:07:21,500 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:07:21,500 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:07:22,683 - Thread-15 - Assigned Port: :62032 using server key ^J7RA>wW7[xL{=AWt}ng5qX/b^YM>j(+dduQ2*6c
+DEBUG - 2019-03-12 20:07:22,711 - Thread-15 - Enrolled ^J7RA>wW7[xL{=AWt}ng5qX/b^YM>j(+dduQ2*6c saved at ../Certificates/server-keys-..datavideos4.mp4/ef6d2b3319eb441195186d669aa03489.key
+DEBUG - 2019-03-12 20:07:22,718 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:22,719 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:62032'
+DEBUG - 2019-03-12 20:07:22,719 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:22,730 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:62032'
+DEBUG - 2019-03-12 20:07:22,761 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:62032'
+DEBUG - 2019-03-12 20:07:24,001 - Thread-27 - Assigned Port: :63946 using server key U&c{p5FPY2THa@-s[)KY[LLO65{CN]hFVWGb-^*H
+DEBUG - 2019-03-12 20:07:24,020 - Thread-27 - Enrolled U&c{p5FPY2THa@-s[)KY[LLO65{CN]hFVWGb-^*H saved at ../Certificates/server-keys-..datavideos6.mp4/75cbc63f40364e9ebf92aa91d05ca2c8.key
+DEBUG - 2019-03-12 20:07:24,028 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:24,028 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:24,028 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63946'
+DEBUG - 2019-03-12 20:07:24,033 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63946'
+DEBUG - 2019-03-12 20:07:25,338 - Thread-10 - Assigned Port: :53742 using server key A}Se+rl@PI(@Of)4{]VH{[7}@qyuN6an6xm)*GB*
+DEBUG - 2019-03-12 20:07:25,355 - Thread-10 - Enrolled A}Se+rl@PI(@Of)4{]VH{[7}@qyuN6an6xm)*GB* saved at ../Certificates/server-keys-..datavideos1.mp4/342652ab911749c2a0433bf422d279d1.key
+DEBUG - 2019-03-12 20:07:25,359 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:25,360 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53742'
+DEBUG - 2019-03-12 20:07:25,360 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:25,369 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:07:25,370 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:07:26,659 - Thread-22 - Assigned Port: :58459 using server key [B1>!y5B}W.X)3fIm%h6FkJRHtlUjywcLvj+{%tM
+DEBUG - 2019-03-12 20:07:26,704 - Thread-22 - Enrolled [B1>!y5B}W.X)3fIm%h6FkJRHtlUjywcLvj+{%tM saved at ../Certificates/server-keys-..datavideos3.mp4/2823349a71eb433b8d5705a5afe8d6f9.key
+DEBUG - 2019-03-12 20:07:26,709 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:26,709 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58459'
+DEBUG - 2019-03-12 20:07:26,710 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:26,713 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58459'
+DEBUG - 2019-03-12 20:07:26,749 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:58459'
+DEBUG - 2019-03-12 20:07:28,212 - Thread-33 - Assigned Port: :64097 using server key -4VBuYKDQ<pdsIJY7bzhm{]*j?y@$bEn%?4Qb-#4
+DEBUG - 2019-03-12 20:07:28,285 - Thread-33 - Enrolled -4VBuYKDQ<pdsIJY7bzhm{]*j?y@$bEn%?4Qb-#4 saved at ../Certificates/server-keys-..datavideos7.mp4/7f96617ad1b94ac0bc195eaf8816e934.key
+DEBUG - 2019-03-12 20:07:28,301 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:28,301 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:64097'
+DEBUG - 2019-03-12 20:07:28,303 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:28,310 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:64097'
+DEBUG - 2019-03-12 20:07:28,336 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:07:28,336 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:07:29,613 - Thread-39 - Assigned Port: :57320 using server key LL+*(D:lo*1ncC=Q:+HlvHx5*I26lX0x{Qx]d^3.
+DEBUG - 2019-03-12 20:07:29,622 - Thread-39 - Enrolled LL+*(D:lo*1ncC=Q:+HlvHx5*I26lX0x{Qx]d^3. saved at ../Certificates/server-keys-..datavideos8.mp4/90dc224e3b42453b97ae048310e1e83d.key
+DEBUG - 2019-03-12 20:07:29,630 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:07:29,631 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57320'
+DEBUG - 2019-03-12 20:07:29,632 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:07:29,645 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57320'
+DEBUG - 2019-03-12 20:07:38,042 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:08:04,499 - Monitor - EVENT_DISCONNECTED b'tcp://127.0.0.1:56317'
+DEBUG - 2019-03-12 20:08:04,500 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:08:04,501 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:08:04,502 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:08:04,502 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:08:04,519 - Monitor - EVENT_CONNECT_RETRIED b'tcp://127.0.0.1:56317'
+INFO - 2019-03-12 20:08:38,619 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:08:39,742 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/57f827e3b8bf402d8d3f49e80814965f.key
+DEBUG - 2019-03-12 20:08:39,743 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:08:39,745 - MainThread - Enrollment Successful, starting main application
+DEBUG - 2019-03-12 20:08:39,746 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:08:39,817 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:08:39,827 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:39,828 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:39,829 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:39,846 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:08:46,484 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:46,526 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:46,536 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:08:46,552 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:46,596 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:46,612 - Thread-7 - Starting
+DEBUG - 2019-03-12 20:08:46,612 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:46,613 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:46,632 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:46,642 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:46,645 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:46,733 - Thread-12 - Starting
+DEBUG - 2019-03-12 20:08:46,733 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:46,744 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:46,753 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:08:46,776 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:08:46,832 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:46,843 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:46,844 - Thread-15 - Starting
+DEBUG - 2019-03-12 20:08:46,844 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:46,916 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:46,924 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:46,929 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:08:46,986 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:46,986 - Thread-20 - Starting
+DEBUG - 2019-03-12 20:08:47,035 - Thread-22 - Starting
+DEBUG - 2019-03-12 20:08:47,035 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:47,068 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,068 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:08:47,077 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,084 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,097 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:08:47,161 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:47,169 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,177 - Thread-28 - Starting
+DEBUG - 2019-03-12 20:08:47,220 - Thread-30 - Starting
+DEBUG - 2019-03-12 20:08:47,220 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,231 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,248 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:47,257 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:08:47,266 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,282 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,347 - Thread-35 - Starting
+DEBUG - 2019-03-12 20:08:47,367 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:47,377 - Thread-35 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,416 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:08:47,437 - Thread-36 - Starting
+DEBUG - 2019-03-12 20:08:47,437 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:47,465 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:08:47,466 - Thread-36 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,468 - Thread-36 - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,502 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,522 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:08:47,564 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:47,612 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:47,616 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:08:47,679 - Thread-44 - Starting
+DEBUG - 2019-03-12 20:08:47,679 - Thread-47 - Starting
+DEBUG - 2019-03-12 20:08:47,681 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:08:47,706 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,708 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,720 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,728 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:08:47,786 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:08:47,830 - Thread-50 - Starting
+DEBUG - 2019-03-12 20:08:47,852 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,852 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:08:47,876 - Thread-51 - Starting
+DEBUG - 2019-03-12 20:08:47,903 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:47,905 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:08:47,985 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:08:48,001 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:08:48,011 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:08:48,104 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,104 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,128 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,234 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,235 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,286 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,522 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,527 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,558 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,561 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,562 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,590 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,666 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,668 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:48,690 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,073 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,075 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,081 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,082 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,083 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,084 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,108 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,108 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,109 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,118 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,125 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,145 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:08:49,306 - Thread-2 - Assigned Port: :55201 using server key l<Fp-wv$#[[#{G*ulV}V40/r60f$1}k{Eymrk%B$
+DEBUG - 2019-03-12 20:08:49,317 - Thread-2 - Enrolled l<Fp-wv$#[[#{G*ulV}V40/r60f$1}k{Eymrk%B$ saved at ../Certificates/server-keys-0/7f4ac8d6a1f94bfdbe7bddb7fd99b554.key
+DEBUG - 2019-03-12 20:08:49,320 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:49,321 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55201'
+DEBUG - 2019-03-12 20:08:49,321 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:49,334 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55201'
+DEBUG - 2019-03-12 20:08:49,352 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:08:49,359 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:08:50,461 - Thread-42 - Assigned Port: :60558 using server key =U90>4cgimWMMjBQt?!iqh6.mRD?WEO*BM?F%]bJ
+DEBUG - 2019-03-12 20:08:50,484 - Thread-42 - Enrolled =U90>4cgimWMMjBQt?!iqh6.mRD?WEO*BM?F%]bJ saved at ../Certificates/server-keys-..datavideos8.mp4/7328d913fb0f48168eb0504d0a650fd4.key
+DEBUG - 2019-03-12 20:08:50,489 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:50,490 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:60558'
+DEBUG - 2019-03-12 20:08:50,490 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:50,499 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:60558'
+DEBUG - 2019-03-12 20:08:50,527 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:08:50,527 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:08:51,712 - Thread-5 - Assigned Port: :51404 using server key w]K-u{<6m#pw}q4>*a^.>$T?Obzs4{ywJ?P}?we-
+DEBUG - 2019-03-12 20:08:51,759 - Thread-5 - Enrolled w]K-u{<6m#pw}q4>*a^.>$T?Obzs4{ywJ?P}?we- saved at ../Certificates/server-keys-..datavideos0.mp4/99fdca9c006a4f28960314ef5fbdb408.key
+DEBUG - 2019-03-12 20:08:51,771 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:51,771 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51404'
+DEBUG - 2019-03-12 20:08:51,772 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:51,787 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51404'
+DEBUG - 2019-03-12 20:08:51,811 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51404'
+DEBUG - 2019-03-12 20:08:52,949 - Thread-10 - Assigned Port: :59551 using server key ]Xms1Di-/dr!saL&UZC[Wm5HlW/-zJn}qQn0D]dV
+DEBUG - 2019-03-12 20:08:52,965 - Thread-10 - Enrolled ]Xms1Di-/dr!saL&UZC[Wm5HlW/-zJn}qQn0D]dV saved at ../Certificates/server-keys-..datavideos1.mp4/7207b858797b4287b6e18bbeb7668692.key
+DEBUG - 2019-03-12 20:08:52,971 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:52,972 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:59551'
+DEBUG - 2019-03-12 20:08:52,972 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:52,976 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:59551'
+DEBUG - 2019-03-12 20:08:53,005 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:59551'
+DEBUG - 2019-03-12 20:08:54,270 - Thread-17 - Assigned Port: :58155 using server key [OM@KUjTxMqiABCB%fO{A}8]D*ATW{S%iLB=u2y0
+DEBUG - 2019-03-12 20:08:54,326 - Thread-17 - Enrolled [OM@KUjTxMqiABCB%fO{A}8]D*ATW{S%iLB=u2y0 saved at ../Certificates/server-keys-..datavideos4.mp4/555a0c0b704c4df9b4a4e116daf903fe.key
+DEBUG - 2019-03-12 20:08:54,342 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:54,343 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58155'
+DEBUG - 2019-03-12 20:08:54,343 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:54,348 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58155'
+DEBUG - 2019-03-12 20:08:54,383 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:58155'
+DEBUG - 2019-03-12 20:08:55,769 - Thread-21 - Assigned Port: :58491 using server key o6&wP}v}V(/vf]g@HqNV(NTonRhf@&E4}7iaMpEx
+DEBUG - 2019-03-12 20:08:55,829 - Thread-21 - Enrolled o6&wP}v}V(/vf]g@HqNV(NTonRhf@&E4}7iaMpEx saved at ../Certificates/server-keys-..datavideos3.mp4/f7b8f605dcf245948460a64dacc616bc.key
+DEBUG - 2019-03-12 20:08:55,847 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:55,848 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58491'
+DEBUG - 2019-03-12 20:08:55,848 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:55,858 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58491'
+DEBUG - 2019-03-12 20:08:55,900 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:08:55,900 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:08:57,308 - Thread-45 - Assigned Port: :51710 using server key 2}/29ZR+qC:nIiY5.alY?n@vauBDZW]*j*ckj4DN
+DEBUG - 2019-03-12 20:08:57,316 - Thread-45 - Enrolled 2}/29ZR+qC:nIiY5.alY?n@vauBDZW]*j*ckj4DN saved at ../Certificates/server-keys-..datavideos9.mp4/9613a1d8a5f14e1885bb2cccd50b1b7f.key
+DEBUG - 2019-03-12 20:08:57,320 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:57,320 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51710'
+DEBUG - 2019-03-12 20:08:57,320 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:57,324 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51710'
+DEBUG - 2019-03-12 20:08:57,344 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51710'
+DEBUG - 2019-03-12 20:08:58,819 - Thread-34 - Assigned Port: :61421 using server key asqYWgdq:p:{e35wGNe2i.0j#k{GB[-WUTua7(G]
+DEBUG - 2019-03-12 20:08:58,857 - Thread-34 - Enrolled asqYWgdq:p:{e35wGNe2i.0j#k{GB[-WUTua7(G] saved at ../Certificates/server-keys-..datavideos7.mp4/2e0a6717e00c4c58aa89c2fe73f1bd87.key
+DEBUG - 2019-03-12 20:08:58,863 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:08:58,864 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:61421'
+DEBUG - 2019-03-12 20:08:58,864 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:08:58,866 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:61421'
+DEBUG - 2019-03-12 20:08:58,907 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:61421'
+DEBUG - 2019-03-12 20:09:00,342 - Thread-27 - Assigned Port: :51684 using server key KFTV!dn^Qyw)<4i!A:vyRq0oII>lI%]BQ#}FiT!#
+DEBUG - 2019-03-12 20:09:00,398 - Thread-27 - Enrolled KFTV!dn^Qyw)<4i!A:vyRq0oII>lI%]BQ#}FiT!# saved at ../Certificates/server-keys-..datavideos6.mp4/6894a4ef1bdc42f1b03a40e1e4cee51a.key
+DEBUG - 2019-03-12 20:09:00,439 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:09:00,440 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:09:00,440 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51684'
+DEBUG - 2019-03-12 20:09:00,455 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51684'
+DEBUG - 2019-03-12 20:09:00,536 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51684'
+DEBUG - 2019-03-12 20:09:08,405 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:09:08,406 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+CRITICAL - 2019-03-12 20:14:15,525 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 515, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 45, in __init__
+    self.terminator = Terminator.getInstance()
+NameError: name 'Terminator' is not defined
+CRITICAL - 2019-03-12 20:14:56,297 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 519, in <module>
+    sys.exit(app.exec_())
+SystemExit: 0
+INFO - 2019-03-12 20:29:26,350 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:29:27,491 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/dd905eb53cd3421393393575176db0c9.key
+DEBUG - 2019-03-12 20:29:27,492 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:29:27,497 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-12 20:29:27,499 - MainThread - Terminator signals linked
+DEBUG - 2019-03-12 20:29:27,500 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:29:27,599 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:29:27,606 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:27,607 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:27,608 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:27,624 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:29:34,691 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:34,727 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:34,734 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:29:34,750 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:34,758 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:34,795 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:34,797 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:34,806 - Thread-7 - Starting
+DEBUG - 2019-03-12 20:29:34,839 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:34,839 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:34,840 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:34,913 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:34,931 - Thread-12 - Starting
+DEBUG - 2019-03-12 20:29:34,939 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:29:35,044 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,060 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,060 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,069 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:29:35,090 - Thread-16 - Starting
+DEBUG - 2019-03-12 20:29:35,099 - Thread-15 - Starting
+DEBUG - 2019-03-12 20:29:35,101 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:35,100 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,127 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,145 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,164 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,182 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:29:35,269 - Thread-23 - Starting
+DEBUG - 2019-03-12 20:29:35,270 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,282 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:29:35,297 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,335 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:35,361 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:29:35,370 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,390 - Thread-26 - Starting
+DEBUG - 2019-03-12 20:29:35,407 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:29:35,407 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,474 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,483 - Thread-30 - Starting
+DEBUG - 2019-03-12 20:29:35,488 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:35,488 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,502 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,560 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,571 - Thread-33 - Starting
+DEBUG - 2019-03-12 20:29:35,641 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,653 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:29:35,702 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,704 - Thread-36 - Starting
+DEBUG - 2019-03-12 20:29:35,723 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:35,731 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,739 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:29:35,761 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,764 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,806 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,837 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:29:35,847 - Thread-42 - Starting
+DEBUG - 2019-03-12 20:29:35,850 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:35,868 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,921 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:35,935 - Thread-45 - Starting
+DEBUG - 2019-03-12 20:29:35,935 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:29:35,988 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:35,990 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:29:36,001 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:29:36,029 - Thread-50 - Starting
+DEBUG - 2019-03-12 20:29:36,080 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:36,102 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:29:36,103 - Thread-51 - Starting
+DEBUG - 2019-03-12 20:29:36,109 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:29:36,149 - Thread-51 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:29:36,212 - Thread-53 - Starting
+DEBUG - 2019-03-12 20:29:36,222 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:29:36,243 - CurveAuth - auth received API command b'CURVE'
+ERROR - 2019-03-12 20:29:36,252 - CurveAuth - Failed to load CURVE certs from ../Certificates/server-keys-..datavideos8.mp4/: Invalid certificate directory: ../Certificates/server-keys-..datavideos8.mp4/
+DEBUG - 2019-03-12 20:29:36,253 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:29:36,390 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,394 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,405 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,413 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,415 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,434 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,727 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,730 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,752 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,756 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,824 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:36,866 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,034 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,035 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,057 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,203 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,205 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,210 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,215 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,235 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,237 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,241 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,262 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,266 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,313 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,314 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,336 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:29:37,569 - Thread-2 - Assigned Port: :60530 using server key ^a?Dl/e0<{^N-/&co69iahwLkh}q1VPKz?dw2A6U
+DEBUG - 2019-03-12 20:29:37,574 - Thread-2 - Enrolled ^a?Dl/e0<{^N-/&co69iahwLkh}q1VPKz?dw2A6U saved at ../Certificates/server-keys-0/21ec49aaa8dd492c9ddc64d07762cd54.key
+DEBUG - 2019-03-12 20:29:37,579 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:37,579 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:60530'
+DEBUG - 2019-03-12 20:29:37,579 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:37,593 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:60530'
+DEBUG - 2019-03-12 20:29:37,610 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:60530'
+DEBUG - 2019-03-12 20:29:38,739 - Thread-47 - Assigned Port: :51431 using server key rFUZ}w1.?U@0lF}3m:44}:9*0)vHCb5XxAbnI}&g
+DEBUG - 2019-03-12 20:29:38,754 - Thread-47 - Enrolled rFUZ}w1.?U@0lF}3m:44}:9*0)vHCb5XxAbnI}&g saved at ../Certificates/server-keys-..datavideos9.mp4/a5bf42decad24fa69e01160d585b9be6.key
+DEBUG - 2019-03-12 20:29:38,757 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:38,758 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51431'
+DEBUG - 2019-03-12 20:29:38,758 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:38,783 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51431'
+DEBUG - 2019-03-12 20:29:38,787 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51431'
+DEBUG - 2019-03-12 20:29:39,909 - Thread-5 - Assigned Port: :54874 using server key q{/etbR3<BvSe-QP+mr3VeBqq=oE4A*{J#Erm>8W
+DEBUG - 2019-03-12 20:29:39,943 - Thread-5 - Enrolled q{/etbR3<BvSe-QP+mr3VeBqq=oE4A*{J#Erm>8W saved at ../Certificates/server-keys-..datavideos0.mp4/bfc148f5b69d4b39a93aae93f76b44fe.key
+DEBUG - 2019-03-12 20:29:39,949 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:39,949 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:54874'
+DEBUG - 2019-03-12 20:29:39,949 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:39,952 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:54874'
+DEBUG - 2019-03-12 20:29:39,982 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:54874'
+DEBUG - 2019-03-12 20:29:41,186 - Thread-9 - Assigned Port: :62543 using server key @}#O}BBe]T:ti]W(KhM7e&u]I0ox$XU<HT.5I4G9
+DEBUG - 2019-03-12 20:29:41,196 - Thread-9 - Enrolled @}#O}BBe]T:ti]W(KhM7e&u]I0ox$XU<HT.5I4G9 saved at ../Certificates/server-keys-..datavideos1.mp4/e3d7670c5c154580a945fdf545cab5ba.key
+DEBUG - 2019-03-12 20:29:41,201 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:41,201 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:62543'
+DEBUG - 2019-03-12 20:29:41,202 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:42,479 - Thread-14 - Assigned Port: :63381 using server key M7>FP&s%XBl8#qzJ+0x]ZhVDArV:$Yr!%j&FO#Se
+DEBUG - 2019-03-12 20:29:42,489 - Thread-14 - Enrolled M7>FP&s%XBl8#qzJ+0x]ZhVDArV:$Yr!%j&FO#Se saved at ../Certificates/server-keys-..datavideos4.mp4/14b11d67642c4bb691b7d4d35cb4d90c.key
+DEBUG - 2019-03-12 20:29:42,505 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:42,505 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63381'
+DEBUG - 2019-03-12 20:29:42,506 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:42,515 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63381'
+DEBUG - 2019-03-12 20:29:43,811 - Thread-22 - Assigned Port: :61404 using server key lxoH0M-4B[1Wddxk8ZWB=X+^r{ScifPiu$Vk(/O4
+DEBUG - 2019-03-12 20:29:43,865 - Thread-22 - Enrolled lxoH0M-4B[1Wddxk8ZWB=X+^r{ScifPiu$Vk(/O4 saved at ../Certificates/server-keys-..datavideos3.mp4/bc954d02481b481da0ad3dfeff851b4e.key
+DEBUG - 2019-03-12 20:29:43,900 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:43,901 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:61404'
+DEBUG - 2019-03-12 20:29:43,902 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:43,902 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:61404'
+DEBUG - 2019-03-12 20:29:43,949 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:61404'
+DEBUG - 2019-03-12 20:29:45,103 - Thread-29 - Assigned Port: :57723 using server key =j=nJVeIkURQHEE+=bF=sFxb]tT=Rh<vRu9E<q62
+DEBUG - 2019-03-12 20:29:45,155 - Thread-29 - Enrolled =j=nJVeIkURQHEE+=bF=sFxb]tT=Rh<vRu9E<q62 saved at ../Certificates/server-keys-..datavideos6.mp4/ada0938de3dd40e3b88d2cc1148a23d0.key
+DEBUG - 2019-03-12 20:29:45,162 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:45,163 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57723'
+DEBUG - 2019-03-12 20:29:45,163 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:45,185 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57723'
+DEBUG - 2019-03-12 20:29:45,224 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:57723'
+DEBUG - 2019-03-12 20:29:46,426 - Thread-35 - Assigned Port: :62240 using server key O0oR<P&rEuvX>HmS.aLZOz%+:+Fs&cZzGfg6q:m&
+DEBUG - 2019-03-12 20:29:46,484 - Thread-35 - Enrolled O0oR<P&rEuvX>HmS.aLZOz%+:+Fs&cZzGfg6q:m& saved at ../Certificates/server-keys-..datavideos7.mp4/095c74553c8f43f28d240ca07c2edafc.key
+DEBUG - 2019-03-12 20:29:46,501 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:46,502 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:62240'
+DEBUG - 2019-03-12 20:29:46,503 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:46,508 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:29:46,509 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:29:48,005 - Thread-41 - Assigned Port: :63356 using server key YfzRG0?*k-H9%mM}:.v8P%2V3Y7/<MU@BDH-QjBW
+DEBUG - 2019-03-12 20:29:48,021 - Thread-41 - Enrolled YfzRG0?*k-H9%mM}:.v8P%2V3Y7/<MU@BDH-QjBW saved at ../Certificates/server-keys-..datavideos8.mp4/02c62ca0bdd046deb19502464e8583c2.key
+DEBUG - 2019-03-12 20:29:48,046 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:29:48,046 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63356'
+DEBUG - 2019-03-12 20:29:48,047 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:29:48,050 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63356'
+DEBUG - 2019-03-12 20:29:48,096 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63356'
+INFO - 2019-03-12 20:29:49,161 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:29:49,184 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,185 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,187 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:29:49,190 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:29:49,193 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,193 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,197 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,200 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:29:49,219 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+INFO - 2019-03-12 20:30:56,927 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:30:58,042 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/ce254a3fdc0f4a8c9bbfa53c95e6737d.key
+DEBUG - 2019-03-12 20:30:58,044 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:30:58,048 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-12 20:30:58,050 - MainThread - Terminator signals linked
+DEBUG - 2019-03-12 20:30:58,052 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:30:58,143 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:30:58,151 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:30:58,152 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:30:58,153 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:30:58,171 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:31:04,487 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:04,532 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:04,547 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:31:04,561 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,568 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:04,593 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:04,609 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:04,609 - Thread-7 - Starting
+DEBUG - 2019-03-12 20:31:04,642 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,644 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:04,646 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:04,648 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:04,764 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:04,782 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:31:04,801 - Thread-14 - Starting
+DEBUG - 2019-03-12 20:31:04,801 - Thread-15 - Starting
+DEBUG - 2019-03-12 20:31:04,847 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,855 - Thread-14 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,863 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:04,864 - Thread-17 - Starting
+DEBUG - 2019-03-12 20:31:04,889 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:04,891 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:31:04,926 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,953 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:04,964 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:31:04,966 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:04,974 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:05,022 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:05,030 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:31:05,105 - Thread-25 - Starting
+DEBUG - 2019-03-12 20:31:05,116 - Thread-26 - Starting
+DEBUG - 2019-03-12 20:31:05,125 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:05,134 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,200 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,209 - Thread-29 - Starting
+DEBUG - 2019-03-12 20:31:05,219 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:05,219 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,228 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:05,237 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:31:05,286 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:31:05,308 - Thread-33 - Starting
+DEBUG - 2019-03-12 20:31:05,308 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,397 - Thread-36 - Starting
+DEBUG - 2019-03-12 20:31:05,422 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:05,442 - Thread-37 - Starting
+DEBUG - 2019-03-12 20:31:05,473 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:05,480 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,489 - Thread-36 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,506 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:05,515 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,523 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:31:05,536 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:31:05,548 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:05,556 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:05,608 - Thread-43 - Starting
+DEBUG - 2019-03-12 20:31:05,627 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,647 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:05,647 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:05,687 - Thread-46 - Starting
+DEBUG - 2019-03-12 20:31:05,700 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,718 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:31:05,731 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:31:05,856 - Thread-49 - Starting
+DEBUG - 2019-03-12 20:31:05,856 - Thread-50 - Starting
+DEBUG - 2019-03-12 20:31:05,860 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:31:05,866 - Thread-49 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,894 - Thread-50 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:05,911 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:31:05,925 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:31:05,998 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:31:05,998 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:31:06,023 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:31:06,033 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:31:06,210 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,217 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,240 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,329 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,351 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,354 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,558 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,560 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,600 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,617 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,620 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,621 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,626 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,627 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,683 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,839 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,839 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:06,866 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,013 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,015 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,035 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,075 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,076 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,086 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,090 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,102 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,113 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:31:07,426 - Thread-2 - Assigned Port: :49631 using server key O5qwiDb!Bl<r^1AG2APAkn+>mxSL%66wcHYE4XUk
+DEBUG - 2019-03-12 20:31:07,437 - Thread-2 - Enrolled O5qwiDb!Bl<r^1AG2APAkn+>mxSL%66wcHYE4XUk saved at ../Certificates/server-keys-0/0896653a95424b5f9233733f135d207e.key
+DEBUG - 2019-03-12 20:31:07,443 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:07,443 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:49631'
+DEBUG - 2019-03-12 20:31:07,443 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:07,454 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:49631'
+DEBUG - 2019-03-12 20:31:07,466 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:49631'
+DEBUG - 2019-03-12 20:31:08,613 - Thread-47 - Assigned Port: :64397 using server key vDLxc(rO44Eu0E2rb%Hi]MVkh13#*GUBi}BttV[J
+DEBUG - 2019-03-12 20:31:08,636 - Thread-47 - Enrolled vDLxc(rO44Eu0E2rb%Hi]MVkh13#*GUBi}BttV[J saved at ../Certificates/server-keys-..datavideos9.mp4/595f4382fcfe4b8e95ab57917f0d726e.key
+DEBUG - 2019-03-12 20:31:08,641 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:08,641 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:64397'
+DEBUG - 2019-03-12 20:31:08,641 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:08,650 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:64397'
+DEBUG - 2019-03-12 20:31:08,690 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:31:08,691 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:31:09,834 - Thread-5 - Assigned Port: :63767 using server key SEt41FEzOEJ[X4y1F$7XNUs0wGqET}9LK]15pQw#
+DEBUG - 2019-03-12 20:31:09,846 - Thread-5 - Enrolled SEt41FEzOEJ[X4y1F$7XNUs0wGqET}9LK]15pQw# saved at ../Certificates/server-keys-..datavideos0.mp4/405a9bf864364c67a8ac49e75f33efe1.key
+DEBUG - 2019-03-12 20:31:09,876 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:09,876 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:09,876 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63767'
+DEBUG - 2019-03-12 20:31:09,884 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63767'
+DEBUG - 2019-03-12 20:31:09,904 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63767'
+DEBUG - 2019-03-12 20:31:11,081 - Thread-12 - Assigned Port: :57956 using server key :[9%(oBn9Vn]F1D(J/8Zzi3ffpgg((7jy]BG?4)Z
+DEBUG - 2019-03-12 20:31:11,120 - Thread-12 - Enrolled :[9%(oBn9Vn]F1D(J/8Zzi3ffpgg((7jy]BG?4)Z saved at ../Certificates/server-keys-..datavideos4.mp4/3e79a438921c488791810810aead8172.key
+DEBUG - 2019-03-12 20:31:11,130 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:11,131 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:11,131 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57956'
+DEBUG - 2019-03-12 20:31:11,147 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57956'
+DEBUG - 2019-03-12 20:31:11,232 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:57956'
+DEBUG - 2019-03-12 20:31:12,357 - Thread-10 - Assigned Port: :58332 using server key fjYEOQIf6+sd5/4cps4VW)Mxt:mTAF=%Y@98ILd9
+DEBUG - 2019-03-12 20:31:12,376 - Thread-10 - Enrolled fjYEOQIf6+sd5/4cps4VW)Mxt:mTAF=%Y@98ILd9 saved at ../Certificates/server-keys-..datavideos1.mp4/34aa7e6369104c88a2649a7bfbad1918.key
+DEBUG - 2019-03-12 20:31:12,407 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:12,408 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58332'
+DEBUG - 2019-03-12 20:31:12,408 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:12,453 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58332'
+DEBUG - 2019-03-12 20:31:12,466 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:58332'
+DEBUG - 2019-03-12 20:31:13,701 - Thread-22 - Assigned Port: :54147 using server key 1<6E6h2jsV8Ypkryj8Tc4j1tddtYrT/#Ee[H?%sC
+DEBUG - 2019-03-12 20:31:13,731 - Thread-22 - Enrolled 1<6E6h2jsV8Ypkryj8Tc4j1tddtYrT/#Ee[H?%sC saved at ../Certificates/server-keys-..datavideos3.mp4/69850a8814a14d20aa05efbdef80bb2b.key
+DEBUG - 2019-03-12 20:31:13,764 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:13,765 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:54147'
+DEBUG - 2019-03-12 20:31:13,765 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:13,768 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:54147'
+DEBUG - 2019-03-12 20:31:13,790 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:54147'
+DEBUG - 2019-03-12 20:31:15,033 - Thread-27 - Assigned Port: :52571 using server key <PA28yw@GPtu).qVag!J@zezz}HOhm@I5vV&-#HB
+DEBUG - 2019-03-12 20:31:15,071 - Thread-27 - Enrolled <PA28yw@GPtu).qVag!J@zezz}HOhm@I5vV&-#HB saved at ../Certificates/server-keys-..datavideos6.mp4/9149a7cb3d3546b7916b8c47c60c8f00.key
+DEBUG - 2019-03-12 20:31:15,100 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:15,101 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:15,101 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:52571'
+DEBUG - 2019-03-12 20:31:15,130 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:52571'
+DEBUG - 2019-03-12 20:31:16,480 - Thread-35 - Assigned Port: :63443 using server key n0J.?l]&t9Kb>F4eM9ISnNhtEVb(Hs?6+IQN2ARD
+DEBUG - 2019-03-12 20:31:16,495 - Thread-35 - Enrolled n0J.?l]&t9Kb>F4eM9ISnNhtEVb(Hs?6+IQN2ARD saved at ../Certificates/server-keys-..datavideos7.mp4/70d0eef67f6c488ab2e9ff2209cb589e.key
+DEBUG - 2019-03-12 20:31:16,503 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:16,503 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63443'
+DEBUG - 2019-03-12 20:31:16,504 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:16,540 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63443'
+DEBUG - 2019-03-12 20:31:16,611 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63443'
+DEBUG - 2019-03-12 20:31:18,142 - Thread-42 - Assigned Port: :50948 using server key VrqG*<ZP*/*t+aaJ!?{yB5SW%JGmX/?:?ya7Ob?)
+DEBUG - 2019-03-12 20:31:18,408 - Thread-42 - Enrolled VrqG*<ZP*/*t+aaJ!?{yB5SW%JGmX/?:?ya7Ob?) saved at ../Certificates/server-keys-..datavideos8.mp4/5307208d46844fb3a4a277233b54947e.key
+DEBUG - 2019-03-12 20:31:18,439 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50948'
+DEBUG - 2019-03-12 20:31:18,440 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:31:18,440 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:31:18,484 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50948'
+DEBUG - 2019-03-12 20:31:18,717 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:50948'
+INFO - 2019-03-12 20:31:28,548 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:31:28,582 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:31:28,674 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,679 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,686 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,687 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,688 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,692 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,693 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:31:28,695 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+INFO - 2019-03-12 20:32:13,959 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:32:15,082 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/3bfb1f52d7f24702b86fd319ec665569.key
+DEBUG - 2019-03-12 20:32:15,084 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:32:15,088 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-12 20:32:15,090 - MainThread - Terminator signals linked
+DEBUG - 2019-03-12 20:32:15,092 - MainThread - Authenticating on saved user details
+INFO - 2019-03-12 20:32:15,120 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:32:15,168 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:32:15,174 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:15,176 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:15,177 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:15,193 - MainThread - User authenticated, initialising tabs.
+INFO - 2019-03-12 20:32:19,314 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:32:21,695 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:21,735 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:32:21,735 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:21,758 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:21,759 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:21,759 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:21,761 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:21,800 - Thread-8 - Starting
+DEBUG - 2019-03-12 20:32:21,800 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:21,809 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:21,824 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:21,824 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:21,827 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:21,828 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:21,830 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:21,831 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:21,963 - Thread-14 - Starting
+DEBUG - 2019-03-12 20:32:21,978 - Thread-15 - Starting
+DEBUG - 2019-03-12 20:32:21,979 - Thread-16 - Starting
+DEBUG - 2019-03-12 20:32:21,986 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,026 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,026 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,027 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,043 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,093 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,119 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:22,126 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:32:22,127 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,141 - Thread-21 - Starting
+DEBUG - 2019-03-12 20:32:22,142 - Thread-22 - Starting
+DEBUG - 2019-03-12 20:32:22,153 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:32:22,184 - Thread-21 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,213 - Thread-23 - Starting
+DEBUG - 2019-03-12 20:32:22,261 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,261 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:32:22,275 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,275 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:22,289 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,289 - Thread-26 - Starting
+DEBUG - 2019-03-12 20:32:22,320 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,323 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,326 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,327 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:22,328 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:32:22,349 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,382 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,449 - Thread-31 - Starting
+DEBUG - 2019-03-12 20:32:22,451 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:32:22,461 - Thread-33 - Starting
+DEBUG - 2019-03-12 20:32:22,470 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:22,471 - Thread-31 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,506 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,507 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,522 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,536 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,566 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:32:22,575 - Thread-36 - Starting
+DEBUG - 2019-03-12 20:32:22,606 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,637 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:22,638 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:32:22,675 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:22,675 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:32:22,677 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,680 - Thread-38 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,712 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,715 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,733 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:22,818 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:22,818 - Thread-43 - Starting
+DEBUG - 2019-03-12 20:32:22,846 - Thread-45 - Starting
+DEBUG - 2019-03-12 20:32:22,861 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:22,862 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,919 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:32:22,919 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,942 - Thread-47 - Starting
+DEBUG - 2019-03-12 20:32:22,945 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:32:22,947 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:22,960 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:22,960 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,979 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:22,982 - Monitor - Monitor thread front shutting down
+DEBUG - 2019-03-12 20:32:22,984 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:23,091 - Thread-52 - Starting
+DEBUG - 2019-03-12 20:32:23,101 - Thread-53 - Starting
+DEBUG - 2019-03-12 20:32:23,103 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:32:23,145 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:23,146 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:23,166 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:32:23,167 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:32:23,167 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:32:23,170 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:32:24,679 - Thread-2 - Assigned Port: :53466 using server key E9k%:ZSXSv8/&mYI3j1bv&-gn.H?6>jquugAMiMC
+DEBUG - 2019-03-12 20:32:24,705 - Thread-2 - Enrolled E9k%:ZSXSv8/&mYI3j1bv&-gn.H?6>jquugAMiMC saved at ../Certificates/server-keys-0/63b991fe1389403bbd98c2c4770153ff.key
+DEBUG - 2019-03-12 20:32:24,707 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:24,723 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:32:25,853 - Thread-42 - Assigned Port: :50000 using server key xX<oyk=.{X9RHAGO*<4i@<FLmx(un&ckyM=e{</i
+DEBUG - 2019-03-12 20:32:25,861 - Thread-42 - Enrolled xX<oyk=.{X9RHAGO*<4i@<FLmx(un&ckyM=e{</i saved at ../Certificates/server-keys-..datavideos8.mp4/c91dfc2b83e1414d9363ea8303e097d7.key
+DEBUG - 2019-03-12 20:32:25,865 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:25,873 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:32:27,013 - Thread-6 - Assigned Port: :54277 using server key XpOe<ln!Rep*k[geX152L1QF[tBS*[5.DwrB@qOr
+DEBUG - 2019-03-12 20:32:27,079 - Thread-6 - Enrolled XpOe<ln!Rep*k[geX152L1QF[tBS*[5.DwrB@qOr saved at ../Certificates/server-keys-..datavideos0.mp4/abb765fed13c4518bb0df2e15141159b.key
+DEBUG - 2019-03-12 20:32:27,083 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:27,089 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:32:28,221 - Thread-10 - Assigned Port: :51444 using server key IwX{zIMMx0SO*.--nP#rOK-E]w&4V)BKn@x7+WNV
+DEBUG - 2019-03-12 20:32:28,234 - Thread-10 - Enrolled IwX{zIMMx0SO*.--nP#rOK-E]w&4V)BKn@x7+WNV saved at ../Certificates/server-keys-..datavideos1.mp4/7cd935505d1b44a69320255679810818.key
+DEBUG - 2019-03-12 20:32:28,238 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:28,258 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:32:29,378 - Thread-12 - Assigned Port: :62819 using server key /Gw#<^%(XaRvV3ABMGMEqBI-m4Q{^vYI$c%2LM7v
+DEBUG - 2019-03-12 20:32:29,389 - Thread-12 - Enrolled /Gw#<^%(XaRvV3ABMGMEqBI-m4Q{^vYI$c%2LM7v saved at ../Certificates/server-keys-..datavideos4.mp4/bae61f06144f41b5a080b7c42b7dee06.key
+DEBUG - 2019-03-12 20:32:29,401 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:29,413 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:32:30,514 - Thread-18 - Assigned Port: :54667 using server key j:t>Ieb:b%*cSJ2G]qlhTp+Tvs]}43Ishn$)[I8R
+DEBUG - 2019-03-12 20:32:30,523 - Thread-18 - Enrolled j:t>Ieb:b%*cSJ2G]qlhTp+Tvs]}43Ishn$)[I8R saved at ../Certificates/server-keys-..datavideos3.mp4/08c489413d944363b136e50c88a7555b.key
+DEBUG - 2019-03-12 20:32:30,536 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:30,541 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:32:31,679 - Thread-29 - Assigned Port: :58460 using server key TwVMNL7JN1QrdZY92bhxeQ02K01a[T4!&1^I!7vY
+DEBUG - 2019-03-12 20:32:31,695 - Thread-29 - Enrolled TwVMNL7JN1QrdZY92bhxeQ02K01a[T4!&1^I!7vY saved at ../Certificates/server-keys-..datavideos6.mp4/16b8eb3a7e684c62b0a702910f90458a.key
+DEBUG - 2019-03-12 20:32:31,699 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:31,708 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:32:32,844 - Thread-37 - Assigned Port: :50623 using server key ?2g./qRs(eR[%0n@F@YoDbBHETi*Dyk^.vVnI-:.
+DEBUG - 2019-03-12 20:32:32,862 - Thread-37 - Enrolled ?2g./qRs(eR[%0n@F@YoDbBHETi*Dyk^.vVnI-:. saved at ../Certificates/server-keys-..datavideos7.mp4/7c012c7a77414129929fcce37f4def9e.key
+DEBUG - 2019-03-12 20:32:32,866 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:32,892 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:32:33,990 - Thread-46 - Assigned Port: :60090 using server key 5Nx}3.m1*<Uhf6^dyWE&*h1Z-tL}#]PLNN$RQbA&
+DEBUG - 2019-03-12 20:32:34,002 - Thread-46 - Enrolled 5Nx}3.m1*<Uhf6^dyWE&*h1Z-tL}#]PLNN$RQbA& saved at ../Certificates/server-keys-..datavideos9.mp4/4add04b254cc467d9fa0e09f73a4c0a2.key
+DEBUG - 2019-03-12 20:32:34,009 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:34,022 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+INFO - 2019-03-12 20:32:34,708 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:38,531 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:38,907 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:39,174 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:39,416 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:45,721 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-12 20:32:48,122 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:32:49,220 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/74ac71abf55942a3b1b6c979d4827969.key
+DEBUG - 2019-03-12 20:32:49,220 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:32:49,223 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-12 20:32:49,224 - MainThread - Terminator signals linked
+DEBUG - 2019-03-12 20:32:49,224 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:32:49,278 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:32:49,285 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:49,286 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:49,287 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:49,306 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:32:55,689 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:55,748 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:55,755 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:32:55,762 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:55,769 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:55,776 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:55,816 - Thread-7 - Starting
+DEBUG - 2019-03-12 20:32:55,824 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:55,832 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:55,840 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:55,889 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:55,919 - Thread-11 - Starting
+DEBUG - 2019-03-12 20:32:55,927 - Thread-12 - Starting
+DEBUG - 2019-03-12 20:32:55,928 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:55,945 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:55,953 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:32:55,974 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:55,975 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:55,977 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:55,978 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:55,980 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:55,981 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:56,124 - Thread-20 - Starting
+DEBUG - 2019-03-12 20:32:56,131 - Thread-22 - Starting
+DEBUG - 2019-03-12 20:32:56,153 - Thread-21 - Starting
+DEBUG - 2019-03-12 20:32:56,174 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:56,175 - Thread-23 - Starting
+DEBUG - 2019-03-12 20:32:56,218 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,232 - Thread-25 - Starting
+DEBUG - 2019-03-12 20:32:56,241 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,278 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,280 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:56,280 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:56,281 - Thread-23 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,313 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:32:56,365 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,367 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:56,377 - Thread-31 - Starting
+DEBUG - 2019-03-12 20:32:56,390 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:32:56,400 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:56,460 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:56,476 - Thread-34 - Starting
+DEBUG - 2019-03-12 20:32:56,489 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,512 - Thread-35 - Starting
+DEBUG - 2019-03-12 20:32:56,516 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:32:56,525 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,594 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,595 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:32:56,599 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:56,608 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:56,618 - Thread-40 - Starting
+DEBUG - 2019-03-12 20:32:56,646 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,661 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:56,672 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:32:56,739 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:56,754 - Thread-44 - Starting
+DEBUG - 2019-03-12 20:32:56,755 - Thread-45 - Starting
+DEBUG - 2019-03-12 20:32:56,763 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,780 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:32:56,791 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:56,800 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:56,880 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:32:56,994 - Thread-51 - Starting
+DEBUG - 2019-03-12 20:32:56,994 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:32:56,995 - Thread-50 - Starting
+DEBUG - 2019-03-12 20:32:57,016 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:57,019 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:32:57,031 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:57,039 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:32:57,066 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:32:57,162 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:32:57,187 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:32:57,192 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:32:57,306 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,307 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,331 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,538 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,576 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,588 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,649 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,661 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,695 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,771 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,773 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,821 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,853 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,853 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,862 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,862 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,902 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,907 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,985 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:57,986 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,020 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,152 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,171 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,190 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,237 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,243 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,270 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:32:58,555 - Thread-2 - Assigned Port: :54121 using server key 2.Ug7)@Q7kkr*1Nc4rSHl@zMAyzJCPq->uft!3}H
+DEBUG - 2019-03-12 20:32:58,582 - Thread-2 - Enrolled 2.Ug7)@Q7kkr*1Nc4rSHl@zMAyzJCPq->uft!3}H saved at ../Certificates/server-keys-0/d18d7c639c5f4b268d6a439c18b1e309.key
+DEBUG - 2019-03-12 20:32:58,599 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:54121'
+DEBUG - 2019-03-12 20:32:58,599 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:32:58,600 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:58,603 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:54121'
+DEBUG - 2019-03-12 20:32:58,624 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:54121'
+DEBUG - 2019-03-12 20:32:59,750 - Thread-48 - Assigned Port: :60801 using server key gIvfLLSwY?vI+>]wMXK/K:Q95a2F?6[::+U(uL@P
+DEBUG - 2019-03-12 20:32:59,784 - Thread-48 - Enrolled gIvfLLSwY?vI+>]wMXK/K:Q95a2F?6[::+U(uL@P saved at ../Certificates/server-keys-..datavideos9.mp4/9d7ab1c3a6b94ee1a969d54dff51cedd.key
+DEBUG - 2019-03-12 20:32:59,804 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:32:59,805 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:60801'
+DEBUG - 2019-03-12 20:32:59,805 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:32:59,818 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:60801'
+DEBUG - 2019-03-12 20:32:59,841 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:32:59,841 - Monitor - Monitor thread ..datavideos9.mp4 shutting down
+DEBUG - 2019-03-12 20:33:01,008 - Thread-5 - Assigned Port: :50770 using server key 9yW6)xfkIX:8n/Sk2UiJYN{1E^lC^<?e/x[yiI{r
+DEBUG - 2019-03-12 20:33:01,017 - Thread-5 - Enrolled 9yW6)xfkIX:8n/Sk2UiJYN{1E^lC^<?e/x[yiI{r saved at ../Certificates/server-keys-..datavideos0.mp4/b4d432a533b14ca1ae8ab960384cac7c.key
+DEBUG - 2019-03-12 20:33:01,021 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:01,022 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:01,022 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50770'
+DEBUG - 2019-03-12 20:33:01,032 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50770'
+DEBUG - 2019-03-12 20:33:01,055 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:50770'
+DEBUG - 2019-03-12 20:33:02,285 - Thread-10 - Assigned Port: :55590 using server key OfVMkAQiM)kY9AVd?4@RRzNzWez[DzPfoB?EsV9m
+DEBUG - 2019-03-12 20:33:02,302 - Thread-10 - Enrolled OfVMkAQiM)kY9AVd?4@RRzNzWez[DzPfoB?EsV9m saved at ../Certificates/server-keys-..datavideos1.mp4/53a2aa529e224a889d37d4551e6800b1.key
+DEBUG - 2019-03-12 20:33:02,309 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:02,310 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55590'
+DEBUG - 2019-03-12 20:33:02,310 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:02,335 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55590'
+DEBUG - 2019-03-12 20:33:02,346 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:55590'
+DEBUG - 2019-03-12 20:33:03,574 - Thread-16 - Assigned Port: :57669 using server key pA]f%HC<[6-K>f!j5JZ2WJGGD)-wI)Y^{.:(9ixV
+DEBUG - 2019-03-12 20:33:03,598 - Thread-16 - Enrolled pA]f%HC<[6-K>f!j5JZ2WJGGD)-wI)Y^{.:(9ixV saved at ../Certificates/server-keys-..datavideos4.mp4/8d9a72754e4242cd974a3c36eef5d999.key
+DEBUG - 2019-03-12 20:33:03,604 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:03,604 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57669'
+DEBUG - 2019-03-12 20:33:03,605 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:03,624 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57669'
+DEBUG - 2019-03-12 20:33:04,798 - Thread-24 - Assigned Port: :63330 using server key D*a=OjU&j{d1YPOq04y}u]4eAcuMJm]rR:(ZXQ0d
+DEBUG - 2019-03-12 20:33:04,846 - Thread-24 - Enrolled D*a=OjU&j{d1YPOq04y}u]4eAcuMJm]rR:(ZXQ0d saved at ../Certificates/server-keys-..datavideos6.mp4/896a3f8890c84c6997dd2baf20a74f14.key
+DEBUG - 2019-03-12 20:33:04,868 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:04,868 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63330'
+DEBUG - 2019-03-12 20:33:04,869 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:04,879 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63330'
+DEBUG - 2019-03-12 20:33:04,914 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63330'
+DEBUG - 2019-03-12 20:33:06,213 - Thread-18 - Assigned Port: :50616 using server key xzS<Mt2>cw{0uEZ?iS3ALBPNoxlFOhH7mgctW#+N
+DEBUG - 2019-03-12 20:33:06,229 - Thread-18 - Enrolled xzS<Mt2>cw{0uEZ?iS3ALBPNoxlFOhH7mgctW#+N saved at ../Certificates/server-keys-..datavideos3.mp4/22824989579d4045afbae4d8bfd2bf5b.key
+DEBUG - 2019-03-12 20:33:06,261 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:06,261 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50616'
+DEBUG - 2019-03-12 20:33:06,262 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:06,307 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50616'
+DEBUG - 2019-03-12 20:33:07,684 - Thread-33 - Assigned Port: :55275 using server key dXps?fva%22ME+RG&-Ay+?ny}(I5.NCduFHqzXLQ
+DEBUG - 2019-03-12 20:33:07,700 - Thread-33 - Enrolled dXps?fva%22ME+RG&-Ay+?ny}(I5.NCduFHqzXLQ saved at ../Certificates/server-keys-..datavideos7.mp4/1eaab0bca1044ff9af0be521823ae2c2.key
+DEBUG - 2019-03-12 20:33:07,713 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:07,713 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55275'
+DEBUG - 2019-03-12 20:33:07,714 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:07,768 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55275'
+DEBUG - 2019-03-12 20:33:07,787 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:55275'
+DEBUG - 2019-03-12 20:33:09,019 - Thread-41 - Assigned Port: :57151 using server key o61NQVJ]GUa%7=]MPTp&B-&wokh4$nrcf>@GvOBy
+DEBUG - 2019-03-12 20:33:09,082 - Thread-41 - Enrolled o61NQVJ]GUa%7=]MPTp&B-&wokh4$nrcf>@GvOBy saved at ../Certificates/server-keys-..datavideos8.mp4/d9c1cb8a3d214a7a9c62d4bbecee2291.key
+DEBUG - 2019-03-12 20:33:09,101 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:33:09,102 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:57151'
+DEBUG - 2019-03-12 20:33:09,102 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:33:09,115 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:57151'
+INFO - 2019-03-12 20:33:51,354 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:33:51,379 - Monitor - Monitor thread ..datavideos1.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,384 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,394 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:33:51,395 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,404 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,410 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,411 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,413 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,418 - Monitor - Monitor thread ..datavideos4.mp4 shutting down
+DEBUG - 2019-03-12 20:33:51,422 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+INFO - 2019-03-12 20:37:21,522 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-12 20:37:22,631 - MainThread - Enrolled y/*AQ2wrj]r3k6xrsKF91+T@R[Liq%w.O96(6gr[ saved at ../Certificates/server-keys-front/8017a2bdcb624d9db729101424a664d7.key
+DEBUG - 2019-03-12 20:37:22,632 - MainThread - Enrolled
+DEBUG - 2019-03-12 20:37:22,634 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-12 20:37:22,634 - MainThread - Terminator signals linked
+DEBUG - 2019-03-12 20:37:22,635 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-12 20:37:22,693 - Thread-1 - Starting
+DEBUG - 2019-03-12 20:37:22,704 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:22,705 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:22,707 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:22,747 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-12 20:37:29,958 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:29,996 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,005 - Thread-4 - Starting
+DEBUG - 2019-03-12 20:37:30,015 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,023 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,042 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,087 - Thread-8 - Starting
+DEBUG - 2019-03-12 20:37:30,087 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,097 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,115 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,119 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,193 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,223 - Thread-12 - Starting
+DEBUG - 2019-03-12 20:37:30,223 - Thread-13 - Starting
+DEBUG - 2019-03-12 20:37:30,243 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,286 - CurveAuth - Configure curve: *[../Certificates/server-keys-0/]
+DEBUG - 2019-03-12 20:37:30,296 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,296 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,318 - Thread-16 - Starting
+DEBUG - 2019-03-12 20:37:30,325 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,362 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,396 - Thread-19 - Starting
+DEBUG - 2019-03-12 20:37:30,397 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,424 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,427 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos0.mp4/]
+DEBUG - 2019-03-12 20:37:30,429 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,430 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,514 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,536 - Thread-24 - Starting
+DEBUG - 2019-03-12 20:37:30,538 - Thread-25 - Starting
+DEBUG - 2019-03-12 20:37:30,576 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,585 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,639 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:30,639 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,686 - Thread-27 - Starting
+DEBUG - 2019-03-12 20:37:30,688 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,745 - Thread-30 - Starting
+DEBUG - 2019-03-12 20:37:30,768 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos1.mp4/]
+DEBUG - 2019-03-12 20:37:30,769 - Thread-33 - Starting
+DEBUG - 2019-03-12 20:37:30,776 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,778 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:30,828 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,856 - Thread-35 - Starting
+DEBUG - 2019-03-12 20:37:30,858 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,867 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,878 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos4.mp4/]
+DEBUG - 2019-03-12 20:37:30,950 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:30,972 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos3.mp4/]
+DEBUG - 2019-03-12 20:37:30,975 - Thread-38 - Starting
+DEBUG - 2019-03-12 20:37:30,984 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:30,984 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:31,041 - Thread-41 - Starting
+DEBUG - 2019-03-12 20:37:31,068 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,081 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos6.mp4/]
+DEBUG - 2019-03-12 20:37:31,104 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,104 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:31,127 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos7.mp4/]
+DEBUG - 2019-03-12 20:37:31,162 - Thread-45 - Starting
+DEBUG - 2019-03-12 20:37:31,164 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:31,181 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,191 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:31,250 - MainThread - Networker thread started
+DEBUG - 2019-03-12 20:37:31,301 - Thread-49 - Starting
+DEBUG - 2019-03-12 20:37:31,310 - Thread-50 - Starting
+DEBUG - 2019-03-12 20:37:31,312 - Thread-49 - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,320 - MainThread - Feed loader thread started
+DEBUG - 2019-03-12 20:37:31,342 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,358 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos8.mp4/]
+DEBUG - 2019-03-12 20:37:31,378 - MainThread - Tabs initialised
+DEBUG - 2019-03-12 20:37:31,378 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-12 20:37:31,462 - Thread-54 - Starting
+DEBUG - 2019-03-12 20:37:31,471 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-12 20:37:31,490 - CurveAuth - Configure curve: *[../Certificates/server-keys-..datavideos9.mp4/]
+DEBUG - 2019-03-12 20:37:31,564 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,566 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,584 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,782 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,784 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,820 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,986 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:31,989 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,006 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,057 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,064 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,079 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,172 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,173 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,195 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,205 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,213 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,221 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,223 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,249 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,256 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,518 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,534 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,552 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,557 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,559 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,574 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-12 20:37:32,745 - Thread-2 - Assigned Port: :52488 using server key NDeVb0y}&i:ikWFEq3njR[R0[?qw*?bB3JYyn=aX
+DEBUG - 2019-03-12 20:37:32,758 - Thread-2 - Enrolled NDeVb0y}&i:ikWFEq3njR[R0[?qw*?bB3JYyn=aX saved at ../Certificates/server-keys-0/5d1da90d03eb4b73aa2342159c595a3d.key
+DEBUG - 2019-03-12 20:37:32,783 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:32,784 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:52488'
+DEBUG - 2019-03-12 20:37:32,784 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:32,800 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:52488'
+DEBUG - 2019-03-12 20:37:32,809 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:52488'
+DEBUG - 2019-03-12 20:37:33,938 - Thread-48 - Assigned Port: :53838 using server key ^sk$NiXN]?LN&tL/)d]:VM$9FC.SRHoTq.]<+/3q
+DEBUG - 2019-03-12 20:37:33,950 - Thread-48 - Enrolled ^sk$NiXN]?LN&tL/)d]:VM$9FC.SRHoTq.]<+/3q saved at ../Certificates/server-keys-..datavideos9.mp4/221bdcd89e2f4d36841674b0c2506724.key
+DEBUG - 2019-03-12 20:37:33,953 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:33,953 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53838'
+DEBUG - 2019-03-12 20:37:33,954 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:33,961 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53838'
+DEBUG - 2019-03-12 20:37:35,103 - Thread-5 - Assigned Port: :61276 using server key }a(pUUWUVt-cuZ7luOK#xnUu*uUHvaM>e^toY6OY
+DEBUG - 2019-03-12 20:37:35,134 - Thread-5 - Enrolled }a(pUUWUVt-cuZ7luOK#xnUu*uUHvaM>e^toY6OY saved at ../Certificates/server-keys-..datavideos0.mp4/68091f5066e8487d8cff97565770882b.key
+DEBUG - 2019-03-12 20:37:35,152 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:35,153 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:35,153 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:61276'
+DEBUG - 2019-03-12 20:37:35,164 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:61276'
+DEBUG - 2019-03-12 20:37:35,187 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:61276'
+DEBUG - 2019-03-12 20:37:36,313 - Thread-10 - Assigned Port: :63414 using server key Z@HMW*NsIW+2?9DB!Mf]w5&-n7)gqsOH<$G]?Z/D
+DEBUG - 2019-03-12 20:37:36,321 - Thread-10 - Enrolled Z@HMW*NsIW+2?9DB!Mf]w5&-n7)gqsOH<$G]?Z/D saved at ../Certificates/server-keys-..datavideos1.mp4/fd9759c3d0a5404db78d24b2bb06eab0.key
+DEBUG - 2019-03-12 20:37:36,325 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:36,325 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63414'
+DEBUG - 2019-03-12 20:37:36,325 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:36,327 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63414'
+DEBUG - 2019-03-12 20:37:36,348 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63414'
+DEBUG - 2019-03-12 20:37:37,619 - Thread-15 - Assigned Port: :63514 using server key JO^EPE?Pq+maH/Ff3.]9gm?l<pRgqG0p-Ofu9m^5
+DEBUG - 2019-03-12 20:37:37,639 - Thread-15 - Enrolled JO^EPE?Pq+maH/Ff3.]9gm?l<pRgqG0p-Ofu9m^5 saved at ../Certificates/server-keys-..datavideos4.mp4/ad43b5a58c8148519ed7e19a9f338545.key
+DEBUG - 2019-03-12 20:37:37,643 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:37,644 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63514'
+DEBUG - 2019-03-12 20:37:37,644 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:37,669 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63514'
+DEBUG - 2019-03-12 20:37:38,959 - Thread-22 - Assigned Port: :56047 using server key <Di$-1NfUNI/[4WitBCc[2T(Vo%<ljQ8(Gz^tdD:
+DEBUG - 2019-03-12 20:37:38,975 - Thread-22 - Enrolled <Di$-1NfUNI/[4WitBCc[2T(Vo%<ljQ8(Gz^tdD: saved at ../Certificates/server-keys-..datavideos3.mp4/686b40514cb24b05aa0b04f7c8507e0c.key
+DEBUG - 2019-03-12 20:37:39,000 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:39,000 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:39,000 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56047'
+DEBUG - 2019-03-12 20:37:39,030 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56047'
+DEBUG - 2019-03-12 20:37:39,060 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:56047'
+DEBUG - 2019-03-12 20:37:40,205 - Thread-32 - Assigned Port: :58488 using server key c*k>^bV+GDm+Lfh.Zmn!!mY[MKP&xuIoP#D^VH{K
+DEBUG - 2019-03-12 20:37:40,243 - Thread-32 - Enrolled c*k>^bV+GDm+Lfh.Zmn!!mY[MKP&xuIoP#D^VH{K saved at ../Certificates/server-keys-..datavideos7.mp4/e9fae050cd0646189b2885014a5dfff8.key
+DEBUG - 2019-03-12 20:37:40,253 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:40,253 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58488'
+DEBUG - 2019-03-12 20:37:40,253 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:40,284 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58488'
+DEBUG - 2019-03-12 20:37:41,446 - Thread-26 - Assigned Port: :51297 using server key q@a#8]ty0M+7k=b}UnYk7^>+uH@Vnf842Ns(O:9f
+DEBUG - 2019-03-12 20:37:41,491 - Thread-26 - Enrolled q@a#8]ty0M+7k=b}UnYk7^>+uH@Vnf842Ns(O:9f saved at ../Certificates/server-keys-..datavideos6.mp4/53cb26d8649448f6b56294a0492256e6.key
+DEBUG - 2019-03-12 20:37:41,516 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:41,517 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51297'
+DEBUG - 2019-03-12 20:37:41,517 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:41,518 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51297'
+DEBUG - 2019-03-12 20:37:41,545 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:51297'
+DEBUG - 2019-03-12 20:37:42,878 - Thread-43 - Assigned Port: :63941 using server key b4W*t@wLt9AnMDTGh^m5JGHw4pQFhQBJ(*(3m736
+DEBUG - 2019-03-12 20:37:42,960 - Thread-43 - Enrolled b4W*t@wLt9AnMDTGh^m5JGHw4pQFhQBJ(*(3m736 saved at ../Certificates/server-keys-..datavideos8.mp4/a74cd719d345431983975f26ae478b61.key
+DEBUG - 2019-03-12 20:37:42,982 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-12 20:37:42,983 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-12 20:37:42,983 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63941'
+DEBUG - 2019-03-12 20:37:42,995 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63941'
+DEBUG - 2019-03-12 20:37:43,018 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63941'
+INFO - 2019-03-12 20:38:37,867 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-12 20:38:37,878 - Monitor - Monitor thread ..datavideos7.mp4 shutting down
+DEBUG - 2019-03-12 20:38:37,882 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:38:37,897 - Monitor - Monitor thread 0 shutting down
+DEBUG - 2019-03-12 20:38:37,903 - Monitor - Monitor thread ..datavideos3.mp4 shutting down
+DEBUG - 2019-03-12 20:38:37,904 - Monitor - Monitor thread ..datavideos8.mp4 shutting down
+DEBUG - 2019-03-12 20:38:37,909 - Monitor - Monitor thread ..datavideos6.mp4 shutting down
+DEBUG - 2019-03-12 20:38:37,911 - Monitor - Monitor thread ..datavideos0.mp4 shutting down
