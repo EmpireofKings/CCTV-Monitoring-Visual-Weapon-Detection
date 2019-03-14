@@ -402,7 +402,7 @@ class MainWindowTabs(QTabWidget):
 
 		try:
 			self.configTab = Config(app, dataLoader)
-			self.liveTab = LiveAnalysis(app, dataLoader)
+			#self.liveTab = LiveAnalysis(app, dataLoader)
 			self.deferredTab = DeferredAnalysis(app)
 			logging.debug('Tabs initialised')
 		except:
@@ -421,7 +421,7 @@ class MainWindowTabs(QTabWidget):
 		# Icon made by Smashicons https://www.flaticon.com/authors/smashicons
 		deferredIcon = QIcon("../data/icons/deferred.png")
 
-		self.addTab(self.liveTab, liveIcon, "Live Analysis")
+		#self.addTab(self.liveTab, liveIcon, "Live Analysis")
 		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
 

@@ -16,24 +16,36 @@ from monitor import Monitor
 from context_handler import ContextHandler
 from certificate_handler import CertificateHandler
 from terminator import Terminator
+import uuid
+from collections import deque
 
 
 class Networker(Thread):
-	def __init__(self, camera, display, mainDisplay):
+	def __init__(
+		self, camera=None, display=None, mainDisplay=None,
+		deferredMode=False, filePath=None):
 		Thread.__init__(self)
 
-		self.stop = False
+		self.end = False
+		self.frames = deque()
+		self.nextFrame = None
+
 		self.camera = camera
 		self.display = display
-		self.nextFrame = None
-		self.mainDisplay = mainDisplay
+		self.deferredMode = deferredMode
+		self.filePath = filePath
+
+		if display is not None:
+			self.displayConn = self.displayConnector(display)
+			self.mainDisplayConn = self.displayConnector(mainDisplay)
+			self.mainDisplay = mainDisplay
+
 		self.serverAddr = 'tcp://35.204.135.105'
 		self.localAddr = 'tcp://127.0.0.1'
 		self.mainAddr = self.localAddr
 		self.initPort = ':5000'
-		self.displayConn = self.displayConnector(display)
-		self.mainDisplayConn = self.displayConnector(mainDisplay)
-		self.mainDisplay = mainDisplay
+
+		self.total = 0
 
 	def setupSocket(self, certID, serverKey=True):
 		certHandler = CertificateHandler(certID, 'client')
@@ -59,7 +71,6 @@ class Networker(Thread):
 		socket.curve_secretkey = privateKey
 		socket.curve_publickey = publicKey
 
-		#logging.debug('Socket: %s, private %s, public %s, server %s', socket, privateKey, publicKey, serverKey)
 		return socket, certHandler, ctxHandler
 
 	def initialize(self, feedID):
@@ -68,11 +79,8 @@ class Networker(Thread):
 
 		publicKey, _ = feedCert.getKeyPair()
 		initSocket.connect(self.mainAddr + self.initPort)
-		print("SENDING", feedID + '  ' + publicKey.decode('utf-8'))
 		initSocket.send_string(feedID + '  ' + publicKey.decode('utf-8'))
-		print("SENT WAITING")
 		initData = initSocket.recv_string()
-		print("RECEIVED", initData)
 		parts = initData.split('  ')
 
 		port = ':' + parts[0]
@@ -89,10 +97,18 @@ class Networker(Thread):
 
 	def run(self):
 		global mainFeedID
-		feedID = str(self.camera.camID).replace(' ', '')
+
+		if self.camera is not None:
+			feedID = str(self.camera.camID)
+		elif self.deferredMode:
+			feedID = self.filePath
+
+		feedID = feedID.replace(' ', '')
 		feedID = feedID.replace('/', '')
 		feedID = feedID.replace('\\', '')
 		feedID = feedID.replace(':', '')
+		feedID = feedID.replace('.', '')
+		feedID = feedID + str(uuid.uuid4().hex)
 
 		socket, certHandler, ctxHandler = self.initialize(feedID)
 
@@ -102,21 +118,55 @@ class Networker(Thread):
 		monitor.start()
 
 		terminator = Terminator.getInstance()
-		while not terminator.isTerminating():
-			if self.nextFrame is not None:
-				frames = self.nextFrame
-				socket.send(frames[0])
+		deferredTimer = time.time()
+
+		results = []
+
+		while not terminator.isTerminating() and self.end is False or (self.end is True and len(self.frames) > 0):
+			if self.nextFrame is not None or len(self.frames) > 0:
+				self.total += 1
+				deferredTimer = time.time()
+
+				if self.deferredMode:
+					frame = self.frames.pop()
+				else:
+					frame = self.nextFrame
+					self.nextFrame = None
+
+				socket.send(frame[0])
 				result = socket.recv_string()
 
-				# if this display is the main, emit the frame signal to both displays
-				if self.camera.camID == self.mainDisplay.camera.camID:
-					self.mainDisplayConn.emitFrame(frames[1])
-					self.mainDisplay.camera = self.camera
+				# # if this display is the main, emit the frame signal to both displays
 
-		socket.disable_monitor()
-		socket.close()
-		ctxHandler.cleanup()
-		certHandler.cleanup()
+				if not self.deferredMode:
+					if self.camera.camID == self.mainDisplay.camera.camID:
+						self.mainDisplayConn.emitFrame(frame[1])
+						self.mainDisplay.camera = self.camera
+				else:
+					results.append(result)
+
+			elif (time.time() - deferredTimer) > 5 and self.deferredMode:
+				socket.send_string("wait")
+				timer = time.time()
+				received = socket.recv_string()
+				if received != 'ok':
+					logging.error('Unexcepted message %s', received)
+			else:
+				time.sleep(0.001)
+
+		if self.deferredMode:
+			with open('../Processed/results-' + self.filePath + '.txt', 'w') as fp:
+				for result in results:
+					fp.write(result)
+					fp.write('\n')
+
+		#socket.disable_monitor()
+		try:
+			socket.close()
+			#ctxHandler.cleanup()
+			certHandler.cleanup()
+		except Exception as e:
+			print("exception while ending", e)
 
 	class displayConnector(QObject):
 		newFrameSignal = Signal(QPixmap)

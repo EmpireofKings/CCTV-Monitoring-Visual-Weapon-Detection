@@ -211,7 +211,7 @@ def nd2pmap(frame):
 def getPixmap(width, height, path):
 	return QPixmap(path).scaled(QSize(width, height))
 
-def getLabelledPixmap(width, height, label, path, pmap = None):
+def getLabelledPixmap(width, height, label, path=None, pmap=None):
 	if pmap is None:
 		pmap = getPixmap(width, height, path)
 	else:
@@ -219,16 +219,16 @@ def getLabelledPixmap(width, height, label, path, pmap = None):
 
 	painter = QPainter(pmap)
 
-	cx = width/2
-	cy = height/2
+	cx = width / 2
+	cy = height / 2
 	grad = QRadialGradient(cx, cy, width, cx, cx)
 	painter.setBrush(QBrush(grad))
 
 	painter.setOpacity(0.6)
-	painter.drawRect(QRect(0,0,width, height))
+	painter.drawRect(QRect(0, 0, width, height))
 
 	painter.setOpacity(1.0)
-	painter.setPen(QPen(QColor(255,255,255)))
+	painter.setPen(QPen(QColor(255, 255, 255)))
 
 	fontSize = 30
 	font = QFont("Helvetica [Cronyx]", fontSize)

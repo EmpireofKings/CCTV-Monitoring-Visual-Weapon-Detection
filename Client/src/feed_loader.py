@@ -9,60 +9,106 @@ import cv2
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from collections import deque
 
 
 class FeedLoader(Thread):
 	# GUI Thread launches this thread
 	# to prevent holding GUI Thread for too long keep __init__ minimal
-	def __init__(self, camera, networker, display, mainDisplay):
+	def __init__(
+		self, camera=None, networker=None, display=None, 
+		mainDisplay=None, feedID=None):
 		Thread.__init__(self)
 
 		self.networker = networker
 		self.stop = False
 		self.camera = camera
-		self.displayConn = self.displayConnector(display)
-		self.mainDisplayConn = self.displayConnector(mainDisplay)
-		self.mainDisplay = mainDisplay
+
+		if display is not None:
+			self.displayConn = self.displayConnector(display)
+			self.displayAttached = True
+		else:
+			self.displayAttached = False
+
+		if mainDisplay is not None:
+			self.mainDisplay = mainDisplay
+			self.mainDisplayConn = self.displayConnector(mainDisplay)
+
+		self.feedID = feedID
+		self.FPS = None
+		self.totalFrames = None
 
 	def run(self):
 		displaySize = (640, 360)
 		processSize = (256, 144)
 
-		if self.camera.camID.isdigit():
-			camID = int(self.camera.camID)
-		else:
-			camID = self.camera.camID
+		if self.camera is not None:
+			if self.camera.camID.isdigit():
+				camID = int(self.camera.camID)
+			else:
+				camID = self.camera.camID
 
-		feed = cv2.VideoCapture(camID)
-		fps = feed.get(cv2.CAP_PROP_FPS)
+			feed = cv2.VideoCapture(camID)
+			limitToFPS = True
+		elif self.feedID is not None:
+			feed = cv2.VideoCapture(self.feedID)
+			limitToFPS = False
 
-		timer = time.time()
+		if limitToFPS:
+			timer = time.time()
 
+		self.FPS = feed.get(cv2.CAP_PROP_FPS)
+		self.totalFrames = feed.get(cv2.CAP_PROP_FRAME_COUNT)
+
+		total = 0
 		while feed.isOpened() and self.stop is False:
-			while time.time() - timer < 1 / fps:
-				time.sleep(0.01)
+			total += 1
+			if limitToFPS:
+				while time.time() - timer < 1 / self.FPS:
+					time.sleep(0.01)
+
+				timer = time.time()
 
 			loadCheck, frame = feed.read()
-			timer = time.time()
 
 			if loadCheck:
 				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 				displayFrame = cv2.resize(frame, displaySize)
 				processFrame = cv2.resize(frame, processSize)
 
-				pmap = QPixmap.fromImage(QImage(
-					displayFrame.data, displaySize[0],
-					displaySize[1], 3 * displaySize[0], QImage.Format_RGB888))
+				pmap = QPixmap.fromImage(
+					QImage(
+						displayFrame.data, displaySize[0],
+						displaySize[1], 3 * displaySize[0],
+						QImage.Format_RGB888))
 
 				encodeCheck, jpegBuf = cv2.imencode('.jpg', processFrame)
 
 				if encodeCheck:
 					encoded = b64.b64encode(jpegBuf)
-					self.networker.nextFrame = (encoded, pmap)
 
-				self.displayConn.emitFrame(pmap)
+					if self.feedID is None:
+						self.networker.nextFrame = (encoded, pmap)
+					else:
+						while len(self.networker.frames) >= 1000:
+							time.sleep(0.01)
+
+						self.networker.frames.append((encoded, pmap))
+
+					if self.displayAttached:
+						self.displayConn.emitFrame(pmap)
+
 			else:
-				feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+				if self.feedID is None:
+					feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+				else:
+					break
+
+		self.networker.end = True
+		print("FINAL COUNT FL:", total)
+
+	def getFeedDetails(self):
+		return self.FPS, self.totalFrames
 
 	class displayConnector(QObject):
 		newFrameSignal = Signal(QPixmap)

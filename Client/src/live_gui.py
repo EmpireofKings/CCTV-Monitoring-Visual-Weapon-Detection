@@ -113,7 +113,8 @@ class gridViewer(QGridLayout):
 					self.addWidget(feedDisplayer, row, col)
 
 					try:
-						networker = Networker(camera, feedDisplayer, mainDisplay)
+						networker = Networker(
+							camera=camera, display=feedDisplayer, mainDisplay=mainDisplay)
 						networker.setDaemon(True)
 						networker.start()
 						logging.debug('Networker thread started')
