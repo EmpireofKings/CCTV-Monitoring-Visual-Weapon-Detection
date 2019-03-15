@@ -23,7 +23,9 @@ from feed_loader import FeedLoader
 import base64 as b64
 import ffmpeg
 import shutil
+from display_connector import DisplayConnector
 import data_handler
+import _pickle as pickle
 
 
 class DeferredAnalysis(QWidget):
@@ -348,40 +350,104 @@ class Viewer(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__(self)
 
-		path1 = 'D:/CompSci/College/Year4/FinalYearProject/Semester2/Dev/Client/data/videos/0.mp4'
-		path2 = 'D:/Data/Videos/Movies/2001.aso.1080p-mnnkps.mkv'
-		path3 = 'D:/CompSci/College/Year4/FinalYearProject/Semester2/Dev/Client/data/videos/bird.avi'
-		path4 = 'D:/CompSci/College/Year4/FinalYearProject/Semester2/Dev/Client/data/videos/SampleVideo_1280x720_30mb.flv'
-		path5 = 'D:/CompSci/College/Year4/FinalYearProject/Semester2/Dev/Client/data/videos/file_example_WMV_1920_9_3MB.wmv'
-		url = QUrl.fromLocalFile(path5)
-		content = QMediaContent(url)
+		self.surface = QLabel()
+		pmap = data_handler.getLabelledPixmap(
+			1280, 720, "Click on something in the ready list\nto view it here.",
+			path='../data/placeholder.png')
 
-		print(str(url))
-
-		self.playlist = QMediaPlaylist()
-		self.playlist.addMedia(content)
-		self.playlist.setCurrentIndex(1)
-
-		self.player = QMediaPlayer()
-		self.player.setPlaylist(self.playlist)
-
-		self.display = QVideoWidget()
-		self.display.setSizePolicy(QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum))
-		self.player.setVideoOutput(self.display)
-
+		self.surface.setPixmap(pmap)
 		outerLayout = QVBoxLayout()
-		outerLayout.addWidget(self.display)
+		outerLayout.addWidget(self.surface)
 
-		self.player.play()
 		self.setLayout(outerLayout)
+
+		self.analyser = self.Analyser(self)
+		self.analyser.setDaemon(True)
+		self.analyser.start()
+
+	def showAnalysis(self, contentType, name):
+		# self.analyser.reset()
+		self.analyser.set(contentType, name)
+
+	def updateDisplay(self, frame):
+		h, w, c = np.shape(frame)
+
+		pmap = QPixmap.fromImage(
+			QImage(
+				frame.data, w, h, 3 * w,
+				QImage.Format_RGB888))
+
+		self.surface.setPixmap(pmap)
+
+	class Analyser(Thread):
+		def __init__(self, display):
+			Thread.__init__(self)
+			self.basePath = '../Processed/'
+			self.path = None
+			self.resultPath = None
+			self.frameCount = 0
+			self.displayConn = DisplayConnector(display)
+
+		def run(self):
+			terminator = Terminator.getInstance()
+
+			while not terminator.isTerminating():
+
+				while self.path is None or self.resultPath is None:
+					time.sleep(1)
+
+				reset = False
+				feed = cv2.VideoCapture(self.path)
+
+				videoTotal = feed.get(cv2.CAP_PROP_FRAME_COUNT)
+				fps = feed.get(cv2.CAP_PROP_FPS)
+
+				print(fps)
+				resultsFile = open(self.resultPath, 'rb')
+				resultsData = pickle.load(resultsFile)
+
+				print('V:', str(videoTotal), 'R:', len(resultsData))
+
+				fpsTimer = time.time()
+				while feed.isOpened() and reset is False:
+					while time.time() - fpsTimer < 1 / fps:
+						time.sleep(0.01)
+					
+					fpsTimer = time.time()
+					check, frame = feed.read()
+
+					if check:
+						results = resultsData[self.frameCount]
+						classifications = results[0]
+						boundingBoxes = results[1]
+
+						frame = cv2.resize(frame, (1280, 720))
+						frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+
+						if boundingBoxes != []:
+							for box in boundingBoxes:
+								x, y, w, h = int(box[0]*2), int(box[1]*2), int(box[2]*2), int(box[3]*2)
+								cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
+
+						self.displayConn.emitFrame(frame)
+
+					self.frameCount += 1
+
+		# def reset(self):
+		# 	self.reset = True
+
+		def set(self, contentType, name):
+			self.path = self.basePath + name
+			self.resultPath = self.basePath + name + '.result'
 
 
 class Preview(QLabel):
 	def __init__(
 		self, parent, image=None, video=None, previewPmap=None,
 		itemPath=None, itemType=None):
-
 		QLabel.__init__(self)
+
+		self.parent = parent
 		displaySize = (256, 144)
 		self.setFrameStyle(QFrame.Box)
 
@@ -439,4 +505,5 @@ class Preview(QLabel):
 			self.itemName = parts[len(parts) - 1:][0]
 
 	def mousePressEvent(self, event):
-		logging.debug('Path %s, type %s', self.itemPath, self.itemType)
+		if self in self.parent.ready:
+			self.parent.viewer.showAnalysis(self.itemType, self.itemName)

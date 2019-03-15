@@ -10,7 +10,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from collections import deque
-
+from display_connector import DisplayConnector
 
 class FeedLoader(Thread):
 	# GUI Thread launches this thread
@@ -25,14 +25,14 @@ class FeedLoader(Thread):
 		self.camera = camera
 
 		if display is not None:
-			self.displayConn = self.displayConnector(display)
+			self.displayConn = DisplayConnector(display)
 			self.displayAttached = True
 		else:
 			self.displayAttached = False
 
 		if mainDisplay is not None:
 			self.mainDisplay = mainDisplay
-			self.mainDisplayConn = self.displayConnector(mainDisplay)
+			self.mainDisplayConn = DisplayConnector(mainDisplay)
 
 		self.feedID = feedID
 		self.FPS = None
@@ -76,27 +76,21 @@ class FeedLoader(Thread):
 				displayFrame = cv2.resize(frame, displaySize)
 				processFrame = cv2.resize(frame, processSize)
 
-				pmap = QPixmap.fromImage(
-					QImage(
-						displayFrame.data, displaySize[0],
-						displaySize[1], 3 * displaySize[0],
-						QImage.Format_RGB888))
-
 				encodeCheck, jpegBuf = cv2.imencode('.jpg', processFrame)
 
 				if encodeCheck:
 					encoded = b64.b64encode(jpegBuf)
 
 					if self.feedID is None:
-						self.networker.nextFrame = (encoded, pmap)
+						self.networker.nextFrame = (encoded, displayFrame)
 					else:
 						while len(self.networker.frames) >= 1000:
 							time.sleep(0.01)
 
-						self.networker.frames.append((encoded, pmap))
+						self.networker.frames.append((encoded, displayFrame))
 
 					if self.displayAttached:
-						self.displayConn.emitFrame(pmap)
+						self.displayConn.emitFrame(displayFrame)
 
 			else:
 				if self.feedID is None:
@@ -109,13 +103,3 @@ class FeedLoader(Thread):
 
 	def getFeedDetails(self):
 		return self.FPS, self.totalFrames
-
-	class displayConnector(QObject):
-		newFrameSignal = Signal(QPixmap)
-
-		def __init__(self, display):
-			QObject.__init__(self)
-			self.newFrameSignal.connect(display.updateDisplay)
-
-		def emitFrame(self, pmap):
-			self.newFrameSignal.emit(pmap)

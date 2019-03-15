@@ -18,6 +18,10 @@ from certificate_handler import CertificateHandler
 from terminator import Terminator
 import uuid
 from collections import deque
+import _pickle as pickle
+import cv2
+import numpy as np
+from display_connector import DisplayConnector
 
 
 class Networker(Thread):
@@ -36,8 +40,8 @@ class Networker(Thread):
 		self.filePath = filePath
 
 		if display is not None:
-			self.displayConn = self.displayConnector(display)
-			self.mainDisplayConn = self.displayConnector(mainDisplay)
+			self.displayConn = DisplayConnector(display)
+			self.mainDisplayConn = DisplayConnector(mainDisplay)
 			self.mainDisplay = mainDisplay
 
 		self.serverAddr = 'tcp://35.204.135.105'
@@ -133,14 +137,27 @@ class Networker(Thread):
 					frame = self.nextFrame
 					self.nextFrame = None
 
-				socket.send(frame[0])
-				result = socket.recv_string()
+				processFrame = frame[0]
+				displayFrame = frame[1]
+				socket.send(processFrame)
+
+				serial = socket.recv()
+
+				result = pickle.loads(serial)
+
+				boundingBoxes = result[1]
+
+				if boundingBoxes != []:
+					for box in boundingBoxes:
+						x, y, w, h = int(box[0]), int(box[1]), int(box[2]), int(box[3])
+
+						cv2.rectangle(displayFrame, (x,y), (x+w, y+h), (0,255,0), 2)
 
 				# # if this display is the main, emit the frame signal to both displays
 
 				if not self.deferredMode:
 					if self.camera.camID == self.mainDisplay.camera.camID:
-						self.mainDisplayConn.emitFrame(frame[1])
+						self.mainDisplayConn.emitFrame(displayFrame)
 						self.mainDisplay.camera = self.camera
 				else:
 					results.append(result)
@@ -155,10 +172,8 @@ class Networker(Thread):
 				time.sleep(0.001)
 
 		if self.deferredMode:
-			with open('../Processed/results-' + self.filePath + '.txt', 'w') as fp:
-				for result in results:
-					fp.write(result)
-					fp.write('\n')
+			with open('../Processed/' + self.filePath + '.result', 'wb') as fp:
+				pickle.dump(results, fp, protocol=4)
 
 		#socket.disable_monitor()
 		try:
@@ -167,13 +182,3 @@ class Networker(Thread):
 			certHandler.cleanup()
 		except Exception as e:
 			print("exception while ending", e)
-
-	class displayConnector(QObject):
-		newFrameSignal = Signal(QPixmap)
-
-		def __init__(self, display):
-			QObject.__init__(self)
-			self.newFrameSignal.connect(display.updateDisplay)
-
-		def emitFrame(self, pmap):
-			self.newFrameSignal.emit(pmap)

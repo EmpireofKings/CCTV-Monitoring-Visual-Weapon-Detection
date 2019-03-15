@@ -160,7 +160,15 @@ class FeedDisplayer(QLabel):
 
 		self.setLayout(camLayout)
 
-	def updateDisplay(self, pmap):
+	def updateDisplay(self, frame):
+		displaySize = (640, 360)
+
+		pmap = QPixmap.fromImage(
+					QImage(
+						frame.data, displaySize[0],
+						displaySize[1], 3 * displaySize[0],
+						QImage.Format_RGB888))
+
 		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
 		self.surface.setPixmap(pmap)
 		self.title.setText(
