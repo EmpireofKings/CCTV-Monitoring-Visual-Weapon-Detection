@@ -27962,3 +27962,1196 @@ DEBUG - 2019-03-15 20:01:37,631 - Thread-92 - Starting
 DEBUG - 2019-03-15 20:01:37,647 - CurveAuth - auth received API command b'CURVE'
 DEBUG - 2019-03-15 20:01:37,652 - CurveAuth - Configure curve: *[../Certificates/server-keys-16mp47e34519dab4c4c3087c1d66d4fc31d5f/]
 INFO - 2019-03-15 20:01:37,652 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:34:31,828 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+CRITICAL - 2019-03-15 20:34:32,397 - MainThread - Could not enroll
+Traceback (most recent call last):
+  File "client.py", line 448, in enroll
+    certHandler.prep()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\CommonFiles\certificate_handler.py", line 119, in prep
+    time.sleep(1)
+KeyboardInterrupt
+ERROR - 2019-03-15 20:34:32,412 - MainThread - Enrollment Failed
+INFO - 2019-03-15 20:34:35,641 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:34:36,766 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/c1f7ff5d2c924069b007e086b4754120.key
+DEBUG - 2019-03-15 20:34:36,766 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:34:36,780 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:34:36,781 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:34:36,783 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:34:36,900 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:34:36,908 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:34:36,909 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:34:36,910 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:34:36,929 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:34:42,890 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:34:53,912 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:39:34,738 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:39:35,878 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/336e655dc23f44a9add40393c41ef783.key
+DEBUG - 2019-03-15 20:39:35,881 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:39:35,882 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:39:35,883 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:39:35,884 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:39:35,945 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:39:35,955 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:39:35,956 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:39:35,958 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:39:35,988 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 20:39:42,259 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 40, in __init__
+    self.readyList = ReadyList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 325, in __init__
+    self.update()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 332, in update
+    title.setAlignent(Qt.AlignCenter)
+AttributeError: 'PySide2.QtWidgets.QLabel' object has no attribute 'setAlignent'
+CRITICAL - 2019-03-15 20:39:42,386 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 20:39:52,940 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:39:54,057 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/8b626a21ff474dcba0a9a4a1927d0a7b.key
+DEBUG - 2019-03-15 20:39:54,057 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:39:54,057 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:39:54,057 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:39:54,057 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:39:54,119 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:39:54,127 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:39:54,128 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:39:54,130 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:39:54,151 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:40:00,055 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:40:09,938 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:40:34,936 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:40:36,065 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/6e0f41caf13e49d3b935837dc6bbbdf2.key
+DEBUG - 2019-03-15 20:40:36,065 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:40:36,065 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:40:36,065 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:40:36,065 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:40:36,133 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:40:36,142 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:40:36,143 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:40:36,144 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:40:36,159 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:40:43,423 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:41:26,463 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:41:29,901 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:41:31,027 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/594d4d3df87a403dac93ab70e6743e41.key
+DEBUG - 2019-03-15 20:41:31,028 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:41:31,030 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:41:31,031 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:41:31,032 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:41:31,082 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:41:31,091 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:41:31,092 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:41:31,093 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:41:31,097 - MainThread - User authenticated, initialising tabs.
+INFO - 2019-03-15 20:41:35,331 - MainThread - Termination signal received, please wait.
+CRITICAL - 2019-03-15 20:41:37,232 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 39, in __init__
+    self.processList = ProcessList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 266, in __init__
+    self.update()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 288, in update
+    self.processFrame.setMaximum(0)
+AttributeError: 'ProcessList' object has no attribute 'processFrame'
+CRITICAL - 2019-03-15 20:41:37,370 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 20:41:41,038 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:41:42,150 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/1e9044b046ca43e596240b7ce2f8b5af.key
+DEBUG - 2019-03-15 20:41:42,150 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:41:42,150 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:41:42,150 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:41:42,150 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:41:42,216 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:41:42,224 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:41:42,224 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:41:42,226 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:41:42,243 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:41:48,064 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:43:59,960 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:44:14,221 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:44:15,355 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/778ae6b887854fbc976e7c8edfdc6122.key
+DEBUG - 2019-03-15 20:44:15,365 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:44:15,367 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:44:15,368 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:44:15,369 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:44:15,429 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:44:15,438 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:44:15,439 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:44:15,440 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:44:15,459 - MainThread - User authenticated, initialising tabs.
+INFO - 2019-03-15 20:44:19,517 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-03-15 20:44:21,601 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:44:34,727 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:45:44,579 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:45:45,661 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/98dc6900482f4ac7acb11ced956c4ca3.key
+DEBUG - 2019-03-15 20:45:45,661 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:45:45,678 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:45:45,678 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:45:45,679 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:45:45,732 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:45:45,739 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:45:45,740 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:45:45,741 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:45:45,747 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:45:51,752 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:46:07,736 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:46:15,708 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:46:16,838 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/5a02962a2c73498db602adc850aa17c5.key
+DEBUG - 2019-03-15 20:46:16,838 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:46:16,854 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:46:16,854 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:46:16,854 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:46:17,005 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:46:17,014 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:46:17,015 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:46:17,016 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:46:17,032 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:46:22,921 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 20:46:55,190 - Thread-6 - Starting
+DEBUG - 2019-03-15 20:46:55,230 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:46:55,231 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:46:55,276 - Thread-8 - Starting
+DEBUG - 2019-03-15 20:46:55,295 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:46:55,295 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp4a021112423ec4514952aa1cfc48984ad/]
+DEBUG - 2019-03-15 20:46:56,345 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:46:56,346 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:46:56,358 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:46:57,518 - Thread-4 - Assigned Port: :51090 using server key e]k=9yej<IhlMI>r<X{{=IU=[]O]Vv9<Y(EwC]W=
+DEBUG - 2019-03-15 20:46:57,526 - Thread-4 - Enrolled e]k=9yej<IhlMI>r<X{{=IU=[]O]Vv9<Y(EwC]W= saved at ../Certificates/server-keys-0000000mp4a021112423ec4514952aa1cfc48984ad/ac0d4cac07d54a1c95fb9bf91f3f7d42.key
+DEBUG - 2019-03-15 20:46:57,539 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:46:57,540 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:51090'
+DEBUG - 2019-03-15 20:46:57,540 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:46:57,541 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:51090'
+DEBUG - 2019-03-15 20:47:02,653 - Monitor - Monitor thread 0000000mp4a021112423ec4514952aa1cfc48984ad shutting down
+DEBUG - 2019-03-15 20:47:02,654 - Monitor - Monitor thread 0000000mp4a021112423ec4514952aa1cfc48984ad shutting down
+DEBUG - 2019-03-15 20:47:02,668 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:05,428 - Thread-13 - Starting
+DEBUG - 2019-03-15 20:47:05,460 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:05,469 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:47:05,530 - Thread-15 - Starting
+DEBUG - 2019-03-15 20:47:05,549 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:05,549 - CurveAuth - Configure curve: *[../Certificates/server-keys-0mp4a3db9f3729db4042b49e94bbb45bcd3f/]
+DEBUG - 2019-03-15 20:47:06,613 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:06,613 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:06,644 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:07,783 - Thread-11 - Assigned Port: :50664 using server key ^gs<}[3F{8+2wAosmG5PmF1Er+$6UCiX3V=d/2hQ
+DEBUG - 2019-03-15 20:47:07,791 - Thread-11 - Enrolled ^gs<}[3F{8+2wAosmG5PmF1Er+$6UCiX3V=d/2hQ saved at ../Certificates/server-keys-0mp4a3db9f3729db4042b49e94bbb45bcd3f/3722e7d75f0946b3a8ebb75947088a26.key
+DEBUG - 2019-03-15 20:47:07,796 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:07,796 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:47:07,796 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50664'
+DEBUG - 2019-03-15 20:47:07,799 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50664'
+DEBUG - 2019-03-15 20:47:07,818 - Monitor - Monitor thread 0mp4a3db9f3729db4042b49e94bbb45bcd3f shutting down
+DEBUG - 2019-03-15 20:47:07,818 - Monitor - Monitor thread 0mp4a3db9f3729db4042b49e94bbb45bcd3f shutting down
+DEBUG - 2019-03-15 20:47:17,433 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:19,642 - Thread-20 - Starting
+DEBUG - 2019-03-15 20:47:19,674 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:19,684 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:47:19,741 - Thread-22 - Starting
+DEBUG - 2019-03-15 20:47:19,762 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:19,763 - CurveAuth - Configure curve: *[../Certificates/server-keys-1mp471e45fe5ca404ba4b283a92178311c2b/]
+DEBUG - 2019-03-15 20:47:20,816 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:20,816 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:20,849 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:21,990 - Thread-18 - Assigned Port: :59026 using server key }tNxk}Br<(YsB}qoKSf-Iv0#x*w(e9fk<=BO0<QI
+DEBUG - 2019-03-15 20:47:21,999 - Thread-18 - Enrolled }tNxk}Br<(YsB}qoKSf-Iv0#x*w(e9fk<=BO0<QI saved at ../Certificates/server-keys-1mp471e45fe5ca404ba4b283a92178311c2b/4feab7a8371a47aea52e2384039b0bfc.key
+DEBUG - 2019-03-15 20:47:22,004 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:59026'
+DEBUG - 2019-03-15 20:47:22,005 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:22,005 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:47:22,006 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:59026'
+DEBUG - 2019-03-15 20:47:27,313 - Monitor - Monitor thread 1mp471e45fe5ca404ba4b283a92178311c2b shutting down
+DEBUG - 2019-03-15 20:47:27,313 - Monitor - Monitor thread 1mp471e45fe5ca404ba4b283a92178311c2b shutting down
+DEBUG - 2019-03-15 20:47:27,326 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:29,867 - Thread-27 - Starting
+DEBUG - 2019-03-15 20:47:29,891 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:29,900 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:47:29,967 - Thread-29 - Starting
+DEBUG - 2019-03-15 20:47:29,989 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:29,990 - CurveAuth - Configure curve: *[../Certificates/server-keys-2mp4fb85407ffcb34c80ad6e1b296a813d1d/]
+DEBUG - 2019-03-15 20:47:31,052 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:31,052 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:31,067 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:32,225 - Thread-25 - Assigned Port: :63127 using server key odDxr]G1#4f%vxT81%Zl]IOLEqq+2sV(S@Suk#BO
+DEBUG - 2019-03-15 20:47:32,248 - Thread-25 - Enrolled odDxr]G1#4f%vxT81%Zl]IOLEqq+2sV(S@Suk#BO saved at ../Certificates/server-keys-2mp4fb85407ffcb34c80ad6e1b296a813d1d/94c59789f639481782cbb2a9851b2ba6.key
+DEBUG - 2019-03-15 20:47:32,253 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:32,253 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63127'
+DEBUG - 2019-03-15 20:47:32,254 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:47:32,261 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63127'
+DEBUG - 2019-03-15 20:47:32,278 - Monitor - Monitor thread 2mp4fb85407ffcb34c80ad6e1b296a813d1d shutting down
+DEBUG - 2019-03-15 20:47:32,278 - Monitor - Monitor thread 2mp4fb85407ffcb34c80ad6e1b296a813d1d shutting down
+DEBUG - 2019-03-15 20:47:38,606 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:41,106 - Thread-34 - Starting
+DEBUG - 2019-03-15 20:47:41,133 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:41,142 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:47:41,198 - Thread-36 - Starting
+DEBUG - 2019-03-15 20:47:41,208 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:41,241 - CurveAuth - Configure curve: *[../Certificates/server-keys-3mp442cc2f3f784645e39608eec7d32a4bd1/]
+DEBUG - 2019-03-15 20:47:42,276 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:42,276 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:42,308 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:43,446 - Thread-32 - Assigned Port: :55179 using server key 1SpCvg1ISDjz=)gz2b+7cF1Kj*GB(0G1KkFRWJe#
+DEBUG - 2019-03-15 20:47:43,454 - Thread-32 - Enrolled 1SpCvg1ISDjz=)gz2b+7cF1Kj*GB(0G1KkFRWJe# saved at ../Certificates/server-keys-3mp442cc2f3f784645e39608eec7d32a4bd1/d381b818f2b5469aac22b02c964d868c.key
+DEBUG - 2019-03-15 20:47:43,460 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:43,460 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55179'
+DEBUG - 2019-03-15 20:47:43,460 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:47:43,461 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55179'
+DEBUG - 2019-03-15 20:47:43,483 - Monitor - Monitor thread 3mp442cc2f3f784645e39608eec7d32a4bd1 shutting down
+DEBUG - 2019-03-15 20:47:43,483 - Monitor - Monitor thread 3mp442cc2f3f784645e39608eec7d32a4bd1 shutting down
+DEBUG - 2019-03-15 20:47:44,439 - MainThread - Deferred tab focused
+DEBUG - 2019-03-15 20:47:46,075 - MainThread - Live tab focused
+DEBUG - 2019-03-15 20:47:48,390 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:51,317 - Thread-41 - Starting
+DEBUG - 2019-03-15 20:47:51,339 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:51,339 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:47:51,387 - Thread-43 - Starting
+DEBUG - 2019-03-15 20:47:51,406 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:47:51,407 - CurveAuth - Configure curve: *[../Certificates/server-keys-4-Copymp4bdfb62d1dd834eafb430959099fbcb67/]
+DEBUG - 2019-03-15 20:47:52,459 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:52,459 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:52,475 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:47:53,626 - Thread-39 - Assigned Port: :55751 using server key +c^kLofNE]fM#:22HBSL8e]oukxs}AObR*59u^%R
+DEBUG - 2019-03-15 20:47:53,633 - Thread-39 - Enrolled +c^kLofNE]fM#:22HBSL8e]oukxs}AObR*59u^%R saved at ../Certificates/server-keys-4-Copymp4bdfb62d1dd834eafb430959099fbcb67/0032d4385ca342688bcdaed5e6489b84.key
+DEBUG - 2019-03-15 20:47:53,642 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:47:53,642 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:55751'
+DEBUG - 2019-03-15 20:47:53,642 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:47:53,644 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:55751'
+DEBUG - 2019-03-15 20:47:58,824 - Monitor - Monitor thread 4-Copymp4bdfb62d1dd834eafb430959099fbcb67 shutting down
+DEBUG - 2019-03-15 20:47:58,824 - Monitor - Monitor thread 4-Copymp4bdfb62d1dd834eafb430959099fbcb67 shutting down
+DEBUG - 2019-03-15 20:47:58,837 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:48:01,496 - Thread-48 - Starting
+DEBUG - 2019-03-15 20:48:01,519 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:48:01,520 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:48:01,566 - Thread-50 - Starting
+DEBUG - 2019-03-15 20:48:01,572 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:48:01,585 - CurveAuth - Configure curve: *[../Certificates/server-keys-4mp4903d689d57a04d95b943422907a32ce3/]
+DEBUG - 2019-03-15 20:48:02,642 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:48:02,642 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:48:02,665 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:48:03,799 - Thread-46 - Assigned Port: :63163 using server key -xavoJubmMK5L@=OWLZuQlvSv!NsZir1>d0cUxOh
+DEBUG - 2019-03-15 20:48:03,824 - Thread-46 - Enrolled -xavoJubmMK5L@=OWLZuQlvSv!NsZir1>d0cUxOh saved at ../Certificates/server-keys-4mp4903d689d57a04d95b943422907a32ce3/023f8d1bf07e4a159f83803f201b903d.key
+DEBUG - 2019-03-15 20:48:03,828 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:48:03,828 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63163'
+DEBUG - 2019-03-15 20:48:03,828 - Monitor - EVENT_MONITOR_STOPPED b''
+INFO - 2019-03-15 20:48:09,303 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:48:11,799 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:48:12,887 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/ce208f27198546c18dfa93b04f541c2d.key
+DEBUG - 2019-03-15 20:48:12,895 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:48:12,897 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:48:12,897 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:48:12,898 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:48:12,942 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:48:12,949 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:48:12,950 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:48:12,950 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:48:12,967 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:48:18,789 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:48:37,768 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:48:58,054 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:48:59,162 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/02673b0128524c9fa3f3cfb749db892d.key
+DEBUG - 2019-03-15 20:48:59,162 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:48:59,162 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:48:59,162 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:48:59,162 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:48:59,209 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:48:59,217 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:48:59,217 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:48:59,218 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:48:59,235 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:49:05,532 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:49:28,690 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:49:34,209 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:49:35,364 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/68703bcffa4349d9817b876fa986e4d4.key
+DEBUG - 2019-03-15 20:49:35,366 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:49:35,370 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:49:35,371 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:49:35,373 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:49:35,472 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:49:35,490 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:49:35,492 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:49:35,494 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:49:35,528 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:49:41,587 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:52:59,052 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:53:01,672 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:53:02,804 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/d95d7931553648bf87d4a62783ceb793.key
+DEBUG - 2019-03-15 20:53:02,804 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:53:02,804 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:53:02,804 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:53:02,804 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:53:02,857 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:53:02,865 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:53:02,865 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:53:02,867 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:53:02,882 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 20:53:09,127 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 40, in __init__
+    self.readyList = ReadyList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 333, in __init__
+    files = self.parent.sortFiles(files)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 125, in sortFiles
+    if file.endswith(self.supportedImageTypes):
+AttributeError: 'DeferredAnalysis' object has no attribute 'supportedImageTypes'
+CRITICAL - 2019-03-15 20:53:09,226 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 20:53:47,445 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:53:48,574 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/62330d91ba984b4da420778ccc43a5f0.key
+DEBUG - 2019-03-15 20:53:48,574 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:53:48,576 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:53:48,577 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:53:48,578 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:53:48,634 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:53:48,641 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:53:48,642 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:53:48,643 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:53:48,659 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 20:53:55,103 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 60, in __init__
+    self.readyList = ReadyList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 334, in __init__
+    files = self.parent.addPreviews(files, ready=True)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 117, in addPreviews
+    self.updateLists()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 135, in updateLists
+    self.readyList.update()
+AttributeError: 'DeferredAnalysis' object has no attribute 'readyList'
+CRITICAL - 2019-03-15 20:53:55,215 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 20:54:57,945 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:54:59,154 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/5a504be8975642fdb9731422140c3402.key
+DEBUG - 2019-03-15 20:54:59,156 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:54:59,162 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:54:59,164 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:54:59,167 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:54:59,231 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:54:59,239 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:54:59,239 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:54:59,241 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:54:59,257 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:55:05,373 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:56:58,341 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:57:07,694 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:57:08,816 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/d2d7feebcda844598d56aecd4c615786.key
+DEBUG - 2019-03-15 20:57:08,817 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:57:08,820 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:57:08,821 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:57:08,822 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:57:08,917 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:57:08,930 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:57:08,931 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:57:08,933 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:57:08,962 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 20:57:15,292 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 60, in __init__
+    self.readyList = ReadyList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 335, in __init__
+    fullPath = path + '/' + file
+NameError: name 'path' is not defined
+CRITICAL - 2019-03-15 20:57:15,402 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 20:57:35,424 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:57:36,556 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/ab7510e6c11341a5895217ee82ec41ed.key
+DEBUG - 2019-03-15 20:57:36,556 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:57:36,558 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:57:36,558 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:57:36,559 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:57:36,607 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:57:36,615 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:57:36,615 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:57:36,617 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:57:36,632 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:57:42,944 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 20:57:51,044 - Thread-6 - Starting
+DEBUG - 2019-03-15 20:57:51,075 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:57:51,076 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:57:51,121 - Thread-8 - Starting
+DEBUG - 2019-03-15 20:57:51,137 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:57:51,137 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp49ac803848d5d49efb2bb1905adac2032/]
+DEBUG - 2019-03-15 20:57:52,210 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:57:52,210 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:57:52,226 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 20:57:53,344 - Thread-4 - Assigned Port: :50290 using server key R8n(C^XL3v7YOqnFQyW>4?KzOSc/RX.ZXkPd<Iw&
+DEBUG - 2019-03-15 20:57:53,351 - Thread-4 - Enrolled R8n(C^XL3v7YOqnFQyW>4?KzOSc/RX.ZXkPd<Iw& saved at ../Certificates/server-keys-0000000mp49ac803848d5d49efb2bb1905adac2032/9d39e00bbd724cea8049e3613aacc901.key
+DEBUG - 2019-03-15 20:57:53,353 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:57:53,353 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50290'
+DEBUG - 2019-03-15 20:57:53,354 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 20:57:53,363 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50290'
+DEBUG - 2019-03-15 20:57:57,075 - Monitor - Monitor thread 0000000mp49ac803848d5d49efb2bb1905adac2032 shutting down
+DEBUG - 2019-03-15 20:57:57,075 - Monitor - Monitor thread 0000000mp49ac803848d5d49efb2bb1905adac2032 shutting down
+DEBUG - 2019-03-15 20:57:57,094 - CurveAuth - auth received API command b'TERMINATE'
+INFO - 2019-03-15 20:58:12,820 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:58:15,062 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:58:16,215 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/645fcf41f67d47b08adb4fcee088a9ba.key
+DEBUG - 2019-03-15 20:58:16,216 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:58:16,221 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:58:16,224 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:58:16,225 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:58:16,330 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:58:16,350 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:58:16,351 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:58:16,353 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:58:16,377 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:58:22,612 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:58:36,405 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 20:58:46,261 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 20:58:47,405 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/2768781bbfe34d34a58b49addcc5dee7.key
+DEBUG - 2019-03-15 20:58:47,405 - MainThread - Enrolled
+DEBUG - 2019-03-15 20:58:47,408 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 20:58:47,409 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 20:58:47,410 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 20:58:47,486 - Thread-1 - Starting
+DEBUG - 2019-03-15 20:58:47,498 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 20:58:47,499 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 20:58:47,501 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 20:58:47,529 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 20:58:53,747 - MainThread - Tabs initialised
+INFO - 2019-03-15 20:59:08,722 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:03:04,264 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:03:05,388 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/50b3b586e82c43e9976e385df3dd2d7e.key
+DEBUG - 2019-03-15 21:03:05,388 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:03:05,388 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:03:05,388 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:03:05,403 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:03:05,484 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:03:05,496 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:03:05,497 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:03:05,497 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:03:05,527 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:03:12,082 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:03:43,612 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:04:13,838 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:04:14,982 - MainThread - Enrolled R=xhD%erGxxySbTSY%dO!A^Li0f!/-4%S9?mb:{# saved at ../Certificates/server-keys-front/59843e2cd7654545802a0cfdec69c9d9.key
+DEBUG - 2019-03-15 21:04:14,984 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:04:14,989 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:04:14,990 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:04:14,992 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:04:15,071 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:04:15,079 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:04:15,080 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:04:15,081 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:04:15,084 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:04:21,413 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 21:04:31,587 - Thread-6 - Starting
+DEBUG - 2019-03-15 21:04:31,644 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:04:31,659 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:04:31,757 - Thread-8 - Starting
+DEBUG - 2019-03-15 21:04:31,773 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:04:31,773 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp44f953a9b7844490da3eae6d6171e7438/]
+DEBUG - 2019-03-15 21:04:32,838 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:04:32,838 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:04:32,854 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:04:33,975 - Thread-4 - Assigned Port: :53443 using server key uEvYk1#Spfk}-Y#Gp1JFQ(OVntDdaq[63VOIgO.E
+DEBUG - 2019-03-15 21:04:33,981 - Thread-4 - Enrolled uEvYk1#Spfk}-Y#Gp1JFQ(OVntDdaq[63VOIgO.E saved at ../Certificates/server-keys-0000000mp44f953a9b7844490da3eae6d6171e7438/5e0ca1a266514062894b4ce7e7f69760.key
+DEBUG - 2019-03-15 21:04:33,989 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:04:33,990 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:53443'
+DEBUG - 2019-03-15 21:04:33,990 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:04:33,991 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:53443'
+INFO - 2019-03-15 21:04:46,918 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:05:13,086 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:05:14,221 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/2250ca7c7041475cae9ba374156d5739.key
+DEBUG - 2019-03-15 21:05:14,221 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:05:14,231 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:05:14,233 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:05:14,234 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:05:14,322 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:05:14,337 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:05:14,337 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:05:14,337 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:05:14,356 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:05:20,272 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:06:26,610 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:06:42,496 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:06:43,641 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/110a81ac2d984762a88c4e99d80ff376.key
+DEBUG - 2019-03-15 21:06:43,642 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:06:43,644 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:06:43,645 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:06:43,645 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:06:43,701 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:06:43,709 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:06:43,710 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:06:43,711 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:06:43,727 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:06:49,510 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:07:24,594 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:07:26,684 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:07:27,778 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/cd80df3cff434dc99a97eb3e28b8de64.key
+DEBUG - 2019-03-15 21:07:27,778 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:07:27,794 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:07:27,794 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:07:27,794 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:07:27,848 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:07:27,855 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:07:27,856 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:07:27,857 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:07:27,873 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:07:33,994 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 21:07:48,108 - Thread-6 - Starting
+DEBUG - 2019-03-15 21:07:48,143 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:07:48,144 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:07:48,190 - Thread-8 - Starting
+DEBUG - 2019-03-15 21:07:48,210 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:07:48,217 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp4e7616bcad08c492db8ac676a7881456b/]
+DEBUG - 2019-03-15 21:07:49,291 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:07:49,291 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:07:49,311 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:07:50,537 - Thread-4 - Assigned Port: :63226 using server key R+XH:C*m+0*-#WuSCP}W5-f+U^6:v%sFhQh!EoCV
+DEBUG - 2019-03-15 21:07:50,560 - Thread-4 - Enrolled R+XH:C*m+0*-#WuSCP}W5-f+U^6:v%sFhQh!EoCV saved at ../Certificates/server-keys-0000000mp4e7616bcad08c492db8ac676a7881456b/a2697423696e4477ac6fd7d8e0a59319.key
+DEBUG - 2019-03-15 21:07:50,566 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:07:50,567 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63226'
+DEBUG - 2019-03-15 21:07:50,569 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:07:50,571 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63226'
+DEBUG - 2019-03-15 21:07:50,613 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:63226'
+DEBUG - 2019-03-15 21:07:55,709 - Monitor - Monitor thread 0000000mp4e7616bcad08c492db8ac676a7881456b shutting down
+DEBUG - 2019-03-15 21:07:55,709 - Monitor - Monitor thread 0000000mp4e7616bcad08c492db8ac676a7881456b shutting down
+DEBUG - 2019-03-15 21:07:55,723 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:07:58,210 - Thread-13 - Starting
+DEBUG - 2019-03-15 21:07:58,245 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:07:58,246 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:07:58,292 - Thread-15 - Starting
+DEBUG - 2019-03-15 21:07:58,311 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:07:58,312 - CurveAuth - Configure curve: *[../Certificates/server-keys-0mp4282170639c844e6f88078c0aa820ac6d/]
+DEBUG - 2019-03-15 21:07:59,374 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:07:59,374 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:07:59,395 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:08:00,528 - Thread-11 - Assigned Port: :63135 using server key wPzD-3pE{NQT^I7yEPt[vn1mh(*I2!lTU$>?i#j%
+DEBUG - 2019-03-15 21:08:00,535 - Thread-11 - Enrolled wPzD-3pE{NQT^I7yEPt[vn1mh(*I2!lTU$>?i#j% saved at ../Certificates/server-keys-0mp4282170639c844e6f88078c0aa820ac6d/81012d8a7d2643b9bde7e7d1d82c8eae.key
+DEBUG - 2019-03-15 21:08:00,546 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:08:00,546 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:63135'
+DEBUG - 2019-03-15 21:08:00,547 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:08:00,548 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:63135'
+DEBUG - 2019-03-15 21:08:10,272 - Monitor - Monitor thread 0mp4282170639c844e6f88078c0aa820ac6d shutting down
+DEBUG - 2019-03-15 21:08:10,272 - Monitor - Monitor thread 0mp4282170639c844e6f88078c0aa820ac6d shutting down
+DEBUG - 2019-03-15 21:08:10,290 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:08:13,367 - Thread-20 - Starting
+DEBUG - 2019-03-15 21:08:13,409 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:08:13,411 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:08:13,482 - Thread-22 - Starting
+DEBUG - 2019-03-15 21:08:13,518 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:08:13,520 - CurveAuth - Configure curve: *[../Certificates/server-keys-1mp4f1a127e6164649beba86b25405c88a5b/]
+DEBUG - 2019-03-15 21:08:14,584 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:08:14,584 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:08:14,600 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:08:15,761 - Thread-18 - Assigned Port: :64128 using server key errPEE=TbPlZl0ud$n%H1WKJ--0FhWx1leJdLg{H
+DEBUG - 2019-03-15 21:08:15,772 - Thread-18 - Enrolled errPEE=TbPlZl0ud$n%H1WKJ--0FhWx1leJdLg{H saved at ../Certificates/server-keys-1mp4f1a127e6164649beba86b25405c88a5b/d863188b14b74b8aa19714aa64a5ce33.key
+DEBUG - 2019-03-15 21:08:15,776 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:08:15,776 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:64128'
+DEBUG - 2019-03-15 21:08:15,776 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:08:15,779 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:64128'
+DEBUG - 2019-03-15 21:08:15,797 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:64128'
+DEBUG - 2019-03-15 21:08:21,476 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:08:21,484 - CurveAuth - auth received API command b'TERMINATE'
+INFO - 2019-03-15 21:08:31,621 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:08:48,817 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:08:49,945 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/f2aa027a16fa4d9bb5c87d717b7b7be8.key
+DEBUG - 2019-03-15 21:08:49,945 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:08:49,948 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:08:49,948 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:08:49,949 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:08:49,999 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:08:50,006 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:08:50,007 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:08:50,008 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:08:50,024 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:08:56,040 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 21:09:08,209 - Thread-6 - Starting
+DEBUG - 2019-03-15 21:09:08,251 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:08,261 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:09:08,360 - Thread-8 - Starting
+DEBUG - 2019-03-15 21:09:08,405 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:08,422 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp407181cf94214475d90da37bb507ea9e0/]
+DEBUG - 2019-03-15 21:09:09,481 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:09,481 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:09,501 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:10,824 - Thread-4 - Assigned Port: :65312 using server key c(GREMmaNmqy=cH-O?-qGQ>LQ7=ciq(zH2OS@K.?
+DEBUG - 2019-03-15 21:09:10,837 - Thread-4 - Enrolled c(GREMmaNmqy=cH-O?-qGQ>LQ7=ciq(zH2OS@K.? saved at ../Certificates/server-keys-0000000mp407181cf94214475d90da37bb507ea9e0/6d2119ab2c374df5af58533d0b23a602.key
+DEBUG - 2019-03-15 21:09:10,841 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:10,842 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:65312'
+DEBUG - 2019-03-15 21:09:10,842 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:10,852 - Monitor - Monitor thread 0000000mp407181cf94214475d90da37bb507ea9e0 shutting down
+DEBUG - 2019-03-15 21:09:10,852 - Monitor - Monitor thread 0000000mp407181cf94214475d90da37bb507ea9e0 shutting down
+DEBUG - 2019-03-15 21:09:14,292 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:17,370 - Thread-13 - Starting
+DEBUG - 2019-03-15 21:09:17,452 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:17,455 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:09:17,513 - Thread-15 - Starting
+DEBUG - 2019-03-15 21:09:17,547 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:17,551 - CurveAuth - Configure curve: *[../Certificates/server-keys-0mp468e293d00b2a4f0989ead780cf7605b6/]
+DEBUG - 2019-03-15 21:09:18,610 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:18,610 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:18,633 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:19,769 - Thread-11 - Assigned Port: :59757 using server key *Gx6U^l.+)!^Z4m:Z@[?bakAJeRPQYYF$]<X6i(f
+DEBUG - 2019-03-15 21:09:19,777 - Thread-11 - Enrolled *Gx6U^l.+)!^Z4m:Z@[?bakAJeRPQYYF$]<X6i(f saved at ../Certificates/server-keys-0mp468e293d00b2a4f0989ead780cf7605b6/a5f1ea56720c495db48f993d788a1d86.key
+DEBUG - 2019-03-15 21:09:19,785 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:19,785 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:59757'
+DEBUG - 2019-03-15 21:09:19,786 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:19,786 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:59757'
+DEBUG - 2019-03-15 21:09:28,820 - Monitor - Monitor thread 0mp468e293d00b2a4f0989ead780cf7605b6 shutting down
+DEBUG - 2019-03-15 21:09:28,820 - Monitor - Monitor thread 0mp468e293d00b2a4f0989ead780cf7605b6 shutting down
+DEBUG - 2019-03-15 21:09:28,832 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:31,605 - Thread-20 - Starting
+DEBUG - 2019-03-15 21:09:31,636 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:31,636 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:09:31,692 - Thread-22 - Starting
+DEBUG - 2019-03-15 21:09:31,707 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:31,707 - CurveAuth - Configure curve: *[../Certificates/server-keys-1mp4fc6bca86078d4a3c84807158bc87cd56/]
+DEBUG - 2019-03-15 21:09:32,771 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:32,772 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:32,776 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:33,927 - Thread-18 - Assigned Port: :56554 using server key J0LL@1u#S(s0O3BzGm@Z6DgGOPnelXN4Y4F@<vb^
+DEBUG - 2019-03-15 21:09:33,935 - Thread-18 - Enrolled J0LL@1u#S(s0O3BzGm@Z6DgGOPnelXN4Y4F@<vb^ saved at ../Certificates/server-keys-1mp4fc6bca86078d4a3c84807158bc87cd56/42788e3f51264026ba618ce4d32af17c.key
+DEBUG - 2019-03-15 21:09:33,941 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:33,941 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56554'
+DEBUG - 2019-03-15 21:09:33,941 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:33,942 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56554'
+DEBUG - 2019-03-15 21:09:39,327 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:56554'
+DEBUG - 2019-03-15 21:09:39,328 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:39,340 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:41,726 - Thread-27 - Starting
+DEBUG - 2019-03-15 21:09:41,749 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:41,750 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:09:41,814 - Thread-29 - Starting
+DEBUG - 2019-03-15 21:09:41,838 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:41,841 - CurveAuth - Configure curve: *[../Certificates/server-keys-2mp4a973a75a2b2f4a50b70e204932339b2b/]
+DEBUG - 2019-03-15 21:09:42,888 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:42,890 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:42,906 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:09:44,044 - Thread-25 - Assigned Port: :50883 using server key Nmqmh8dhcNTn>-dP<x{63[9Z>OQ/EcfAlt9Aiq[I
+DEBUG - 2019-03-15 21:09:44,054 - Thread-25 - Enrolled Nmqmh8dhcNTn>-dP<x{63[9Z>OQ/EcfAlt9Aiq[I saved at ../Certificates/server-keys-2mp4a973a75a2b2f4a50b70e204932339b2b/5830d9535f5f473983de5f560f0bb59a.key
+DEBUG - 2019-03-15 21:09:44,057 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:44,057 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:50883'
+DEBUG - 2019-03-15 21:09:44,057 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:44,058 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:50883'
+DEBUG - 2019-03-15 21:09:44,077 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:50883'
+DEBUG - 2019-03-15 21:09:50,443 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:09:50,459 - CurveAuth - auth received API command b'TERMINATE'
+INFO - 2019-03-15 21:09:53,935 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:09:56,785 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:09:57,894 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/be9c59c69ac143f38d6c1dbc38f3c884.key
+DEBUG - 2019-03-15 21:09:57,894 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:09:57,896 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:09:57,897 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:09:57,897 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:09:57,942 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:09:57,949 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:09:57,950 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:09:57,951 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:09:57,966 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:10:04,968 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:10:23,570 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:10:26,420 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:10:27,564 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/5bee8351d402491ab850f305109c1b61.key
+DEBUG - 2019-03-15 21:10:27,564 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:10:27,583 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:10:27,585 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:10:27,586 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:10:27,696 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:10:27,713 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:10:27,717 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:10:27,725 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:10:27,750 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:10:33,988 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:15:27,957 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:15:33,013 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:15:34,128 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/3276199bc0b74732b7ec1275ed22fd2a.key
+DEBUG - 2019-03-15 21:15:34,128 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:15:34,128 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:15:34,128 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:15:34,128 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:15:34,206 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:15:34,227 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:15:34,227 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:15:34,229 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:15:34,253 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 21:15:40,512 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 60, in __init__
+    self.readyList = ReadyList(self, self.processList.spacerHeight)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 342, in __init__
+    self.update()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 371, in update
+    outerLayout.addWidget(QSpacerItem(0, self.spacerHeight))
+TypeError: 'PySide2.QtWidgets.QBoxLayout.addWidget' called with wrong argument types:
+  PySide2.QtWidgets.QBoxLayout.addWidget(PySide2.QtWidgets.QSpacerItem)
+Supported signatures:
+  PySide2.QtWidgets.QBoxLayout.addWidget(PySide2.QtWidgets.QWidget, int = 0, PySide2.QtCore.Qt.Alignment = Qt.Alignment())
+  PySide2.QtWidgets.QBoxLayout.addWidget(PySide2.QtWidgets.QWidget)
+CRITICAL - 2019-03-15 21:15:40,627 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 21:16:58,775 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:16:59,904 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/450529ec9d504ab0aa07142be75438cd.key
+DEBUG - 2019-03-15 21:16:59,904 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:16:59,913 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:16:59,914 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:16:59,916 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:17:00,046 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:17:00,057 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:17:00,058 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:17:00,060 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:17:00,087 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:17:06,246 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:18:33,946 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:18:37,644 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:18:38,789 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/ec2d4333e488406cb684ee7218969d1f.key
+DEBUG - 2019-03-15 21:18:38,791 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:18:38,798 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:18:38,833 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:18:38,836 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:18:38,901 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:18:38,909 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:18:38,910 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:18:38,911 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:18:38,929 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:18:45,757 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:18:49,433 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:19:55,019 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:19:56,174 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/6197d1b7b3cd4903aafed88f908f0165.key
+DEBUG - 2019-03-15 21:19:56,176 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:19:56,181 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:19:56,212 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:19:56,215 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:19:56,289 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:19:56,297 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:19:56,298 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:19:56,299 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:19:56,324 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:20:03,106 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 21:20:07,174 - MainThread - Deferred tab focused
+DEBUG - 2019-03-15 21:20:08,582 - MainThread - Live tab focused
+DEBUG - 2019-03-15 21:20:19,336 - Thread-6 - Starting
+DEBUG - 2019-03-15 21:20:19,358 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:20:19,367 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:20:19,418 - Thread-8 - Starting
+DEBUG - 2019-03-15 21:20:19,439 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:20:19,440 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp4ffc9c6318352478fa0dd02656d67c3d1/]
+DEBUG - 2019-03-15 21:20:20,496 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:20:20,496 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:20:20,512 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:20:21,699 - Thread-4 - Assigned Port: :58180 using server key MjDUgxZuX(AAP%+.t)o]Wz8MV0IvaVFHnNnl4#)0
+DEBUG - 2019-03-15 21:20:21,707 - Thread-4 - Enrolled MjDUgxZuX(AAP%+.t)o]Wz8MV0IvaVFHnNnl4#)0 saved at ../Certificates/server-keys-0000000mp4ffc9c6318352478fa0dd02656d67c3d1/dea1b79aa1244dd9802a7596c0f97ce6.key
+DEBUG - 2019-03-15 21:20:21,709 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:20:21,709 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:58180'
+DEBUG - 2019-03-15 21:20:21,710 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:20:21,710 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:58180'
+INFO - 2019-03-15 21:20:24,303 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:20:36,918 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:20:38,030 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/0ab73835418b48878fbe278d33df88c0.key
+DEBUG - 2019-03-15 21:20:38,030 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:20:38,059 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:20:38,061 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:20:38,062 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:20:38,167 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:20:38,167 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:20:38,167 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:20:38,167 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:20:38,208 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:20:44,490 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:22:33,931 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:22:39,121 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:22:40,279 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/97aaef8b261f472eac6474b5031dcdb7.key
+DEBUG - 2019-03-15 21:22:40,281 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:22:40,285 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:22:40,322 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:22:40,324 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:22:40,432 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:22:40,444 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:22:40,445 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:22:40,447 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:22:40,476 - MainThread - User authenticated, initialising tabs.
+CRITICAL - 2019-03-15 21:22:46,675 - MainThread - Tabs failed to initialise
+Traceback (most recent call last):
+  File "client.py", line 407, in __init__
+    self.deferredTab = DeferredAnalysis(app)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 59, in __init__
+    self.processList = ProcessList(self)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 269, in __init__
+    self.update()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Client\src\deferred_gui.py", line 323, in update
+    print(self.spacerHeight)
+AttributeError: 'ProcessList' object has no attribute 'spacerHeight'
+CRITICAL - 2019-03-15 21:22:46,783 - MainThread - Exception occured
+Traceback (most recent call last):
+  File "client.py", line 497, in <module>
+    mainWindow = mainWindow(app)
+  File "client.py", line 63, in __init__
+    tabs = MainWindowTabs(app)
+  File "client.py", line 426, in __init__
+    self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
+AttributeError: 'MainWindowTabs' object has no attribute 'deferredTab'
+INFO - 2019-03-15 21:22:59,066 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:23:00,184 - MainThread - Enrolled V]HhVr0Bg53/uRsIFGm=qGF(:Vbtgz+H^Z-D(3a0 saved at ../Certificates/server-keys-front/7b13ac5ac7f74a07beeb00cdd129b7c9.key
+DEBUG - 2019-03-15 21:23:00,184 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:23:00,184 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:23:00,184 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:23:00,184 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:23:00,250 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:23:00,257 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:23:00,257 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:23:00,265 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:23:00,280 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:23:06,229 - MainThread - Tabs initialised
+DEBUG - 2019-03-15 21:23:11,345 - MainThread - Deferred tab focused
+DEBUG - 2019-03-15 21:23:12,048 - MainThread - Live tab focused
+DEBUG - 2019-03-15 21:23:26,418 - Thread-6 - Starting
+DEBUG - 2019-03-15 21:23:26,500 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:23:26,501 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:23:26,585 - Thread-8 - Starting
+DEBUG - 2019-03-15 21:23:26,601 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:23:26,601 - CurveAuth - Configure curve: *[../Certificates/server-keys-0000000mp4982039dff76e48b48e366cdcbb4297a6/]
+DEBUG - 2019-03-15 21:23:27,649 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:23:27,650 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:23:27,674 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://127.0.0.1:5000'
+DEBUG - 2019-03-15 21:23:29,009 - Thread-4 - Assigned Port: :56192 using server key oTG:YCPrt:0)Uk51.yE}E3BBkH=LLYe#FowjZ60G
+DEBUG - 2019-03-15 21:23:29,024 - Thread-4 - Enrolled oTG:YCPrt:0)Uk51.yE}E3BBkH=LLYe#FowjZ60G saved at ../Certificates/server-keys-0000000mp4982039dff76e48b48e366cdcbb4297a6/1c1bf3ac2bb240209f99c5e7408ee35d.key
+DEBUG - 2019-03-15 21:23:29,029 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:23:29,029 - Monitor - EVENT_CONNECT_DELAYED b'tcp://127.0.0.1:56192'
+DEBUG - 2019-03-15 21:23:29,030 - Monitor - EVENT_MONITOR_STOPPED b''
+DEBUG - 2019-03-15 21:23:29,039 - Monitor - EVENT_CONNECTED b'tcp://127.0.0.1:56192'
+INFO - 2019-03-15 21:23:41,400 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:24:11,398 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-03-15 21:24:41,468 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:24:46,812 - MainThread - Enrolled cl:db(lx})E[{4QLVtQ?t6XC1*yJ8geCh-68bH/O saved at ../Certificates/server-keys-front/7b66cc71a95d4a1a9c5bfc263e00e868.key
+DEBUG - 2019-03-15 21:24:46,813 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:24:46,815 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:24:46,816 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:24:46,817 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:24:46,885 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:24:46,885 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:24:46,885 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:24:46,901 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:24:46,926 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:24:53,352 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:25:30,615 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:26:12,626 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:26:13,788 - MainThread - Enrolled cl:db(lx})E[{4QLVtQ?t6XC1*yJ8geCh-68bH/O saved at ../Certificates/server-keys-front/8b8fdcedeedf4a648b7baa0b7a0ad1db.key
+DEBUG - 2019-03-15 21:26:13,790 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:26:13,794 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:26:13,799 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:26:13,801 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:26:13,910 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:26:13,942 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:26:13,953 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:26:13,956 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:26:13,979 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:26:20,349 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:26:22,655 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:26:30,924 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:26:32,046 - MainThread - Enrolled cl:db(lx})E[{4QLVtQ?t6XC1*yJ8geCh-68bH/O saved at ../Certificates/server-keys-front/a6d7a9269002423ca5888c94f95997f5.key
+DEBUG - 2019-03-15 21:26:32,047 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:26:32,049 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:26:32,050 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:26:32,051 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:26:32,099 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:26:32,106 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:26:32,107 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:26:32,109 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:26:32,134 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:26:38,753 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:26:43,020 - MainThread - Termination signal received, please wait.
+INFO - 2019-03-15 21:28:42,943 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+DEBUG - 2019-03-15 21:28:44,039 - MainThread - Enrolled cl:db(lx})E[{4QLVtQ?t6XC1*yJ8geCh-68bH/O saved at ../Certificates/server-keys-front/e188527b626d42d48b4df4f8c7a9e42e.key
+DEBUG - 2019-03-15 21:28:44,039 - MainThread - Enrolled
+DEBUG - 2019-03-15 21:28:44,055 - MainThread - Enrollment Successful, starting main application
+INFO - 2019-03-15 21:28:44,056 - MainThread - Terminator signals linked
+DEBUG - 2019-03-15 21:28:44,057 - MainThread - Authenticating on saved user details
+DEBUG - 2019-03-15 21:28:44,105 - Thread-1 - Starting
+DEBUG - 2019-03-15 21:28:44,112 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-03-15 21:28:44,113 - CurveAuth - Configure curve: *[../Certificates/server-keys-front/]
+DEBUG - 2019-03-15 21:28:44,114 - CurveAuth - auth received API command b'TERMINATE'
+DEBUG - 2019-03-15 21:28:44,119 - MainThread - User authenticated, initialising tabs.
+DEBUG - 2019-03-15 21:28:50,280 - MainThread - Tabs initialised
+INFO - 2019-03-15 21:30:46,395 - MainThread - Termination signal received, please wait.

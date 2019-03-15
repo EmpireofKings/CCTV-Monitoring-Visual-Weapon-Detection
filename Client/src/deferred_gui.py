@@ -33,23 +33,6 @@ class DeferredAnalysis(QWidget):
 		QWidget.__init__(self)
 		layout = QHBoxLayout()
 
-		self.toProcess = []
-		self.ready = []
-
-		self.processList = ProcessList(self)
-		self.readyList = ReadyList(self)
-		self.viewer = Viewer(self)
-
-		layout.addWidget(self.processList)
-		layout.addWidget(self.readyList)
-		layout.addWidget(self.viewer)
-
-		self.setLayout(layout)
-
-		processHandler = ProcessHandler(self)
-		processHandler.setDaemon(True)
-		processHandler.start()
-
 		self.supportedImageTypes = (
 			'.bmp', '.dib',
 			'.jpg', '.jpeg', '.jpe', '.jp2',
@@ -69,6 +52,23 @@ class DeferredAnalysis(QWidget):
 			'.wmv',
 			'.mpg',
 			'.flv')
+
+		self.toProcess = []
+		self.ready = []
+
+		self.processList = ProcessList(self)
+		self.readyList = ReadyList(self)
+		self.viewer = Viewer(self)
+
+		layout.addWidget(self.processList)
+		layout.addWidget(self.readyList)
+		layout.addWidget(self.viewer)
+
+		self.setLayout(layout)
+
+		processHandler = ProcessHandler(self)
+		processHandler.setDaemon(True)
+		processHandler.start()
 
 	def addFolder(self):
 		dialog = QFileDialog()
@@ -93,7 +93,7 @@ class DeferredAnalysis(QWidget):
 		print(files)
 		self.addPreviews(files)
 
-	def addPreviews(self, files):
+	def addPreviews(self, files, ready=False):
 		images = files.get('images')
 		videos = files.get('videos')
 
@@ -107,10 +107,13 @@ class DeferredAnalysis(QWidget):
 			preview = Preview(self, video=video)
 			previews.append(preview)
 
-		for item in previews:
-			self.toProcess.append(item)
-
-		self.updateLists()
+		if not ready:
+			for item in previews:
+				self.toProcess.append(item)
+			self.updateLists()
+		else:
+			for item in previews:
+				self.ready.append(item)
 
 	def sortFiles(self, files):
 		sortedFiles = {
@@ -201,13 +204,13 @@ class ProcessHandler(Thread):
 
 					self.progressBarSetup.emitSignal((0, total))
 
-					basePath = '../Processed/'
-					shutil.copy(path, basePath + itemName)
-
 					# wait for video to be finished
 					while networker.is_alive():
 						self.progressBarUpdate.emitSignal((networker.total,))
 						time.sleep(1)
+
+					basePath = '../Processed/'
+					shutil.copy(path, basePath + itemName)
 
 				self.moveTopConnector.emitSignal()
 			time.sleep(2)
@@ -267,6 +270,10 @@ class ProcessList(QWidget):
 
 
 	def update(self):
+		title = QLabel('Queue')
+		font = QFont('Helvetica', 18)
+		title.setFont(font)
+		title.setAlignment(Qt.AlignCenter)
 		addFolderButton = QPushButton('Add Folder')
 		addFolderButton.clicked.connect(self.parent.addFolder)
 
@@ -298,12 +305,12 @@ class ProcessList(QWidget):
 			listLayout.addWidget(space)
 
 		listWidget = QFrame()
-		listWidget.setFrameStyle(QFrame.Box)
 		listWidget.setLayout(listLayout)
 		listScroll = QScrollArea()
 		listScroll.setWidget(listWidget)
 
 		outerLayout = QVBoxLayout()
+		outerLayout.addWidget(title)
 		outerLayout.addLayout(buttonLayout)
 		outerLayout.addWidget(self.progressBar)
 		outerLayout.addWidget(listScroll)
@@ -314,15 +321,36 @@ class ProcessList(QWidget):
 		self.setLayout(outerLayout)
 
 
+
 class ReadyList(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__(self)
 		self.parent = parent
 		self.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
+
+		files = os.listdir('../Processed/')
+
+		fullPaths = []
+		for file in files:
+			fullPath = '../Processed/' + file
+			fullPaths.append(fullPath)
+
+		files = self.parent.sortFiles(fullPaths)
+		files = self.parent.addPreviews(files, ready=True)
+
 		self.update()
 
-
 	def update(self):
+		title = QLabel('Ready')
+		font = QFont('Helvetica', 18)
+		title.setFont(font)
+		title.setAlignment(Qt.AlignCenter)
+
+		buttonLayout = QHBoxLayout()
+		deleteAll = QPushButton('Delete all processed media')
+		deleteAll.clicked.connect(self.deleteAll)
+		buttonLayout.addWidget(deleteAll)
+
 		listLayout = QVBoxLayout()
 
 		if len(self.parent.ready) > 0:
@@ -335,12 +363,19 @@ class ReadyList(QWidget):
 			listLayout.addWidget(space)
 
 		listWidget = QFrame()
-		listWidget.setFrameStyle(QFrame.Box)
 		listWidget.setLayout(listLayout)
 		listScroll = QScrollArea()
 		listScroll.setWidget(listWidget)
 
+		filler = QProgressBar()
+		sizePolicy = QSizePolicy()
+		sizePolicy.setRetainSizeWhenHidden(True)
+		filler.setSizePolicy(sizePolicy)
+
 		outerLayout = QVBoxLayout()
+		outerLayout.addWidget(title)
+		outerLayout.addLayout(buttonLayout)
+		outerLayout.addWidget(filler)
 		outerLayout.addWidget(listScroll)
 
 		tempWidget = QWidget()
@@ -348,6 +383,17 @@ class ReadyList(QWidget):
 
 		self.setLayout(outerLayout)
 
+		filler.hide()
+
+	def deleteAll(self):
+		files = os.listdir('../Processed/')
+
+		for file in files:
+			fullPath = '../Processed/' + file
+			os.remove(fullPath)
+
+		self.parent.ready.clear()
+		self.update()
 
 class Viewer(QWidget):
 	def __init__(self, parent):
@@ -474,7 +520,6 @@ class Preview(QLabel):
 
 		self.parent = parent
 		displaySize = (256, 144)
-		self.setFrameStyle(QFrame.Box)
 
 		if previewPmap is not None:
 			self.itemPath = itemPath
