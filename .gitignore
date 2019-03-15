@@ -123,3 +123,5 @@ venv.bak/
 *.key
 /Client/Certificates/
 /Server/Certificates/
+/Client/Processed/
+*.result
