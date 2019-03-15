@@ -75,7 +75,6 @@ class DeferredAnalysis(QWidget):
 		path = dialog.getExistingDirectory()
 
 		if path:
-			logging.debug('Chosen Folder %s', path)
 			files = os.listdir(path)
 
 			fullPaths = []
@@ -88,24 +87,28 @@ class DeferredAnalysis(QWidget):
 
 	def addFile(self):
 		dialog = QFileDialog()
-		path, check = dialog.getOpenFileName()
-
-		if check:
-			logging.debug('Chosen File %s', path)
-			file = self.sortFiles([path])
-			self.addPreviews(file)
+		files = dialog.getOpenFileNames()[0]
+		print(files)
+		files = self.sortFiles(files)
+		print(files)
+		self.addPreviews(files)
 
 	def addPreviews(self, files):
 		images = files.get('images')
 		videos = files.get('videos')
 
+		previews = []
+
 		for image in images:
 			preview = Preview(self, image=image)
-			self.toProcess.append(preview)
+			previews.append(preview)
 
 		for video in videos:
 			preview = Preview(self, video=video)
-			self.toProcess.append(preview)
+			previews.append(preview)
+
+		for item in previews:
+			self.toProcess.append(item)
 
 		self.updateLists()
 
@@ -282,7 +285,7 @@ class ProcessList(QWidget):
 			p = self.parent.toProcess[0]
 			p.setPixmap(
 				data_handler.getLabelledPixmap(
-					256, 144, "Processing...", pmap=p.previewPmap))
+					256, 144, "\n\n\n\n\nProcessing...\n                               ", pmap=p.previewPmap))
 
 			listLayout.addWidget(p)
 
@@ -367,6 +370,7 @@ class Viewer(QWidget):
 
 	def showAnalysis(self, contentType, name):
 		# self.analyser.reset()
+		print("calling set")
 		self.analyser.set(contentType, name)
 
 	def updateDisplay(self, frame):
@@ -387,16 +391,19 @@ class Viewer(QWidget):
 			self.resultPath = None
 			self.frameCount = 0
 			self.displayConn = DisplayConnector(display)
+			self.reset = False
+			self.ready = True
 
 		def run(self):
 			terminator = Terminator.getInstance()
 
 			while not terminator.isTerminating():
-
+				self.ready = True
 				while self.path is None or self.resultPath is None:
-					time.sleep(1)
+					time.sleep(0.01)
 
-				reset = False
+				self.ready = False
+				self.reset = False
 				feed = cv2.VideoCapture(self.path)
 
 				videoTotal = feed.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -405,11 +412,13 @@ class Viewer(QWidget):
 				print(fps)
 				resultsFile = open(self.resultPath, 'rb')
 				resultsData = pickle.load(resultsFile)
+				resultsFile.close()
 
 				print('V:', str(videoTotal), 'R:', len(resultsData))
 
 				fpsTimer = time.time()
-				while feed.isOpened() and reset is False:
+				self.frameCount = 0
+				while feed.isOpened() and self.reset is False:
 					while time.time() - fpsTimer < 1 / fps:
 						time.sleep(0.01)
 					
@@ -430,13 +439,29 @@ class Viewer(QWidget):
 								cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
 
 						self.displayConn.emitFrame(frame)
+					else:
+						self.path = None
+						self.resultPath = None
+						self.ready = False
+						self.reset = True
+						break
 
 					self.frameCount += 1
 
-		# def reset(self):
-		# 	self.reset = True
+				print("break")
+				feed.release()
 
 		def set(self, contentType, name):
+			print("in set")
+			self.path = None
+			self.resultPath = None
+			self.reset = True
+
+			while self.ready is False:
+				# print("waiting for ready")
+				# print(self.path, self.resultPath, self.reset, self.ready)
+				time.sleep(0.001)
+
 			self.path = self.basePath + name
 			self.resultPath = self.basePath + name + '.result'
 
@@ -454,11 +479,15 @@ class Preview(QLabel):
 		if previewPmap is not None:
 			self.itemPath = itemPath
 			self.itemType = itemType
+			parts = self.itemPath.split('/')
+			self.itemName = parts[len(parts) - 1:][0]
 			self.previewPmap = previewPmap
 
 		elif image is not None and video is None:
 			self.itemPath = image
 			self.itemType = 'image'
+			parts = self.itemPath.split('/')
+			self.itemName = parts[len(parts) - 1:][0]
 
 			image = cv2.imread(image)
 
@@ -475,22 +504,26 @@ class Preview(QLabel):
 		elif image is None and video is not None:
 			self.itemPath = video
 			self.itemType = 'video'
+			parts = self.itemPath.split('/')
+			self.itemName = parts[len(parts) - 1:][0]
 			feed = cv2.VideoCapture(video)
 
 			frame = np.zeros((256, 144, 3))
 
-			while feed.isOpened() and np.mean(frame) < 50:
-				check, frame = feed.read()
+			check, frame = feed.read()
 
-				if check:
-					frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-					frame = cv2.resize(frame, displaySize)
+			if check:
+				frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+				frame = cv2.resize(frame, displaySize)
 
-					previewPmap = QPixmap.fromImage(
-						QImage(
-							frame.data, displaySize[0],
-							displaySize[1], 3 * displaySize[0],
-							QImage.Format_RGB888))
+				previewPmap = QPixmap.fromImage(
+					QImage(
+						frame.data, displaySize[0],
+						displaySize[1], 3 * displaySize[0],
+						QImage.Format_RGB888))
+
+				previewPmap = data_handler.getLabelledPixmap(
+					256, 144, self.itemName, path=None, pmap=previewPmap)
 
 			feed.release()
 
@@ -501,9 +534,9 @@ class Preview(QLabel):
 			self.previewPmap = previewPmap
 			self.setPixmap(previewPmap)
 
-			parts = self.itemPath.split('/')
-			self.itemName = parts[len(parts) - 1:][0]
-
 	def mousePressEvent(self, event):
+		print("Mouse pressed registered")
 		if self in self.parent.ready:
+			print("calling show analysis")
 			self.parent.viewer.showAnalysis(self.itemType, self.itemName)
+			time.sleep(0.1)
