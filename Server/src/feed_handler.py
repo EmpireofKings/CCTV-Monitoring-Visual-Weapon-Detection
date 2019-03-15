@@ -8,11 +8,12 @@ import zmq
 
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
-from feed_process_helper import FeedProcessHelper
+from feed_process_helper import FeedProcessHelper, BackgroundRemover
 from modelHandler import ModelHandler
 from monitor import Monitor
 from results_handler import ResultsHandler
 from terminator import Terminator
+import _pickle as pickle
 
 
 class FeedHandler(Thread):
@@ -33,7 +34,7 @@ class FeedHandler(Thread):
 		self.saveClientKey(clientKey)
 
 		self.socket = context.socket(zmq.REP)
-		self.socket.setsockopt(zmq.RCVTIMEO, 10000)
+		self.socket.setsockopt(zmq.RCVTIMEO, 20000)
 
 		monitorSocket = self.socket.get_monitor_socket()
 		self.monitor = Monitor(monitorSocket, feedID)
@@ -70,7 +71,8 @@ class FeedHandler(Thread):
 		graph = modelHandler.getGraph()
 
 		resultHandler = ResultsHandler(9, 30)
-		# bgRemover = BackgroundRemover(feed)
+
+		bgRemover = BackgroundRemover()
 
 		with session.as_default():
 			with graph.as_default():
@@ -80,18 +82,24 @@ class FeedHandler(Thread):
 					except:
 						break
 
-					jpegStr = b64.b64decode(received)
-					jpeg = np.fromstring(jpegStr, dtype=np.uint8)
-					frame = cv2.imdecode(jpeg, 1)
+					# handling timeout for deferred thread
+					if received == 'wait':
+						self.socket.send_string("ok")
+						print('waiting')
+					else:
+						jpegStr = b64.b64decode(received)
+						jpeg = np.fromstring(jpegStr, dtype=np.uint8)
+						frame = cv2.imdecode(jpeg, 1)
 
-					regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
-					results = np.around(model.predict(regions)[:, 10:], decimals=3)
-					resultHandler.append(results)
-					alert = resultHandler.assess()
+						regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
+						results = np.around(model.predict(regions)[:, 10:], decimals=3)
+						resultHandler.append(results)
+						alert = resultHandler.assess()
 
-					# frame = bgRemover.drawBoundingBox(frame)
+						boundingBoxes = bgRemover.apply(frame)
 
-					self.socket.send_string(str(results))
+						response = pickle.dumps((results, boundingBoxes), protocol=4)
+						self.socket.send(response)
 
 		self.socket.disable_monitor()
 		self.monitor.stop = True

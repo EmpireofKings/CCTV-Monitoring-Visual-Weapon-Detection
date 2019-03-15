@@ -84,42 +84,35 @@ class FeedProcessHelper():
 
 
 class BackgroundRemover():
-	def __init__(self, feed):
-		self.clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(5, 5))
+	def __init__(self):
+		self.remover = cv2.createBackgroundSubtractorMOG2()
 
-		while feed.isOpened():
-			check, frame = feed.read()
+		self.openElement = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (3,3))
+		self.closeElement = cv2.getStructuringElement(cv2.MORPH_RECT, (30,30))
 
-			if check:
-				cv2.imshow("Press enter to capture background", frame)
-				key = cv2.waitKey(0)
+	def apply(self, frame):
+		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+		frame = cv2.GaussianBlur(frame, (19, 19), 0)
 
-			if key == 13:
-				gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-				blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-				self.background = self.clahe.apply(blurred)
+		mask = self.remover.apply(frame)
+
+		mask = cv2.morphologyEx(mask, cv2.MORPH_OPEN, self.openElement)
+		mask = cv2.morphologyEx(mask, cv2.MORPH_GRADIENT, self.openElement)
+		mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, self.closeElement)
+
+		h, w = np.shape(frame)
+		minArea = (h*w) * 0.0075
+
+		contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+		contours = sorted(contours, key=cv2.contourArea)
+
+		boundingBoxes = []
+		for contour in contours:
+			if cv2.contourArea(contour) > minArea and len(boundingBoxes) < 5:
+				x, y, w, h = cv2.boundingRect(contour)
+				scaleVal = 2.5
+				boundingBoxes.append([x*scaleVal, y*scaleVal, w*scaleVal, h*scaleVal])
+			else:
 				break
 
-	def drawBoundingBox(self, frame):
-		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-		blurred = cv2.GaussianBlur(gray, (5, 5), 0)
-		equalized = self.clahe.apply(blurred)
-
-		diff = cv2.absdiff(equalized, self.background)
-		_, binary = cv2.threshold(diff, 60, 255, cv2.THRESH_BINARY)
-		structEl = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
-
-		opened = cv2.morphologyEx(binary, cv2.MORPH_OPEN, structEl)
-
-		_, contours, _ = cv2.findContours(
-			opened, cv2.RETR_EXTERNAL,
-			cv2.CHAIN_APPROX_SIMPLE)
-
-		if len(contours) > 0:
-			largest = max(contours, key=cv2.contourArea)
-
-			x, y, w, h = cv2.boundingRect(largest)
-			cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-
-		return frame
-
+		return boundingBoxes
