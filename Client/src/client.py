@@ -12,6 +12,7 @@ import zmq
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+from PySide2.QtMultimedia import *
 from pprint import pprint
 
 # Appending CommonFiles to system path for importing
@@ -42,6 +43,7 @@ userConfig = '../userDetails.config'
 class mainWindow(QMainWindow):
 	def __init__(self, app):
 		QMainWindow.__init__(self)
+
 		self.app = app
 		authenticated = False
 
@@ -102,6 +104,13 @@ class mainWindow(QMainWindow):
 
 	def closeEvent(self, event):
 		self.terminator.autoTerminate()
+
+		threads = threading.enumerate()
+
+		for thread in threads:
+			thread.join()
+
+		shutil.rmtree('../data/Sounds')
 		self.app.exit()
 		sys.exit()
 

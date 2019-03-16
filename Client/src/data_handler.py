@@ -35,7 +35,6 @@ class DataLoader():
 			for cam in level["levelCameras"]:
 				camID = cam.get("cameraID")
 				cameraIDs.append(camID)
-				camName = cam.get("cameraName")
 				camLocation = cam.get("cameraLocation")
 
 				x = cam.get("cameraCoordinates")[0]
@@ -50,7 +49,11 @@ class DataLoader():
 				camColor = QColor(r, g, b)
 				camSize = cam.get("cameraSize")
 
-				camera = Camera(camID, camName, levelID, camLocation, camPosition, camAngle, camColor, camSize, assigned = True)
+				camera = Camera(
+					camID=camID, levelID=levelID, location=camLocation,
+					position=camPosition, angle=camAngle, color=camColor,
+					size=camSize, assigned=True)
+
 				levelCameras.append(camera)
 
 			level = Level(levelID, levelDrawPath, levelCameras)
@@ -98,7 +101,7 @@ class DataLoader():
 
 						if feed.isOpened():
 							feed.release()
-							camera = Camera(str(id + api), str(id + api))
+							camera = Camera(camID=str(id + api))
 							unassignedCameras.append(camera)
 					except Exception as e:
 						print(e)
@@ -150,24 +153,25 @@ class Level():
 
 class Camera():
 	def __init__(
-		self, camID, name, levelID=None, location=None, position=None,
-		angle=None, color=None, size=None, staticBackground=None, assigned=False):
+		self, camID, levelID=None, location=None, position=None,
+		angle=None, color=None, size=None, assigned=False):
 
 		if camID.isdigit():
 			self.camID = camID
 		else:
 			self.camID = os.path.relpath(camID)
 
-		self.name = name
 		self.levelID = levelID
 		self.location = location
 		self.position = position
 		self.angle = angle
 		self.color = color
 		self.size = size
-		self.staticBackground = staticBackground
 		self.assigned = assigned
 		self.preview = None
+		self.alert = False
+		self.soundText = None
+		self.soundPath = None
 
 	def getPreview(self, width, height):
 		if self.preview is None:
@@ -182,17 +186,17 @@ class Camera():
 				if check:
 					feed.release()
 					del feed
-					self.preview = getLabelledPixmap(width, height, self.name, path = None, pmap = nd2pmap(frame))
+					self.preview = getLabelledPixmap(
+						width, height, label=self.location,
+						path=None, pmap=nd2pmap(frame))
 			else:
 				print("Error acquiring feed preview. (ID:", self.camID, ")" )
 
 		return self.preview
 
-
 	def getSaveableForm(self):
 		cam = {}
 		cam["cameraID"] = str(self.camID)
-		cam["cameraName"] = str(self.name)
 		cam["cameraLocation"] = self.location
 		cam["cameraCoordinates"] = [self.position.x(), self.position.y()]
 		cam["cameraAngle"] = self.angle
@@ -202,14 +206,17 @@ class Camera():
 
 		return cam
 
+
 def nd2pmap(frame):
 	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 	h, w, c = np.shape(frame)
 	pmap = QPixmap.fromImage(QImage(frame.data, w, h, w*c,  QImage.Format_RGB888))
 	return pmap
 
+
 def getPixmap(width, height, path):
 	return QPixmap(path).scaled(QSize(width, height))
+
 
 def getLabelledPixmap(width, height, label, path=None, pmap=None):
 	if pmap is None:

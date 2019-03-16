@@ -21,15 +21,21 @@ from collections import deque
 import _pickle as pickle
 import cv2
 import numpy as np
-from display_connector import DisplayConnector
+from connectors import DisplayConnector, GenericConnector
 from notify_run import Notify
 
 
 class Networker(Thread):
 	def __init__(
 		self, camera=None, display=None, mainDisplay=None,
-		deferredMode=False, filePath=None):
+		deferredMode=False, filePath=None, layoutHandler=None):
 		Thread.__init__(self)
+
+		self.layoutHandler = layoutHandler
+
+		if self.layoutHandler is not None:
+			self.updateConnector = GenericConnector(layoutHandler.updateLayout)
+			#self.setAlertConnector = GenericConnector(layoutHandler.setAlert)
 
 		self.end = False
 		self.frames = deque()
@@ -127,14 +133,7 @@ class Networker(Thread):
 
 		results = []
 
-		try:
-			notify = Notify()
-			# notify.configure('https://notify.run/c/fA32tvPxqKTDmVMJ')
-			logging.debug('Browser Notification Endpoint Configured')
-		except:
-			notify = None
-			logging.critical('Failed to configure notify endpoint', exc_info=True)
-
+		notify = Notify()
 		notifyTimer = time.time()
 
 		while not terminator.isTerminating() and self.end is False or (self.end is True and len(self.frames) > 0):
@@ -157,14 +156,21 @@ class Networker(Thread):
 				result = pickle.loads(serial)
 
 				if result[0] > 0.99 and not self.deferredMode:
+					self.camera.alert = True
+					alertTimer = time.time()
+					self.updateConnector.emitSignal()
+
 					if notify is not None and time.time() - notifyTimer >= 30:
-						notify.send(
-							'Weapon detected at level ' +
-							str(self.camera.levelID) + ' ' +
-							self.camera.location)
-						notifyTimer = time.time()
-					
-					# emit signal to gui for notification
+							notify.send(
+								'Weapon detected at level ' +
+								str(self.camera.levelID) + ' ' +
+								self.camera.location)
+							notifyTimer = time.time()
+
+				if self.camera.alert:
+					if time.time() - alertTimer >= 5:
+						self.camera.alert = False
+						self.updateConnector.emitSignal()
 
 				boundingBoxes = result[1]
 
@@ -177,7 +183,8 @@ class Networker(Thread):
 						w = int(self.scale(w, 0, 1, 0, width))
 						h = int(self.scale(h, 0, 1, 0, height))
 
-						cv2.rectangle(displayFrame, (x,y), (x+w, y+h), (0,255,0), 2)
+						cv2.rectangle(
+							displayFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 				# # if this display is the main, emit the frame signal to both displays
 

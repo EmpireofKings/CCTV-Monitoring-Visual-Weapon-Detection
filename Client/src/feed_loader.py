@@ -10,7 +10,7 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from collections import deque
-from display_connector import DisplayConnector
+from connectors import DisplayConnector
 
 class FeedLoader(Thread):
 	# GUI Thread launches this thread

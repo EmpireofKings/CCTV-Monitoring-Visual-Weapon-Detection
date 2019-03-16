@@ -24,7 +24,7 @@ from PySide2.QtWidgets import *
 
 import _pickle as pickle
 import data_handler
-from display_connector import DisplayConnector
+from connectors import DisplayConnector, GenericConnector
 from feed_loader import FeedLoader
 from networker import Networker
 from terminator import Terminator
@@ -162,9 +162,9 @@ class ProcessHandler(Thread):
 		Thread.__init__(self)
 		self.parent = parent
 		self.terminator = Terminator.getInstance()
-		self.moveTopConnector = self.UpdateConnector(self.parent.moveTop)
-		self.progressBarSetup = self.UpdateConnector(self.parent.setupProgressBar)
-		self.progressBarUpdate = self.UpdateConnector(self.parent.updateProgressBar)
+		self.moveTopConnector = GenericConnector(self.parent.moveTop)
+		self.progressBarSetup = GenericConnector(self.parent.setupProgressBar)
+		self.progressBarUpdate = GenericConnector(self.parent.updateProgressBar)
 
 	def run(self):
 		while not self.terminator.isTerminating():
@@ -251,16 +251,6 @@ class ProcessHandler(Thread):
 
 		with open(respath, 'w') as fp:
 			fp.write(str(results))
-
-	class UpdateConnector(QObject):
-		moveTopSignal = Signal(tuple)
-
-		def __init__(self, func):
-			QObject.__init__(self)
-			self.moveTopSignal.connect(func)
-
-		def emitSignal(self, args=None):
-			self.moveTopSignal.emit(args)
 
 
 class ProcessList(QWidget):
@@ -475,6 +465,7 @@ class Viewer(QWidget):
 
 					if check:
 						results = resultsData[self.frameCount]
+						self.frameCount += 1
 						classifications = results[0]
 						boundingBoxes = results[1]
 
@@ -496,8 +487,6 @@ class Viewer(QWidget):
 					else:
 						feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
 						self.frameCount = 0
-
-					self.frameCount += 1
 
 				print("break")
 				feed.release()
