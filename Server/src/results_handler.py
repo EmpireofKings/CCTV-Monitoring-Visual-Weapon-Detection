@@ -38,9 +38,12 @@ class ResultsHandler():
 	def assess(self):
 		averages = self.getAverages()
 
+		highest = 0
 		for avg in averages:
-			if max(avg) > 0.95:
-				return True
+			if max(avg) > highest:
+				highest = max(avg)
+
+		return highest
 
 	class ResultBuffer():
 		def __init__(self, size):

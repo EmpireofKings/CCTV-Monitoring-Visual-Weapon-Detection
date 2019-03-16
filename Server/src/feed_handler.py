@@ -94,11 +94,11 @@ class FeedHandler(Thread):
 						regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
 						results = np.around(model.predict(regions)[:, 10:], decimals=3)
 						resultHandler.append(results)
-						alert = resultHandler.assess()
+						finalResult = resultHandler.assess()
 
 						boundingBoxes = bgRemover.apply(frame)
 
-						response = pickle.dumps((results, boundingBoxes), protocol=4)
+						response = pickle.dumps((finalResult, boundingBoxes), protocol=4)
 						self.socket.send(response)
 
 		self.socket.disable_monitor()

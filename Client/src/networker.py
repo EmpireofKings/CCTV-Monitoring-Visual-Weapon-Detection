@@ -22,6 +22,7 @@ import _pickle as pickle
 import cv2
 import numpy as np
 from display_connector import DisplayConnector
+from notify_run import Notify
 
 
 class Networker(Thread):
@@ -126,6 +127,16 @@ class Networker(Thread):
 
 		results = []
 
+		try:
+			notify = Notify()
+			# notify.configure('https://notify.run/c/fA32tvPxqKTDmVMJ')
+			logging.debug('Browser Notification Endpoint Configured')
+		except:
+			notify = None
+			logging.critical('Failed to configure notify endpoint', exc_info=True)
+
+		notifyTimer = time.time()
+
 		while not terminator.isTerminating() and self.end is False or (self.end is True and len(self.frames) > 0):
 			if self.nextFrame is not None or len(self.frames) > 0:
 				self.total += 1
@@ -145,11 +156,26 @@ class Networker(Thread):
 
 				result = pickle.loads(serial)
 
+				if result[0] > 0.99 and not self.deferredMode:
+					if notify is not None and time.time() - notifyTimer >= 30:
+						notify.send(
+							'Weapon detected at level ' +
+							str(self.camera.levelID) + ' ' +
+							self.camera.location)
+						notifyTimer = time.time()
+					
+					# emit signal to gui for notification
+
 				boundingBoxes = result[1]
 
 				if boundingBoxes != []:
+					height, width, _ = np.shape(displayFrame)
 					for box in boundingBoxes:
-						x, y, w, h = int(box[0]), int(box[1]), int(box[2]), int(box[3])
+						x, y, w, h = box
+						x = int(self.scale(x, 0, 1, 0, width))
+						y = int(self.scale(y, 0, 1, 0, height))
+						w = int(self.scale(w, 0, 1, 0, width))
+						h = int(self.scale(h, 0, 1, 0, height))
 
 						cv2.rectangle(displayFrame, (x,y), (x+w, y+h), (0,255,0), 2)
 
@@ -182,3 +208,6 @@ class Networker(Thread):
 			certHandler.cleanup()
 		except Exception as e:
 			print("exception while ending", e)
+
+	def scale(self, val, inMin, inMax, outMin, outMax):
+		return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin

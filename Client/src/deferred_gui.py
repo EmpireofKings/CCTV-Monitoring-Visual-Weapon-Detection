@@ -1,31 +1,33 @@
 #TODO
 
-import numpy as np
-import cv2
-import sys
+import base64 as b64
+import copy
 import json
+import logging
 import math
+import os
+import shutil
+import sys
+import time
+from collections import deque
 from pprint import pprint
+from threading import Thread
+
+import cv2
+import ffmpeg
+import numpy as np
 from PySide2.QtCore import *
 from PySide2.QtGui import *
-from PySide2.QtWidgets import *
 from PySide2.QtMultimedia import *
 from PySide2.QtMultimediaWidgets import *
-from threading import Thread
-import time
-import logging
-from collections import deque
-import os
-from terminator import Terminator
-import copy
-from networker import Networker
-from feed_loader import FeedLoader
-import base64 as b64
-import ffmpeg
-import shutil
-from display_connector import DisplayConnector
-import data_handler
+from PySide2.QtWidgets import *
+
 import _pickle as pickle
+import data_handler
+from display_connector import DisplayConnector
+from feed_loader import FeedLoader
+from networker import Networker
+from terminator import Terminator
 
 
 class DeferredAnalysis(QWidget):
@@ -457,7 +459,7 @@ class Viewer(QWidget):
 
 				print(fps)
 				resultsFile = open(self.resultPath, 'rb')
-				resultsData = pickle.load(resultsFile)
+				resultsData = pickle.load(resultsFile)[::-1]
 				resultsFile.close()
 
 				print('V:', str(videoTotal), 'R:', len(resultsData))
@@ -480,22 +482,28 @@ class Viewer(QWidget):
 						frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
 						if boundingBoxes != []:
+							height, width, _ = np.shape(frame)
 							for box in boundingBoxes:
-								x, y, w, h = int(box[0]*2), int(box[1]*2), int(box[2]*2), int(box[3]*2)
-								cv2.rectangle(frame, (x,y), (x+w, y+h), (0,255,0), 2)
+								xf, yf, wf, hf = box
+								x = int(self.scale(xf, 0, 1, 0, width))
+								y = int(self.scale(yf, 0, 1, 0, height))
+								w = int(self.scale(wf, 0, 1, 0, width))
+								h = int(self.scale(hf, 0, 1, 0, height))
+
+								cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 						self.displayConn.emitFrame(frame)
 					else:
-						self.path = None
-						self.resultPath = None
-						self.ready = False
-						self.reset = True
-						break
+						feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+						self.frameCount = 0
 
 					self.frameCount += 1
 
 				print("break")
 				feed.release()
+		
+		def scale(self, val, inMin, inMax, outMin, outMax):
+			return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin
 
 		def set(self, contentType, name):
 			print("in set")

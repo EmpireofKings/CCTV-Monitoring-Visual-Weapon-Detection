@@ -100,8 +100,8 @@ class BackgroundRemover():
 		mask = cv2.morphologyEx(mask, cv2.MORPH_GRADIENT, self.openElement)
 		mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, self.closeElement)
 
-		h, w = np.shape(frame)
-		minArea = (h*w) * 0.0075
+		height, width = np.shape(frame)
+		minArea = (height*width) * 0.0075
 
 		contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		contours = sorted(contours, key=cv2.contourArea)
@@ -109,10 +109,17 @@ class BackgroundRemover():
 		boundingBoxes = []
 		for contour in contours:
 			if cv2.contourArea(contour) > minArea and len(boundingBoxes) < 5:
-				x, y, w, h = cv2.boundingRect(contour)
-				scaleVal = 2.5
-				boundingBoxes.append([x*scaleVal, y*scaleVal, w*scaleVal, h*scaleVal])
+				xf, yf, wf, hf = cv2.boundingRect(contour)
+				x = self.scale(xf, 0, width, 0, 1)
+				y = self.scale(yf, 0, height, 0, 1)
+				w = self.scale(wf, 0, width, 0, 1)
+				h = self.scale(hf, 0, height, 0, 1)
+
+				boundingBoxes.append([x, y, w, h])
 			else:
 				break
 
 		return boundingBoxes
+
+	def scale(self, val, inMin, inMax, outMin, outMax):
+		return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin
