@@ -7,6 +7,7 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from data_handler import *
 from gtts import gTTS
+import logging
 
 
 class LayoutMode(Enum):
@@ -40,6 +41,7 @@ class LayoutPainter(QFrame):
         self.placing = False
         self.lastMousePos = None
         self.config = config
+        self.pulseRadiusMultiplier = 0.9
 
         self.levelIDs = []
 
@@ -70,13 +72,22 @@ class LayoutPainter(QFrame):
 
             painter.drawPixmap(QPoint(pmapDrawX, 0), self.currentpmap)
 
+            rect = QRectF(10.0, 20.0, 80.0, 60.0)
+            startAngle = int(30 * 16)
+            spanAngle = int(120 * 16)
+
+            painter.drawArc(rect, startAngle, spanAngle)
+            painter.drawRect(rect)
+
             for camera in self.level.cameras:
+                # map coordinates
                 camX = self.range2range(
                     camera.position.x(), 0, 500, 0, self.currentpmap.width() + pmapDrawX)
 
                 camY = self.range2range(
                     camera.position.y(), 0, 500, 0, self.currentpmap.height())
 
+                # set color to red if on alert
                 if camera.alert:
                     color = QColor(255, 0, 0)
                 else:
@@ -85,6 +96,11 @@ class LayoutPainter(QFrame):
                 painter.setPen(color)
                 painter.setBrush(QBrush(color, Qt.SolidPattern))
 
+                # draw main circle
+                painter.drawEllipse(QPoint(camX, camY),
+                                    camera.size, camera.size)
+
+                # calculate arrow coordinates
                 radius = camera.size * 2
                 arrowX = int(
                     (radius * math.sin(math.radians(camera.angle)))) + camX
@@ -92,10 +108,29 @@ class LayoutPainter(QFrame):
                     (radius * math.cos(math.radians(camera.angle)))) + camY
                 arrowPoint = QPoint(arrowX, arrowY)
 
-                painter.drawEllipse(QPoint(camX, camY),
-                                    camera.size, camera.size)
+                # alter brush and pen
+                painter.setBrush(Qt.NoBrush)
+                pen = painter.pen()
+                pen.setWidth(int(camera.size / 5))
+                painter.setPen(pen)
+
+                # draw arrow line
                 painter.drawLine(QPoint(camX, camY), arrowPoint)
 
+                # get rect for drawing arc
+                rect = QRectF(
+                    camX - (camera.size * 2),
+                    camY - (camera.size * 2),
+                    camera.size * 4,
+                    camera.size * 4)
+
+                # draw arc
+                painter.drawArc(
+                    rect,
+                    int((camera.angle - 112.5) * 16),
+                    int((45) * 16))
+
+                # draw green circle around cam if selected
                 if camera.camID == self.mainFeedID:
                     painter.setBrush(Qt.NoBrush)
                     pen = QPen(QColor(0, 255, 0))
@@ -104,24 +139,56 @@ class LayoutPainter(QFrame):
                     painter.drawEllipse(QPoint(camX, camY),
                                         camera.size, camera.size)
 
+                # if on alert pulse
+                if camera.alert:
+                    painter.setBrush(Qt.NoBrush)
+                    pen = QPen(QColor(255, 0, 0))
+                    pen.setWidth(2)
+                    painter.setPen(pen)
+                    painter.drawEllipse(
+                        QPoint(camX, camY), 
+                        self.pulseRadiusMultiplier * camera.size,
+                        self.pulseRadiusMultiplier * camera.size)
+
+            # control pulse radius multiplier
+            if self.pulseRadiusMultiplier < 2.0:
+                self.pulseRadiusMultiplier += 0.1
+            else:
+                self.pulseRadiusMultiplier = 0.0
+
             if self.placing is True:
                 painter.setPen(QPen(QColor(255, 0, 0)))
                 painter.setBrush(QBrush(QColor(255, 0, 0)))
                 painter.drawEllipse(self.lastMousePos, 10, 10)
+
+    def findCamByID(self, camID):
+        print(camID)
+        for level in self.data[0]:
+            for camera in level.cameras:
+                print(camera.camID)
+                if camera.location == camID:
+                    return camera
+        
+        return False
 
     def mousePressEvent(self, event):
         if self.data[0] != []:
             camID = self.getCloseCam(event.x(), event.y())
 
             if camID is not None:
-                self.mainFeedID = camID
-                self.update()
+                camera = self.findCamByID(camID)
+                if camera is not False:
+                    self.controls.setMainFeedID(camera)
+                    self.update()
+                else:
+                    logging.error("Camera not found")
 
             if self.placing is True:
                 cameraDialog = self.CameraDialog(
                     self.mainFeedID, self.currentLevel)
 
-                name, location, angle, color, size, staticBackground = cameraDialog.getCameraInfo()
+                name, location, angle, color, size, staticBackground = (
+                    cameraDialog.getCameraInfo())
 
                 rawX = self.lastMousePos.x()
                 rawY = self.lastMousePos.y()
@@ -240,13 +307,13 @@ class LayoutPainter(QFrame):
 
                 dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
-                dists[camera.camID] = dist
+                dists[camera.location] = dist
 
-            closestID = min(dists, key=dists.get)
-            closestDist = dists.get(closestID)
+            location = min(dists, key=dists.get)
+            closestDist = dists.get(location)
 
             if closestDist < camera.size * 2:
-                return closestID
+                return location
             else:
                 return None
         else:
@@ -263,6 +330,7 @@ class LayoutControls(QFrame):
         self.config = config
         self.data = data
         self.painter = painter
+        self.painter.controls = self
         outerLayout = QVBoxLayout()
         self.setMaximumSize(QSize(1200, 100))
         self.setMinimumSize(QSize(700, 50))

@@ -29,6 +29,7 @@ from validator import Validator
 from context_handler import ContextHandler
 from certificate_handler import CertificateHandler
 from terminator import Terminator
+from corner_controls import CornerControls
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
@@ -114,7 +115,6 @@ class mainWindow(QMainWindow):
 		self.app.exit()
 		sys.exit()
 
-
 class LoginDialog(QDialog):
 	def __init__(self):
 		QDialog.__init__(
@@ -135,6 +135,8 @@ class LoginDialog(QDialog):
 		usernameLayout = QHBoxLayout()
 		usernameLabel = QLabel("Username: ")
 		self.usernameEntryLogin = QLineEdit()
+		self.usernameEntryLogin.setAlignment(Qt.AlignRight)
+		self.usernameEntryLogin.setFixedWidth(150)
 		usernameLayout.addWidget(usernameLabel)
 		usernameLayout.addWidget(self.usernameEntryLogin)
 
@@ -142,6 +144,8 @@ class LoginDialog(QDialog):
 		passwordLabel = QLabel("Password: ")
 		self.passwordEntryLogin = QLineEdit()
 		self.passwordEntryLogin.setEchoMode(QLineEdit.Password)
+		self.EntryLogin.setAlignment(Qt.AlignRight)
+		self.EntryLogin.setFixedWidth(150)
 		passwordLayout.addWidget(passwordLabel)
 		passwordLayout.addWidget(self.passwordEntryLogin)
 
@@ -168,32 +172,40 @@ class LoginDialog(QDialog):
 		registerTab = QWidget()
 
 		usernameLayout = QHBoxLayout()
-		usernameLabel = QLabel("Username: ")
+		usernameLabel = QLabel("Username:")
 		self.usernameEntryRegister = QLineEdit()
 		self.usernameEntryRegister.setMaxLength(32)
+		self.usernameEntryRegister.setAlignment(Qt.AlignRight)
+		self.usernameEntryRegister.setFixedWidth(150)
 		usernameLayout.addWidget(usernameLabel)
 		usernameLayout.addWidget(self.usernameEntryRegister)
 
 		emailLayout = QHBoxLayout()
-		emailLabel = QLabel("Email: ")
+		emailLabel = QLabel("Email:")
 		self.emailEntryRegister = QLineEdit()
 		self.emailEntryRegister.setMaxLength(254)
+		self.emailEntryRegister.setAlignment(Qt.AlignRight)
+		self.emailEntryRegister.setFixedWidth(150)
 		emailLayout.addWidget(emailLabel)
 		emailLayout.addWidget(self.emailEntryRegister)
 
 		passwordLayout = QHBoxLayout()
-		passwordLabel = QLabel("Password: ")
+		passwordLabel = QLabel("Password:")
 		self.passwordEntryRegister = QLineEdit()
 		self.passwordEntryRegister.setEchoMode(QLineEdit.Password)
 		self.passwordEntryRegister.setMaxLength(128)
+		self.passwordEntryRegister.setAlignment(Qt.AlignRight)
+		self.passwordEntryRegister.setFixedWidth(150)
 		passwordLayout.addWidget(passwordLabel)
 		passwordLayout.addWidget(self.passwordEntryRegister)
 
 		passConfLayout = QHBoxLayout()
-		passConfLabel = QLabel("Confirm Password: ")
+		passConfLabel = QLabel("Confirm Password:")
 		self.passConfEntryRegister = QLineEdit()
 		self.passConfEntryRegister.setEchoMode(QLineEdit.Password)
 		self.passConfEntryRegister.setMaxLength(128)
+		self.passConfEntryRegister.setAlignment(Qt.AlignRight)
+		self.passConfEntryRegister.setFixedWidth(150)
 		passConfLayout.addWidget(passConfLabel)
 		passConfLayout.addWidget(self.passConfEntryRegister)
 
@@ -414,6 +426,7 @@ class MainWindowTabs(QTabWidget):
 			self.configTab = Config(app, dataLoader)
 			self.liveTab = LiveAnalysis(app, dataLoader)
 			self.deferredTab = DeferredAnalysis(app)
+			self.cornerWidget = CornerControls(app)
 			logging.debug('Tabs initialised')
 		except:
 			logging.critical('Tabs failed to initialise', exc_info=True)
@@ -434,6 +447,7 @@ class MainWindowTabs(QTabWidget):
 		self.addTab(self.liveTab, liveIcon, "Live Analysis")
 		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
+		self.setCornerWidget(self.cornerWidget)
 
 		self.currentChanged.connect(self.tabChanged)
 

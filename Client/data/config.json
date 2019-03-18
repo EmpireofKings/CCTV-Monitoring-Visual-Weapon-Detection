@@ -11,13 +11,13 @@
                     122,
                     269
                 ],
-                "cameraAngle": 40,
+                "cameraAngle": 90,
                 "cameraColor": [
                     0,
                     0,
                     0
                 ],
-                "cameraSize": 30
+                "cameraSize": 20
             },
             {
                 "cameraID": "..\\data\\videos\\0.mp4",
@@ -27,13 +27,13 @@
                     120,
                     359
                 ],
-                "cameraAngle": 40,
+                "cameraAngle": 180,
                 "cameraColor": [
                     0,
                     0,
                     0
                 ],
-                "cameraSize": 10
+                "cameraSize": 20
             },
             {
                 "cameraID": "..\\data\\videos\\1.mp4",
@@ -43,13 +43,13 @@
                     466,
                     428
                 ],
-                "cameraAngle": 150,
+                "cameraAngle": 270,
                 "cameraColor": [
                     0,
                     0,
                     0
                 ],
-                "cameraSize": 10
+                "cameraSize": 20
             },
             {
                 "cameraID": "..\\data\\videos\\4.mp4",
@@ -59,13 +59,13 @@
                     311,
                     203
                 ],
-                "cameraAngle": 140,
+                "cameraAngle": 360,
                 "cameraColor": [
                     0,
                     0,
                     0
                 ],
-                "cameraSize": 10
+                "cameraSize": 20
             }
         ]
     },

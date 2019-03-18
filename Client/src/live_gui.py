@@ -72,6 +72,7 @@ class LiveAnalysis(QWidget):
 		self.drawSpace.painter.update()
 
 	def showAlertDialog(self, msg):
+		self.dialog.detected.setText(msg)
 		self.dialog.exec_()
 
 
@@ -82,11 +83,16 @@ class AlertDialog(QDialog):
 			Qt.WindowTitleHint | Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
 
 		self.banner = QLabel()
-		pmap = getPixmap(1405, 682, '../data/icons/attention.png')
+		pmap = getPixmap(640, 360, '../data/icons/attention.png', keepAspect=True)
 		self.banner.setPixmap(pmap)
 
-		outerLayout = QHBoxLayout()
+		self.detected = QLabel()
+		font = QFont('Helvetica', 10)
+		self.detected.setFont(font)
+
+		outerLayout = QVBoxLayout()
 		outerLayout.addWidget(self.banner)
+		outerLayout.addWidget(self.detected)
 
 		self.setLayout(outerLayout)
 
@@ -132,13 +138,24 @@ class AlertWatcher(Thread):
 			currentDisplayData = self.parent.drawSpace.painter.data[0]
 
 			soundsToPlay = []
+			msg = 'Locations Detected:'
 			for level in currentDisplayData:
+				lvlMsg = '\n\tLevel ' + str(level.levelID)
+				camMsgs = ''
 				for camera in level.cameras:
 					if camera.alert is True:
-						soundsToPlay.append(camera.soundPath)
+						if camera.alerted is False:
+							camera.alerted = True
+							soundsToPlay.append(camera.soundPath)
+
+						camMsgs += '\n\t\t' + camera.location
+					elif camera.alerted is True:
+						camera.alerted = False
+				if camMsgs != '':
+					msg += lvlMsg + camMsgs + '\n'
 
 			if len(soundsToPlay) > 0:
-				self.alertDialog.emitSignal("Weapon detected in " + str(len(soundsToPlay)) + "places")
+				self.alertDialog.emitSignal(msg)
 				self.playUntilDone(self.playlist[self.index.get(self.detectedPath)])
 
 			count = 0
@@ -150,7 +167,7 @@ class AlertWatcher(Thread):
 
 				count += 1
 
-			time.sleep(10)
+			time.sleep(5)
 
 	def playUntilDone(self, media):
 		self.finished = False

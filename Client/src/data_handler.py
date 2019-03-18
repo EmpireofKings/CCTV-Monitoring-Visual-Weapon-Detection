@@ -170,6 +170,7 @@ class Camera():
 		self.assigned = assigned
 		self.preview = None
 		self.alert = False
+		self.alerted = False
 		self.soundText = None
 		self.soundPath = None
 
@@ -214,8 +215,11 @@ def nd2pmap(frame):
 	return pmap
 
 
-def getPixmap(width, height, path):
-	return QPixmap(path).scaled(QSize(width, height))
+def getPixmap(width, height, path, keepAspect=False):
+	if keepAspect:
+		return QPixmap(path).scaled(QSize(width, height), Qt.KeepAspectRatio)
+	else:
+		return QPixmap(path).scaled(QSize(width, height))
 
 
 def getLabelledPixmap(width, height, label, path=None, pmap=None):

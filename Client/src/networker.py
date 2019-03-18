@@ -107,8 +107,6 @@ class Networker(Thread):
 		return feedSocket, feedCert, feedCtx
 
 	def run(self):
-		global mainFeedID
-
 		if self.camera is not None:
 			feedID = str(self.camera.camID)
 		elif self.deferredMode:
@@ -168,7 +166,7 @@ class Networker(Thread):
 							notifyTimer = time.time()
 
 				if self.camera.alert:
-					if time.time() - alertTimer >= 5:
+					if time.time() - alertTimer >= 60:
 						self.camera.alert = False
 						self.updateConnector.emitSignal()
 
@@ -189,9 +187,10 @@ class Networker(Thread):
 				# # if this display is the main, emit the frame signal to both displays
 
 				if not self.deferredMode:
-					if self.camera.camID == self.mainDisplay.camera.camID:
+					mainCam = self.layoutHandler.drawSpace.controls.getSelectedCamera()
+					if self.camera.camID == mainCam.camID:
 						self.mainDisplayConn.emitFrame(displayFrame)
-						self.mainDisplay.camera = self.camera
+						#self.mainDisplay.camera = self.camera
 				else:
 					results.append(result)
 

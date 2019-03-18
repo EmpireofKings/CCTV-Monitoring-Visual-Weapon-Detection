@@ -90,7 +90,7 @@ class FeedLoader(Thread):
 						self.networker.frames.append((encoded, displayFrame))
 
 					if self.displayAttached:
-						self.displayConn.emitFrame(displayFrame)
+						self.displayConn.emitFrame(displayFrame.copy())
 
 			else:
 				if self.feedID is None:
