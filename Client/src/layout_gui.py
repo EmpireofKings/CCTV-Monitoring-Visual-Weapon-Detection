@@ -20,7 +20,6 @@ class Layout(QFrame):
         QFrame.__init__(self)
         self.data = data
         self.setFrameStyle(QFrame.Box)
-        self.setMinimumSize(QSize(700, 700))
 
         self.painter = LayoutPainter(app, data, modes, config)
         self.controls = LayoutControls(app, data, modes, self.painter, config)
@@ -28,6 +27,7 @@ class Layout(QFrame):
         layout = QVBoxLayout()
         layout.addWidget(self.painter)
         layout.addWidget(self.controls)
+        layout.setAlignment(Qt.AlignCenter)
 
         self.setLayout(layout)
 
@@ -50,9 +50,6 @@ class LayoutPainter(QFrame):
 
         self.tooltip = QToolTip()
 
-        self.setMinimumSize(QSize(700, 300))
-        # self.setMaximumSize(QSize(700, 300))
-
         self.setMouseTracking(True)
 
     def paintEvent(self, event):
@@ -71,13 +68,6 @@ class LayoutPainter(QFrame):
             pmapDrawX = (self.width() - self.currentpmap.width()) / 2
 
             painter.drawPixmap(QPoint(pmapDrawX, 0), self.currentpmap)
-
-            rect = QRectF(10.0, 20.0, 80.0, 60.0)
-            startAngle = int(30 * 16)
-            spanAngle = int(120 * 16)
-
-            painter.drawArc(rect, startAngle, spanAngle)
-            painter.drawRect(rect)
 
             for camera in self.level.cameras:
                 # map coordinates
@@ -166,7 +156,7 @@ class LayoutPainter(QFrame):
         for level in self.data[0]:
             for camera in level.cameras:
                 print(camera.camID)
-                if camera.location == camID:
+                if camera.camID == camID:
                     return camera
         
         return False
@@ -307,7 +297,7 @@ class LayoutPainter(QFrame):
 
                 dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
 
-                dists[camera.location] = dist
+                dists[camera.camID] = dist
 
             location = min(dists, key=dists.get)
             closestDist = dists.get(location)
@@ -332,8 +322,6 @@ class LayoutControls(QFrame):
         self.painter = painter
         self.painter.controls = self
         outerLayout = QVBoxLayout()
-        self.setMaximumSize(QSize(1200, 100))
-        self.setMinimumSize(QSize(700, 50))
 
         if LayoutMode.VIEW in modes:
             self.upLevelButton = QPushButton("Up")

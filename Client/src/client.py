@@ -466,21 +466,30 @@ def enroll():
 	try:
 		unsecuredCtx = zmq.Context()
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
+		unsecuredSocket.setsockopt(zmq.RCVTIMEO, 5000)
+		unsecuredSocket.setsockopt(zmq.SNDTIMEO, 5000)
+		unsecuredSocket.setsockopt( zmq.LINGER, 0 )
+
 		unsecuredSocket.connect(mainAddr + unsecuredEnrollPort)
 		certHandler = CertificateHandler('front', 'client')
 		certHandler.prep()
 		publicKey, _ = certHandler.getKeyPair()
 
 		publicKey = publicKey.decode('utf-8')
+
 		unsecuredSocket.send_string(str(publicKey))
-		serverKey = unsecuredSocket.recv_string()
+		serverKey = unsecuredSocket.recv_string()	
 
 		certHandler.savePublicKey(serverKey)
 		logging.debug('Enrolled')
-		return True
-	except:
-		logging.critical('Could not enroll', exc_info=True)
+
+	except Exception as e:
+		logging.critical("Could not enroll", exc_info=True)
+		unsecuredSocket.close()
 		return False
+	return True
+
+		
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:
@@ -507,25 +516,20 @@ if __name__ == '__main__':
 
 	logging.info('\n\n\n\t\tBegin new set of logs:\n\n\n')
 
-	app = QApplication(sys.argv)
-
 	# certHandler = CertificateHandler('front', 'client')
 	# certHandler.prep()
+	app = QApplication(sys.argv)
 
-	try:
-		enrolled = enroll()
+	enrolled = enroll()
 
-		if enrolled:
-			logging.debug('Enrollment Successful, starting main application')
-			mainWindow = mainWindow(app)
-			mainWindow.showMaximized()
+	if enrolled:
+		logging.debug('Enrollment Successful, starting main application')
+		mainWindow = mainWindow(app)
+		mainWindow.showMaximized()
+	else:
+		logging.error('Enrollment Failed')
+		msgBox = QMessageBox()
+		msgBox.setText("Could not enroll with server.\nCheck Connection and try again.")
+		msgBox.show()
 
-			try:
-				sys.exit(app.exec_())
-			except:
-				pass
-		else:
-			logging.error('Enrollment Failed')
-
-	except:
-		logging.critical('Exception occured', exc_info=True)
+	sys.exit(app.exec_())

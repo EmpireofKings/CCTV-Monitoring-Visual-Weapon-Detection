@@ -165,10 +165,11 @@ class Networker(Thread):
 								self.camera.location)
 							notifyTimer = time.time()
 
-				if self.camera.alert:
-					if time.time() - alertTimer >= 60:
-						self.camera.alert = False
-						self.updateConnector.emitSignal()
+				if not self.deferredMode:
+					if self.camera.alert:
+						if time.time() - alertTimer >= 60:
+							self.camera.alert = False
+							self.updateConnector.emitSignal()
 
 				boundingBoxes = result[1]
 

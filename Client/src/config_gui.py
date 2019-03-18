@@ -10,19 +10,29 @@ from data_handler import *
 class Config(QWidget):
     def __init__(self, app, dataLoader):
         QWidget.__init__(self)
-        self.setMinimumSize(QSize(1280, 800))
+       # self.setMinimumSize(QSize(1280, 800))
 
         layout = QHBoxLayout()
         data = dataLoader.getConfigData()
 
         drawSpace = Layout(app, data, [LayoutMode.VIEW, LayoutMode.EDIT], self)
 
+        drawSpace.painter.setMinimumSize(800, 800)
+
+        drawSpace.painter.setSizePolicy(QSizePolicy(
+            QSizePolicy.Fixed, QSizePolicy.Fixed))
+        
+        drawSpace.controls.setSizePolicy(QSizePolicy(
+            QSizePolicy.Minimum, QSizePolicy.Fixed))
+
+
         self.levelMenu = LevelMenu(data, drawSpace)
         self.cameraMenu = CameraMenu(data, drawSpace)
 
         layout.addWidget(self.levelMenu)
-        layout.addWidget(drawSpace)
         layout.addWidget(self.cameraMenu)
+
+        layout.addWidget(drawSpace)
 
         self.setLayout(layout)
 
@@ -31,13 +41,14 @@ class LevelMenu(QScrollArea):
     def __init__(self, data, drawSpace):
         QScrollArea.__init__(self)
         self.drawSpace = drawSpace
+        self.setSizePolicy(QSizePolicy(
+            QSizePolicy.Fixed, QSizePolicy.Minimum))
         self.update(data)
 
     def update(self, data):
         self.layout = QVBoxLayout()
-        self.setMaximumSize(QSize(300, 1000))
 
-        # data[0].sort(key=lambda level: level.levelID)
+        data[0].sort(key=lambda level: level.levelID)
 
         for level in data[0]:
             disp = LevelDisplay(level, self.drawSpace)
@@ -68,7 +79,10 @@ class CameraMenu(QWidget):
         QWidget.__init__(self)
         self.data = data
         self.drawSpace = drawSpace
+        self.setSizePolicy(QSizePolicy(
+            QSizePolicy.Fixed, QSizePolicy.Minimum))
         self.update(data)
+
 
     def update(self, data):
         outerLayout = QVBoxLayout()
@@ -116,7 +130,17 @@ class CameraMenu(QWidget):
 
         unassigned.addTab(videoScroll, "Videos")
 
+        assTitle = QLabel('Assigned Feeds')
+        font = QFont('Helvetica', 13)
+        assTitle.setFont(font)
+        assTitle.setAlignment(Qt.AlignCenter)
+        outerLayout.addWidget(assTitle)
         outerLayout.addWidget(assignedScroll)
+
+        unassTitle = QLabel('Unassigned Feeds')
+        unassTitle.setFont(font)
+        unassTitle.setAlignment(Qt.AlignCenter)
+        outerLayout.addWidget(unassTitle)
         outerLayout.addWidget(unassigned)
 
         tempWidget = QWidget()

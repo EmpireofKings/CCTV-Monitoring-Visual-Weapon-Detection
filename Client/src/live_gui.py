@@ -38,18 +38,24 @@ class LiveAnalysis(QWidget):
 
 		self.drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
 
+		self.drawSpace.painter.setMinimumSize(600, 600)
+
+		self.drawSpace.painter.setSizePolicy(QSizePolicy(
+			QSizePolicy.Fixed, QSizePolicy.Fixed))
+
+		self.drawSpace.controls.setSizePolicy(QSizePolicy(
+			QSizePolicy.Minimum, QSizePolicy.Fixed))
+
 		if data[0][0].cameras != []:
 			mainDisplay = FeedDisplayer(
-				QSize(1280, 720),
-				QSize(480, 270),
 				data[0][0].cameras[0],
-				self.drawSpace)
+				self.drawSpace,
+				minSize=QSize(640, 360))
 		else:
 			mainDisplay = FeedDisplayer(
-				QSize(1280, 720),
-				QSize(480, 270),
 				None,
-				self.drawSpace)
+				self.drawSpace,
+				minSize=QSize(640, 360))
 
 		mainDisplayDrawSpace = QVBoxLayout()
 		mainDisplayDrawSpace.addWidget(self.drawSpace)
@@ -145,6 +151,7 @@ class AlertWatcher(Thread):
 				for camera in level.cameras:
 					if camera.alert is True:
 						if camera.alerted is False:
+							self.parent.drawSpace.controls.setMainFeedID(camera)
 							camera.alerted = True
 							soundsToPlay.append(camera.soundPath)
 
@@ -259,7 +266,7 @@ class gridViewer(QGridLayout):
 
 					# TODO TIDY THIS UP
 					feedDisplayer = FeedDisplayer(
-						QSize(384, 216), QSize(128, 72), camera, drawSpace, mainDisplay)
+						camera, drawSpace, mainDisplay, maxSize=QSize(384, 216), minSize=QSize(128, 72),)
 
 					self.addWidget(feedDisplayer, row, col)
 
@@ -287,12 +294,18 @@ class gridViewer(QGridLayout):
 
 
 class FeedDisplayer(QLabel):
-	def __init__(self, maxSize, minSize, camera, drawSpace, mainDisplay=None):
+	def __init__(self, camera, drawSpace, mainDisplay=None, maxSize=None, minSize=None):
 		QLabel.__init__(self)
 
-		# self.setFrameStyle(QFrame.Box)
-		self.setMaximumSize(maxSize)
-		self.setMinimumSize(minSize)
+		if maxSize is not None:
+			self.setMaximumSize(maxSize)
+
+		if minSize is not None:
+			self.setMinimumSize(minSize)
+
+		self.setSizePolicy(QSizePolicy(
+			QSizePolicy.Minimum, QSizePolicy.Minimum))
+
 		self.drawSpace = drawSpace
 		self.mainDisplay = mainDisplay
 
