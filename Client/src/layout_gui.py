@@ -83,42 +83,9 @@ class LayoutPainter(QFrame):
                 else:
                     color = camera.color
 
-                painter.setPen(color)
-                painter.setBrush(QBrush(color, Qt.SolidPattern))
-
-                # draw main circle
-                painter.drawEllipse(QPoint(camX, camY),
-                                    camera.size, camera.size)
-
-                # calculate arrow coordinates
-                radius = camera.size * 2
-                arrowX = int(
-                    (radius * math.sin(math.radians(camera.angle)))) + camX
-                arrowY = int(
-                    (radius * math.cos(math.radians(camera.angle)))) + camY
-                arrowPoint = QPoint(arrowX, arrowY)
-
-                # alter brush and pen
-                painter.setBrush(Qt.NoBrush)
-                pen = painter.pen()
-                pen.setWidth(int(camera.size / 5))
-                painter.setPen(pen)
-
-                # draw arrow line
-                painter.drawLine(QPoint(camX, camY), arrowPoint)
-
-                # get rect for drawing arc
-                rect = QRectF(
-                    camX - (camera.size * 2),
-                    camY - (camera.size * 2),
-                    camera.size * 4,
-                    camera.size * 4)
-
-                # draw arc
-                painter.drawArc(
-                    rect,
-                    int((camera.angle - 112.5) * 16),
-                    int((45) * 16))
+                drawCam(
+                    painter, camX, camY, camera.size,
+                    camera.angle, camera.color)
 
                 # draw green circle around cam if selected
                 if camera.camID == self.mainFeedID:
@@ -147,9 +114,10 @@ class LayoutPainter(QFrame):
                 self.pulseRadiusMultiplier = 0.0
 
             if self.placing is True:
-                painter.setPen(QPen(QColor(255, 0, 0)))
-                painter.setBrush(QBrush(QColor(255, 0, 0)))
-                painter.drawEllipse(self.lastMousePos, 10, 10)
+                if self.lastMousePos is not None:
+                    painter.setPen(QPen(QColor(255, 0, 0)))
+                    painter.setBrush(QBrush(QColor(255, 0, 0)))
+                    painter.drawEllipse(self.lastMousePos, 10, 10)
 
     def findCamByID(self, camID):
         print(camID)
@@ -174,11 +142,10 @@ class LayoutPainter(QFrame):
                     logging.error("Camera not found")
 
             if self.placing is True:
-                cameraDialog = self.CameraDialog(
+                cameraDialog = CameraDialog(
                     self.mainFeedID, self.currentLevel)
 
-                name, location, angle, color, size, staticBackground = (
-                    cameraDialog.getCameraInfo())
+                location, angle, color, size = cameraDialog.getCameraInfo()
 
                 rawX = self.lastMousePos.x()
                 rawY = self.lastMousePos.y()
@@ -196,83 +163,7 @@ class LayoutPainter(QFrame):
 
                 self.placing = False
 
-    class CameraDialog(QDialog):
-        def __init__(self, id, levelID):
-            QDialog.__init__(self)
-
-            ids = QLabel("Level " + str(levelID) + " : Camera " + str(id))
-
-            self.locationInput = QLineEdit()
-            self.locationInput.setPlaceholderText("Location Name")
-
-            self.angleInput = QSpinBox()
-            self.angleInput.setRange(0, 360)
-            self.angleInput.setSuffix('°')
-            self.angleInput.setSpecialValueText("Camera Angle(0-360°)")
-
-            self.colorLayout = QHBoxLayout()
-            self.colorButton = QPushButton("Change Color")
-            self.colorButton.clicked.connect(self.getColor)
-            self.colorPreview = self.ColorPreview()
-            self.colorLayout.addWidget(self.colorButton)
-            self.colorLayout.addWidget(self.colorPreview)
-
-            self.submitButton = QPushButton("Submit")
-            self.submitButton.clicked.connect(self.submitted)
-
-            self.sizeInput = QSpinBox()
-            self.sizeInput.setRange(5, 40)
-            self.sizeInput.setSuffix('Px')
-            self.sizeInput.setSpecialValueText("Camera Size (5-40 Pixels)")
-
-            self.layout = QVBoxLayout()
-            self.layout.addWidget(ids)
-            self.layout.addWidget(self.locationInput)
-            self.layout.addWidget(self.angleInput)
-            self.layout.addLayout(self.colorLayout)
-            self.layout.addWidget(self.sizeInput)
-            self.layout.addWidget(self.submitButton)
-
-            self.setLayout(self.layout)
-
-        def getColor(self):
-            prompt = QColorDialog()
-            result = prompt.getColor()
-
-            if result.isValid():
-                self.colorPreview.color = result
-
-        class ColorPreview(QLabel):
-            def __init__(self):
-                QLabel.__init__(self)
-                self.color = QColor(0, 0, 0)
-                self.setMinimumSize(QSize(30, 30))
-                self.setMaximumSize(QSize(30, 30))
-
-            def paintEvent(self, event):
-                painter = QPainter(self)
-
-                painter.setPen(self.color)
-                painter.setBrush(self.color)
-
-                painter.drawRect(QRect(0, 0, 30, 30))
-
-        def submitted(self):
-            location = self.locationInput.displayText()
-            angle = self.angleInput.text()
-            color = self.colorPreview.color
-            size = self.sizeInput.text()
-
-            self.result = [
-                location, int(angle[:len(angle) - 1]),
-                color, int(size[:len(size) - 2])]
-
-            self.accept()
-
-        def getCameraInfo(self):
-            self.exec()
-            return self.result
-
+  
     def mouseMoveEvent(self, event):
         if self.data[0] != []:
             pos = event.globalPos()
@@ -311,6 +202,108 @@ class LayoutPainter(QFrame):
 
     def range2range(self, value, oldMin, oldMax, newMin, newMax):
         return ((value - oldMin) / (oldMax - oldMin)) * (newMax - newMin) + newMin
+
+
+            # camera.camID, camera.levelID, camera.location
+            # camera.angle, camera.color, camera.size)
+
+class CameraDialog(QDialog):
+    def __init__(
+            self, id, levelID, location="Location Name",
+            angle=0, color=QColor(0, 0, 0), size=5):
+
+        QDialog.__init__(self)
+
+        ids = QLabel("Level " + str(levelID) + " : Camera " + str(id))
+
+        self.locationInput = QLineEdit()
+        self.locationInput.setPlaceholderText(location)
+
+        self.angleInput = QSpinBox()
+        self.angleInput.setRange(0, 360)
+        self.angleInput.setSuffix('°')
+        self.angleInput.setSpecialValueText("Camera Angle(0-360°)")
+        self.angleInput.setValue(angle)
+        self.angleInput.valueChanged.connect(self.updateAngle)
+
+        self.colorLayout = QHBoxLayout()
+        self.colorButton = QPushButton("Change Color")
+        self.colorButton.clicked.connect(self.getColor)
+        self.colorLayout.addWidget(self.colorButton)
+
+        self.submitButton = QPushButton("Submit")
+        self.submitButton.clicked.connect(self.submitted)
+
+        self.sizeInput = QSpinBox()
+        self.sizeInput.setRange(5, 20)
+        self.sizeInput.setSuffix('Px')
+        self.sizeInput.setSpecialValueText("Camera Size (5-20 Pixels)")
+        self.sizeInput.setValue(size)
+        self.sizeInput.valueChanged.connect(self.updateSize)
+
+        self.cameraPreview = self.CameraPreview()
+        self.cameraPreview.angle = angle
+        self.cameraPreview.size = size
+        self.cameraPreview.color = color
+
+        self.layout = QVBoxLayout()
+        self.layout.addWidget(ids)
+        self.layout.addWidget(self.locationInput)
+        self.layout.addWidget(self.angleInput)
+        self.layout.addLayout(self.colorLayout)
+        self.layout.addWidget(self.sizeInput)
+        self.layout.addWidget(self.cameraPreview)
+        self.layout.addWidget(self.submitButton)
+
+        self.setLayout(self.layout)
+
+    def updateAngle(self, angle):
+        self.cameraPreview.angle = int(angle)
+        self.cameraPreview.update()
+
+    def updateSize(self, size):
+        self.cameraPreview.size = int(size)
+        self.cameraPreview.update()
+
+    def getColor(self):
+        prompt = QColorDialog()
+        result = prompt.getColor()
+
+        if result.isValid():
+            self.cameraPreview.color = result
+            self.cameraPreview.update()
+
+    class CameraPreview(QLabel):
+        def __init__(self):
+            QLabel.__init__(self)
+            self.angle = 0
+            self.color = QColor(0, 0, 0)
+            self.size = 5
+
+            self.setMinimumSize(100, 100)
+            self.setAlignment(Qt.AlignCenter)
+
+        def paintEvent(self, event):
+            painter = QPainter(self)
+
+            x = self.width() / 2
+            y = self.height() / 2
+
+            drawCam(painter, x, y, self.size, self.angle, self.color)
+
+    def submitted(self):
+        location = self.locationInput.displayText()
+        angle = self.cameraPreview.angle
+        color = self.cameraPreview.color
+        size = self.cameraPreview.size
+
+        self.result = [location, angle, color, size]
+
+        self.accept()
+
+    def getCameraInfo(self):
+        self.exec()
+        return self.result
 
 
 class LayoutControls(QFrame):
@@ -355,11 +348,11 @@ class LayoutControls(QFrame):
             simulateButton = QPushButton("Simulate Cameras")
             simulateButton.clicked.connect(self.simulateCameras)
 
-            colorButton = QPushButton("Color")
-            colorButton.clicked.connect(self.getColor)
+            editCamButton = QPushButton("Edit Camera")
+            editCamButton.clicked.connect(self.editCam)
 
-            sizeButton = QPushButton("Size")
-            sizeButton.clicked.connect(self.setSize)
+            deleteCamButton = QPushButton("Delete Camera")
+            deleteCamButton.clicked.connect(self.deleteCam)
 
             saveButton = QPushButton("Save")
             saveButton.clicked.connect(self.saveConfig)
@@ -371,8 +364,8 @@ class LayoutControls(QFrame):
             editLayout.addWidget(addLevelButton)
             editLayout.addWidget(deleteLevelButton)
             editLayout.addWidget(simulateButton)
-            editLayout.addWidget(colorButton)
-            editLayout.addWidget(sizeButton)
+            editLayout.addWidget(editCamButton)
+            editLayout.addWidget(deleteCamButton)
             editLayout.addWidget(saveButton)
             editLayout.addWidget(resetButton)
 
@@ -403,11 +396,14 @@ class LayoutControls(QFrame):
         self.painter.update()
 
     def setLevel(self, level):
+        self.painter.currentLevel = level
         text = "Level " + str(level)
         index = self.dropdown.findText(text)
 
         if index != -1:
             self.dropdown.setCurrentIndex(index)  # triggers indexChanged
+
+        self.config.levelMenu.update(self.data)
 
     def setMainFeedID(self, camera):
         self.painter.mainFeedID = camera.camID
@@ -431,7 +427,15 @@ class LayoutControls(QFrame):
                 self.config.levelMenu.update(self.data)
 
     def deleteLevel(self):
-        print("delete level called")
+        for level in self.data[0]:
+            if level.levelID == self.painter.currentLevel:
+                self.data[0].remove(level)
+                self.painter.levelIDs.remove(self.painter.currentLevel)
+                break
+
+        self.config.levelMenu.update(self.data)
+        self.config.cameraMenu.update(self.data)
+        self.painter.update()
 
 # TODO IGNORE DUPLICATES
     def simulateCameras(self):
@@ -471,6 +475,29 @@ class LayoutControls(QFrame):
         camera = self.getSelectedCamera()
         camera.color = newColor
         self.painter.update()
+
+    def editCam(self):
+        camera = self.getSelectedCamera()
+
+        cameraDialog = CameraDialog(
+            camera.camID, camera.levelID, camera.location,
+            camera.angle, camera.color, camera.size)
+
+        location, angle, color, size = cameraDialog.getCameraInfo()
+
+        if location != '':
+            camera.location = location
+
+        camera.angle = angle
+        camera.color = color
+        camera.size = size
+
+        self.painter.update()
+
+    def deleteCam(self):
+        self.getSelectedCamera(delete=True)
+        self.painter.update()
+        self.config.cameraMenu.update(self.data)
 
     def saveConfig(self):
         if self.data[0] != []:
@@ -518,11 +545,14 @@ class LayoutControls(QFrame):
         self.painter.mainFeedID = id
         self.painter.update()
 
-    def getSelectedCamera(self):
+    def getSelectedCamera(self, delete=False):
         for level in self.data[0]:
             for camera in level.cameras:
                 if camera.camID == self.painter.mainFeedID:
-                    return camera
+                    if delete:
+                        level.cameras.remove(camera)
+                    else:
+                        return camera
 
     def resetConfig(self):
         dialog = QMessageBox()
@@ -541,3 +571,50 @@ class LayoutControls(QFrame):
             msgBox = QMessageBox()
             msgBox.setText("Configuration data reset successfully.")
             msgBox.exec()
+
+
+def drawCam(painter, camX, camY, size, angle, color):
+    painter.setPen(color)
+    painter.setBrush(QBrush(color, Qt.SolidPattern))
+
+    # draw main circle
+    painter.drawEllipse(QPoint(camX, camY),
+                        size, size)
+
+    # calculate arrow coordinates
+    radius = size * 2
+
+    coneX1 = int(
+        (radius * math.sin(math.radians(angle - 45)))) + camX
+    coneY1 = int(
+        (radius * math.cos(math.radians(angle - 45)))) + camY
+    conePoint1 = QPoint(coneX1, coneY1)
+
+    coneX2 = int(
+        (radius * math.sin(math.radians(angle + 45)))) + camX
+    coneY2 = int(
+        (radius * math.cos(math.radians(angle + 45)))) + camY
+    conePoint2 = QPoint(coneX2, coneY2)
+
+    # alter brush and pen
+    painter.setBrush(Qt.NoBrush)
+    pen = painter.pen()
+    pen.setWidth(int(size / 6))
+    painter.setPen(pen)
+
+    # draw arrow line
+    painter.drawLine(QPoint(camX, camY), conePoint1)
+    painter.drawLine(QPoint(camX, camY), conePoint2)
+
+    # get rect for drawing arc
+    rect = QRectF(
+        camX - (size * 2),
+        camY - (size * 2),
+        size * 4,
+        size * 4)
+
+    # draw arc
+    painter.drawArc(
+        rect,
+        int((angle - 135) * 16),
+        int((90) * 16))

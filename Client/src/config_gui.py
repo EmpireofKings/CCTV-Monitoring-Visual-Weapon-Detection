@@ -52,6 +52,13 @@ class LevelMenu(QScrollArea):
 
         for level in data[0]:
             disp = LevelDisplay(level, self.drawSpace)
+
+            print(level.levelID, self.drawSpace.painter.currentLevel)
+            if level.levelID == self.drawSpace.painter.currentLevel:
+                disp.setStyleSheet("border: 4px solid blue")
+            else:
+                disp.setStyleSheet("border: 2px solid black")
+
             self.layout.addWidget(disp, Qt.AlignCenter)
 
         self.mainWidget = QFrame()
@@ -82,7 +89,6 @@ class CameraMenu(QWidget):
         self.setSizePolicy(QSizePolicy(
             QSizePolicy.Fixed, QSizePolicy.Minimum))
         self.update(data)
-
 
     def update(self, data):
         outerLayout = QVBoxLayout()

@@ -1,69 +1,20 @@
 [
     {
         "levelID": 0,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
+        "levelDrawPath": "..\\data\\floorplans\\placeholder4.jpg",
         "levelCameras": [
             {
-                "cameraID": "0",
-                "cameraName": "kitchen",
-                "cameraLocation": "kitchen",
+                "cameraID": "..\\data\\videos\\0000000.mp4",
+                "cameraLocation": "Bedroom",
                 "cameraCoordinates": [
-                    122,
-                    269
+                    155,
+                    401
                 ],
-                "cameraAngle": 90,
+                "cameraAngle": 234,
                 "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 20
-            },
-            {
-                "cameraID": "..\\data\\videos\\0.mp4",
-                "cameraName": "Laundry",
-                "cameraLocation": "Laundry",
-                "cameraCoordinates": [
-                    120,
-                    359
-                ],
-                "cameraAngle": 180,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 20
-            },
-            {
-                "cameraID": "..\\data\\videos\\1.mp4",
-                "cameraName": "bedroom",
-                "cameraLocation": "bedroom",
-                "cameraCoordinates": [
-                    466,
-                    428
-                ],
-                "cameraAngle": 270,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 20
-            },
-            {
-                "cameraID": "..\\data\\videos\\4.mp4",
-                "cameraName": "living room",
-                "cameraLocation": "living room",
-                "cameraCoordinates": [
-                    311,
-                    203
-                ],
-                "cameraAngle": 360,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
+                    255,
+                    170,
+                    255
                 ],
                 "cameraSize": 20
             }
@@ -75,89 +26,18 @@
         "levelCameras": [
             {
                 "cameraID": "..\\data\\videos\\3.mp4",
-                "cameraName": "living room",
                 "cameraLocation": "living room",
                 "cameraCoordinates": [
                     139,
                     106
                 ],
-                "cameraAngle": 40,
+                "cameraAngle": 56,
                 "cameraColor": [
+                    255,
                     0,
-                    0,
-                    0
+                    255
                 ],
-                "cameraSize": 10
-            },
-            {
-                "cameraID": "..\\data\\videos\\6.mp4",
-                "cameraName": "dining room",
-                "cameraLocation": "dining room",
-                "cameraCoordinates": [
-                    292,
-                    359
-                ],
-                "cameraAngle": 40,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 10
-            }
-        ]
-    },
-    {
-        "levelID": 2,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder4.jpg",
-        "levelCameras": [
-            {
-                "cameraID": "..\\data\\videos\\7.mp4",
-                "cameraName": "living room",
-                "cameraLocation": "living room",
-                "cameraCoordinates": [
-                    427,
-                    394
-                ],
-                "cameraAngle": 40,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 10
-            },
-            {
-                "cameraID": "..\\data\\videos\\8.mp4",
-                "cameraName": "kitchen",
-                "cameraLocation": "kitchen",
-                "cameraCoordinates": [
-                    264,
-                    202
-                ],
-                "cameraAngle": 40,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 10
-            },
-            {
-                "cameraID": "..\\data\\videos\\9.mp4",
-                "cameraName": "bedroom",
-                "cameraLocation": "bedroom",
-                "cameraCoordinates": [
-                    62,
-                    397
-                ],
-                "cameraAngle": 40,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 10
+                "cameraSize": 20
             }
         ]
     }
