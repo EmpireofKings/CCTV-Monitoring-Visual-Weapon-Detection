@@ -2,6 +2,7 @@
 
 import base64 as b64
 import copy
+import datetime
 import json
 import logging
 import math
@@ -21,6 +22,7 @@ from PySide2.QtGui import *
 from PySide2.QtMultimedia import *
 from PySide2.QtMultimediaWidgets import *
 from PySide2.QtWidgets import *
+from PySide2.QtCharts import *
 
 import _pickle as pickle
 import data_handler
@@ -387,9 +389,16 @@ class ReadyList(QWidget):
 		self.parent.ready.clear()
 		self.update()
 
+
 class Viewer(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__(self)
+		self.playing = True
+
+		self.title = QLabel()
+		font = QFont('Helvetica', 18)
+		self.title.setFont(font)
+		self.title.setAlignment(Qt.AlignCenter)
 
 		self.surface = QLabel()
 		pmap = data_handler.getLabelledPixmap(
@@ -397,19 +406,66 @@ class Viewer(QWidget):
 			path='../data/placeholder.png')
 
 		self.surface.setPixmap(pmap)
-		outerLayout = QVBoxLayout()
-		outerLayout.addWidget(self.surface)
 
-		self.setLayout(outerLayout)
+		self.timeDisplay = QLabel("0:00 / 0:00")
+		font = QFont('Helvetica', 14)
+		self.timeDisplay.setFont(font)
+		self.timeDisplay.setAlignment(Qt.AlignCenter)
+
+		self.controls = QHBoxLayout()
+		self.togglePlay = QPushButton('Play/Pause')
+		self.togglePlay.clicked.connect(self.toggle)
+
+		self.togglePlay.setSizePolicy(
+			QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum))
+
+		self.controls.addWidget(self.togglePlay)
 
 		self.analyser = self.Analyser(self)
 		self.analyser.setDaemon(True)
 		self.analyser.start()
 
+		self.pause = GenericConnector(self.analyser.pausefeed)
+		self.play = GenericConnector(self.analyser.playfeed)
+
+		self.chart = self.Chart(self)
+
+		outerLayout = QVBoxLayout()
+		outerLayout.addWidget(self.title)
+		outerLayout.addWidget(self.surface)
+		outerLayout.addWidget(self.timeDisplay)
+		outerLayout.addLayout(self.controls)
+		outerLayout.addWidget(self.chart)
+
+		self.setLayout(outerLayout)
+
+	def toggle(self):
+		if self.playing is True:
+			self.playing = False
+			self.pause.emitSignal()
+		else:
+			self.playing = True
+			self.play.emitSignal()
+
 	def showAnalysis(self, contentType, name):
 		# self.analyser.reset()
-		print("calling set")
+		self.title.setText(name)
 		self.analyser.set(contentType, name)
+
+	def updateChart(self, currentFrame):
+		self.chart.currentPoint = currentFrame
+
+
+	def resetChart(self, args):
+		resultsData, totalFrames, fps = args
+		self.chart.maxX = totalFrames
+		self.chart.data = resultsData
+		self.chart.fps = fps
+		self.chart.update()
+
+	def updateTimeDisplay(self, args):
+		cur, total = args
+		self.timeDisplay.setText(str(cur) + " / " + str(total))
 
 	def updateDisplay(self, frame):
 		h, w, c = np.shape(frame)
@@ -421,6 +477,114 @@ class Viewer(QWidget):
 
 		self.surface.setPixmap(pmap)
 
+	class Chart(QLabel):
+		def __init__(self, parent):
+			QLabel.__init__(self)
+			self.data = None
+			self.padding = 10;
+			self.leftPadding = 30;
+			self.maxX = None
+			self.currentPoints = None
+			self.closestPoint = None
+			self.currentPoint = 0
+			self.seek = GenericConnector(parent.analyser.seek)
+			self.setMouseTracking(True)
+
+		def paintEvent(self, event):		
+			if self.data is not None:
+				painter = QPainter(self)
+				painter.setRenderHint(QPainter.Antialiasing)
+
+				self.top = self.padding
+				self.bottom = self.height() - self.padding
+
+				self.left = self.leftPadding  # repeat for readability later
+				self.right = self.width() - self.padding
+
+				# Y AXIS
+				painter.drawLine(
+					self.left, self.bottom,
+					self.left, self.top)
+
+				painter.setPen(QColor(0, 0, 255))
+
+				self.currentPoints = []
+				count = 0
+				for result in self.data:
+					pred = result[0]
+
+					yVal = int(self.scale(
+						pred, 0, 1, self.bottom, self.top))
+
+					xVal = int(self.scale(
+						count, 0, self.maxX, self.left, self.right))
+					self.currentPoints.append(QPoint(xVal, yVal))
+
+					count += 1
+
+				painter.drawPolyline(self.currentPoints)
+
+				painter.drawText(self.left - self.leftPadding, self.top, "100%")
+				painter.drawText(self.left - self.leftPadding, self.bottom, "    0%")
+
+				painter.setPen(QColor(0, 255, 0))
+
+				xVal = int(self.scale(
+					self.currentPoint, 0, self.maxX, self.left, self.right))
+
+				painter.drawLine(xVal, self.bottom, xVal, self.top)
+
+				if self.closestPoint is not None:
+					painter.setBrush(QColor(255, 0, 0))
+					pen = QPen(QColor(255, 0, 0))
+					pen.setWidth(4)
+					painter.setPen(pen)
+					painter.drawEllipse(self.closestPoint, 2, 2)
+
+					val = self.scale(
+						self.closestPoint.y(),
+						self.bottom, self.top,
+						0, 1)
+
+					val = str(round(val * 100, 2)) + '%'
+
+					font = painter.font()
+					font.setPixelSize(14)
+					painter.setFont(font)
+
+					textPoint = QPoint(
+						self.closestPoint.x() + 5,
+						self.closestPoint.y())
+
+					painter.drawText(textPoint, str(val))
+
+		def scale(self, val, inMin, inMax, outMin, outMax):
+			return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin
+
+		def mousePressEvent(self, event):
+			if self.data is not None:
+				newPos = int(self.scale(event.x(), self.left, self.right, 0, self.maxX))
+				self.seek.emitSignal(newPos)
+
+		def mouseMoveEvent(self, event):
+			if self.currentPoints is not None:
+
+				dists = []
+				for point in self.currentPoints:
+					x1 = event.x()
+					y1 = event.y()
+					x2 = point.x()
+					y2 = point.y()
+
+					dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+					dists.append(dist)
+
+				closest = min(dists)
+				index = dists.index(closest)
+
+				self.closestPoint = self.currentPoints[index]
+
+
 	class Analyser(Thread):
 		def __init__(self, display):
 			Thread.__init__(self)
@@ -429,8 +593,12 @@ class Viewer(QWidget):
 			self.resultPath = None
 			self.frameCount = 0
 			self.displayConn = DisplayConnector(display)
+			self.chartConn = GenericConnector(display.resetChart)
+			self.pointConn = GenericConnector(display.updateChart)
+			self.timeConn = GenericConnector(display.updateTimeDisplay)
 			self.reset = False
 			self.ready = True
+			self.pause = False
 
 		def run(self):
 			terminator = Terminator.getInstance()
@@ -442,30 +610,39 @@ class Viewer(QWidget):
 
 				self.ready = False
 				self.reset = False
-				feed = cv2.VideoCapture(self.path)
+				self.feed = cv2.VideoCapture(self.path)
 
-				videoTotal = feed.get(cv2.CAP_PROP_FRAME_COUNT)
-				fps = feed.get(cv2.CAP_PROP_FPS)
+				videoTotal = self.feed.get(cv2.CAP_PROP_FRAME_COUNT)
+				fps = self.feed.get(cv2.CAP_PROP_FPS)
 
-				print(fps)
+				seconds = int(videoTotal / fps)
+				vidLength = datetime.timedelta(seconds=seconds)
+
 				resultsFile = open(self.resultPath, 'rb')
 				resultsData = pickle.load(resultsFile)[::-1]
 				resultsFile.close()
 
-				print('V:', str(videoTotal), 'R:', len(resultsData))
+				self.chartConn.emitSignal((resultsData, videoTotal, fps))
 
 				fpsTimer = time.time()
 				self.frameCount = 0
-				while feed.isOpened() and self.reset is False:
-					while time.time() - fpsTimer < 1 / fps:
+				self.lastFrame = -1
+				while self.feed.isOpened() and self.reset is False:
+					if self.frameCount != self.lastFrame + 1:
+						self.feed.set(cv2.CAP_PROP_POS_FRAMES, self.frameCount)
+						self.lastFrame = self.frameCount - 1
+
+
+					while time.time() - fpsTimer < 1 / fps or self.pause is True:
 						time.sleep(0.01)
-					
+
 					fpsTimer = time.time()
-					check, frame = feed.read()
+					check, frame = self.feed.read()
 
 					if check:
 						results = resultsData[self.frameCount]
 						self.frameCount += 1
+						self.lastFrame += 1
 						classifications = results[0]
 						boundingBoxes = results[1]
 
@@ -483,32 +660,42 @@ class Viewer(QWidget):
 
 								cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
-						self.displayConn.emitFrame(frame)
-					else:
-						feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
-						self.frameCount = 0
+						seconds = int(self.frameCount / fps)
+						curTime = datetime.timedelta(seconds=seconds)
 
-				print("break")
-				feed.release()
-		
+						self.timeConn.emitSignal((curTime, vidLength))
+						self.displayConn.emitFrame(frame)
+						self.pointConn.emitSignal(self.frameCount)
+					else:
+						self.feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
+						self.frameCount = 0
+						self.lastFrame = -1
+
+				self.feed.release()
+
 		def scale(self, val, inMin, inMax, outMin, outMax):
 			return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin
 
 		def set(self, contentType, name):
-			print("in set")
 			self.path = None
 			self.resultPath = None
 			self.reset = True
 
 			while self.ready is False:
-				# print("waiting for ready")
-				# print(self.path, self.resultPath, self.reset, self.ready)
 				time.sleep(0.001)
 
 			self.path = self.basePath + name
 			self.resultPath = self.basePath + name + '.result'
 
+		def seek(self, pos):
+			self.frameCount = pos
 
+		def pausefeed(self):
+			self.pause = True
+
+		def playfeed(self):
+			self.pause = False
+			
 class Preview(QLabel):
 	def __init__(
 		self, parent, image=None, video=None, previewPmap=None,

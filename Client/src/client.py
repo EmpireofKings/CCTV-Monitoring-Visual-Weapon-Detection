@@ -144,8 +144,8 @@ class LoginDialog(QDialog):
 		passwordLabel = QLabel("Password: ")
 		self.passwordEntryLogin = QLineEdit()
 		self.passwordEntryLogin.setEchoMode(QLineEdit.Password)
-		self.EntryLogin.setAlignment(Qt.AlignRight)
-		self.EntryLogin.setFixedWidth(150)
+		self.passwordEntryLogin.setAlignment(Qt.AlignRight)
+		self.passwordEntryLogin.setFixedWidth(150)
 		passwordLayout.addWidget(passwordLabel)
 		passwordLayout.addWidget(self.passwordEntryLogin)
 
@@ -424,7 +424,7 @@ class MainWindowTabs(QTabWidget):
 
 		try:
 			self.configTab = Config(app, dataLoader)
-			self.liveTab = LiveAnalysis(app, dataLoader)
+			# self.liveTab = LiveAnalysis(app, dataLoader)
 			self.deferredTab = DeferredAnalysis(app)
 			self.cornerWidget = CornerControls(app)
 			logging.debug('Tabs initialised')
@@ -444,7 +444,7 @@ class MainWindowTabs(QTabWidget):
 		# Icon made by Smashicons https://www.flaticon.com/authors/smashicons
 		deferredIcon = QIcon("../data/icons/deferred.png")
 
-		self.addTab(self.liveTab, liveIcon, "Live Analysis")
+		# self.addTab(self.liveTab, liveIcon, "Live Analysis")
 		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
 		self.setCornerWidget(self.cornerWidget)
