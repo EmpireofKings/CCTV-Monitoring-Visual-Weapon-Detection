@@ -40,8 +40,8 @@ def main():
 	tf.keras.backend.set_session(sess)
 
 	#get and shuffle batch paths
-	datasetPaths= exBC.preparePaths(rootFolderLocal+'Prepared-Data')
-	#datasetPaths= exBC.preparePaths(rootFolderGCP+'Prepared-Data')
+	# datasetPaths= exBC.preparePaths(rootFolderLocal+'Prepared-Data')
+	datasetPaths= exBC.preparePaths(rootFolderGCP+'Prepared-Data')
 
 	random.shuffle(datasetPaths)
 	batchAmt = len(datasetPaths)

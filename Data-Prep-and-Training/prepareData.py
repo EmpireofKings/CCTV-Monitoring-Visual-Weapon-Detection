@@ -224,22 +224,24 @@ if __name__ == '__main__':
 	terminator = Terminator()
 
 	if isResuming():
-		remainingfiles, partialData, partialLabels, batchCount = getResumeData(rootFolderLocal)
-		prepare(remainingfiles, rootFolderLocal, terminator, partialData, partialLabels, batchCount)
-		#prepare(remainingfiles, rootFolderGCP, terminator, partialData, partialLabels, batchCount)
+		# remainingfiles, partialData, partialLabels, batchCount = getResumeData(rootFolderLocal)
+		remainingfiles, partialData, partialLabels, batchCount = getResumeData(rootFolderGCP)
+
+		# prepare(remainingfiles, rootFolderLocal, terminator, partialData, partialLabels, batchCount)
+		prepare(remainingfiles, rootFolderGCP, terminator, partialData, partialLabels, batchCount)
 
 	else:
 		#double check the user gave the correct instruction before deleting everything
 		ans = input("Are you sure you wish to start from the beginning. \nAll previously generated files will be permently deleted.(y/n)")
 
 		if ans == 'Y' or ans == 'y':
-			removeExistingBatches(rootFolderLocal)
-			#removeExistingBatches(rootFolderGCP)
+			# removeExistingBatches(rootFolderLocal)
+			removeExistingBatches(rootFolderGCP)
 		else:
 			sys.exit()
 
-		folders = getFolders(rootFolderLocal)
-		#folders = getFolders(rootFolderGCP)
+		# folders = getFolders(rootFolderLocal)
+		folders = getFolders(rootFolderGCP)
 		files = getFiles(folders)
-		prepare(files, rootFolderLocal, terminator)
-		#prepare(files, rootFolderGCP, terminator)
+		# prepare(files, rootFolderLocal, terminator)
+		prepare(files, rootFolderGCP, terminator)

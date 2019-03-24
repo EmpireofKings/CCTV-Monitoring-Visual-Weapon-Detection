@@ -117,9 +117,9 @@ Development Instance/Image setup GCP
 
 
  5. Mounting new disk
- a. lsblk to get device id
- b. sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/[DEVICE_ID]
- c. make a directory to mount it to (mkdir)
- d. sudo mount -o discard,defaults /dev/[DEVICE_ID] /mnt/disks/[MNT_DIR]
- e. sudo chmod a+w /mnt/disks/[MNT_DIR]
- f. programs expect /Dataset and /Prepared-Data to exist on drive
+	 a. lsblk to get device id
+	 b. sudo mkfs.ext4 -m 0 -F -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/[DEVICE_ID]
+	 c. make a directory to mount it to (mkdir)
+	 d. sudo mount -o discard,defaults /dev/[DEVICE_ID] /mnt/disks/[MNT_DIR]
+	 e. sudo chmod a+w /mnt/disks/[MNT_DIR]
+	 f. programs expect /Dataset and /Prepared-Data to exist on drive
