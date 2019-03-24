@@ -158,12 +158,11 @@ class Networker(Thread):
 					alertTimer = time.time()
 					self.updateConnector.emitSignal()
 
-					if notify is not None and time.time() - notifyTimer >= 30:
+					if notify is not None and self.camera.alerted is False:
 							notify.send(
 								'Weapon detected at level ' +
 								str(self.camera.levelID) + ' ' +
 								self.camera.location)
-							notifyTimer = time.time()
 
 				if not self.deferredMode:
 					if self.camera.alert:
@@ -206,7 +205,7 @@ class Networker(Thread):
 				time.sleep(0.001)
 
 		if self.deferredMode:
-			with open('../Processed/' + self.filePath + '.result', 'wb') as fp:
+			with open('../data/processed/' + self.filePath + '.result', 'wb') as fp:
 				pickle.dump(results, fp, protocol=4)
 
 		#socket.disable_monitor()

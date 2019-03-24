@@ -36,46 +36,55 @@ class LiveAnalysis(QWidget):
 		dataLoader = DataLoader()
 		data = dataLoader.getConfigData()
 
-		self.levelMenu = None
-		self.cameraMenu = None
+		if data[0] != []:
+			self.levelMenu = None
+			self.cameraMenu = None
 
-		self.drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
+			self.drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
 
-		self.drawSpace.painter.setMinimumSize(600, 600)
+			self.drawSpace.painter.setMinimumSize(600, 600)
 
-		self.drawSpace.painter.setSizePolicy(QSizePolicy(
-			QSizePolicy.Fixed, QSizePolicy.Fixed))
+			self.drawSpace.painter.setSizePolicy(QSizePolicy(
+				QSizePolicy.Fixed, QSizePolicy.Fixed))
 
-		self.drawSpace.controls.setSizePolicy(QSizePolicy(
-			QSizePolicy.Minimum, QSizePolicy.Fixed))
+			self.drawSpace.controls.setSizePolicy(QSizePolicy(
+				QSizePolicy.Minimum, QSizePolicy.Fixed))
 
-		if data[0][0].cameras != []:
-			mainDisplay = FeedDisplayer(
-				data[0][0].cameras[0],
-				self.drawSpace,
-				minSize=QSize(640, 360))
+			if data[0][0].cameras != []:
+				mainDisplay = FeedDisplayer(
+					data[0][0].cameras[0],
+					self.drawSpace,
+					minSize=QSize(640, 360))
+			else:
+				mainDisplay = FeedDisplayer(
+					None,
+					self.drawSpace,
+					minSize=QSize(640, 360))
+
+			mainDisplayDrawSpace = QVBoxLayout()
+			mainDisplayDrawSpace.addWidget(self.drawSpace)
+			mainDisplayDrawSpace.addWidget(mainDisplay)
+
+			layout.addLayout(mainDisplayDrawSpace)
+
+			# Camera monitoring (right side)
+			self.cameraView = CameraViewer(app, data, self.drawSpace, mainDisplay, self)
+			layout.addWidget(self.cameraView)
+
+			self.dialog = AlertDialog()
+
+			alertWatcher = AlertWatcher(self)
+			alertWatcher.setDaemon(True)
+			alertWatcher.start()
 		else:
-			mainDisplay = FeedDisplayer(
-				None,
-				self.drawSpace,
-				minSize=QSize(640, 360))
-
-		mainDisplayDrawSpace = QVBoxLayout()
-		mainDisplayDrawSpace.addWidget(self.drawSpace)
-		mainDisplayDrawSpace.addWidget(mainDisplay)
-
-		layout.addLayout(mainDisplayDrawSpace)
-
-		# Camera monitoring (right side)
-		self.cameraView = CameraViewer(app, data, self.drawSpace, mainDisplay, self)
-		layout.addWidget(self.cameraView)
+			message = QLabel(
+				'No live configuration data found.\nUse the configuration tab begin.')
+			font = QFont('Helvetica', 24)
+			message.setFont(font)
+			message.setAlignment(Qt.AlignCenter)
+			layout.addWidget(message)
 
 		self.setLayout(layout)
-		self.dialog = AlertDialog()
-
-		alertWatcher = AlertWatcher(self)
-		alertWatcher.setDaemon(True)
-		alertWatcher.start()
 
 	def updateLayout(self):
 		self.drawSpace.painter.update()
@@ -276,7 +285,7 @@ class gridViewer(QGridLayout):
 						maxSize=QSize(384, 216), minSize=QSize(128, 72),
 						parent = self.parent)
 
-					feedDisplayer.surface.setStyleSheet("border: 2px solid black")
+					feedDisplayer.surface.setStyleSheet("border: 3px solid black")
 
 					self.addWidget(feedDisplayer, row, col)
 
@@ -355,9 +364,9 @@ class FeedDisplayer(QLabel):
 			selectedCam = self.parent.drawSpace.controls.getSelectedCamera()
 			if selectedCam is not None:
 				if selectedCam.camID == self.camera.camID:
-					self.surface.setStyleSheet("border: 2px solid blue")
+					self.surface.setStyleSheet("border: 3px solid blue")
 				else:
-					self.surface.setStyleSheet("border: 2px solid black")
+					self.surface.setStyleSheet("border: 3px solid black")
 
 	def mousePressEvent(self, event):
 		if self.camera is not None:

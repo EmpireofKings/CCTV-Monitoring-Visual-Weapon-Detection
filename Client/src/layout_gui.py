@@ -145,32 +145,35 @@ class LayoutPainter(QFrame):
                 cameraDialog = CameraDialog(
                     self.mainFeedID, self.currentLevel)
 
-                location, angle, color, size = cameraDialog.getCameraInfo()
+                info = cameraDialog.getCameraInfo()
 
-                rawX = self.lastMousePos.x()
-                rawY = self.lastMousePos.y()
-                mappedX = self.range2range(rawX, 0, self.width(), 0, 500)
-                mappedY = self.range2range(rawY, 0, self.height(), 0, 500)
-                newCamera = Camera(
-                    camID=self.mainFeedID, levelID=self.currentLevel,
-                    location=location, position=QPoint(mappedX, mappedY),
-                    angle=angle, color=color, size=size, assigned=True)
+                if info is not None:
+                    location, angle, color, size = info
 
-                index = self.levelIDs.index(int(self.currentLevel))
-                self.level = self.data[0][index]
-                self.level.cameras.append(newCamera)
+                    rawX = self.lastMousePos.x()
+                    rawY = self.lastMousePos.y()
+                    mappedX = self.range2range(rawX, 0, self.width(), 0, 500)
+                    mappedY = self.range2range(rawY, 0, self.height(), 0, 500)
+                    newCamera = Camera(
+                        camID=self.mainFeedID, levelID=self.currentLevel,
+                        location=location, position=QPoint(mappedX, mappedY),
+                        angle=angle, color=color, size=size, assigned=True)
 
-                for cam in self.data[1]:
-                    if cam.camID == newCamera.camID:
-                        self.data[1].remove(cam)
-                
-                if len(self.data) == 3:
-                    for cam in self.data[2]:
+                    index = self.levelIDs.index(int(self.currentLevel))
+                    self.level = self.data[0][index]
+                    self.level.cameras.append(newCamera)
+
+                    for cam in self.data[1]:
                         if cam.camID == newCamera.camID:
-                            self.data[2].remove(cam)
+                            self.data[1].remove(cam)
+                    
+                    if len(self.data) == 3:
+                        for cam in self.data[2]:
+                            if cam.camID == newCamera.camID:
+                                self.data[2].remove(cam)
 
-                self.config.cameraMenu.update(self.data)
-                self.placing = False
+                    self.config.cameraMenu.update(self.data)
+                    self.placing = False
 
   
     def mouseMoveEvent(self, event):
@@ -223,6 +226,7 @@ class CameraDialog(QDialog):
 
         QDialog.__init__(self)
         self.setWindowTitle("Camera Configuration")
+        self.result = None
 
         ids = QLabel("Level " + str(levelID) + " : Camera " + str(id))
 
@@ -429,7 +433,6 @@ class LayoutControls(QFrame):
         if self.config.cameraMenu is not None:
             self.config.cameraMenu.update(self.data)
 
-
     def addLevel(self):
         dialog = QInputDialog()
         levelID, check = dialog.getInt(self, "Level Setup", "Level Number")
@@ -453,6 +456,9 @@ class LayoutControls(QFrame):
             if level.levelID == self.painter.currentLevel:
                 self.data[0].remove(level)
                 self.painter.levelIDs.remove(self.painter.currentLevel)
+                text = "Level " + str(level.levelID)
+                index = self.dropdown.findText(text)
+                self.dropdown.removeItem(index)
                 break
 
         self.config.levelMenu.update(self.data)
@@ -505,19 +511,24 @@ class LayoutControls(QFrame):
             camera.camID, camera.levelID, camera.location,
             camera.angle, camera.color, camera.size)
 
-        location, angle, color, size = cameraDialog.getCameraInfo()
+        info = cameraDialog.getCameraInfo()
 
-        if location != '':
-            camera.location = location
+        if info is not None:
+            location, angle, color, size = info
 
-        camera.angle = angle
-        camera.color = color
-        camera.size = size
+            if location != '':
+                camera.location = location
 
-        self.painter.update()
+            camera.angle = angle
+            camera.color = color
+            camera.size = size
+
+            self.painter.update()
 
     def deleteCam(self):
-        self.getSelectedCamera(delete=True)
+        camera = self.getSelectedCamera(delete=True)
+        newCam = Camera(camID=camera.camID)
+        self.data[1].insert(0, newCam)
         self.painter.update()
         self.config.cameraMenu.update(self.data)
 
@@ -571,9 +582,8 @@ class LayoutControls(QFrame):
             for camera in level.cameras:
                 if camera.camID == self.painter.mainFeedID:
                     if delete:
-                        level.cameras.remove(camera)
-                    else:
-                        return camera
+                        level.cameras.remove(camera)    
+                    return camera
 
     def resetConfig(self):
         dialog = QMessageBox()
@@ -588,10 +598,15 @@ class LayoutControls(QFrame):
             dataLoader = DataLoader()
             dataLoader.saveConfigData([])
             self.painter.data[0] = []
-            self.config.levelMenu.update(self.painter.data)
+            self.config.levelMenu.update(self.data)
+            self.config.cameraMenu.update(self.data)
+
             msgBox = QMessageBox()
             msgBox.setText("Configuration data reset successfully.")
             msgBox.exec()
+
+            program = sys.executable
+            os.execl(program, program, * sys.argv)
 
 
 def drawCam(painter, camX, camY, size, angle, color):

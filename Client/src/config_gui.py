@@ -49,13 +49,19 @@ class LevelMenu(QScrollArea):
 
         data[0].sort(key=lambda level: level.levelID)
 
+        if len(data[0]) == 0:
+            temp = Level("data will appear here", '../data/placeholder.png', [])
+            disp = LevelDisplay(temp, self.drawSpace)
+            disp.setStyleSheet("border: 3px solid black")
+            self.layout.addWidget(disp, Qt.AlignCenter)
+
         for level in data[0]:
             disp = LevelDisplay(level, self.drawSpace)
 
             if level.levelID == self.drawSpace.painter.currentLevel:
-                disp.setStyleSheet("border: 2px solid blue")
+                disp.setStyleSheet("border: 3px solid blue")
             else:
-                disp.setStyleSheet("border: 2px solid black")
+                disp.setStyleSheet("border: 3px solid black")
 
             self.layout.addWidget(disp, Qt.AlignCenter)
 
@@ -109,11 +115,11 @@ class CameraMenu(QWidget):
 
                 if selectedCam is not None:
                     if selectedCam.camID == camera.camID:
-                        disp.setStyleSheet("border: 2px solid blue")
+                        disp.setStyleSheet("border: 3px solid blue")
                     else:
-                        disp.setStyleSheet("border: 2px solid black")
+                        disp.setStyleSheet("border: 3px solid black")
                 else:
-                    disp.setStyleSheet("border: 2px solid black")
+                    disp.setStyleSheet("border: 3px solid black")
 
                 assignedLayout.addWidget(disp, Qt.AlignCenter)
 
@@ -132,11 +138,11 @@ class CameraMenu(QWidget):
 
             if selectedCam is not None:
                 if selectedCam.camID == camera.camID:
-                    disp.setStyleSheet("border: 2px solid blue")
+                    disp.setStyleSheet("border: 3px solid blue")
                 else:
-                    disp.setStyleSheet("border: 2px solid black")
+                    disp.setStyleSheet("border: 3px solid black")
             else:
-                disp.setStyleSheet("border: 2px solid black")
+                disp.setStyleSheet("border: 3px solid black")
 
             cameraLayout.addWidget(disp, Qt.AlignCenter)
 
@@ -154,11 +160,11 @@ class CameraMenu(QWidget):
                 disp = CameraDisplay(camera, self.drawSpace)
                 if selectedCam is not None:
                     if selectedCam.camID == camera.camID:
-                        disp.setStyleSheet("border: 2px solid blue")
+                        disp.setStyleSheet("border: 3px solid blue")
                     else:
-                        disp.setStyleSheet("border: 2px solid black")
+                        disp.setStyleSheet("border: 3px solid black")
                 else:
-                    disp.setStyleSheet("border: 2px solid black")
+                    disp.setStyleSheet("border: 3px solid black")
 
                 videoLayout.addWidget(disp)
 

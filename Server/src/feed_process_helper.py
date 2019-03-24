@@ -103,7 +103,7 @@ class BackgroundRemover():
 		height, width = np.shape(frame)
 		minArea = (height*width) * 0.0075
 
-		contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+		contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		contours = sorted(contours, key=cv2.contourArea)
 
 		boundingBoxes = []

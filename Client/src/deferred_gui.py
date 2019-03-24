@@ -50,12 +50,10 @@ class DeferredAnalysis(QWidget):
 			'.mp4',
 			'.m4v',
 			'.mkv',
-			'.webm',
 			'.mov',
 			'.avi',
 			'.wmv',
-			'.mpg',
-			'.flv')
+			'.mpg')
 
 		self.toProcess = []
 		self.ready = []
@@ -92,9 +90,7 @@ class DeferredAnalysis(QWidget):
 	def addFile(self):
 		dialog = QFileDialog()
 		files = dialog.getOpenFileNames()[0]
-		print(files)
 		files = self.sortFiles(files)
-		print(files)
 		self.addPreviews(files)
 
 	def addPreviews(self, files, ready=False):
@@ -136,6 +132,8 @@ class DeferredAnalysis(QWidget):
 	def updateLists(self):
 		self.processList.update()
 		self.readyList.update()
+		self.viewer.update()
+		self.update()
 
 	def moveTop(self, args):
 		item = self.toProcess.pop(0)
@@ -153,7 +151,6 @@ class DeferredAnalysis(QWidget):
 		self.processList.progressBar.reset()
 		self.processList.progressBar.setMinimum(args[0])
 		self.processList.progressBar.setMaximum(args[1])
-		self.processList.progressBar.show()
 
 	def updateProgressBar(self, args):
 		self.processList.progressBar.setValue(args[0])
@@ -213,7 +210,7 @@ class ProcessHandler(Thread):
 						self.progressBarUpdate.emitSignal((networker.total,))
 						time.sleep(1)
 
-					basePath = '../Processed/'
+					basePath = '../data/Processed/'
 					shutil.copy(path, basePath + itemName)
 
 				self.moveTopConnector.emitSignal()
@@ -244,7 +241,7 @@ class ProcessHandler(Thread):
 		return encoded, pmap
 
 	def saveProcessed(self, name, results, image=None):
-		basePath = '../Processed/'
+		basePath = '../data/processed/'
 		impath = basePath + name
 		respath = basePath + 'results-' + name + '.txt'
 
@@ -288,14 +285,17 @@ class ProcessList(QWidget):
 				data_handler.getLabelledPixmap(
 					256, 144, "\n\n\n\n\nProcessing...\n                               ", pmap=p.previewPmap))
 
+			p.setStyleSheet("border: 3px solid black")
 			listLayout.addWidget(p)
 
 			for preview in self.parent.toProcess[1:]:
+				preview.setStyleSheet("border: 3px solid black")
 				listLayout.addWidget(preview)
 		else:
 			pmap = data_handler.getLabelledPixmap(256, 144, "Add Content\n using the buttons above", path='../data/placeholder.png')
 			space = QLabel()
 			space.setPixmap(pmap)
+			space.setStyleSheet("border: 3px solid black")
 			listLayout.addWidget(space)
 
 		listWidget = QFrame()
@@ -314,21 +314,24 @@ class ProcessList(QWidget):
 
 		self.setLayout(outerLayout)
 
+
 class ReadyList(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__(self)
 		self.parent = parent
 		self.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
 
-		files = os.listdir('../Processed/')
+		files = os.listdir('../data/processed/')
 
 		fullPaths = []
 		for file in files:
-			fullPath = '../Processed/' + file
+			fullPath = '../data/processed/' + file
 			fullPaths.append(fullPath)
 
 		files = self.parent.sortFiles(fullPaths)
 		files = self.parent.addPreviews(files, ready=True)
+
+		self.stopFeedConn = GenericConnector(self.parent.viewer.analyser.resetFeed)
 
 		self.update()
 
@@ -347,10 +350,13 @@ class ReadyList(QWidget):
 
 		if len(self.parent.ready) > 0:
 			for preview in self.parent.ready:
-				if preview.itemPath == self.parent.viewer.analyser.path:
-					preview.setStyleSheet("border: 2px solid blue")
+				if self.parent.viewer.analyser.path is not None:
+					if os.path.basename(preview.itemPath) == os.path.basename(self.parent.viewer.analyser.path):
+						preview.setStyleSheet("border: 3px solid blue")
+					else:
+						preview.setStyleSheet("border: 3px solid black")
 				else:
-					preview.setStyleSheet("border: 2px solid black")
+					preview.setStyleSheet("border: 3px solid black")
 
 				listLayout.addWidget(preview)
 
@@ -358,6 +364,7 @@ class ReadyList(QWidget):
 			pmap = data_handler.getLabelledPixmap(256, 144, "Processed Content\n Will Appear Here", path='../data/placeholder.png')
 			space = QLabel()
 			space.setPixmap(pmap)
+			space.setStyleSheet("border: 3px solid black")
 			listLayout.addWidget(space)
 
 		listWidget = QFrame()
@@ -384,10 +391,12 @@ class ReadyList(QWidget):
 		filler.hide()
 
 	def deleteAll(self):
-		files = os.listdir('../Processed/')
+		self.stopFeedConn.emitSignal()
+		time.sleep(1)
+		files = os.listdir('../data/processed/')
 
 		for file in files:
-			fullPath = '../Processed/' + file
+			fullPath = '../data/processed/' + file
 			os.remove(fullPath)
 
 		self.parent.ready.clear()
@@ -405,11 +414,15 @@ class Viewer(QWidget):
 		self.title.setAlignment(Qt.AlignCenter)
 
 		self.surface = QLabel()
-		pmap = data_handler.getLabelledPixmap(
+		self.placeholder = data_handler.getLabelledPixmap(
 			1280, 720, "Click on something in the ready list\nto view it here.",
 			path='../data/placeholder.png')
+		self.surface.setSizePolicy(QSizePolicy(
+			QSizePolicy.Maximum, QSizePolicy.Maximum))
+		self.setSizePolicy(QSizePolicy(
+			QSizePolicy.Minimum, QSizePolicy.Minimum))
 
-		self.surface.setPixmap(pmap)
+		self.surface.setPixmap(self.placeholder)
 
 		self.timeDisplay = QLabel("0:00 / 0:00")
 		font = QFont('Helvetica', 14)
@@ -454,32 +467,47 @@ class Viewer(QWidget):
 	def showAnalysis(self, contentType, name):
 		# self.analyser.reset()
 		self.title.setText(name)
+		print("NAME:", name)
+		self.title.update()
 		self.analyser.set(contentType, name)
 
 	def updateChart(self, currentFrame):
 		self.chart.currentPoint = currentFrame
 
-
 	def resetChart(self, args):
-		resultsData, totalFrames, fps = args
-		self.chart.maxX = totalFrames
-		self.chart.data = resultsData
-		self.chart.fps = fps
+		if args is not None:
+			resultsData, totalFrames, fps = args
+			self.chart.maxX = totalFrames
+			self.chart.data = resultsData
+			self.chart.fps = fps
+		else:
+			self.chart.maxX = None
+			self.chart.data = None
+			self.chart.fps = None
+
 		self.chart.update()
 
 	def updateTimeDisplay(self, args):
 		cur, total = args
 		self.timeDisplay.setText(str(cur) + " / " + str(total))
+		self.timeDisplay.update()
+
+	def setTitle(self, title):
+		self.title.setText(title)
 
 	def updateDisplay(self, frame):
-		h, w, c = np.shape(frame)
+		if isinstance(frame, np.ndarray):
+			h, w, c = np.shape(frame)
 
-		pmap = QPixmap.fromImage(
-			QImage(
-				frame.data, w, h, 3 * w,
-				QImage.Format_RGB888))
+			pmap = QPixmap.fromImage(
+				QImage(
+					frame.data, w, h, 3 * w,
+					QImage.Format_RGB888))
+		else:
+			pmap = self.placeholder
 
 		self.surface.setPixmap(pmap)
+		self.surface.update()
 
 	class Chart(QLabel):
 		def __init__(self, parent):
@@ -493,6 +521,8 @@ class Viewer(QWidget):
 			self.currentPoint = 0
 			self.seek = GenericConnector(parent.analyser.seek)
 			self.setMouseTracking(True)
+			self.setSizePolicy(QSizePolicy(
+				QSizePolicy.Ignored, QSizePolicy.Ignored))
 
 		def paintEvent(self, event):		
 			if self.data is not None:
@@ -588,11 +618,10 @@ class Viewer(QWidget):
 
 				self.closestPoint = self.currentPoints[index]
 
-
 	class Analyser(Thread):
 		def __init__(self, display):
 			Thread.__init__(self)
-			self.basePath = '../Processed/'
+			self.basePath = '../data/processed/'
 			self.path = None
 			self.resultPath = None
 			self.frameCount = 0
@@ -600,6 +629,7 @@ class Viewer(QWidget):
 			self.chartConn = GenericConnector(display.resetChart)
 			self.pointConn = GenericConnector(display.updateChart)
 			self.timeConn = GenericConnector(display.updateTimeDisplay)
+			self.titleConn = GenericConnector(display.setTitle)
 			self.reset = False
 			self.ready = True
 			self.pause = False
@@ -609,8 +639,15 @@ class Viewer(QWidget):
 
 			while not terminator.isTerminating():
 				self.ready = True
+				self.chartConn.emitSignal(None)
+				self.timeConn.emitSignal(('0:00', '0:00'))
+				self.displayConn.emitFrame(None)
+				self.titleConn.emitSignal('')
+
 				while self.path is None or self.resultPath is None:
 					time.sleep(0.01)
+
+				self.titleConn.emitSignal(os.path.basename(self.path))
 
 				self.ready = False
 				self.reset = False
@@ -681,15 +718,18 @@ class Viewer(QWidget):
 			return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin
 
 		def set(self, contentType, name):
+			self.resetFeed()
+			self.path = self.basePath + name
+			self.resultPath = self.basePath + name + '.result'
+
+		def resetFeed(self):
 			self.path = None
 			self.resultPath = None
 			self.reset = True
+			self.pause = False
 
 			while self.ready is False:
 				time.sleep(0.001)
-
-			self.path = self.basePath + name
-			self.resultPath = self.basePath + name + '.result'
 
 		def seek(self, pos):
 			self.frameCount = pos
@@ -699,7 +739,8 @@ class Viewer(QWidget):
 
 		def playfeed(self):
 			self.pause = False
-			
+
+
 class Preview(QLabel):
 	def __init__(
 		self, parent, image=None, video=None, previewPmap=None,

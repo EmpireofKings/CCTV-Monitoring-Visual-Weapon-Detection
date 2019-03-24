@@ -101,9 +101,9 @@ class FeedHandler(Thread):
 						response = pickle.dumps((finalResult, boundingBoxes), protocol=4)
 						self.socket.send(response)
 
-		self.socket.disable_monitor()
+		# self.socket.disable_monitor()
 		self.monitor.stop = True
-		self.socket.close()
 		self.ctxHandler.cleanup()
 		self.certHandler.cleanup()
+		self.socket.close()
 		print("Ending thread", self.feedID)
