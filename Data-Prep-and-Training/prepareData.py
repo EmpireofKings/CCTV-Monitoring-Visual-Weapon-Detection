@@ -113,7 +113,10 @@ def getResumeData(rootFolder):
 		print("No resume data found")
 		sys.exit()
 
-def prepare(files, rootFolder, terminator, partialData = [], partialLabels = [],  batchCount = 1):
+
+def prepare(files, rootFolder, terminator,
+		partialData=[], partialLabels=[], batchCount=1):
+
 	data = partialData
 	labels = partialLabels
 
@@ -126,41 +129,59 @@ def prepare(files, rootFolder, terminator, partialData = [], partialLabels = [],
 		if terminator.isTerminating():
 			resumeData = (files, data, labels, batchCount)
 
-			with open(rootFolder+"resumeData.pickle", 'wb') as fp:
+			with open(rootFolder + "resumeData.pickle", 'wb') as fp:
 				pickle.dump(resumeData, fp, protocol=4)
 
 			sys.exit()
 
 		file = random.choice(files)
+		files.remove(file)
 
 		label = file.get("label")
 		path = file.get("path")
 
 		orig = cv2.imread(path)
-
 		orig = cv2.resize(orig, (64, 64))
-		# augmented1 = adjustBrightness(orig.copy(), 1)
-		# augmented2 = adjustBrightness(orig.copy(), -1)
-		# augmented3 = cv2.flip(orig.copy(), 1)
-
-		files.remove(file)
 
 		f1 = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB) / 255.0
-		# f2 = cv2.cvtColor(augmented1, cv2.COLOR_BGR2RGB) / 255.0
-		# f3 = cv2.cvtColor(augmented2, cv2.COLOR_BGR2RGB) / 255.0
-		# f4 = cv2.cvtColor(augmented3, cv2.COLOR_BGR2RGB) / 255.0
 
 		data.append(f1)
 		labels.append(label)
 
-		# data.append(f2)
-		# labels.append(label)
-		#
-		# data.append(f3)
-		# labels.append(label)
-		#
-		# data.append(f4)
-		# labels.append(label)
+		if label[10] == 1. or label[11] == 1.:
+			augmented1 = adjustBrightness(orig.copy(), 1)
+			augmented2 = adjustBrightness(orig.copy(), -1)
+			augmented3 = cv2.flip(orig.copy(), 1)
+
+			f2 = cv2.cvtColor(augmented1, cv2.COLOR_BGR2RGB) / 255.0
+			f3 = cv2.cvtColor(augmented2, cv2.COLOR_BGR2RGB) / 255.0
+			f4 = cv2.cvtColor(augmented3, cv2.COLOR_BGR2RGB) / 255.0
+
+			data.append(f2)
+			labels.append(label)
+
+			data.append(f3)
+			labels.append(label)
+
+			data.append(f4)
+			labels.append(label)
+		else:
+			count = 0
+			while count != 3:
+				file = random.choice(files)
+				label = file.get("label")
+				if not(label[10] == 1. or label[11] == 1.):
+					path = file.get("path")
+
+					orig = cv2.imread(path)
+
+					orig = cv2.resize(orig, (64, 64))
+					f1 = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB) / 255.0
+
+					data.append(f1)
+					labels.append(label)
+					files.remove(file)
+					count += 1
 
 		if len(data) == batchSize:
 			dataArr = np.array(data)

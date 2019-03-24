@@ -99,7 +99,6 @@ class FeedLoader(Thread):
 					break
 
 		self.networker.end = True
-		print("FINAL COUNT FL:", total)
 
 	def getFeedDetails(self):
 		return self.FPS, self.totalFrames

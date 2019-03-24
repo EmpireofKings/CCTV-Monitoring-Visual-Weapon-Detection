@@ -28,14 +28,14 @@ from notify_run import Notify
 class Networker(Thread):
 	def __init__(
 		self, camera=None, display=None, mainDisplay=None,
-		deferredMode=False, filePath=None, layoutHandler=None):
+		deferredMode=False, filePath=None, layoutHandler=None,
+		imageMode=False):
 		Thread.__init__(self)
 
 		self.layoutHandler = layoutHandler
 
 		if self.layoutHandler is not None:
 			self.updateConnector = GenericConnector(layoutHandler.updateLayout)
-			#self.setAlertConnector = GenericConnector(layoutHandler.setAlert)
 
 		self.end = False
 		self.frames = deque()
@@ -44,6 +44,7 @@ class Networker(Thread):
 		self.camera = camera
 		self.display = display
 		self.deferredMode = deferredMode
+		self.imageMode = imageMode
 		self.filePath = filePath
 
 		if display is not None:
@@ -109,7 +110,7 @@ class Networker(Thread):
 	def run(self):
 		if self.camera is not None:
 			feedID = str(self.camera.camID)
-		elif self.deferredMode:
+		elif self.deferredMode or self.imageMode:
 			feedID = self.filePath
 
 		feedID = feedID.replace(' ', '')
@@ -139,7 +140,7 @@ class Networker(Thread):
 				self.total += 1
 				deferredTimer = time.time()
 
-				if self.deferredMode:
+				if self.deferredMode or self.imageMode:
 					frame = self.frames.pop()
 				else:
 					frame = self.nextFrame
@@ -153,7 +154,7 @@ class Networker(Thread):
 
 				result = pickle.loads(serial)
 
-				if result[0] > 0.90 and not self.deferredMode:
+				if result[0] > 0.90 and not self.deferredMode and not self.imageMode:
 					self.camera.alert = True
 					alertTimer = time.time()
 					self.updateConnector.emitSignal()
@@ -164,29 +165,30 @@ class Networker(Thread):
 								str(self.camera.levelID) + ' ' +
 								self.camera.location)
 
-				if not self.deferredMode:
+				if not self.deferredMode and not self.imageMode:
 					if self.camera.alert:
 						if time.time() - alertTimer >= 60:
 							self.camera.alert = False
 							self.updateConnector.emitSignal()
 
-				boundingBoxes = result[1]
+				if not self.imageMode:
+					boundingBoxes = result[1]
 
-				if boundingBoxes != []:
-					height, width, _ = np.shape(displayFrame)
-					for box in boundingBoxes:
-						x, y, w, h = box
-						x = int(self.scale(x, 0, 1, 0, width))
-						y = int(self.scale(y, 0, 1, 0, height))
-						w = int(self.scale(w, 0, 1, 0, width))
-						h = int(self.scale(h, 0, 1, 0, height))
+					if boundingBoxes != []:
+						height, width, _ = np.shape(displayFrame)
+						for box in boundingBoxes:
+							x, y, w, h = box
+							x = int(self.scale(x, 0, 1, 0, width))
+							y = int(self.scale(y, 0, 1, 0, height))
+							w = int(self.scale(w, 0, 1, 0, width))
+							h = int(self.scale(h, 0, 1, 0, height))
 
-						cv2.rectangle(
-							displayFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+							cv2.rectangle(
+								displayFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
 				# # if this display is the main, emit the frame signal to both displays
 
-				if not self.deferredMode:
+				if not self.deferredMode and not self.imageMode:
 					mainCam = self.layoutHandler.drawSpace.controls.getSelectedCamera()
 					if mainCam is not None:
 						if self.camera.camID == mainCam.camID:
@@ -204,7 +206,7 @@ class Networker(Thread):
 			else:
 				time.sleep(0.001)
 
-		if self.deferredMode:
+		if self.deferredMode or self.imageMode:
 			with open('../data/processed/' + self.filePath + '.result', 'wb') as fp:
 				pickle.dump(results, fp, protocol=4)
 

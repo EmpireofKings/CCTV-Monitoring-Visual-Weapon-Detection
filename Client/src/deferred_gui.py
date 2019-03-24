@@ -173,20 +173,18 @@ class ProcessHandler(Thread):
 				itemName = self.parent.toProcess[0].itemName
 
 				if itemType == 'image':
-					pass
-					# img = cv2.imread(path)
-					# encoded, pmap = self.preprocess(img)
+					img = cv2.imread(path)
+					encoded, pmap = self.preprocess(img)
 
-					# if encoded is not None:
-					# 	self.networker.nextFrame = (encoded, pmap)
+					if encoded is not None:
+						networker = Networker(filePath=itemName, imageMode=True)
+						networker.setDaemon(True)
+						networker.frames.append((encoded, pmap))
+						networker.end = True
+						networker.start()
 
-					# 	while self.networker.deferredFrameResult is None:
-					# 		time.sleep(0.01)
-
-					# 	result = copy.copy(self.networker.deferredFrameResult)
-					# 	self.networker.deferredFrameResult = None
-
-					# 	self.saveProcessed(image=img, results=result, name=itemName)
+						while networker.isAlive():
+							time.sleep(0.01)
 
 				elif itemType == 'video':
 					networker = Networker(filePath=itemName, deferredMode=True)
@@ -210,8 +208,8 @@ class ProcessHandler(Thread):
 						self.progressBarUpdate.emitSignal((networker.total,))
 						time.sleep(1)
 
-					basePath = '../data/Processed/'
-					shutil.copy(path, basePath + itemName)
+				basePath = '../data/Processed/'
+				shutil.copy(path, basePath + itemName)
 
 				self.moveTopConnector.emitSignal()
 			time.sleep(2)
@@ -239,17 +237,6 @@ class ProcessHandler(Thread):
 			encoded = None
 
 		return encoded, pmap
-
-	def saveProcessed(self, name, results, image=None):
-		basePath = '../data/processed/'
-		impath = basePath + name
-		respath = basePath + 'results-' + name + '.txt'
-
-		if image is not None:
-			cv2.imwrite(impath, image)
-
-		with open(respath, 'w') as fp:
-			fp.write(str(results))
 
 
 class ProcessList(QWidget):
@@ -424,19 +411,28 @@ class Viewer(QWidget):
 
 		self.surface.setPixmap(self.placeholder)
 
-		self.timeDisplay = QLabel("0:00 / 0:00")
-		font = QFont('Helvetica', 14)
+		self.timeDisplay = QLabel("0:00:00 / 0:00:00")
+		font = QFont('Helvetica', 12)
 		self.timeDisplay.setFont(font)
-		self.timeDisplay.setAlignment(Qt.AlignCenter)
 
 		self.controls = QHBoxLayout()
+		self.controls.setAlignment(Qt.AlignCenter)
 		self.togglePlay = QPushButton('Play/Pause')
 		self.togglePlay.clicked.connect(self.toggle)
 
 		self.togglePlay.setSizePolicy(
 			QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum))
 
+		self.resultDisplay = QLabel()
+		self.resultDisplay.setFont(font)
+		self.resultDisplay.setAlignment(Qt.AlignRight)
+		self.resultDisplay.setMinimumWidth(50)
+		self.resultDisplay.setMaximumWidth(50)
+
+
+		self.controls.addWidget(self.timeDisplay)
 		self.controls.addWidget(self.togglePlay)
+		self.controls.addWidget(self.resultDisplay)
 
 		self.analyser = self.Analyser(self)
 		self.analyser.setDaemon(True)
@@ -450,7 +446,6 @@ class Viewer(QWidget):
 		outerLayout = QVBoxLayout()
 		outerLayout.addWidget(self.title)
 		outerLayout.addWidget(self.surface)
-		outerLayout.addWidget(self.timeDisplay)
 		outerLayout.addLayout(self.controls)
 		outerLayout.addWidget(self.chart)
 
@@ -467,7 +462,6 @@ class Viewer(QWidget):
 	def showAnalysis(self, contentType, name):
 		# self.analyser.reset()
 		self.title.setText(name)
-		print("NAME:", name)
 		self.title.update()
 		self.analyser.set(contentType, name)
 
@@ -488,9 +482,13 @@ class Viewer(QWidget):
 		self.chart.update()
 
 	def updateTimeDisplay(self, args):
-		cur, total = args
+		cur, total, result = args
 		self.timeDisplay.setText(str(cur) + " / " + str(total))
 		self.timeDisplay.update()
+
+		percentage = '{:5.2f}'.format(result*100)
+		self.resultDisplay.setText(percentage)
+		self.resultDisplay.update()
 
 	def setTitle(self, title):
 		self.title.setText(title)
@@ -617,6 +615,7 @@ class Viewer(QWidget):
 				index = dists.index(closest)
 
 				self.closestPoint = self.currentPoints[index]
+				self.update()
 
 	class Analyser(Thread):
 		def __init__(self, display):
@@ -640,7 +639,7 @@ class Viewer(QWidget):
 			while not terminator.isTerminating():
 				self.ready = True
 				self.chartConn.emitSignal(None)
-				self.timeConn.emitSignal(('0:00', '0:00'))
+				self.timeConn.emitSignal(('0:00:00', '0:00:00', 0.0))
 				self.displayConn.emitFrame(None)
 				self.titleConn.emitSignal('')
 
@@ -704,7 +703,7 @@ class Viewer(QWidget):
 						seconds = int(self.frameCount / fps)
 						curTime = datetime.timedelta(seconds=seconds)
 
-						self.timeConn.emitSignal((curTime, vidLength))
+						self.timeConn.emitSignal((curTime, vidLength, classifications))
 						self.displayConn.emitFrame(frame)
 						self.pointConn.emitSignal(self.frameCount)
 					else:

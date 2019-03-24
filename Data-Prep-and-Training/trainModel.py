@@ -60,7 +60,8 @@ def main():
 	untrainedModel.summary()
 
 	# train the model
-	trainedModel = trainModel(trainingPaths, testingPaths, untrainedModel)
+	# trainedModel = trainModelHDD(trainingPaths, testingPaths, untrainedModel)
+	trainedModel = trainModelRAM(trainingPaths, testingPaths, untrainedModel)
 	print("model training finished")
 	# save the model for the server
 	trainedModel.save("model.h5")
@@ -91,8 +92,8 @@ def prepModel(shape):
 	model = Sequential()
 
 	#convolutional/pooling layers
-	model.add(Conv2D(32, (3,3), activation='relu', padding='same', input_shape=shape))
-	model.add(Conv2D(32, (3,3), activation='relu'))
+	model.add(Conv2D(64, (3,3), activation='relu', padding='same', input_shape=shape))
+	model.add(Conv2D(64, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.25))
 
@@ -101,21 +102,21 @@ def prepModel(shape):
 	# model.add(MaxPooling2D(pool_size=(2, 2)))
 	# model.add(Dropout(0.25))
 
-	model.add(Conv2D(64, (3,3), activation='relu', padding='same'))
-	model.add(Conv2D(64, (3,3), activation='relu'))
+	model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
+	model.add(Conv2D(128, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
-	model.add(Dropout(0.25))
+	model.add(Dropout(0.2))
 
 	model.add(Conv2D(128, (3,3), activation='relu', padding='same', kernel_regularizer=regularizers.l2(0.01)))
 	model.add(Conv2D(128, (3,3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
-	model.add(Dropout(0.25))
+	model.add(Dropout(0.2))
 
 	#fully connected layers
 	model.add(Flatten())
-	model.add(Dense(4608, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
+	model.add(Dense(1152, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
 	#model.add(Dense(512, activation='relu'))
-	model.add(Dropout(0.25))
+	model.add(Dropout(0.2))
 	model.add(Dense(12, activation='sigmoid'))
 
 	#precision = keras_metrics.precision(label=1)
@@ -125,41 +126,98 @@ def prepModel(shape):
 
 	return model
 
-#trains provided model on provided batches
-def trainModel(trainingData, validationData, model):
+
+# trains provided model on provided batches
+def trainModelHDD(trainingData, validationData, model):
 
 	checkpointCB = ModelCheckpoint("../Checkpoints/model{epoch:02d}.hdf5")
 	tensorBoardCB = TensorBoard(log_dir="./logs", write_images=True)
 
-
 	trainSteps = len(trainingData)
 	validateSteps = len(validationData)
 
-	model.fit_generator(generator = DataSequence(trainingData), steps_per_epoch = trainSteps,
-					    validation_data = DataSequence(validationData), validation_steps = validateSteps,
-						class_weight = getClassWeights(trainingData), epochs = 30,
-						callbacks = [checkpointCB, tensorBoardCB],
-						max_queue_size = 500, workers = 20, shuffle = True,)
+	model.fit_generator(
+		generator=PathSequence(trainingData), steps_per_epoch=trainSteps,
+		validation_data=PathSequence(validationData), validation_steps=validateSteps,
+		class_weight=getClassWeights(trainingData), epochs=30,
+		callbacks=[checkpointCB, tensorBoardCB],
+		max_queue_size=500, workers=20, shuffle=True)
 
 	return model
 
-def getClassWeights(data):
 
-	allLabels = []
-	for paths in data:
-		labelsPath = paths.get("labels")
-		labels = np.load(labelsPath)
-		for label in labels:
-			allLabels.append(label)
+def trainModelRAM(trainingPaths, validationPaths, model):
+	checkpointCB = ModelCheckpoint("./logs/model{epoch:02d}.hdf5")
+	tensorBoardCB = TensorBoard(log_dir="./logs", write_images=True)
 
-	intLabels = [label.argmax() for label in allLabels]
+	trainingSeq = PathSequence(trainingPaths)
+	validationSeq = PathSequence(validationPaths)
 
-	weights = classWeight.compute_class_weight('balanced', np.unique(intLabels), intLabels)
-	weights = dict(enumerate(weights))
+	trainingData = []
+	trainingLabels = []
+	for i in range(len(trainingPaths)):
+		data, labels = trainingSeq.__getitem__(i)
 
-	return weights
+		for i in range(len(data)):
+			img = data[i]
+			lbl = labels[i]
+
+			trainingData.append(img)
+			trainingLabels.append(lbl)
+
+	validationData = []
+	validationLabels = []
+	for i in range(len(validationPaths)):
+		data, labels = validationSeq.__getitem__(i)
+
+		for i in range(len(data)):
+			img = data[i]
+			lbl = labels[i]
+
+			validationData.append(img)
+			validationLabels.append(lbl)
+
+	trainingData = np.array(trainingData)
+	trainingLabels = np.array(trainingLabels)
+
+	validationData = np.array(validationData)
+	validationLabels = np.array(validationLabels)
+
+	print(np.shape(trainingData), np.shape(trainingLabels))
+	print(np.shape(validationData), np.shape(validationLabels))
+
+	model.fit(
+		x=trainingData, y=trainingLabels, batch_size=64,
+		epochs=30, verbose=1, callbacks=[checkpointCB, tensorBoardCB],
+		validation_data=(validationData, validationLabels), 
+		shuffle=True, class_weight=getClassWeights(trainingPaths))
+
+	return model
+	# trainingSeq = DataSequence(trainingData)
+	# validationSeq = DataSequence(validationData)
+
+	# trainSteps = len(trainingData)
+	# validateSteps = len(validationData)
+
+	# model.fit_generator(
+	# 	generator=trainingSeq, steps_per_epoch=trainSteps,
+	# 	validation_data=validationSeq, validation_steps=validateSteps,
+	# 	class_weight=getClassWeights(trainingPaths), epochs=30,
+	# 	callbacks=[checkpointCB, tensorBoardCB],
+	# 	max_queue_size=500, workers=20, shuffle=True)
 
 class DataSequence(Sequence):
+	def __init__(self, data):
+		Sequence.__init__(self)
+		self.data = data
+
+	def __len__(self):
+		return len(self.data)
+
+	def __getitem__(self, idx):
+		return self.data[idx]
+
+class PathSequence(Sequence):
 	def __init__(self, paths):
 		Sequence.__init__(self)
 		self.paths = paths
@@ -176,11 +234,30 @@ class DataSequence(Sequence):
 		return (data, labels)
 
 
+def getClassWeights(data):
+	allLabels = []
+	for paths in data:
+		labelsPath = paths.get("labels")
+		labels = np.load(labelsPath)
+		for label in labels:
+			allLabels.append(label)
+
+
+	intLabels = [label.argmax() for label in allLabels]
+
+	weights = classWeight.compute_class_weight('balanced', np.unique(intLabels), intLabels)
+	weights = dict(enumerate(weights))
+
+	# double weighting of true target classes
+	weights['10'] = weights.get(10) * 2
+	weights['11'] = weights.get(11) * 2
+
+	return weights
 
 #evaluates the trained model
 def testModel(paths, model):
 	amt = len(paths)
-	results = model.evaluate_generator(DataSequence(paths), steps=amt, max_queue_size=50, use_multiprocessing=False, workers = 9, verbose=1)
+	results = model.evaluate_generator(PathSequence(paths), steps=amt, max_queue_size=50, use_multiprocessing=False, workers = 9, verbose=1)
 
 
 	true = []
@@ -256,6 +333,6 @@ def cifarMain():
 	return model
 
 if __name__ == '__main__':
-	#main()
+	main()
 	#cifarMain()
-	pretrained()
+	# pretrained()

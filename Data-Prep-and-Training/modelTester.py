@@ -94,11 +94,13 @@ def extractRegions(frame, gridSize, regionSize, prepare = True, offset = False, 
 	return np.array(regions), drawCoords
 
 def interpretResults():
-	model = getDefaultModel()
-	feed = getVideoFeed()#getCameraFeed()
+	#model = getDefaultModel()
+	model = chooseModel()
+	model.summary()
+	feed = getVideoFeed()
 	resultHandler = ResultsHandler(9, 30)
 
-	bgRemover = BackgroundRemover(feed)
+	# bgRemover = BackgroundRemover(feed)
 
 	alertTimer = None
 	while feed.isOpened():
@@ -118,12 +120,12 @@ def interpretResults():
 					alertTimer = time.time()
 				
 				print(time.time() - alertTimer)
-				frame = bgRemover.drawBoundingBox(frame)
+				# frame = bgRemover.drawBoundingBox(frame)
 
 				if time.time() - alertTimer >= 5:
 					print("reset")
 					alertTimer = None
-			#frame = drawResults(frame, resultHandler.getAverages(), drawCoords, ["Knife", "Pistol"], all=True)
+			frame = drawResults(frame, resultHandler.getAverages(), drawCoords, ["Knife", "Pistol"], all=True)
 			
 			cv2.imshow("feed", frame)
 			cv2.waitKey(0)
