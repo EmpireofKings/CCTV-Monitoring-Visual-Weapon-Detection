@@ -198,7 +198,9 @@ class AuthenticationListener(Thread):
 
 					self.db.commit()
 					message = EmailMessage()
-					message.set_content(key)
+					message.set_content(
+						'Hi ' + username + ',\n\nHere is your activation key:\n\t' + str(key) +
+						'\n\nRegards,\nBen')
 					message['Subject'] = 'Activation Key'
 					message['From'] = 'ben96ryan@gmail.com'
 					message['To'] = email

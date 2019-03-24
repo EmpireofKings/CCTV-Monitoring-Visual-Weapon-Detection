@@ -153,7 +153,7 @@ class Networker(Thread):
 
 				result = pickle.loads(serial)
 
-				if result[0] > 0.99 and not self.deferredMode:
+				if result[0] > 0.90 and not self.deferredMode:
 					self.camera.alert = True
 					alertTimer = time.time()
 					self.updateConnector.emitSignal()
@@ -189,9 +189,10 @@ class Networker(Thread):
 
 				if not self.deferredMode:
 					mainCam = self.layoutHandler.drawSpace.controls.getSelectedCamera()
-					if self.camera.camID == mainCam.camID:
-						self.mainDisplayConn.emitFrame(displayFrame)
-						#self.mainDisplay.camera = self.camera
+					if mainCam is not None:
+						if self.camera.camID == mainCam.camID:
+							self.mainDisplayConn.emitFrame(displayFrame)
+							#self.mainDisplay.camera = self.camera
 				else:
 					results.append(result)
 

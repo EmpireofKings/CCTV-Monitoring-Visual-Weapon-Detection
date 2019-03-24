@@ -36,6 +36,9 @@ class LiveAnalysis(QWidget):
 		dataLoader = DataLoader()
 		data = dataLoader.getConfigData()
 
+		self.levelMenu = None
+		self.cameraMenu = None
+
 		self.drawSpace = Layout(app, data, [LayoutMode.VIEW], self)
 
 		self.drawSpace.painter.setMinimumSize(600, 600)
@@ -167,6 +170,9 @@ class AlertWatcher(Thread):
 
 			count = 0
 			for path in soundsToPlay:
+				print(path)
+				print(self.index)
+				print(self.index.get(str(path)))
 				self.playUntilDone(self.playlist[self.index.get(path)])
 
 				if count == len(soundsToPlay) - 2:
@@ -211,6 +217,7 @@ class gridViewer(QGridLayout):
 		QGridLayout.__init__(self)
 		self.setSpacing(10)
 		self.setMargin(10)
+		self.parent = parent
 
 		cameras = []
 
@@ -264,9 +271,12 @@ class gridViewer(QGridLayout):
 						alertAudio = gTTS(alertText)
 						alertAudio.save(path)
 
-					# TODO TIDY THIS UP
 					feedDisplayer = FeedDisplayer(
-						camera, drawSpace, mainDisplay, maxSize=QSize(384, 216), minSize=QSize(128, 72),)
+						camera, drawSpace, mainDisplay, 
+						maxSize=QSize(384, 216), minSize=QSize(128, 72),
+						parent = self.parent)
+
+					feedDisplayer.surface.setStyleSheet("border: 2px solid black")
 
 					self.addWidget(feedDisplayer, row, col)
 
@@ -294,8 +304,9 @@ class gridViewer(QGridLayout):
 
 
 class FeedDisplayer(QLabel):
-	def __init__(self, camera, drawSpace, mainDisplay=None, maxSize=None, minSize=None):
+	def __init__(self, camera, drawSpace, mainDisplay=None, maxSize=None, minSize=None, parent=None):
 		QLabel.__init__(self)
+		self.parent = parent
 
 		if maxSize is not None:
 			self.setMaximumSize(maxSize)
@@ -339,6 +350,14 @@ class FeedDisplayer(QLabel):
 		self.title.setText(
 			"Level " + str(self.camera.levelID) +
 			" " + self.camera.location)
+
+		if self.parent is not None:
+			selectedCam = self.parent.drawSpace.controls.getSelectedCamera()
+			if selectedCam is not None:
+				if selectedCam.camID == self.camera.camID:
+					self.surface.setStyleSheet("border: 2px solid blue")
+				else:
+					self.surface.setStyleSheet("border: 2px solid black")
 
 	def mousePressEvent(self, event):
 		if self.camera is not None:

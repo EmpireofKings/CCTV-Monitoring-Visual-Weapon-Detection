@@ -296,6 +296,7 @@ class LoginDialog(QDialog):
 
 			if registered:
 				activationDialog = ActivationDialog()
+				activationDialog.setWindowTitle("Activation")
 				self.authenticated, self.msg, self.key = activationDialog.getKey(self.userID)
 				if self.authenticated:
 					self.accept()
@@ -424,7 +425,7 @@ class MainWindowTabs(QTabWidget):
 
 		try:
 			self.configTab = Config(app, dataLoader)
-			# self.liveTab = LiveAnalysis(app, dataLoader)
+			self.liveTab = LiveAnalysis(app, dataLoader)
 			self.deferredTab = DeferredAnalysis(app)
 			self.cornerWidget = CornerControls(app)
 			logging.debug('Tabs initialised')
@@ -444,7 +445,7 @@ class MainWindowTabs(QTabWidget):
 		# Icon made by Smashicons https://www.flaticon.com/authors/smashicons
 		deferredIcon = QIcon("../data/icons/deferred.png")
 
-		# self.addTab(self.liveTab, liveIcon, "Live Analysis")
+		self.addTab(self.liveTab, liveIcon, "Live Analysis")
 		self.addTab(self.deferredTab, deferredIcon, "Deferred Analysis")
 		self.addTab(self.configTab, configIcon, "Configuration")
 		self.setCornerWidget(self.cornerWidget)
@@ -519,6 +520,7 @@ if __name__ == '__main__':
 	# certHandler = CertificateHandler('front', 'client')
 	# certHandler.prep()
 	app = QApplication(sys.argv)
+	app.setApplicationName("CCTV Surveillance")
 
 	enrolled = enroll()
 
@@ -529,7 +531,7 @@ if __name__ == '__main__':
 	else:
 		logging.error('Enrollment Failed')
 		msgBox = QMessageBox()
-		msgBox.setText("Could not enroll with server.\nCheck Connection and try again.")
+		msgBox.setText("Could not enroll with server.\nCheck connection and try again.")
 		msgBox.show()
 
 	sys.exit(app.exec_())

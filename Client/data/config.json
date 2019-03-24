@@ -17,6 +17,21 @@
                     255
                 ],
                 "cameraSize": 20
+            },
+            {
+                "cameraID": "0",
+                "cameraLocation": "Living Room",
+                "cameraCoordinates": [
+                    426,
+                    396
+                ],
+                "cameraAngle": 200,
+                "cameraColor": [
+                    85,
+                    0,
+                    255
+                ],
+                "cameraSize": 20
             }
         ]
     },

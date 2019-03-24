@@ -60,9 +60,9 @@ class DeferredAnalysis(QWidget):
 		self.toProcess = []
 		self.ready = []
 
+		self.viewer = Viewer(self)
 		self.processList = ProcessList(self)
 		self.readyList = ReadyList(self)
-		self.viewer = Viewer(self)
 
 		layout.addWidget(self.processList)
 		layout.addWidget(self.readyList)
@@ -314,8 +314,6 @@ class ProcessList(QWidget):
 
 		self.setLayout(outerLayout)
 
-
-
 class ReadyList(QWidget):
 	def __init__(self, parent):
 		QWidget.__init__(self)
@@ -349,7 +347,13 @@ class ReadyList(QWidget):
 
 		if len(self.parent.ready) > 0:
 			for preview in self.parent.ready:
+				if preview.itemPath == self.parent.viewer.analyser.path:
+					preview.setStyleSheet("border: 2px solid blue")
+				else:
+					preview.setStyleSheet("border: 2px solid black")
+
 				listLayout.addWidget(preview)
+
 		else:
 			pmap = data_handler.getLabelledPixmap(256, 144, "Processed Content\n Will Appear Here", path='../data/placeholder.png')
 			space = QLabel()
@@ -764,8 +768,7 @@ class Preview(QLabel):
 			self.setPixmap(previewPmap)
 
 	def mousePressEvent(self, event):
-		print("Mouse pressed registered")
 		if self in self.parent.ready:
-			print("calling show analysis")
 			self.parent.viewer.showAnalysis(self.itemType, self.itemName)
+			self.parent.readyList.update()
 			time.sleep(0.1)

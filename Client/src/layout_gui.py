@@ -85,7 +85,7 @@ class LayoutPainter(QFrame):
 
                 drawCam(
                     painter, camX, camY, camera.size,
-                    camera.angle, camera.color)
+                    camera.angle, color)
 
                 # draw green circle around cam if selected
                 if camera.camID == self.mainFeedID:
@@ -159,8 +159,17 @@ class LayoutPainter(QFrame):
                 index = self.levelIDs.index(int(self.currentLevel))
                 self.level = self.data[0][index]
                 self.level.cameras.append(newCamera)
-                self.config.cameraMenu.update(self.data)
 
+                for cam in self.data[1]:
+                    if cam.camID == newCamera.camID:
+                        self.data[1].remove(cam)
+                
+                if len(self.data) == 3:
+                    for cam in self.data[2]:
+                        if cam.camID == newCamera.camID:
+                            self.data[2].remove(cam)
+
+                self.config.cameraMenu.update(self.data)
                 self.placing = False
 
   
@@ -213,6 +222,7 @@ class CameraDialog(QDialog):
             angle=0, color=QColor(0, 0, 0), size=5):
 
         QDialog.__init__(self)
+        self.setWindowTitle("Camera Configuration")
 
         ids = QLabel("Level " + str(levelID) + " : Camera " + str(id))
 
@@ -395,6 +405,9 @@ class LayoutControls(QFrame):
         self.painter.currentLevel = level
         self.painter.update()
 
+        if self.config.levelMenu:
+            self.config.levelMenu.update(self.data)
+
     def setLevel(self, level):
         self.painter.currentLevel = level
         text = "Level " + str(level)
@@ -403,26 +416,35 @@ class LayoutControls(QFrame):
         if index != -1:
             self.dropdown.setCurrentIndex(index)  # triggers indexChanged
 
-        self.config.levelMenu.update(self.data)
+        if self.config.levelMenu is not None:
+            self.config.levelMenu.update(self.data)
 
-    def setMainFeedID(self, camera):
+    def setMainFeedID(self, camera, placing=False):
+        if not placing:
+            self.setLevel(camera.levelID)
+
         self.painter.mainFeedID = camera.camID
-        self.setLevel(camera.levelID)
         self.painter.update()
+
+        if self.config.cameraMenu is not None:
+            self.config.cameraMenu.update(self.data)
+
 
     def addLevel(self):
         dialog = QInputDialog()
-        id, check = dialog.getInt(self, "Level Setup", "Level Number")
+        levelID, check = dialog.getInt(self, "Level Setup", "Level Number")
 
         if check:
             dialog = QFileDialog()
             path, check = dialog.getOpenFileName()
 
             if check:
-                level = Level(id, path, [])
+                level = Level(levelID, path, [])
                 self.data[0].append(level)
-                self.painter.levelIDs.append(id)
-                self.dropdown.addItem("Level " + str(id))
+                self.painter.levelIDs.append(levelID)
+                self.painter.levelIDs = sorted(self.painter.levelIDs)
+                index = self.painter.levelIDs.index(levelID)
+                self.dropdown.insertItem(index, "Level " + str(levelID))
                 self.painter.update()
                 self.config.levelMenu.update(self.data)
 
@@ -503,8 +525,7 @@ class LayoutControls(QFrame):
         if self.data[0] != []:
             msgBox = QMessageBox()
             msgBox.setText(
-                    """A restart will be required to begin live analysis with 
-				the new configuration data, do you wish to continue?""")
+                    """A restart will be required to begin live analysis with the new configuration data, do you wish to continue?""")
 
             msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
             result = msgBox.exec()

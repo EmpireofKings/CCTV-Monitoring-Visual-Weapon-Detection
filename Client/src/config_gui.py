@@ -10,10 +10,10 @@ from data_handler import *
 class Config(QWidget):
     def __init__(self, app, dataLoader):
         QWidget.__init__(self)
-       # self.setMinimumSize(QSize(1280, 800))
 
         layout = QHBoxLayout()
         data = dataLoader.getConfigData()
+        self.levelMenu = None
 
         drawSpace = Layout(app, data, [LayoutMode.VIEW, LayoutMode.EDIT], self)
 
@@ -21,10 +21,9 @@ class Config(QWidget):
 
         drawSpace.painter.setSizePolicy(QSizePolicy(
             QSizePolicy.Fixed, QSizePolicy.Fixed))
-        
+
         drawSpace.controls.setSizePolicy(QSizePolicy(
             QSizePolicy.Minimum, QSizePolicy.Fixed))
-
 
         self.levelMenu = LevelMenu(data, drawSpace)
         self.cameraMenu = CameraMenu(data, drawSpace)
@@ -53,9 +52,8 @@ class LevelMenu(QScrollArea):
         for level in data[0]:
             disp = LevelDisplay(level, self.drawSpace)
 
-            print(level.levelID, self.drawSpace.painter.currentLevel)
             if level.levelID == self.drawSpace.painter.currentLevel:
-                disp.setStyleSheet("border: 4px solid blue")
+                disp.setStyleSheet("border: 2px solid blue")
             else:
                 disp.setStyleSheet("border: 2px solid black")
 
@@ -88,25 +86,41 @@ class CameraMenu(QWidget):
         self.drawSpace = drawSpace
         self.setSizePolicy(QSizePolicy(
             QSizePolicy.Fixed, QSizePolicy.Minimum))
+
+        self.curTabIndex = 0
+        self.unassigned = None
         self.update(data)
 
     def update(self, data):
+        if self.unassigned is not None:
+            self.curTabIndex = self.unassigned.currentIndex()
+
         outerLayout = QVBoxLayout()
 
         assignedScroll = QScrollArea()
         assigned = QWidget()
         assignedLayout = QVBoxLayout()
+        selectedCam = self.drawSpace.controls.getSelectedCamera()
 
         # already assigned cameras
         for level in data[0]:
             for camera in level.cameras:
                 disp = CameraDisplay(camera, self.drawSpace)
+
+                if selectedCam is not None:
+                    if selectedCam.camID == camera.camID:
+                        disp.setStyleSheet("border: 2px solid blue")
+                    else:
+                        disp.setStyleSheet("border: 2px solid black")
+                else:
+                    disp.setStyleSheet("border: 2px solid black")
+
                 assignedLayout.addWidget(disp, Qt.AlignCenter)
 
         assigned.setLayout(assignedLayout)
         assignedScroll.setWidget(assigned)
 
-        unassigned = QTabWidget()
+        self.unassigned = QTabWidget()
 
         cameraScroll = QScrollArea()
         cameras = QWidget()
@@ -115,12 +129,21 @@ class CameraMenu(QWidget):
         # unassignedCameras
         for camera in data[1]:
             disp = CameraDisplay(camera, self.drawSpace)
+
+            if selectedCam is not None:
+                if selectedCam.camID == camera.camID:
+                    disp.setStyleSheet("border: 2px solid blue")
+                else:
+                    disp.setStyleSheet("border: 2px solid black")
+            else:
+                disp.setStyleSheet("border: 2px solid black")
+
             cameraLayout.addWidget(disp, Qt.AlignCenter)
 
         cameras.setLayout(cameraLayout)
         cameraScroll.setWidget(cameras)
 
-        unassigned.addTab(cameraScroll, "Cameras")
+        self.unassigned.addTab(cameraScroll, "Cameras")
 
         videoScroll = QScrollArea()
         videos = QWidget()
@@ -129,12 +152,21 @@ class CameraMenu(QWidget):
         if len(data) == 3:
             for camera in data[2]:
                 disp = CameraDisplay(camera, self.drawSpace)
+                if selectedCam is not None:
+                    if selectedCam.camID == camera.camID:
+                        disp.setStyleSheet("border: 2px solid blue")
+                    else:
+                        disp.setStyleSheet("border: 2px solid black")
+                else:
+                    disp.setStyleSheet("border: 2px solid black")
+
                 videoLayout.addWidget(disp)
 
         videos.setLayout(videoLayout)
         videoScroll.setWidget(videos)
 
-        unassigned.addTab(videoScroll, "Videos")
+        self.unassigned.addTab(videoScroll, "Videos")
+        self.unassigned.setCurrentIndex(self.curTabIndex)
 
         assTitle = QLabel('Assigned Feeds')
         font = QFont('Helvetica', 13)
@@ -147,7 +179,7 @@ class CameraMenu(QWidget):
         unassTitle.setFont(font)
         unassTitle.setAlignment(Qt.AlignCenter)
         outerLayout.addWidget(unassTitle)
-        outerLayout.addWidget(unassigned)
+        outerLayout.addWidget(self.unassigned)
 
         tempWidget = QWidget()
         tempWidget.setLayout(self.layout())
@@ -167,9 +199,10 @@ class CameraDisplay(QLabel):
         self.setPixmap(pmap)
 
     def mousePressEvent(self, event):
-        self.drawSpace.controls.setMainFeedID(self.camera)
-
         if not self.camera.assigned:
             self.drawSpace.controls.setPlacing(True, self.camera.camID)
+            self.drawSpace.controls.setMainFeedID(self.camera, placing=True)
         else:
             self.drawSpace.controls.setPlacing(False, self.camera.camID)
+            self.drawSpace.controls.setMainFeedID(self.camera)
+

@@ -24,6 +24,7 @@ class CornerControls(QPushButton):
 		terminator = Terminator.getInstance()
 
 		dialog = QMessageBox()
+		dialog.setWindowTitle("Logout")
 		dialog.setText("Are you sure?")
 		yesButton = QMessageBox.Yes
 		dialog.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
