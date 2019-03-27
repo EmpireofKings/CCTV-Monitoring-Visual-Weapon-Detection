@@ -5,9 +5,12 @@ import sys
 from terminator import Terminator
 import easygui
 from tensorflow.keras.applications.nasnet import NASNetLarge, preprocess_input, decode_predictions
+from keras.utils import plot_model
 from collections import deque
 from pprint import pprint
 import time
+
+from matplotlib import pyplot as plt
 
 def pretrained():
 	model = NASNetLarge(weights='imagenet')
@@ -88,7 +91,7 @@ def extractRegions(frame, gridSize, regionSize, prepare = True, offset = False, 
 	# 	extraRegions, extraDraw = extractRegions(subImage, 2, (64,64), offset=True, offsetX=subX, offsetY=subY)
 		
 	# 	for count in range(len(extraRegions)):
-	# 		regions.append(extraRegions[count])
+	# 		regions.append(extraRegions[count])python
 	# 		drawCoords.append(extraDraw[count])
 
 	return np.array(regions), drawCoords
@@ -97,8 +100,10 @@ def interpretResults():
 	#model = getDefaultModel()
 	model = chooseModel()
 	model.summary()
+	plot_model(model, to_file='./modelGraph.png')
+
 	feed = getVideoFeed()
-	resultHandler = ResultsHandler(9, 30)
+	resultHandler = ResultsHandler(9, 10)
 
 	# bgRemover = BackgroundRemover(feed)
 
@@ -244,7 +249,7 @@ def drawResults(img, results, drawCoords, categories, all=False):
 		regionResults = results[count]
 		highest = np.argmax(regionResults)
 
-		if regionResults[highest] > 0:
+		if regionResults[highest] > 0.89:
 			label = categories[highest]
 			regionX, regionY, regionW, regionH = drawCoords[count]
 			cv2.rectangle(img, (regionX, regionY), (regionX+regionW, regionY+regionH), (0,0,255), 3)

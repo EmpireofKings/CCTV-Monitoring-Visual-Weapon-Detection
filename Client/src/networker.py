@@ -167,7 +167,7 @@ class Networker(Thread):
 
 				if not self.deferredMode and not self.imageMode:
 					if self.camera.alert:
-						if time.time() - alertTimer >= 60:
+						if time.time() - alertTimer >= 30:
 							self.camera.alert = False
 							self.updateConnector.emitSignal()
 
