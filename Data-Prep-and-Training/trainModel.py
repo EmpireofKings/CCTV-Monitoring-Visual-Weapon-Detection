@@ -9,6 +9,7 @@ import os
 import random
 import sys
 
+
 import cv2
 import keras_metrics
 import numpy as np
@@ -139,7 +140,7 @@ def trainModelHDD(trainingData, validationData, model):
 	model.fit_generator(
 		generator=PathSequence(trainingData), steps_per_epoch=trainSteps,
 		validation_data=PathSequence(validationData), validation_steps=validateSteps,
-		class_weight=getClassWeights(trainingData), epochs=30,
+		class_weight=getClassWeights(trainingData), epochs=50,
 		callbacks=[checkpointCB, tensorBoardCB],
 		max_queue_size=500, workers=20, shuffle=True)
 
@@ -148,7 +149,7 @@ def trainModelHDD(trainingData, validationData, model):
 
 def trainModelRAM(trainingPaths, validationPaths, model):
 	checkpointCB = ModelCheckpoint("./logs/model{epoch:02d}.hdf5")
-	tensorBoardCB = TensorBoard(log_dir="./logs", write_images=True)
+	tensorBoardCB = TensorBoard(log_dir="./logs/", write_images=True)
 
 	trainingSeq = PathSequence(trainingPaths)
 	validationSeq = PathSequence(validationPaths)
@@ -188,9 +189,10 @@ def trainModelRAM(trainingPaths, validationPaths, model):
 
 	model.fit(
 		x=trainingData, y=trainingLabels, batch_size=64,
-		epochs=30, verbose=1, callbacks=[checkpointCB, tensorBoardCB],
-		validation_data=(validationData, validationLabels), 
+		epochs=40, verbose=1, callbacks=[checkpointCB, tensorBoardCB],
+		validation_data=(validationData, validationLabels),
 		shuffle=True, class_weight=getClassWeights(trainingPaths))
+
 
 	return model
 	# trainingSeq = DataSequence(trainingData)
