@@ -57,7 +57,7 @@ class FeedProcessHelper():
 			regionResults = results[count]
 			highest = np.argmax(regionResults)
 
-			if regionResults[highest] > 0:
+			if regionResults[highest] > 0.95:
 				label = categories[highest]
 				regionX, regionY, regionW, regionH = drawCoords[count]
 				cv2.rectangle(
@@ -101,7 +101,7 @@ class BackgroundRemover():
 		mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, self.closeElement)
 
 		height, width = np.shape(frame)
-		minArea = (height*width) * 0.0075
+		minArea = (height*width) * 0.0001
 
 		contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 		contours = sorted(contours, key=cv2.contourArea)
@@ -115,7 +115,7 @@ class BackgroundRemover():
 				w = self.scale(wf, 0, width, 0, 1)
 				h = self.scale(hf, 0, height, 0, 1)
 
-				boundingBoxes.append([x, y, w, h])
+				boundingBoxes.append((x, y, w, h))
 			else:
 				break
 

@@ -9,12 +9,10 @@ import tensorflow as tf
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
-path = os.getcwd().split('/')
+path = os.getcwd().split('\\')
 print(path)
-path = '/'.join(path[:len(path) - 2])
-sys.path.append(path + '/CommonFiles')
-
-print(sys.path)
+path = '\\'.join(path[:len(path) - 2])
+sys.path.append(path + '\\CommonFiles')
 
 from authenticator import AuthenticationListener
 from enroller import Enroller
@@ -23,7 +21,6 @@ from context_handler import ContextHandler
 from feed_listener import FeedListener
 from terminator import Terminator
 from modelHandler import ModelHandler
-
 
 
 if __name__ == '__main__':

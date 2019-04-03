@@ -61,9 +61,9 @@ while feed.isOpened():
         orig2 = frame.copy()
         orig3 = frame.copy()
 
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        frame = cv2.GaussianBlur(frame, (19, 19), 0)
-        # frame = clahe.apply(frame)
+        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        # frame = cv2.GaussianBlur(frame, (19, 19), 0)
+        # # frame = clahe.apply(frame)
 
         mask1 = mog.apply(frame)
         mask2 = mog2.apply(frame)
@@ -81,15 +81,11 @@ while feed.isOpened():
         mask2 = cv2.morphologyEx(mask2, cv2.MORPH_CLOSE, structEl2)
         mask3 = cv2.morphologyEx(mask3, cv2.MORPH_CLOSE, structEl2)
 
-
-        cv2.imshow("mogmask", mask1)
-        cv2.imshow("mog2mask", mask2)
-        cv2.imshow('gmgmask', mask3)
+       
 
 
         h, w, c = np.shape(orig1)
         minArea = (h*w) * 0.0075
-        print(minArea)
 
 
         top = 5
@@ -134,7 +130,9 @@ while feed.isOpened():
             if top == 0:
                 break
         
-        
+        cv2.imshow("mogmask", mask1)
+        cv2.imshow("mog2mask", mask2)
+        cv2.imshow('gmgmask', mask3)
         cv2.imshow("mog", orig1)
         cv2.imshow("mog2", orig2)
         cv2.imshow('gmg', orig3)

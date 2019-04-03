@@ -85,7 +85,6 @@ class FeedHandler(Thread):
 					# handling timeout for deferred thread
 					if received == 'wait':
 						self.socket.send_string("ok")
-						print('waiting')
 					else:
 						jpegStr = b64.b64decode(received)
 						jpeg = np.fromstring(jpegStr, dtype=np.uint8)

@@ -1,28 +1,29 @@
+import logging
 import os
 import shutil
 import sys
-from threading import Thread
 import time
-import logging
+import uuid
+from collections import deque
+from threading import Thread
+import _pickle as pickle
 
+import cv2
+import numpy as np
 import zmq
 import zmq.auth
+from notify_run import Notify
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from zmq.auth.thread import ThreadAuthenticator
 
-from monitor import Monitor
-from context_handler import ContextHandler
-from certificate_handler import CertificateHandler
-from terminator import Terminator
-import uuid
-from collections import deque
 import _pickle as pickle
-import cv2
-import numpy as np
+from certificate_handler import CertificateHandler
 from connectors import DisplayConnector, GenericConnector
-from notify_run import Notify
+from context_handler import ContextHandler
+from monitor import Monitor
+from terminator import Terminator
 
 
 class Networker(Thread):
@@ -54,7 +55,7 @@ class Networker(Thread):
 
 		self.serverAddr = 'tcp://35.204.135.105'
 		self.localAddr = 'tcp://127.0.0.1'
-		self.mainAddr = self.localAddr
+		self.mainAddr = self.serverAddr
 		self.initPort = ':5000'
 
 		self.total = 0
@@ -135,6 +136,16 @@ class Networker(Thread):
 		notify = Notify()
 		notifyTimer = time.time()
 
+		fpsTimer = time.time()
+		showEvery = 1
+		count = 0
+		recordCount = 0
+
+		fps = []
+		times = []
+
+		cutoffTimer = time.time()
+
 		while not terminator.isTerminating() and self.end is False or (self.end is True and len(self.frames) > 0):
 			if self.nextFrame is not None or len(self.frames) > 0:
 				self.total += 1
@@ -196,6 +207,23 @@ class Networker(Thread):
 							#self.mainDisplay.camera = self.camera
 				else:
 					results.append(result)
+
+				count += 1
+				if (time.time() - fpsTimer) > showEvery:
+					curFPS = count / (time.time() - fpsTimer)
+					fps.append(curFPS)
+					times.append(recordCount)
+					recordCount += 1
+					count = 0
+					fpsTimer = time.time()
+
+					if time.time() - cutoffTimer > 1200:
+						perfData = (fps, times)
+
+						with open('./performanceData' + self.camera.location, 'wb') as fp:
+							pickle.dump(perfData, fp, protocol=4)
+							
+						sys.exit()
 
 			elif (time.time() - deferredTimer) > 5 and self.deferredMode:
 				socket.send_string("wait")

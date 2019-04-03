@@ -37,6 +37,7 @@ def view(batchPaths):
 		print(np.shape(data), np.shape(labels))
 
 		for i in range(len(data)):
+			print(data[i].dtype)
 			image = data[i] * 255.0
 			image = image.astype(np.uint8)
 			labelData = labels[i]

@@ -33,7 +33,7 @@ from corner_controls import CornerControls
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
-mainAddr = localAddr
+mainAddr = serverAddr
 connectCamPort = ':5000'
 registrationPort = ':5001'
 unsecuredEnrollPort = ':5002'
@@ -87,7 +87,6 @@ class mainWindow(QMainWindow):
 			socket = setupGlobalSocket(mainAddr + registrationPort)
 			socket.send_string('AUTHENTICATE' + ' ' + userID + ' ' + key)
 			result = socket.recv_string()
-			print("RAW RESULT", result)
 			parts = result.split('  ')
 
 			if parts[0] == 'True':
@@ -469,7 +468,7 @@ def enroll():
 		unsecuredSocket = unsecuredCtx.socket(zmq.REQ)
 		unsecuredSocket.setsockopt(zmq.RCVTIMEO, 5000)
 		unsecuredSocket.setsockopt(zmq.SNDTIMEO, 5000)
-		unsecuredSocket.setsockopt( zmq.LINGER, 0 )
+		unsecuredSocket.setsockopt(zmq.LINGER, 0)
 
 		unsecuredSocket.connect(mainAddr + unsecuredEnrollPort)
 		certHandler = CertificateHandler('front', 'client')

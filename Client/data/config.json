@@ -1,85 +1,142 @@
 [
     {
-        "levelID": -2,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder2.jpg",
-        "levelCameras": [
-            {
-                "cameraID": "..\\data\\videos\\4.mp4",
-                "cameraLocation": "Dining",
-                "cameraCoordinates": [
-                    297,
-                    295
-                ],
-                "cameraAngle": 240,
-                "cameraColor": [
-                    255,
-                    85,
-                    127
-                ],
-                "cameraSize": 20
-            }
-        ]
-    },
-    {
-        "levelID": -1,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder5.png",
-        "levelCameras": [
-            {
-                "cameraID": "..\\data\\videos\\0 - Copy.mp4",
-                "cameraLocation": "Living Room",
-                "cameraCoordinates": [
-                    106,
-                    340
-                ],
-                "cameraAngle": 120,
-                "cameraColor": [
-                    170,
-                    255,
-                    255
-                ],
-                "cameraSize": 20
-            }
-        ]
-    },
-    {
         "levelID": 0,
         "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
         "levelCameras": [
+            {
+                "cameraID": "..\\data\\videos\\0000000.mp4",
+                "cameraLocation": "Living Room",
+                "cameraCoordinates": [
+                    322,
+                    178
+                ],
+                "cameraAngle": 240,
+                "cameraColor": [
+                    85,
+                    170,
+                    255
+                ],
+                "cameraSize": 13
+            },
             {
                 "cameraID": "0",
                 "cameraLocation": "Utility Closet",
                 "cameraCoordinates": [
                     28,
-                    363
+                    365
                 ],
-                "cameraAngle": 120,
+                "cameraAngle": 150,
                 "cameraColor": [
                     85,
+                    0,
+                    127
+                ],
+                "cameraSize": 9
+            },
+            {
+                "cameraID": "..\\data\\videos\\0 - Copy.mp4",
+                "cameraLocation": "Kitchen",
+                "cameraCoordinates": [
+                    27,
+                    228
+                ],
+                "cameraAngle": 150,
+                "cameraColor": [
+                    85,
+                    0,
+                    0
+                ],
+                "cameraSize": 13
+            },
+            {
+                "cameraID": "..\\data\\videos\\2.mp4",
+                "cameraLocation": "Entry 1",
+                "cameraCoordinates": [
+                    198,
+                    365
+                ],
+                "cameraAngle": 180,
+                "cameraColor": [
+                    255,
+                    170,
+                    127
+                ],
+                "cameraSize": 10
+            },
+            {
+                "cameraID": "..\\data\\videos\\3 - Copy.mp4",
+                "cameraLocation": "Entry 2",
+                "cameraCoordinates": [
+                    197,
+                    396
+                ],
+                "cameraAngle": 0,
+                "cameraColor": [
+                    85,
+                    170,
+                    0
+                ],
+                "cameraSize": 11
+            },
+            {
+                "cameraID": "..\\data\\videos\\4 - Copy.mp4",
+                "cameraLocation": "Laundry",
+                "cameraCoordinates": [
+                    30,
+                    275
+                ],
+                "cameraAngle": 90,
+                "cameraColor": [
+                    170,
                     0,
                     255
                 ],
                 "cameraSize": 12
-            }
-        ]
-    },
-    {
-        "levelID": 1,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder3.jpg",
-        "levelCameras": [
+            },
             {
-                "cameraID": "..\\data\\videos\\0000000 - Copy.mp4",
-                "cameraLocation": "Study",
+                "cameraID": "..\\data\\videos\\9 - Copy.mp4",
+                "cameraLocation": "Outside",
                 "cameraCoordinates": [
-                    386,
-                    398
+                    480,
+                    399
                 ],
-                "cameraAngle": 240,
+                "cameraAngle": 320,
                 "cameraColor": [
                     255,
                     85,
                     0
                 ],
-                "cameraSize": 20
+                "cameraSize": 9
+            },
+            {
+                "cameraID": "..\\data\\videos\\18.mp4",
+                "cameraLocation": "Hallway",
+                "cameraCoordinates": [
+                    369,
+                    235
+                ],
+                "cameraAngle": 270,
+                "cameraColor": [
+                    85,
+                    0,
+                    127
+                ],
+                "cameraSize": 11
+            },
+            {
+                "cameraID": "..\\data\\videos\\custom.mp4",
+                "cameraLocation": "Dining Room",
+                "cameraCoordinates": [
+                    30,
+                    20
+                ],
+                "cameraAngle": 45,
+                "cameraColor": [
+                    85,
+                    255,
+                    127
+                ],
+                "cameraSize": 14
             }
         ]
     }
