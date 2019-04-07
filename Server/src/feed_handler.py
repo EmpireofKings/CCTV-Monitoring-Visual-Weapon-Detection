@@ -70,7 +70,7 @@ class FeedHandler(Thread):
 		session = modelHandler.getSession()
 		graph = modelHandler.getGraph()
 
-		resultHandler = ResultsHandler(9, 30)
+		resultHandler = ResultsHandler(16, 10)
 
 		bgRemover = BackgroundRemover()
 
@@ -90,7 +90,7 @@ class FeedHandler(Thread):
 						jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 						frame = cv2.imdecode(jpeg, 1)
 
-						regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
+						regions, drawCoords = helper.extractRegions(frame, 4, (64, 64), True)
 						results = np.around(model.predict(regions)[:, 10:], decimals=3)
 						resultHandler.append(results)
 						finalResult = resultHandler.assess()

@@ -1,0 +1,553 @@
+INFO - 2019-04-07 12:20:41,345 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-07 12:20:41,346 - MainThread - Terminator signals linked
+DEBUG - 2019-04-07 12:21:03,884 - Thread-2 - Starting
+INFO - 2019-04-07 12:21:03,885 - MainThread - Socket setup, public key: b'jM%pFP[x4C^$^V@NfFR!)v1IO5K=!!-oxe9jluqX'
+DEBUG - 2019-04-07 12:21:03,886 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:03,886 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:03,887 - MainThread - Feed listener thread started
+DEBUG - 2019-04-07 12:21:03,887 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 12:21:04,120 - MainThread - Connected to database
+DEBUG - 2019-04-07 12:21:04,121 - Thread-5 - Starting
+DEBUG - 2019-04-07 12:21:04,122 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:04,122 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 12:21:04,122 - MainThread - Socket monitor thread started
+DEBUG - 2019-04-07 12:21:04,123 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-04-07 12:21:04,123 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:04,123 - MainThread - Authentication thread started
+DEBUG - 2019-04-07 12:21:04,124 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 12:21:04,125 - MainThread - Enroller thread started
+DEBUG - 2019-04-07 12:21:26,312 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 12:21:26,394 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 12:21:27,270 - Enroller - Enrolled F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB saved at ../Certificates/client-keys-front/fabe3a0a0e914217905a59ca7f2d0a4e.key
+DEBUG - 2019-04-07 12:21:27,271 - Enroller - New client enrolled F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB
+DEBUG - 2019-04-07 12:21:27,272 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:27,272 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:27,272 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 12:21:27,272 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 12:21:27,311 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 12:21:27,420 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:27,574 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:27,574 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:27,574 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:27,575 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:27,643 - Authenticator - Responded to authenticate instruction: False, Key/ID pair does not match
+DEBUG - 2019-04-07 12:21:27,720 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:37,624 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:37,756 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:37,756 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:37,756 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:37,756 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:37,874 - Authenticator - Responded to login instruction: True, Authenticated, 1, e9f6f46c4cd043e2861990ffa93a6177
+DEBUG - 2019-04-07 12:21:37,921 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 12:21:46,604 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:46,760 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:46,760 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:46,761 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:46,761 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:46,796 - FeedListener - Client key received L=(o-IwxC-II!Xg4Qh)TYZqX?p6C{zDC{?9Pf-oV for datavideos0000000mp4eda282bbfa08497eaeef5842fab6104d
+DEBUG - 2019-04-07 12:21:46,853 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:46,913 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:46,962 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:46,962 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:46,962 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:46,963 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:46,988 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,052 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,052 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,052 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,052 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,137 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,137 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,137 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,137 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,182 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,307 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,308 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,308 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,308 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,313 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,440 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,440 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,440 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,440 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,662 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,681 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,749 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,798 - Thread-10 - Starting
+DEBUG - 2019-04-07 12:21:47,799 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:47,799 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0000000mp4eda282bbfa08497eaeef5842fab6104d/]
+DEBUG - 2019-04-07 12:21:47,800 - FeedListener - Enrolled L=(o-IwxC-II!Xg4Qh)TYZqX?p6C{zDC{?9Pf-oV saved at ../Certificates/client-keys-datavideos0000000mp4eda282bbfa08497eaeef5842fab6104d/c5c385e6be49451b8df5ceab96a584e8.key
+DEBUG - 2019-04-07 12:21:47,817 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,817 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:60440'
+DEBUG - 2019-04-07 12:21:47,817 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:47,817 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:47,818 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,818 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0000000mp4eda282bbfa08497eaeef5842fab6104d/]
+DEBUG - 2019-04-07 12:21:47,818 - FeedListener - Client key received <bp+l4rs#]1DiAI=rRM67SfZztO}osZ{5DiREATw for datavideos4-Copymp463d603fd7dfb47d19b526a8bdd7b765e
+DEBUG - 2019-04-07 12:21:47,819 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,820 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,820 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,820 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,821 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,821 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,867 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,882 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:47,882 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'F>VvmFi^:Dc}:Cv8gdVPfvdm(-*:$@h*37&1efNB'
+DEBUG - 2019-04-07 12:21:47,882 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:47,882 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:47,896 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:60440'
+DEBUG - 2019-04-07 12:21:48,076 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:48,076 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'L=(o-IwxC-II!Xg4Qh)TYZqX?p6C{zDC{?9Pf-oV'
+DEBUG - 2019-04-07 12:21:48,076 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:48,077 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:60440'
+DEBUG - 2019-04-07 12:21:48,823 - Thread-13 - Starting
+DEBUG - 2019-04-07 12:21:48,824 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:48,824 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos4-Copymp463d603fd7dfb47d19b526a8bdd7b765e/]
+DEBUG - 2019-04-07 12:21:48,824 - FeedListener - Enrolled <bp+l4rs#]1DiAI=rRM67SfZztO}osZ{5DiREATw saved at ../Certificates/client-keys-datavideos4-Copymp463d603fd7dfb47d19b526a8bdd7b765e/a12c271c774b4edda6ce787c7b3740c3.key
+DEBUG - 2019-04-07 12:21:48,825 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:48,825 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos4-Copymp463d603fd7dfb47d19b526a8bdd7b765e/]
+DEBUG - 2019-04-07 12:21:48,826 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:48,826 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:58641'
+DEBUG - 2019-04-07 12:21:48,827 - FeedListener - Client key received ={:V>>^z7brbQ1m(IC/BTR+f=w#Zglz4{Rp[u#yI for 02aea0210f0054eaf980866fb519803c9
+DEBUG - 2019-04-07 12:21:48,887 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:48,927 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:58641'
+DEBUG - 2019-04-07 12:21:49,056 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:49,056 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'<bp+l4rs#]1DiAI=rRM67SfZztO}osZ{5DiREATw'
+DEBUG - 2019-04-07 12:21:49,056 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:49,056 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:58641'
+DEBUG - 2019-04-07 12:21:49,830 - Thread-16 - Starting
+DEBUG - 2019-04-07 12:21:49,831 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:49,831 - CurveAuth - Configure curve: *[../Certificates/client-keys-02aea0210f0054eaf980866fb519803c9/]
+DEBUG - 2019-04-07 12:21:49,832 - FeedListener - Enrolled ={:V>>^z7brbQ1m(IC/BTR+f=w#Zglz4{Rp[u#yI saved at ../Certificates/client-keys-02aea0210f0054eaf980866fb519803c9/5fb150b49c404ee49bc21d9bd9a61ea1.key
+DEBUG - 2019-04-07 12:21:49,833 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:49,833 - CurveAuth - Configure curve: *[../Certificates/client-keys-02aea0210f0054eaf980866fb519803c9/]
+DEBUG - 2019-04-07 12:21:49,833 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:50209'
+DEBUG - 2019-04-07 12:21:49,834 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:49,834 - FeedListener - Client key received 7M4?-[L]z=rukI7+55GDQRen]Q9*-BM0Use.-[+S for datavideos0-Copymp44e79266edc124d2fb0e4aa94dd93865b
+DEBUG - 2019-04-07 12:21:49,886 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:49,920 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:50209'
+DEBUG - 2019-04-07 12:21:50,055 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:50,055 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'={:V>>^z7brbQ1m(IC/BTR+f=w#Zglz4{Rp[u#yI'
+DEBUG - 2019-04-07 12:21:50,055 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:50,056 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:50209'
+DEBUG - 2019-04-07 12:21:50,838 - Thread-19 - Starting
+DEBUG - 2019-04-07 12:21:50,838 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:50,839 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0-Copymp44e79266edc124d2fb0e4aa94dd93865b/]
+DEBUG - 2019-04-07 12:21:50,839 - FeedListener - Enrolled 7M4?-[L]z=rukI7+55GDQRen]Q9*-BM0Use.-[+S saved at ../Certificates/client-keys-datavideos0-Copymp44e79266edc124d2fb0e4aa94dd93865b/0419adc6ceb54017bc6c4ff96251f5b3.key
+DEBUG - 2019-04-07 12:21:50,840 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:50,841 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:50,841 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:55756'
+DEBUG - 2019-04-07 12:21:50,842 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0-Copymp44e79266edc124d2fb0e4aa94dd93865b/]
+DEBUG - 2019-04-07 12:21:50,842 - FeedListener - Client key received Y//Xlj4o4e{%M-u2]JE}%gC4sO5I6Dx6N(g?tji( for datavideos2mp4025e607d135947719d4e9c6f8098d517
+DEBUG - 2019-04-07 12:21:50,921 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:50,954 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:55756'
+DEBUG - 2019-04-07 12:21:51,090 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:51,090 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'7M4?-[L]z=rukI7+55GDQRen]Q9*-BM0Use.-[+S'
+DEBUG - 2019-04-07 12:21:51,090 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:51,090 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:55756'
+DEBUG - 2019-04-07 12:21:51,846 - Thread-22 - Starting
+DEBUG - 2019-04-07 12:21:51,846 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:51,847 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos2mp4025e607d135947719d4e9c6f8098d517/]
+DEBUG - 2019-04-07 12:21:51,847 - FeedListener - Enrolled Y//Xlj4o4e{%M-u2]JE}%gC4sO5I6Dx6N(g?tji( saved at ../Certificates/client-keys-datavideos2mp4025e607d135947719d4e9c6f8098d517/1be4641961c74b498cf003d0e6373b23.key
+DEBUG - 2019-04-07 12:21:51,848 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:51,848 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos2mp4025e607d135947719d4e9c6f8098d517/]
+DEBUG - 2019-04-07 12:21:51,849 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:51,849 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:63656'
+DEBUG - 2019-04-07 12:21:51,850 - FeedListener - Client key received p(rihGUjsyV*R+5D#tUUMiSIi&[5rm}n*O^9y>2? for datavideos3-Copymp40381a04e880843839b34ae91d4b7f0d0
+DEBUG - 2019-04-07 12:21:51,901 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:51,937 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:63656'
+DEBUG - 2019-04-07 12:21:52,064 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:52,064 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'Y//Xlj4o4e{%M-u2]JE}%gC4sO5I6Dx6N(g?tji('
+DEBUG - 2019-04-07 12:21:52,064 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:52,064 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:63656'
+DEBUG - 2019-04-07 12:21:52,853 - Thread-25 - Starting
+DEBUG - 2019-04-07 12:21:52,854 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:52,854 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos3-Copymp40381a04e880843839b34ae91d4b7f0d0/]
+DEBUG - 2019-04-07 12:21:52,855 - FeedListener - Enrolled p(rihGUjsyV*R+5D#tUUMiSIi&[5rm}n*O^9y>2? saved at ../Certificates/client-keys-datavideos3-Copymp40381a04e880843839b34ae91d4b7f0d0/03202e517d1246cdabf016e15b98df17.key
+DEBUG - 2019-04-07 12:21:52,856 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:52,856 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos3-Copymp40381a04e880843839b34ae91d4b7f0d0/]
+DEBUG - 2019-04-07 12:21:52,857 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:56473'
+DEBUG - 2019-04-07 12:21:52,857 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:52,858 - FeedListener - Client key received T<[/?4W<}Iz%.0Y2}KKDQqKCsiGf#dZ:[TCEzw&+ for datavideos9-Copymp42f77aca5cfa846e689b869d081a6e61c
+DEBUG - 2019-04-07 12:21:52,917 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:52,947 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:56473'
+DEBUG - 2019-04-07 12:21:53,102 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:53,102 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'p(rihGUjsyV*R+5D#tUUMiSIi&[5rm}n*O^9y>2?'
+DEBUG - 2019-04-07 12:21:53,102 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:53,102 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:56473'
+DEBUG - 2019-04-07 12:21:53,861 - Thread-28 - Starting
+DEBUG - 2019-04-07 12:21:53,862 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:53,862 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos9-Copymp42f77aca5cfa846e689b869d081a6e61c/]
+DEBUG - 2019-04-07 12:21:53,862 - FeedListener - Enrolled T<[/?4W<}Iz%.0Y2}KKDQqKCsiGf#dZ:[TCEzw&+ saved at ../Certificates/client-keys-datavideos9-Copymp42f77aca5cfa846e689b869d081a6e61c/30639f730e5e4f4981293b0b4ff508d8.key
+DEBUG - 2019-04-07 12:21:53,863 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:49252'
+DEBUG - 2019-04-07 12:21:53,864 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:53,864 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos9-Copymp42f77aca5cfa846e689b869d081a6e61c/]
+DEBUG - 2019-04-07 12:21:53,864 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:53,865 - FeedListener - Client key received X8@Kmt@G+nav=On}jaLi49d1sj*dh$U=h6T6Va9v for datavideos18mp41f874b9e4ab24f06ab4a38a8d26a209b
+DEBUG - 2019-04-07 12:21:53,925 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:53,965 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:49252'
+DEBUG - 2019-04-07 12:21:54,096 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:54,097 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'T<[/?4W<}Iz%.0Y2}KKDQqKCsiGf#dZ:[TCEzw&+'
+DEBUG - 2019-04-07 12:21:54,097 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:54,097 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:49252'
+DEBUG - 2019-04-07 12:21:54,868 - Thread-31 - Starting
+DEBUG - 2019-04-07 12:21:54,868 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:54,869 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos18mp41f874b9e4ab24f06ab4a38a8d26a209b/]
+DEBUG - 2019-04-07 12:21:54,869 - FeedListener - Enrolled X8@Kmt@G+nav=On}jaLi49d1sj*dh$U=h6T6Va9v saved at ../Certificates/client-keys-datavideos18mp41f874b9e4ab24f06ab4a38a8d26a209b/5d432e2f527d4e84ba52d3581e0b1b0b.key
+DEBUG - 2019-04-07 12:21:54,890 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:54,890 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos18mp41f874b9e4ab24f06ab4a38a8d26a209b/]
+DEBUG - 2019-04-07 12:21:54,891 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:50629'
+DEBUG - 2019-04-07 12:21:54,891 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:54,892 - FeedListener - Client key received pHT&-ZLVZ?<#VBSTj)7o<jM{+8QSt:D[XhA.Qm}2 for datavideoscustommp4e665c77a14be43bc830ff8e10e909d03
+DEBUG - 2019-04-07 12:21:54,965 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:54,998 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:50629'
+DEBUG - 2019-04-07 12:21:55,161 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:55,161 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'X8@Kmt@G+nav=On}jaLi49d1sj*dh$U=h6T6Va9v'
+DEBUG - 2019-04-07 12:21:55,161 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:55,161 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:50629'
+DEBUG - 2019-04-07 12:21:55,895 - Thread-34 - Starting
+DEBUG - 2019-04-07 12:21:55,896 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:55,896 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideoscustommp4e665c77a14be43bc830ff8e10e909d03/]
+DEBUG - 2019-04-07 12:21:55,896 - FeedListener - Enrolled pHT&-ZLVZ?<#VBSTj)7o<jM{+8QSt:D[XhA.Qm}2 saved at ../Certificates/client-keys-datavideoscustommp4e665c77a14be43bc830ff8e10e909d03/a23202583be24d43a855d999085f28b4.key
+DEBUG - 2019-04-07 12:21:55,897 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 12:21:55,897 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideoscustommp4e665c77a14be43bc830ff8e10e909d03/]
+DEBUG - 2019-04-07 12:21:55,898 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:57625'
+DEBUG - 2019-04-07 12:21:55,899 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 12:21:55,979 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 12:21:56,083 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:57625'
+DEBUG - 2019-04-07 12:21:56,232 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 12:21:56,232 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'pHT&-ZLVZ?<#VBSTj)7o<jM{+8QSt:D[XhA.Qm}2'
+DEBUG - 2019-04-07 12:21:56,232 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 12:21:56,232 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:57625'
+DEBUG - 2019-04-07 12:23:25,033 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:50629'
+DEBUG - 2019-04-07 12:23:25,041 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:49252'
+DEBUG - 2019-04-07 12:23:25,046 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:50209'
+DEBUG - 2019-04-07 12:23:25,053 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:63656'
+DEBUG - 2019-04-07 12:23:25,053 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:56473'
+DEBUG - 2019-04-07 12:23:25,078 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:57625'
+DEBUG - 2019-04-07 12:23:25,083 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:60440'
+DEBUG - 2019-04-07 12:23:25,083 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:55756'
+DEBUG - 2019-04-07 12:23:25,084 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:58641'
+DEBUG - 2019-04-07 12:23:45,020 - Monitor - Monitor thread datavideos18mp41f874b9e4ab24f06ab4a38a8d26a209b shutting down
+INFO - 2019-04-07 13:43:43,425 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-07 13:43:43,426 - MainThread - Terminator signals linked
+DEBUG - 2019-04-07 13:43:48,221 - Thread-2 - Starting
+DEBUG - 2019-04-07 13:43:48,222 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-04-07 13:43:48,223 - MainThread - Socket setup, public key: b'H7-GfhTA&5V]olYG1rvVuim2Zp/#f5yJ0iZzH?yu'
+DEBUG - 2019-04-07 13:43:48,223 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 13:43:48,223 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 13:43:48,224 - MainThread - Feed listener thread started
+DEBUG - 2019-04-07 13:43:48,234 - MainThread - Connected to database
+DEBUG - 2019-04-07 13:43:48,235 - Thread-5 - Starting
+DEBUG - 2019-04-07 13:43:48,236 - MainThread - Socket monitor thread started
+DEBUG - 2019-04-07 13:43:48,236 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 13:43:48,237 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-04-07 13:43:48,237 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 13:43:48,237 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 13:43:48,237 - MainThread - Authentication thread started
+DEBUG - 2019-04-07 13:43:48,239 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 13:43:48,239 - MainThread - Enroller thread started
+INFO - 2019-04-07 14:21:10,137 - MainThread - Termination signal received, please wait.
+DEBUG - 2019-04-07 14:21:10,450 - MainThread - Main thread ending
+INFO - 2019-04-07 14:21:10,471 - Enroller - Enroller thread shutting down
+DEBUG - 2019-04-07 14:21:10,472 - Monitor - EVENT_CLOSED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 14:21:10,472 - Monitor - Monitor thread Enroller shutting down
+DEBUG - 2019-04-07 14:21:10,488 - Monitor - Monitor thread Registration shutting down
+DEBUG - 2019-04-07 14:21:10,488 - Authenticator - Authentication thread shutting down gracefully
+INFO - 2019-04-07 14:21:30,620 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-07 14:21:30,621 - MainThread - Terminator signals linked
+DEBUG - 2019-04-07 14:21:35,261 - Thread-2 - Starting
+DEBUG - 2019-04-07 14:21:35,261 - CurveAuth - auth received API command b'CURVE'
+INFO - 2019-04-07 14:21:35,262 - MainThread - Socket setup, public key: b'/n)rt8rlj*4t2e*/sqw8^M+Fc!cc$F%9}h-($raZ'
+DEBUG - 2019-04-07 14:21:35,262 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:35,263 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 14:21:35,263 - MainThread - Feed listener thread started
+DEBUG - 2019-04-07 14:21:35,273 - MainThread - Connected to database
+DEBUG - 2019-04-07 14:21:35,274 - Thread-5 - Starting
+DEBUG - 2019-04-07 14:21:35,275 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:35,275 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 14:21:35,276 - MainThread - Socket monitor thread started
+DEBUG - 2019-04-07 14:21:35,276 - MainThread - Socket setup and bound, listening
+DEBUG - 2019-04-07 14:21:35,276 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 14:21:35,277 - MainThread - Authentication thread started
+DEBUG - 2019-04-07 14:21:35,278 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 14:21:35,278 - MainThread - Enroller thread started
+DEBUG - 2019-04-07 14:21:43,568 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 14:21:43,643 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 14:21:44,572 - Enroller - Enrolled 6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB saved at ../Certificates/client-keys-front/4c60597066974da1972b552d26ff7527.key
+DEBUG - 2019-04-07 14:21:44,572 - Enroller - New client enrolled 6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB
+DEBUG - 2019-04-07 14:21:44,573 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:44,573 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 14:21:44,573 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:44,573 - CurveAuth - Configure curve: *[../Certificates/client-keys-front/]
+DEBUG - 2019-04-07 14:21:44,613 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5002'
+DEBUG - 2019-04-07 14:21:44,703 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 14:21:44,819 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:44,819 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:44,819 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:44,820 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 14:21:44,856 - Authenticator - Responded to authenticate instruction: True, Authenticated
+DEBUG - 2019-04-07 14:21:44,893 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5001'
+DEBUG - 2019-04-07 14:21:53,610 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:53,883 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:53,884 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,033 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,039 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,040 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,040 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,040 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,082 - FeedListener - Client key received [sKw127*ed-vTk!ixUmg]iM2xou=:Ook<d*wVB6h for datavideos0000000mp4f2ea18ed90814a18a38ef9b4a14effd1
+DEBUG - 2019-04-07 14:21:54,087 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,126 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,126 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,126 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,126 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,131 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,132 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,132 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,132 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,174 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,174 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,174 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,174 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,231 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,231 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,233 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,233 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,289 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,431 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,453 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,453 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,454 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,454 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,454 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,587 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,588 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,588 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,588 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,597 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,597 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,597 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,598 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,669 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:54,797 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:54,797 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:21:54,797 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:54,798 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:55,085 - Thread-10 - Starting
+DEBUG - 2019-04-07 14:21:55,086 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:55,086 - FeedListener - Enrolled [sKw127*ed-vTk!ixUmg]iM2xou=:Ook<d*wVB6h saved at ../Certificates/client-keys-datavideos0000000mp4f2ea18ed90814a18a38ef9b4a14effd1/e19ac771aa524cb5840ae467f9364fa9.key
+DEBUG - 2019-04-07 14:21:55,086 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0000000mp4f2ea18ed90814a18a38ef9b4a14effd1/]
+DEBUG - 2019-04-07 14:21:55,087 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:59832'
+DEBUG - 2019-04-07 14:21:55,087 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:21:55,088 - FeedListener - Client key received vWslW5r=Xs:tf*@{}f}gTP<rj=/1@YQOl@{XynCM for datavideoscustommp49fd80dc630ff41caaf5b22463d2e7935
+DEBUG - 2019-04-07 14:21:55,088 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:55,088 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0000000mp4f2ea18ed90814a18a38ef9b4a14effd1/]
+DEBUG - 2019-04-07 14:21:55,135 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:55,171 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:59832'
+DEBUG - 2019-04-07 14:21:55,299 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:55,299 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'[sKw127*ed-vTk!ixUmg]iM2xou=:Ook<d*wVB6h'
+DEBUG - 2019-04-07 14:21:55,300 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:55,300 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:59832'
+DEBUG - 2019-04-07 14:21:56,091 - Thread-13 - Starting
+DEBUG - 2019-04-07 14:21:56,092 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:56,092 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideoscustommp49fd80dc630ff41caaf5b22463d2e7935/]
+DEBUG - 2019-04-07 14:21:56,092 - FeedListener - Enrolled vWslW5r=Xs:tf*@{}f}gTP<rj=/1@YQOl@{XynCM saved at ../Certificates/client-keys-datavideoscustommp49fd80dc630ff41caaf5b22463d2e7935/1ad62ad37be54a35aa8515c3ac458076.key
+DEBUG - 2019-04-07 14:21:56,094 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:56,094 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideoscustommp49fd80dc630ff41caaf5b22463d2e7935/]
+DEBUG - 2019-04-07 14:21:56,095 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:60287'
+DEBUG - 2019-04-07 14:21:56,095 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:21:56,096 - FeedListener - Client key received ktr93h^(ULNTY)(2Y?%BdbPgxIg}{3g$d&OgcH7> for datavideos3-Copymp4128015cfd9184a7db829e6f12272b53d
+DEBUG - 2019-04-07 14:21:56,155 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:56,189 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:60287'
+DEBUG - 2019-04-07 14:21:56,345 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:56,346 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'vWslW5r=Xs:tf*@{}f}gTP<rj=/1@YQOl@{XynCM'
+DEBUG - 2019-04-07 14:21:56,346 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:56,346 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:60287'
+DEBUG - 2019-04-07 14:21:57,098 - Thread-16 - Starting
+DEBUG - 2019-04-07 14:21:57,099 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:57,099 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos3-Copymp4128015cfd9184a7db829e6f12272b53d/]
+DEBUG - 2019-04-07 14:21:57,100 - FeedListener - Enrolled ktr93h^(ULNTY)(2Y?%BdbPgxIg}{3g$d&OgcH7> saved at ../Certificates/client-keys-datavideos3-Copymp4128015cfd9184a7db829e6f12272b53d/61e4c03572d84a4c86fa24c849773394.key
+DEBUG - 2019-04-07 14:21:57,101 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:21:57,101 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:52566'
+DEBUG - 2019-04-07 14:21:57,102 - FeedListener - Client key received rAIP(jg3vdLs%B8IJVMn!^0F)pSDO9I5&p[0{o55 for 00bfdaae897e64c4e8b6c0d5f35968f77
+DEBUG - 2019-04-07 14:21:57,102 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:57,102 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos3-Copymp4128015cfd9184a7db829e6f12272b53d/]
+DEBUG - 2019-04-07 14:21:57,183 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:57,221 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:52566'
+DEBUG - 2019-04-07 14:21:57,428 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:57,429 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'ktr93h^(ULNTY)(2Y?%BdbPgxIg}{3g$d&OgcH7>'
+DEBUG - 2019-04-07 14:21:57,429 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:57,429 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:52566'
+DEBUG - 2019-04-07 14:21:58,105 - Thread-19 - Starting
+DEBUG - 2019-04-07 14:21:58,106 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:58,106 - CurveAuth - Configure curve: *[../Certificates/client-keys-00bfdaae897e64c4e8b6c0d5f35968f77/]
+DEBUG - 2019-04-07 14:21:58,106 - FeedListener - Enrolled rAIP(jg3vdLs%B8IJVMn!^0F)pSDO9I5&p[0{o55 saved at ../Certificates/client-keys-00bfdaae897e64c4e8b6c0d5f35968f77/20eeed6a543b47e69bf35d252664e757.key
+DEBUG - 2019-04-07 14:21:58,107 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:59134'
+DEBUG - 2019-04-07 14:21:58,108 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:58,108 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:21:58,109 - CurveAuth - Configure curve: *[../Certificates/client-keys-00bfdaae897e64c4e8b6c0d5f35968f77/]
+DEBUG - 2019-04-07 14:21:58,109 - FeedListener - Client key received 09{*Yl2guY&a5M9d[+PenA!]2HE2h9J403Ux[n6M for datavideos0-Copymp432bcb29ed8ca43b691a9dd4174cbbf43
+DEBUG - 2019-04-07 14:21:58,319 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:58,361 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:59134'
+DEBUG - 2019-04-07 14:21:58,519 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:58,519 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'rAIP(jg3vdLs%B8IJVMn!^0F)pSDO9I5&p[0{o55'
+DEBUG - 2019-04-07 14:21:58,519 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:58,519 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:59134'
+DEBUG - 2019-04-07 14:21:59,113 - Thread-22 - Starting
+DEBUG - 2019-04-07 14:21:59,114 - FeedListener - Enrolled 09{*Yl2guY&a5M9d[+PenA!]2HE2h9J403Ux[n6M saved at ../Certificates/client-keys-datavideos0-Copymp432bcb29ed8ca43b691a9dd4174cbbf43/4d665b9a56ce491b8f5046edce5d2f13.key
+DEBUG - 2019-04-07 14:21:59,116 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:59,118 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0-Copymp432bcb29ed8ca43b691a9dd4174cbbf43/]
+DEBUG - 2019-04-07 14:21:59,118 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:54185'
+DEBUG - 2019-04-07 14:21:59,118 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:21:59,120 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:21:59,120 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos0-Copymp432bcb29ed8ca43b691a9dd4174cbbf43/]
+DEBUG - 2019-04-07 14:21:59,120 - FeedListener - Client key received 4jH9hTntr]0?n}td}x#GdiEvXA3%*i}B6s#FZW1L for datavideos2mp43ae49f6ab8934a70ae2647712f03802f
+DEBUG - 2019-04-07 14:21:59,187 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:21:59,225 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:54185'
+DEBUG - 2019-04-07 14:21:59,396 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:21:59,397 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'09{*Yl2guY&a5M9d[+PenA!]2HE2h9J403Ux[n6M'
+DEBUG - 2019-04-07 14:21:59,399 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:21:59,399 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:54185'
+DEBUG - 2019-04-07 14:22:00,123 - Thread-25 - Starting
+DEBUG - 2019-04-07 14:22:00,124 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:00,124 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos2mp43ae49f6ab8934a70ae2647712f03802f/]
+DEBUG - 2019-04-07 14:22:00,124 - FeedListener - Enrolled 4jH9hTntr]0?n}td}x#GdiEvXA3%*i}B6s#FZW1L saved at ../Certificates/client-keys-datavideos2mp43ae49f6ab8934a70ae2647712f03802f/7e478c14ec63472ea76f02f727035aea.key
+DEBUG - 2019-04-07 14:22:00,126 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:00,126 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos2mp43ae49f6ab8934a70ae2647712f03802f/]
+DEBUG - 2019-04-07 14:22:00,126 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:22:00,127 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:52061'
+DEBUG - 2019-04-07 14:22:00,127 - FeedListener - Client key received b{ZXDlrH.w>A2#WLR92J3eMC11NDsb3XI83?$(z0 for datavideos4-Copymp45766073c78e7420496515a931e617852
+DEBUG - 2019-04-07 14:22:00,182 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:00,219 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:52061'
+DEBUG - 2019-04-07 14:22:00,336 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:00,336 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'4jH9hTntr]0?n}td}x#GdiEvXA3%*i}B6s#FZW1L'
+DEBUG - 2019-04-07 14:22:00,336 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:00,336 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:52061'
+DEBUG - 2019-04-07 14:22:01,130 - Thread-28 - Starting
+DEBUG - 2019-04-07 14:22:01,131 - Thread-28 - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:01,131 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos4-Copymp45766073c78e7420496515a931e617852/]
+DEBUG - 2019-04-07 14:22:01,132 - FeedListener - Enrolled b{ZXDlrH.w>A2#WLR92J3eMC11NDsb3XI83?$(z0 saved at ../Certificates/client-keys-datavideos4-Copymp45766073c78e7420496515a931e617852/caf7803608c54557afad21929fc0c477.key
+DEBUG - 2019-04-07 14:22:01,135 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:22:01,135 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:50898'
+DEBUG - 2019-04-07 14:22:01,136 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:01,136 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos4-Copymp45766073c78e7420496515a931e617852/]
+DEBUG - 2019-04-07 14:22:01,136 - FeedListener - Client key received cfRbLM9{6BaP3lw88HHRLwx8%gsd>H6I^&IqYYj7 for datavideos9-Copymp45daa7bb1f46348a481ec2a867d51d0c9
+DEBUG - 2019-04-07 14:22:01,220 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:01,255 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:50898'
+DEBUG - 2019-04-07 14:22:01,408 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:01,409 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'b{ZXDlrH.w>A2#WLR92J3eMC11NDsb3XI83?$(z0'
+DEBUG - 2019-04-07 14:22:01,409 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:01,409 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:50898'
+DEBUG - 2019-04-07 14:22:02,163 - Thread-31 - Starting
+DEBUG - 2019-04-07 14:22:02,165 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:02,165 - FeedListener - Enrolled cfRbLM9{6BaP3lw88HHRLwx8%gsd>H6I^&IqYYj7 saved at ../Certificates/client-keys-datavideos9-Copymp45daa7bb1f46348a481ec2a867d51d0c9/7644fb59d87349e5800fc28182db70d4.key
+DEBUG - 2019-04-07 14:22:02,165 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos9-Copymp45daa7bb1f46348a481ec2a867d51d0c9/]
+DEBUG - 2019-04-07 14:22:02,186 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:22:02,187 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:56128'
+DEBUG - 2019-04-07 14:22:02,188 - FeedListener - Client key received XtK/FpGRf?B(xc^oj]!S>9qL^pvKz4Rw=g45O7wU for datavideos18mp41212193e2d5a45d9a0faf84b79b9bdea
+DEBUG - 2019-04-07 14:22:02,189 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:02,189 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos9-Copymp45daa7bb1f46348a481ec2a867d51d0c9/]
+DEBUG - 2019-04-07 14:22:02,234 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:02,271 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:56128'
+DEBUG - 2019-04-07 14:22:02,417 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:02,417 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'cfRbLM9{6BaP3lw88HHRLwx8%gsd>H6I^&IqYYj7'
+DEBUG - 2019-04-07 14:22:02,417 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:02,417 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:56128'
+DEBUG - 2019-04-07 14:22:03,192 - Thread-34 - Starting
+DEBUG - 2019-04-07 14:22:03,193 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:03,193 - FeedListener - Enrolled XtK/FpGRf?B(xc^oj]!S>9qL^pvKz4Rw=g45O7wU saved at ../Certificates/client-keys-datavideos18mp41212193e2d5a45d9a0faf84b79b9bdea/350b26a96aa04e2e87976cfdd4f53cc4.key
+DEBUG - 2019-04-07 14:22:03,193 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos18mp41212193e2d5a45d9a0faf84b79b9bdea/]
+DEBUG - 2019-04-07 14:22:03,194 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:56910'
+DEBUG - 2019-04-07 14:22:03,195 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:22:03,196 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:03,196 - CurveAuth - Configure curve: *[../Certificates/client-keys-datavideos18mp41212193e2d5a45d9a0faf84b79b9bdea/]
+DEBUG - 2019-04-07 14:22:03,250 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:03,289 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:56910'
+DEBUG - 2019-04-07 14:22:03,431 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:03,431 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'XtK/FpGRf?B(xc^oj]!S>9qL^pvKz4Rw=g45O7wU'
+DEBUG - 2019-04-07 14:22:03,431 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:03,432 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:56910'
+DEBUG - 2019-04-07 14:22:11,904 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:12,036 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:12,036 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:22:12,036 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:12,036 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:12,075 - FeedListener - Client key received QZ/x=XYcZtBS&-m]#TzsI5^-50&rXz96:qVo(XM& for sampleVideoe098314f9af04a878cdd310a91e5d103mp479be042b89594321947bf683dac43198
+DEBUG - 2019-04-07 14:22:13,079 - Thread-37 - Starting
+DEBUG - 2019-04-07 14:22:13,079 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:13,079 - CurveAuth - Configure curve: *[../Certificates/client-keys-sampleVideoe098314f9af04a878cdd310a91e5d103mp479be042b89594321947bf683dac43198/]
+DEBUG - 2019-04-07 14:22:13,079 - FeedListener - Enrolled QZ/x=XYcZtBS&-m]#TzsI5^-50&rXz96:qVo(XM& saved at ../Certificates/client-keys-sampleVideoe098314f9af04a878cdd310a91e5d103mp479be042b89594321947bf683dac43198/e493df3571bb45a88713ef6b2139f6c2.key
+DEBUG - 2019-04-07 14:22:13,081 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:22:13,081 - CurveAuth - Configure curve: *[../Certificates/client-keys-sampleVideoe098314f9af04a878cdd310a91e5d103mp479be042b89594321947bf683dac43198/]
+DEBUG - 2019-04-07 14:22:13,081 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:62904'
+DEBUG - 2019-04-07 14:22:13,082 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:22:13,133 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:22:13,175 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:62904'
+DEBUG - 2019-04-07 14:22:13,546 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:22:13,546 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'QZ/x=XYcZtBS&-m]#TzsI5^-50&rXz96:qVo(XM&'
+DEBUG - 2019-04-07 14:22:13,546 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:22:13,546 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:62904'
+DEBUG - 2019-04-07 14:23:41,131 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:62904'
+DEBUG - 2019-04-07 14:23:45,173 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:23:45,310 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:23:45,311 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:23:45,311 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:23:45,312 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:23:45,355 - FeedListener - Client key received gffE2+2#t}mVsBxDS+#X=:SeE%dNgNd0YED51[$* for sampleVideo400ec2ededb84623815709cda88d860dmp4af93b75d424e46c2a3da6afe4adf2f26
+DEBUG - 2019-04-07 14:23:46,361 - Thread-40 - Starting
+DEBUG - 2019-04-07 14:23:46,362 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:23:46,362 - CurveAuth - Configure curve: *[../Certificates/client-keys-sampleVideo400ec2ededb84623815709cda88d860dmp4af93b75d424e46c2a3da6afe4adf2f26/]
+DEBUG - 2019-04-07 14:23:46,362 - FeedListener - Enrolled gffE2+2#t}mVsBxDS+#X=:SeE%dNgNd0YED51[$* saved at ../Certificates/client-keys-sampleVideo400ec2ededb84623815709cda88d860dmp4af93b75d424e46c2a3da6afe4adf2f26/5968acda93d9414ab5d0172c8b9f745b.key
+DEBUG - 2019-04-07 14:23:46,365 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:23:46,365 - CurveAuth - Configure curve: *[../Certificates/client-keys-sampleVideo400ec2ededb84623815709cda88d860dmp4af93b75d424e46c2a3da6afe4adf2f26/]
+DEBUG - 2019-04-07 14:23:46,366 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:23:46,367 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:57399'
+DEBUG - 2019-04-07 14:23:46,410 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:23:46,460 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:57399'
+DEBUG - 2019-04-07 14:23:46,616 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:23:46,617 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'gffE2+2#t}mVsBxDS+#X=:SeE%dNgNd0YED51[$*'
+DEBUG - 2019-04-07 14:23:46,617 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:23:46,618 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:57399'
+DEBUG - 2019-04-07 14:24:01,097 - Monitor - Monitor thread sampleVideoe098314f9af04a878cdd310a91e5d103mp479be042b89594321947bf683dac43198 shutting down
+DEBUG - 2019-04-07 14:24:42,327 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:57399'
+DEBUG - 2019-04-07 14:25:02,303 - Monitor - Monitor thread sampleVideo400ec2ededb84623815709cda88d860dmp4af93b75d424e46c2a3da6afe4adf2f26 shutting down
+DEBUG - 2019-04-07 14:25:52,384 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:25:52,564 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:25:52,566 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b'6$m(HtnnkV?.F>-x]}Q34M<988MVJs+l*FWY9MqB'
+DEBUG - 2019-04-07 14:25:52,566 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:25:52,569 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:25:52,603 - FeedListener - Client key received :!M.GWUKTYLtdd%T7>fkSAl>^ayYsSh>@TqrDQ91 for CCTVofMoscowshooting_Jiltedmankillssixcolleaguesingunrampage_Trimmp41ae43c41cd1b4f05b0615b22ca239a7b
+DEBUG - 2019-04-07 14:25:53,606 - Thread-43 - Starting
+DEBUG - 2019-04-07 14:25:53,607 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:25:53,608 - CurveAuth - Configure curve: *[../Certificates/client-keys-CCTVofMoscowshooting_Jiltedmankillssixcolleaguesingunrampage_Trimmp41ae43c41cd1b4f05b0615b22ca239a7b/]
+DEBUG - 2019-04-07 14:25:53,608 - FeedListener - Enrolled :!M.GWUKTYLtdd%T7>fkSAl>^ayYsSh>@TqrDQ91 saved at ../Certificates/client-keys-CCTVofMoscowshooting_Jiltedmankillssixcolleaguesingunrampage_Trimmp41ae43c41cd1b4f05b0615b22ca239a7b/243cfc7ea4b24a60b07a70186bcc295a.key
+DEBUG - 2019-04-07 14:25:53,612 - CurveAuth - auth received API command b'CURVE'
+DEBUG - 2019-04-07 14:25:53,613 - Monitor - EVENT_LISTENING b'tcp://0.0.0.0:55390'
+DEBUG - 2019-04-07 14:25:53,613 - CurveAuth - Configure curve: *[../Certificates/client-keys-CCTVofMoscowshooting_Jiltedmankillssixcolleaguesingunrampage_Trimmp41ae43c41cd1b4f05b0615b22ca239a7b/]
+DEBUG - 2019-04-07 14:25:53,620 - FeedListener - Feed Handler thread started
+DEBUG - 2019-04-07 14:25:53,731 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:5000'
+DEBUG - 2019-04-07 14:25:53,762 - Monitor - EVENT_ACCEPTED b'tcp://0.0.0.0:55390'
+DEBUG - 2019-04-07 14:25:53,943 - CurveAuth - version: b'1.0', request_id: b'1', domain: '', address: '46.7.104.147', identity: b'', mechanism: b'CURVE'
+DEBUG - 2019-04-07 14:25:53,943 - CurveAuth - ALLOWED (CURVE) domain=* client_key=b':!M.GWUKTYLtdd%T7>fkSAl>^ayYsSh>@TqrDQ91'
+DEBUG - 2019-04-07 14:25:53,943 - CurveAuth - ZAP reply code=b'200' text=b'OK'
+DEBUG - 2019-04-07 14:25:53,944 - Monitor - EVENT_HANDSHAKE_SUCCEEDED b'tcp://0.0.0.0:55390'
+DEBUG - 2019-04-07 14:26:01,546 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:55390'
