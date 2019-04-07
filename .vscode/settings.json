@@ -2,5 +2,18 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pep8Enabled": true,
     "python.linting.enabled": true,
-    "python.pythonPath": "D:\\CompSci\\Python3.6\\python36.exe"
+    "python.pythonPath": "D:\\CompSci\\Python3.6\\python36.exe",
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./Testing",
+        "-p",
+        "*_test.py"
+    ],
+    "python.unitTest.pyTestEnabled": true,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.pyTestArgs": [
+        "Testing"
+    ]
 }

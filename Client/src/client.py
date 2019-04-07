@@ -33,7 +33,7 @@ from corner_controls import CornerControls
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
-mainAddr = serverAddr
+mainAddr = localAddr
 connectCamPort = ':5000'
 registrationPort = ':5001'
 unsecuredEnrollPort = ':5002'

@@ -101,8 +101,8 @@ def interpretResults():
 	model = chooseModel()
 	model.summary()
 	#plot_model(model, to_file='./modelGraph.png')
-	feed = getCameraFeed()
-	# feed = getVideoFeed()
+	# feed = getCameraFeed()
+	feed = getVideoFeed()
 	resultHandler1 = ResultsHandler(4, 1)
 	resultHandler2 = ResultsHandler(9, 1)
 	resultHandler3 = ResultsHandler(16, 1)
@@ -129,30 +129,30 @@ def interpretResults():
 			regions = []
 			drawCoords = []
 
-			regions1, drawCoords1 = extractRegions(frame, 2, (64, 64), True)
-			regions2, drawCoords2 = extractRegions(frame, 3, (64, 64), True)
+			# regions1, drawCoords1 = extractRegions(frame, 2, (64, 64), True)
+			# regions2, drawCoords2 = extractRegions(frame, 3, (64, 64), True)
 			regions3, drawCoords3 = extractRegions(frame, 4, (64, 64), True)
-			regions4, drawCoords4 = extractRegions(frame, 5, (64, 64), True)
-			regions5, drawCoords5 = extractRegions(frame, 6, (64, 64), True)
-			regions6, drawCoords6 = extractRegions(frame, 7, (64, 64), True)
-			regions7, drawCoords7 = extractRegions(frame, 8, (64, 64), True)
+			# regions4, drawCoords4 = extractRegions(frame, 5, (64, 64), True)
+			# regions5, drawCoords5 = extractRegions(frame, 6, (64, 64), True)
+			# regions6, drawCoords6 = extractRegions(frame, 7, (64, 64), True)
+			# regions7, drawCoords7 = extractRegions(frame, 8, (64, 64), True)
 
-			results1 = np.around(model.predict(regions1)[:,10:], decimals=3)
-			results2 = np.around(model.predict(regions2)[:,10:], decimals=3)
+			# results1 = np.around(model.predict(regions1)[:,10:], decimals=3)
+			# results2 = np.around(model.predict(regions2)[:,10:], decimals=3)
 			results3 = np.around(model.predict(regions3)[:,10:], decimals=3)
-			results4 = np.around(model.predict(regions4)[:,10:], decimals=3)
-			results5 = np.around(model.predict(regions5)[:,10:], decimals=3)
-			results6 = np.around(model.predict(regions6)[:,10:], decimals=3)
-			results7 = np.around(model.predict(regions7)[:,10:], decimals=3)
+			# results4 = np.around(model.predict(regions4)[:,10:], decimals=3)
+			# results5 = np.around(model.predict(regions5)[:,10:], decimals=3)
+			# results6 = np.around(model.predict(regions6)[:,10:], decimals=3)
+			# results7 = np.around(model.predict(regions7)[:,10:], decimals=3)
 
 
-			resultHandler1.append(results1)
-			resultHandler2.append(results2)
+			# resultHandler1.append(results1)
+			# resultHandler2.append(results2)
 			resultHandler3.append(results3)
-			resultHandler4.append(results4)
-			resultHandler5.append(results5)
-			resultHandler6.append(results6)
-			resultHandler7.append(results7)
+			# resultHandler4.append(results4)
+			# resultHandler5.append(results5)
+			# resultHandler6.append(results6)
+			# resultHandler7.append(results7)
 
 			#alert = resultHandler.assess()
 
@@ -171,13 +171,13 @@ def interpretResults():
 			
 
 
-			frame = drawResults(frame, resultHandler1.getAverages(), drawCoords1, ["Weapon", "Weapon"])
-			frame = drawResults(frame, resultHandler2.getAverages(), drawCoords2, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler1.getAverages(), drawCoords1, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler2.getAverages(), drawCoords2, ["Weapon", "Weapon"])
 			frame = drawResults(frame, resultHandler3.getAverages(), drawCoords3, ["Weapon", "Weapon"])
-			frame = drawResults(frame, resultHandler4.getAverages(), drawCoords4, ["Weapon", "Weapon"])
-			frame = drawResults(frame, resultHandler5.getAverages(), drawCoords5, ["Weapon", "Weapon"])
-			frame = drawResults(frame, resultHandler6.getAverages(), drawCoords6, ["Weapon", "Weapon"])
-			frame = drawResults(frame, resultHandler7.getAverages(), drawCoords7, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler4.getAverages(), drawCoords4, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler5.getAverages(), drawCoords5, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler6.getAverages(), drawCoords6, ["Weapon", "Weapon"])
+			# frame = drawResults(frame, resultHandler7.getAverages(), drawCoords7, ["Weapon", "Weapon"])
 
 			if boundingBoxes != []:
 				height, width, _ = np.shape(frame)
@@ -203,7 +203,7 @@ def interpretResults():
 			
 			
 			cv2.imshow("feed", frame)
-			cv2.waitKey(1)
+			cv2.waitKey(10)
 		else:
 			feed.set(cv2.CAP_PROP_POS_FRAMES, 0)
 	
