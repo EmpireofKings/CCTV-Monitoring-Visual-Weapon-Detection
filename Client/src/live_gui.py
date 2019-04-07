@@ -181,7 +181,7 @@ class AlertWatcher(Thread):
 			for path in soundsToPlay:
 				print(path)
 				print(self.index)
-				print(self.index.get(str(path)))
+				print(self.index.get(path))
 				self.playUntilDone(self.playlist[self.index.get(path)])
 
 				if count == len(soundsToPlay) - 2:
