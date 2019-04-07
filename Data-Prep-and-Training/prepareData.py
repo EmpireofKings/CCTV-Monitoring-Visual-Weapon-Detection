@@ -55,11 +55,11 @@ def getFolders(rootFolder):
 	extraNeg = basePath + 'ExtraNeg'
 	knifePath = basePath + 'Knife'
 	pistolPath = basePath + 'Pistol'
-	#riflePath = basePath + 'Rifle'
-	#shotgunPath = basePath + 'Shotgun'
-	#submachineGunPath = basePath +'SubmachineGun'
+	riflePath = basePath + 'Rifle'
+	shotgunPath = basePath + 'Shotgun'
+	submachineGunPath = basePath +'SubmachineGun'
 
-	folders = [knifePath, pistolPath] #flePath, shotgunPath, submachineGunPath)
+	folders = [knifePath, pistolPath] #riflePath, shotgunPath, submachineGunPath]
 
 	for i in range(10):
 		cifarPath = basePath + "cifar" + str(i)
@@ -84,6 +84,7 @@ def getFiles(folders):
 
 			label = [0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.] #nothing
 			#decide label:
+			#label = [0., 0.]
 			if "Knife" in folder:
 				label[10] = 1.
 			elif "Pistol" in folder:
@@ -92,7 +93,7 @@ def getFiles(folders):
 				l = folder[len(folder)-1]
 				label[int(l)] = 1.
 			#elif "Rifle" in folder or "Shotgun" in folder or "SubmachineGun" in folder:
-			#	label = 3 #LONG GUNS
+			#	label[12] = 1. #LONG GUNS
 
 			#file path, augmentCounter, label
 			fileData.append({ "path" : path,
@@ -122,7 +123,7 @@ def prepare(files, rootFolder, terminator,
 
 	batchSize = 64
 
-	expectedAmt = int(math.floor(((len(files))/batchSize)))
+#	expectedAmt = int(math.floor(((len(files))/batchSize)))
 
 	while len(files) != 0:
 		#if being told to terminate, save required data to restart at same place
@@ -141,7 +142,7 @@ def prepare(files, rootFolder, terminator,
 		path = file.get("path")
 
 		orig = cv2.imread(path)
-		orig = cv2.resize(orig, (64, 64))
+		orig = cv2.resize(orig, (331, 331))
 
 		f1 = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB) / 255.0
 
@@ -175,7 +176,7 @@ def prepare(files, rootFolder, terminator,
 
 					orig = cv2.imread(path)
 
-					orig = cv2.resize(orig, (64, 64))
+					orig = cv2.resize(orig, (331, 331))
 					f1 = cv2.cvtColor(orig, cv2.COLOR_BGR2RGB) / 255.0
 
 					data.append(f1)
@@ -187,7 +188,7 @@ def prepare(files, rootFolder, terminator,
 			dataArr = np.array(data)
 			labelsArr = np.array(labels)
 
-			print("Batch", str(batchCount), "of", expectedAmt)
+			print("Batch", str(batchCount), np.shape(dataArr), np.shape(labelsArr))
 
 			data.clear()
 			labels.clear()

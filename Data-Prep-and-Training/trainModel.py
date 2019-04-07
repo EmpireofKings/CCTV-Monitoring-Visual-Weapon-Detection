@@ -17,11 +17,14 @@ from sklearn.metrics import classification_report, precision_score, recall_score
 from sklearn.utils import class_weight as classWeight
 
 import tensorflow as tf
-from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D, Dropout
-from tensorflow.keras.models import Sequential
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.layers import Conv2D, Dense, Flatten, MaxPooling2D, Dropout, GlobalAveragePooling2D
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.applications.nasnet import NASNetLarge
 from tensorflow.keras.callbacks import ModelCheckpoint, TensorBoard
 from tensorflow.keras.utils import Sequence
 from tensorflow.keras import regularizers
+from tensorflow.python import debug as tf_debug
 
 import tensorflow.keras.backend as K
 import examineBatchContent as exBC
@@ -38,8 +41,8 @@ def main():
 	config = tf.ConfigProto()
 	config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
 	sess = tf.Session(config=config)
+#	tf.keras.backend.set_session(tf_debug.TensorBoardDebugWrapperSession(sess, "development:5000"))
 	tf.keras.backend.set_session(sess)
-
 	#get and shuffle batch paths
 	# datasetPaths= exBC.preparePaths(rootFolderLocal+'Prepared-Data')
 	datasetPaths= exBC.preparePaths(rootFolderGCP+'Prepared-Data')
@@ -57,12 +60,27 @@ def main():
 	print("Test Video Written")
 
 	#prepare the model
-	untrainedModel = prepModel((64, 64, 3))
-	untrainedModel.summary()
+#	untrainedModel = prepModel((64, 64, 3))
+	#untrainedModel.summary()
 
 	# train the model
 	# trainedModel = trainModelHDD(trainingPaths, testingPaths, untrainedModel)
-	trainedModel = trainModelRAM(trainingPaths, testingPaths, untrainedModel)
+	base = NASNetLarge(weights='imagenet', include_top=False)
+	new = base.output
+	new = GlobalAveragePooling2D()(new)
+	new = Dense(1024, activation='relu', kernel_regularizer=regularizers.l2(0.01))(new)
+	new = Dense(512, activation='relu')(new)
+	final = Dense(12, activation='sigmoid')(new)
+
+	untrainedModel = Model(inputs=base.input, outputs=final)
+
+	for layer in base.layers:
+		layer.trainable=False
+
+
+	untrainedModel.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+	untrainedModel.summary()
+	trainedModel = trainModelHDD(trainingPaths, testingPaths, untrainedModel)
 	print("model training finished")
 	# save the model for the server
 	trainedModel.save("model.h5")
@@ -72,6 +90,16 @@ def main():
 
 	print("Complete")
 
+	#for layer in trainedModel.layers[:249]:
+   #		layer.trainable = False
+#	for layer in trainedModel.layers[249:]:
+#	   layer.trainable = True
+
+
+#	trainedModel.compile(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+#	tunedModel = trainModelHDD(trainingPaths, testingPaths, trainedModel)
+#	tunedModel.save("tuned.h5")
+#	testModel(testingPaths, tunedModel)
 
 def writeVideo(batches):
 	#fps does not matter here as it will be displayed frame by frame for demoing
@@ -118,7 +146,7 @@ def prepModel(shape):
 	model.add(Dense(1152, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
 	#model.add(Dense(512, activation='relu'))
 	model.add(Dropout(0.2))
-	model.add(Dense(12, activation='sigmoid'))
+	model.add(Dense(10, activation='sigmoid'))
 
 	#precision = keras_metrics.precision(label=1)
 	#recall = keras_metrics.recall(label=0)
@@ -140,9 +168,9 @@ def trainModelHDD(trainingData, validationData, model):
 	model.fit_generator(
 		generator=PathSequence(trainingData), steps_per_epoch=trainSteps,
 		validation_data=PathSequence(validationData), validation_steps=validateSteps,
-		class_weight=getClassWeights(trainingData), epochs=50,
+		class_weight=getClassWeights(trainingData), epochs=10,
 		callbacks=[checkpointCB, tensorBoardCB],
-		max_queue_size=500, workers=20, shuffle=True)
+		max_queue_size=100, workers=10, shuffle=True)
 
 	return model
 
@@ -189,7 +217,7 @@ def trainModelRAM(trainingPaths, validationPaths, model):
 
 	model.fit(
 		x=trainingData, y=trainingLabels, batch_size=64,
-		epochs=40, verbose=1, callbacks=[checkpointCB, tensorBoardCB],
+		epochs=30, verbose=1, callbacks=[checkpointCB, tensorBoardCB],
 		validation_data=(validationData, validationLabels),
 		shuffle=True, class_weight=getClassWeights(trainingPaths))
 
@@ -251,9 +279,9 @@ def getClassWeights(data):
 	weights = dict(enumerate(weights))
 
 	# double weighting of true target classes
-	weights['10'] = weights.get(10) * 2
-	weights['11'] = weights.get(11) * 2
-
+	#weights['10'] = weights.get(10) * 2
+	#weights['11'] = weights.get(11) * 2
+	#weights['12'] = weights.get(12) * 2
 	return weights
 
 #evaluates the trained model
@@ -305,36 +333,38 @@ def testModel(paths, model):
 	print(results)
 
 def cifarMain():
-	(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+	(x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
 
 	newXT = []
 	print(np.shape(x_train))
 	for im in x_train:
-		im = cv2.resize(im, (64, 64))
+		im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)
+		#im = cv2.resize(im, (64, 64))
 		newXT.append(im)
 
 	newYT = []
 	for im in x_test:
-		im = cv2.resize(im, (64,64))
+		im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)
+		#im = cv2.resize(im, (64,64))
 		newYT.append(im)
 
 	x_train = np.array(newXT)
 	x_test = np.array(newYT)
 	print(np.shape(x_train))
 
-	x_train, x_test = x_train / 255.0, x_test / 255.0
+	#x_train, x_test = x_train / 255.0, x_test / 255.0
 	y_train = tf.keras.utils.to_categorical(y_train)
 	y_test = tf.keras.utils.to_categorical(y_test)
 
 
-	model = prepModel((64,64,3))
+	model = prepModel((28,28,3))
 	model.summary()
-	model.fit(x_train, y_train, epochs=10)
+	model.fit(x_train, y_train, epochs=30, validation_data=(x_test, y_test))
 	print(model.evaluate(x_test, y_test))
 
 	return model
 
+
 if __name__ == '__main__':
 	main()
-	#cifarMain()
-	# pretrained()
+	mnistMain()

@@ -43,13 +43,13 @@ def view(batchPaths):
 			labelData = labels[i]
 			#print(image)
 
-			cv2.imshow(str(labelData), image)# cv2.resize(image, (640, 640)))
+			#cv2.imshow(str(labelData), image)# cv2.resize(image, (640, 640)))
 			print(labelData)
-			cv2.waitKey(0)
-			cv2.destroyAllWindows()
+			#cv2.waitKey(0)
+			#cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-	batchPaths = preparePaths(rootFolderLocal+"Prepared-Data")
-	# batchPaths = preparePaths(rootFolderGCP+"Prepared-Data")
+	#batchPaths = preparePaths(rootFolderLocal+"Prepared-Data")
+	batchPaths = preparePaths(rootFolderGCP+"Prepared-Data")
 
 	view(batchPaths)
