@@ -9,10 +9,15 @@ import tensorflow as tf
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
-path = os.getcwd().split('\\')
-print(path)
-path = '\\'.join(path[:len(path) - 2])
-sys.path.append(path + '\\CommonFiles')
+
+if sys.platform == 'linux':
+	path = os.getcwd().split('/')
+	path = '/'.join(path[:len(path) - 2])
+	sys.path.append(path + '/CommonFiles')
+elif sys.platform == 'windows':
+	path = os.getcwd().split('\\')
+	path = '\\'.join(path[:len(path) - 2])
+	sys.path.append(path + '\\CommonFiles')
 
 from authenticator import AuthenticationListener
 from enroller import Enroller
