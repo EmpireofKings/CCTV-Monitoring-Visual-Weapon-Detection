@@ -70,7 +70,7 @@ class FeedHandler(Thread):
 		session = modelHandler.getSession()
 		graph = modelHandler.getGraph()
 
-		resultHandler = ResultsHandler(9, 30)
+		resultHandler = ResultsHandler(16, 5)
 
 		bgRemover = BackgroundRemover()
 
@@ -89,15 +89,25 @@ class FeedHandler(Thread):
 						jpegStr = b64.b64decode(received)
 						jpeg = np.fromstring(jpegStr, dtype=np.uint8)
 						frame = cv2.imdecode(jpeg, 1)
+						height, width, _ = np.shape(frame)
 
-						regions, drawCoords = helper.extractRegions(frame, 3, (64, 64), True)
+						regions, drawCoords = helper.extractRegions(frame, 4, (64, 64))
 						results = np.around(model.predict(regions)[:, 10:], decimals=3)
 						resultHandler.append(results)
-						finalResult = resultHandler.assess()
+						finalResult, bboxIndex = resultHandler.assess()
 
 						boundingBoxes = bgRemover.apply(frame)
 
-						response = pickle.dumps((finalResult, boundingBoxes), protocol=4)
+						x, y, w, h = drawCoords[bboxIndex]
+
+						xf = scale(x, 0, width, 0, 1)
+						yf = scale(y, 0, height, 0, 1)
+						wf = scale(w, 0, width, 0, 1)
+						hf = scale(h, 0, height, 0, 1)
+
+						response = pickle.dumps(
+							(finalResult, boundingBoxes,
+							(resultHandler.getAverages(), drawCoords)), protocol=4)
 						self.socket.send(response)
 
 		# self.socket.disable_monitor()
@@ -106,3 +116,7 @@ class FeedHandler(Thread):
 		self.certHandler.cleanup()
 		self.socket.close()
 		print("Ending thread", self.feedID)
+
+
+def scale(val, inMin, inMax, outMin, outMax):
+	return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin

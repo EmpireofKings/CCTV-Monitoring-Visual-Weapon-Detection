@@ -24,6 +24,7 @@ from connectors import DisplayConnector, GenericConnector
 from context_handler import ContextHandler
 from monitor import Monitor
 from terminator import Terminator
+from feed_process_helper import FeedProcessHelper
 
 
 class Networker(Thread):
@@ -136,15 +137,17 @@ class Networker(Thread):
 		notify = Notify()
 		notifyTimer = time.time()
 
-		fpsTimer = time.time()
-		showEvery = 1
-		count = 0
-		recordCount = 0
+		# fpsTimer = time.time()
+		# showEvery = 1
+		# count = 0
+		# recordCount = 0
 
-		fps = []
-		times = []
+		# fps = []
+		# times = []
 
-		cutoffTimer = time.time()
+		# cutoffTimer = time.time()
+
+		fph = FeedProcessHelper()
 
 		while not terminator.isTerminating() and self.end is False or (self.end is True and len(self.frames) > 0):
 			if self.nextFrame is not None or len(self.frames) > 0:
@@ -165,7 +168,12 @@ class Networker(Thread):
 
 				result = pickle.loads(serial)
 
-				if result[0] > 0.90 and not self.deferredMode and not self.imageMode:
+				regionResults = result[2][0]
+				drawCoords = result[2][1]
+
+				fph.drawResults(displayFrame, regionResults, drawCoords, ["Weapon", "Weapon"])
+
+				if result[0] > 0.95 and not self.deferredMode and not self.imageMode:
 					self.camera.alert = True
 					alertTimer = time.time()
 					self.updateConnector.emitSignal()
@@ -195,7 +203,7 @@ class Networker(Thread):
 							h = int(self.scale(h, 0, 1, 0, height))
 
 							cv2.rectangle(
-								displayFrame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+								displayFrame, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
 				# # if this display is the main, emit the frame signal to both displays
 
@@ -208,22 +216,22 @@ class Networker(Thread):
 				else:
 					results.append(result)
 
-				count += 1
-				if (time.time() - fpsTimer) > showEvery:
-					curFPS = count / (time.time() - fpsTimer)
-					fps.append(curFPS)
-					times.append(recordCount)
-					recordCount += 1
-					count = 0
-					fpsTimer = time.time()
+				# count += 1
+				# if (time.time() - fpsTimer) > showEvery:
+				# 	curFPS = count / (time.time() - fpsTimer)
+				# 	fps.append(curFPS)
+				# 	times.append(recordCount)
+				# 	recordCount += 1
+				# 	count = 0
+				# 	fpsTimer = time.time()
 
-					if time.time() - cutoffTimer > 1200:
-						perfData = (fps, times)
+				# 	if time.time() - cutoffTimer > 1200:
+				# 		perfData = (fps, times)
 
-						with open('./performanceData' + self.camera.location, 'wb') as fp:
-							pickle.dump(perfData, fp, protocol=4)
+				# 		with open('./performanceData' + self.camera.location, 'wb') as fp:
+				# 			pickle.dump(perfData, fp, protocol=4)
 							
-						sys.exit()
+						# sys.exit()
 
 			elif (time.time() - deferredTimer) > 5 and self.deferredMode:
 				socket.send_string("wait")

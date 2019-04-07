@@ -30,6 +30,7 @@ from connectors import DisplayConnector, GenericConnector
 from feed_loader import FeedLoader
 from networker import Networker
 from terminator import Terminator
+from feed_process_helper import FeedProcessHelper
 
 
 class DeferredAnalysis(QWidget):
@@ -216,7 +217,7 @@ class ProcessHandler(Thread):
 
 	def preprocess(self, frame):
 		displaySize = (640, 360)
-		processSize = (256, 144)
+		processSize = (640, 480)
 
 		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
@@ -667,6 +668,9 @@ class Viewer(QWidget):
 				fpsTimer = time.time()
 				self.frameCount = 0
 				self.lastFrame = -1
+
+				fph = FeedProcessHelper()
+
 				while self.feed.isOpened() and self.reset is False:
 					if self.frameCount != self.lastFrame + 1:
 						self.feed.set(cv2.CAP_PROP_POS_FRAMES, self.frameCount)
@@ -686,6 +690,13 @@ class Viewer(QWidget):
 						classifications = results[0]
 						boundingBoxes = results[1]
 
+						regionResults = results[2][0]
+						drawCoords = results[2][1]
+
+						fph.drawResults(
+							frame, regionResults, drawCoords,
+							["Weapon", "Weapon"], invert=True)
+
 						frame = cv2.resize(frame, (1280, 720))
 						frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
@@ -698,7 +709,7 @@ class Viewer(QWidget):
 								w = int(self.scale(wf, 0, 1, 0, width))
 								h = int(self.scale(hf, 0, 1, 0, height))
 
-								cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+								cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
 						seconds = int(self.frameCount / fps)
 						curTime = datetime.timedelta(seconds=seconds)

@@ -39,11 +39,14 @@ class ResultsHandler():
 		averages = self.getAverages()
 
 		highest = 0
-		for avg in averages:
+		index = 0
+		for i in range(len(averages)):
+			avg = averages[i]
 			if max(avg) > highest:
 				highest = max(avg)
+				index = i
 
-		return highest
+		return highest, index
 
 	class ResultBuffer():
 		def __init__(self, size):
