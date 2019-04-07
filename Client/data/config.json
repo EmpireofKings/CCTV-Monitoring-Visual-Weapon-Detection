@@ -4,21 +4,6 @@
         "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
         "levelCameras": [
             {
-                "cameraID": "..\\data\\videos\\0000000.mp4",
-                "cameraLocation": "Living Room",
-                "cameraCoordinates": [
-                    322,
-                    178
-                ],
-                "cameraAngle": 240,
-                "cameraColor": [
-                    85,
-                    170,
-                    255
-                ],
-                "cameraSize": 13
-            },
-            {
                 "cameraID": "0",
                 "cameraLocation": "Utility Closet",
                 "cameraCoordinates": [
@@ -34,109 +19,124 @@
                 "cameraSize": 9
             },
             {
-                "cameraID": "..\\data\\videos\\0 - Copy.mp4",
-                "cameraLocation": "Kitchen",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190223_20_28_34_Pro.mp4",
+                "cameraLocation": "Cam",
                 "cameraCoordinates": [
-                    27,
-                    228
+                    190,
+                    353
                 ],
                 "cameraAngle": 150,
                 "cameraColor": [
-                    85,
+                    0,
                     0,
                     0
                 ],
-                "cameraSize": 13
+                "cameraSize": 5
             },
             {
-                "cameraID": "..\\data\\videos\\2.mp4",
-                "cameraLocation": "Entry 1",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_10_40_54_Pro.mp4",
+                "cameraLocation": "cam2",
                 "cameraCoordinates": [
-                    198,
-                    365
+                    173,
+                    202
                 ],
-                "cameraAngle": 180,
+                "cameraAngle": 150,
                 "cameraColor": [
-                    255,
-                    170,
-                    127
+                    0,
+                    0,
+                    0
                 ],
-                "cameraSize": 10
+                "cameraSize": 5
             },
             {
-                "cameraID": "..\\data\\videos\\3 - Copy.mp4",
-                "cameraLocation": "Entry 2",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_10_41_17_Pro.mp4",
+                "cameraLocation": "cam3",
                 "cameraCoordinates": [
-                    197,
-                    396
+                    351,
+                    198
                 ],
                 "cameraAngle": 0,
                 "cameraColor": [
-                    85,
-                    170,
+                    0,
+                    0,
                     0
                 ],
-                "cameraSize": 11
+                "cameraSize": 5
             },
             {
-                "cameraID": "..\\data\\videos\\4 - Copy.mp4",
-                "cameraLocation": "Laundry",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_11_08_59_Pro.mp4",
+                "cameraLocation": "cam5",
                 "cameraCoordinates": [
-                    30,
-                    275
+                    151,
+                    98
                 ],
-                "cameraAngle": 90,
+                "cameraAngle": 0,
                 "cameraColor": [
-                    170,
                     0,
-                    255
-                ],
-                "cameraSize": 12
-            },
-            {
-                "cameraID": "..\\data\\videos\\9 - Copy.mp4",
-                "cameraLocation": "Outside",
-                "cameraCoordinates": [
-                    480,
-                    399
-                ],
-                "cameraAngle": 320,
-                "cameraColor": [
-                    255,
-                    85,
+                    0,
                     0
                 ],
-                "cameraSize": 9
+                "cameraSize": 5
             },
             {
-                "cameraID": "..\\data\\videos\\18.mp4",
-                "cameraLocation": "Hallway",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190315_15_06_13_Pro.mp4",
+                "cameraLocation": "cam6",
                 "cameraCoordinates": [
-                    369,
-                    235
+                    270,
+                    61
                 ],
-                "cameraAngle": 270,
+                "cameraAngle": 0,
                 "cameraColor": [
-                    85,
                     0,
-                    127
+                    0,
+                    0
                 ],
-                "cameraSize": 11
+                "cameraSize": 5
             },
             {
-                "cameraID": "..\\data\\videos\\custom.mp4",
-                "cameraLocation": "Dining Room",
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190315_17_31_14_Pro.mp4",
+                "cameraLocation": "cam 7",
                 "cameraCoordinates": [
-                    30,
-                    20
+                    54,
+                    276
                 ],
-                "cameraAngle": 45,
+                "cameraAngle": 0,
                 "cameraColor": [
-                    85,
-                    255,
-                    127
+                    0,
+                    0,
+                    0
                 ],
-                "cameraSize": 14
+                "cameraSize": 5
+            },
+            {
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190403_18_47_12_Pro.mp4",
+                "cameraLocation": "cam8",
+                "cameraCoordinates": [
+                    43,
+                    182
+                ],
+                "cameraAngle": 0,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 5
+            },
+            {
+                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190407_14_50_20_Pro.mp4",
+                "cameraLocation": "cam9",
+                "cameraCoordinates": [
+                    416,
+                    142
+                ],
+                "cameraAngle": 0,
+                "cameraColor": [
+                    0,
+                    0,
+                    0
+                ],
+                "cameraSize": 5
             }
         ]
     }

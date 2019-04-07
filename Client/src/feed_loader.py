@@ -40,7 +40,7 @@ class FeedLoader(Thread):
 
 	def run(self):
 		displaySize = (640, 360)
-		processSize = (256, 144)
+		processSize = (640, 480)
 
 		if self.camera is not None:
 			if self.camera.camID.isdigit():

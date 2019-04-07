@@ -7,7 +7,6 @@ sys.path.append(path + '\\CommonFiles')
 sys.path.append(path + '\\Client\\src')
 sys.path.append(path + '\\Server\\src')
 
-from automatedTests import *
 import blobTests
 import cannyTests
 import harrisTests
@@ -40,6 +39,7 @@ if __name__ == '__main__':
 			sobelTests.run()
 		elif mode == 'help':
 			print("Usage: \'python tester.py <mode>\'")
-			print("\n\nModes: automated, motion, CNN, alertSystem\nblob, canny, harris, ridge, sobel")
+			print("\n\nModes: motion, CNN, alertSystem\nblob, canny, harris, ridge, sobel")
 	else:
-		runAutomated()
+		print("Usage: \'python tester.py <mode>\'")
+		print("\n\nModes: motion, CNN, alertSystem\nblob, canny, harris, ridge, sobel")
