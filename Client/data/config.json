@@ -1,142 +1,109 @@
 [
     {
-        "levelID": 0,
-        "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
+        "levelID": -1,
+        "levelDrawPath": "..\\data\\floorplans\\10-Mofflin-Street.jpg",
         "levelCameras": [
             {
-                "cameraID": "0",
-                "cameraLocation": "Utility Closet",
+                "cameraID": "..\\..\\Demo Data\\demo2.mp4",
+                "cameraLocation": "Dining Room",
                 "cameraCoordinates": [
-                    28,
-                    365
+                    55,
+                    55
                 ],
-                "cameraAngle": 150,
+                "cameraAngle": 45,
                 "cameraColor": [
                     85,
                     0,
                     127
                 ],
-                "cameraSize": 9
+                "cameraSize": 12
             },
             {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190223_20_28_34_Pro.mp4",
-                "cameraLocation": "Cam",
+                "cameraID": "..\\..\\Demo Data\\demo6.mp4",
+                "cameraLocation": "Hallway",
                 "cameraCoordinates": [
-                    190,
-                    353
+                    235,
+                    226
                 ],
-                "cameraAngle": 150,
+                "cameraAngle": 45,
+                "cameraColor": [
+                    255,
+                    170,
+                    0
+                ],
+                "cameraSize": 12
+            }
+        ]
+    },
+    {
+        "levelID": 0,
+        "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
+        "levelCameras": [
+            {
+                "cameraID": "0",
+                "cameraLocation": "Living Room",
+                "cameraCoordinates": [
+                    322,
+                    176
+                ],
+                "cameraAngle": 240,
+                "cameraColor": [
+                    85,
+                    170,
+                    0
+                ],
+                "cameraSize": 14
+            },
+            {
+                "cameraID": "..\\..\\Demo Data\\demo1.mp4",
+                "cameraLocation": "Entrace",
+                "cameraCoordinates": [
+                    201,
+                    396
+                ],
+                "cameraAngle": 340,
                 "cameraColor": [
                     0,
                     0,
+                    255
+                ],
+                "cameraSize": 12
+            }
+        ]
+    },
+    {
+        "levelID": 1,
+        "levelDrawPath": "..\\data\\floorplans\\placeholder2.jpg",
+        "levelCameras": [
+            {
+                "cameraID": "..\\..\\Demo Data\\demo4.mp4",
+                "cameraLocation": "Kitchen",
+                "cameraCoordinates": [
+                    93,
+                    314
+                ],
+                "cameraAngle": 125,
+                "cameraColor": [
+                    170,
+                    85,
                     0
                 ],
-                "cameraSize": 5
+                "cameraSize": 12
             },
             {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_10_40_54_Pro.mp4",
-                "cameraLocation": "cam2",
+                "cameraID": "..\\..\\Demo Data\\demo5.mp4",
+                "cameraLocation": "Living Room",
                 "cameraCoordinates": [
-                    173,
-                    202
+                    183,
+                    78
                 ],
-                "cameraAngle": 150,
+                "cameraAngle": 320,
                 "cameraColor": [
-                    0,
-                    0,
-                    0
+                    85,
+                    170,
+                    255
                 ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_10_41_17_Pro.mp4",
-                "cameraLocation": "cam3",
-                "cameraCoordinates": [
-                    351,
-                    198
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190301_11_08_59_Pro.mp4",
-                "cameraLocation": "cam5",
-                "cameraCoordinates": [
-                    151,
-                    98
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190315_15_06_13_Pro.mp4",
-                "cameraLocation": "cam6",
-                "cameraCoordinates": [
-                    270,
-                    61
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190315_17_31_14_Pro.mp4",
-                "cameraLocation": "cam 7",
-                "cameraCoordinates": [
-                    54,
-                    276
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190403_18_47_12_Pro.mp4",
-                "cameraLocation": "cam8",
-                "cameraCoordinates": [
-                    43,
-                    182
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
-            },
-            {
-                "cameraID": "..\\..\\..\\..\\..\\..\\..\\..\\Pictures\\Camera Roll\\WIN_20190407_14_50_20_Pro.mp4",
-                "cameraLocation": "cam9",
-                "cameraCoordinates": [
-                    416,
-                    142
-                ],
-                "cameraAngle": 0,
-                "cameraColor": [
-                    0,
-                    0,
-                    0
-                ],
-                "cameraSize": 5
+                "cameraSize": 12
             }
         ]
     }

@@ -663,6 +663,8 @@ class Viewer(QWidget):
 				resultsData = pickle.load(resultsFile)[::-1]
 				resultsFile.close()
 
+				assert(len(resultsData) == videoTotal)
+
 				self.chartConn.emitSignal((resultsData, videoTotal, fps))
 
 				fpsTimer = time.time()
@@ -672,10 +674,14 @@ class Viewer(QWidget):
 				fph = FeedProcessHelper()
 
 				while self.feed.isOpened() and self.reset is False:
+					#syncing results index with display frame 
 					if self.frameCount != self.lastFrame + 1:
 						self.feed.set(cv2.CAP_PROP_POS_FRAMES, self.frameCount)
 						self.lastFrame = self.frameCount - 1
 
+					if self.feed.get(cv2.CAP_PROP_POS_FRAMES) != self.frameCount:
+						self.feed.set(cv2.CAP_PROP_POS_FRAMES, self.frameCount)
+						logging.debug('Correcting frame position')
 
 					while time.time() - fpsTimer < 1 / fps or self.pause is True:
 						time.sleep(0.01)
@@ -687,6 +693,7 @@ class Viewer(QWidget):
 						results = resultsData[self.frameCount]
 						self.frameCount += 1
 						self.lastFrame += 1
+
 						classifications = results[0]
 						boundingBoxes = results[1]
 

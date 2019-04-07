@@ -98,13 +98,6 @@ class FeedHandler(Thread):
 
 						boundingBoxes = bgRemover.apply(frame)
 
-						x, y, w, h = drawCoords[bboxIndex]
-
-						xf = scale(x, 0, width, 0, 1)
-						yf = scale(y, 0, height, 0, 1)
-						wf = scale(w, 0, width, 0, 1)
-						hf = scale(h, 0, height, 0, 1)
-
 						response = pickle.dumps(
 							(finalResult, boundingBoxes,
 							(resultHandler.getAverages(), drawCoords)), protocol=4)
