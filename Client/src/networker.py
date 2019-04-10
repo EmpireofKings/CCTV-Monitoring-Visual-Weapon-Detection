@@ -135,7 +135,6 @@ class Networker(Thread):
 		results = []
 
 		notify = Notify()
-		notifyTimer = time.time()
 
 		# fpsTimer = time.time()
 		# showEvery = 1
@@ -178,11 +177,11 @@ class Networker(Thread):
 					alertTimer = time.time()
 					self.updateConnector.emitSignal()
 
-					if notify is not None and self.camera.alerted is False:
-							notify.send(
-								'Weapon detected at level ' +
-								str(self.camera.levelID) + ' ' +
-								self.camera.location)
+					# if notify is not None and self.camera.alerted is False:
+					# 		notify.send(
+					# 			'Weapon detected at level ' +
+					# 			str(self.camera.levelID) + ' ' +
+					# 			self.camera.location)
 
 				if not self.deferredMode and not self.imageMode:
 					if self.camera.alert:
@@ -203,7 +202,7 @@ class Networker(Thread):
 							h = int(self.scale(h, 0, 1, 0, height))
 
 							cv2.rectangle(
-								displayFrame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+								displayFrame, (x, y), (x + w, y + h), (255, 255, 0), 2)
 
 				# # if this display is the main, emit the frame signal to both displays
 

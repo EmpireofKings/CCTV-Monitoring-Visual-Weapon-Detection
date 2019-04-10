@@ -148,6 +148,8 @@ class AlertWatcher(Thread):
 		self.soundsPath = '../data/Sounds'
 		self.detectedPath = soundsPath + '/weapondetected.mp3'
 		self.andPath = soundsPath + '/and.mp3'
+		self.notify = Notify()
+
 
 	def run(self):
 		terminator = Terminator.getInstance()
@@ -167,6 +169,13 @@ class AlertWatcher(Thread):
 							camera.alerted = True
 							soundsToPlay.append(camera.soundPath)
 
+							alertMsg = ('Weapon detected at level ' +
+									str(camera.levelID) + ' ' +
+									camera.location)
+
+							alerter = Thread(target=self.sendAlert, args=[alertMsg])
+							alerter.start()
+
 						camMsgs += '\n\t\t' + camera.location
 					elif camera.alerted is True:
 						camera.alerted = False
@@ -182,6 +191,7 @@ class AlertWatcher(Thread):
 				print(path)
 				print(self.index)
 				print(self.index.get(path))
+
 				self.playUntilDone(self.playlist[self.index.get(path)])
 
 				if count == len(soundsToPlay) - 2:
@@ -189,7 +199,10 @@ class AlertWatcher(Thread):
 
 				count += 1
 
-			time.sleep(5)
+			time.sleep(0.1)
+
+	def sendAlert(self, msg):
+		self.notify.send(msg)
 
 	def playUntilDone(self, media):
 		self.finished = False

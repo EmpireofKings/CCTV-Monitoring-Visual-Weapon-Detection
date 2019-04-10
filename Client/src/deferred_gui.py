@@ -716,7 +716,7 @@ class Viewer(QWidget):
 								w = int(self.scale(wf, 0, 1, 0, width))
 								h = int(self.scale(hf, 0, 1, 0, height))
 
-								cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
+								cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 255, 0), 2)
 
 						seconds = int(self.frameCount / fps)
 						curTime = datetime.timedelta(seconds=seconds)
