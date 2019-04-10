@@ -7,7 +7,7 @@ class ModelHandler():
 
 	def __init__(self):
 		if ModelHandler.__instance is None:
-			self.__model = tf.keras.models.load_model("../../Decent Models/model-current.h5")
+			self.__model = tf.keras.models.load_model("../model/model.h5")
 			self.__model._make_predict_function()
 			self.__session = tf.keras.backend.get_session()
 			self.__graph = tf.get_default_graph()
