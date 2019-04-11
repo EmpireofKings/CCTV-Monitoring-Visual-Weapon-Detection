@@ -11,7 +11,6 @@ import shutil
 import sys
 import time
 from collections import deque
-from pprint import pprint
 from threading import Thread
 
 import cv2
@@ -662,8 +661,6 @@ class Viewer(QWidget):
 				resultsFile = open(self.resultPath, 'rb')
 				resultsData = pickle.load(resultsFile)[::-1]
 				resultsFile.close()
-
-				assert(len(resultsData) == videoTotal)
 
 				self.chartConn.emitSignal((resultsData, videoTotal, fps))
 

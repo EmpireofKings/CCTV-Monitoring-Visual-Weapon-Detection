@@ -3826,3 +3826,183 @@ DEBUG - 2019-04-09 12:09:14,695 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:6
 DEBUG - 2019-04-09 12:09:14,696 - Monitor - EVENT_DISCONNECTED b'tcp://0.0.0.0:56968'
 DEBUG - 2019-04-09 12:09:14,696 - Monitor - Monitor thread DemoDatademo1mp41ea1efc9b1ed4595852e202cd716f84b shutting down
 DEBUG - 2019-04-09 12:09:14,696 - Monitor - Monitor thread DemoDatademo5mp4486cb55922194c8391e6f56313279944 shutting down
+INFO - 2019-04-11 15:24:56,026 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:24:56,030 - MainThread - Terminator signals linked
+CRITICAL - 2019-04-11 15:24:57,169 - MainThread - Exception loading model/graph
+Traceback (most recent call last):
+  File "server.py", line 62, in <module>
+    modelHandler = ModelHandler.getInstance()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 21, in getInstance
+    ModelHandler.__instance = ModelHandler()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 10, in __init__
+    self.__model = tf.keras.models.load_model("../model/model.h5")
+  File "D:\CompSci\Python3.6\lib\site-packages\tensorflow\python\keras\engine\saving.py", line 219, in load_model
+    f = h5py.File(filepath, mode='r')
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 312, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, swmr=swmr)
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 142, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\h5f.pyx", line 78, in h5py.h5f.open
+OSError: Unable to open file (unable to open file: name = '../model/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+INFO - 2019-04-11 15:24:57,211 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:24:57,321 - MainThread - Socket setup, public key: b'vg1al)F/)^y-uFj*I^fa-Kimzta%>a5W^cncA5^='
+INFO - 2019-04-11 15:24:57,328 - FeedListener - Feed listener thread shutting down
+CRITICAL - 2019-04-11 15:24:59,418 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 29, in __init__
+    os.environ["DBPASS"], os.environ["DBNAME"])
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\connections.py", line 164, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+INFO - 2019-04-11 15:25:04,438 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:25:04,604 - Enroller - Enroller thread shutting down
+INFO - 2019-04-11 15:26:48,374 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:26:48,377 - MainThread - Terminator signals linked
+CRITICAL - 2019-04-11 15:26:49,434 - MainThread - Exception loading model/graph
+Traceback (most recent call last):
+  File "server.py", line 62, in <module>
+    modelHandler = ModelHandler.getInstance()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 21, in getInstance
+    ModelHandler.__instance = ModelHandler()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 10, in __init__
+    self.__model = tf.keras.models.load_model("../model/model.h5")
+  File "D:\CompSci\Python3.6\lib\site-packages\tensorflow\python\keras\engine\saving.py", line 219, in load_model
+    f = h5py.File(filepath, mode='r')
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 312, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, swmr=swmr)
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 142, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\h5f.pyx", line 78, in h5py.h5f.open
+OSError: Unable to open file (unable to open file: name = '../model/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+INFO - 2019-04-11 15:26:49,446 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:26:49,562 - MainThread - Socket setup, public key: b'inT%@boL1eU1zWS7{PqZuxRG)t/zvGyhop.tvlbV'
+INFO - 2019-04-11 15:26:49,568 - FeedListener - Feed listener thread shutting down
+CRITICAL - 2019-04-11 15:26:51,593 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 29, in __init__
+    os.environ["DBPASS"], os.environ["DBNAME"])
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\connections.py", line 164, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+INFO - 2019-04-11 15:26:51,598 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:26:51,772 - Enroller - Enroller thread shutting down
+INFO - 2019-04-11 15:27:04,306 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:27:04,307 - MainThread - Terminator signals linked
+CRITICAL - 2019-04-11 15:27:05,366 - MainThread - Exception loading model/graph
+Traceback (most recent call last):
+  File "server.py", line 62, in <module>
+    modelHandler = ModelHandler.getInstance()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 21, in getInstance
+    ModelHandler.__instance = ModelHandler()
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\modelHandler.py", line 10, in __init__
+    self.__model = tf.keras.models.load_model("../model/model.h5")
+  File "D:\CompSci\Python3.6\lib\site-packages\tensorflow\python\keras\engine\saving.py", line 219, in load_model
+    f = h5py.File(filepath, mode='r')
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 312, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, swmr=swmr)
+  File "D:\CompSci\Python3.6\lib\site-packages\h5py\_hl\files.py", line 142, in make_fid
+    fid = h5f.open(name, flags, fapl=fapl)
+  File "h5py\_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py\_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py\h5f.pyx", line 78, in h5py.h5f.open
+OSError: Unable to open file (unable to open file: name = '../model/model.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)
+INFO - 2019-04-11 15:27:05,380 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:27:05,512 - MainThread - Socket setup, public key: b'II?75o6T6ZTAzi1.kNZeHL%2z[RaZb3fu}00-lS+'
+INFO - 2019-04-11 15:27:05,530 - FeedListener - Feed listener thread shutting down
+CRITICAL - 2019-04-11 15:27:07,557 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 29, in __init__
+    os.environ["DBPASS"], os.environ["DBNAME"])
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\connections.py", line 164, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+INFO - 2019-04-11 15:27:07,575 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:27:07,732 - Enroller - Enroller thread shutting down
+INFO - 2019-04-11 15:27:26,262 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:27:26,276 - MainThread - Terminator signals linked
+INFO - 2019-04-11 15:27:37,685 - MainThread - Socket setup, public key: b'hy/H{}2U$lXl!hvsN^zms07@2/3tk%on*]]/*QWd'
+CRITICAL - 2019-04-11 15:27:39,714 - MainThread - Exception occured connecting to database
+Traceback (most recent call last):
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\authenticator.py", line 29, in __init__
+    os.environ["DBPASS"], os.environ["DBNAME"])
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\__init__.py", line 84, in Connect
+    return Connection(*args, **kwargs)
+  File "D:\CompSci\Python3.6\lib\site-packages\MySQLdb\connections.py", line 164, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+MySQLdb._exceptions.OperationalError: (2002, "Can't connect to MySQL server on 'localhost' (10061)")
+INFO - 2019-04-11 15:27:39,724 - MainThread - Termination signal received, please wait.
+CRITICAL - 2019-04-11 15:27:39,860 - MainThread - Exception occured starting enroller thread
+Traceback (most recent call last):
+  File "server.py", line 88, in <module>
+    enroller = Enroller(feedListener, authListener)
+  File "D:\CompSci\College\Year4\FinalYearProject\Semester2\Dev\Server\src\enroller.py", line 23, in __init__
+    monitorSocket = self.unsecuredSocket.get_monitor_socket()
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\sugar\socket.py", line 732, in get_monitor_socket
+    addr = "inproc://monitor.s-%d" % self.FD
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\sugar\attrsettr.py", line 48, in __getattr__
+    return self._get_attr_opt(upper_key, opt)
+  File "D:\CompSci\Python3.6\lib\site-packages\zmq\sugar\attrsettr.py", line 52, in _get_attr_opt
+    return self.get(opt)
+  File "zmq\backend\cython\socket.pyx", line 492, in zmq.backend.cython.socket.Socket.get
+  File "zmq\backend\cython\socket.pyx", line 262, in zmq.backend.cython.socket._getsockopt
+  File "zmq\backend\cython\checkrc.pxd", line 25, in zmq.backend.cython.checkrc._check_rc
+zmq.error.ZMQError: Unknown error
+INFO - 2019-04-11 15:27:39,882 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:28:10,430 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:28:10,442 - MainThread - Terminator signals linked
+INFO - 2019-04-11 15:28:18,710 - MainThread - Socket setup, public key: b'Q[Au:)6CroJ4G/(aU%5mH5l5pz/}{D!KR7g^.f@d'
+INFO - 2019-04-11 15:28:55,048 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:28:58,718 - FeedListener - Feed listener thread shutting down
+INFO - 2019-04-11 15:29:07,108 - MainThread - 
+
+
+		Begin new set of logs:
+
+
+
+INFO - 2019-04-11 15:29:07,122 - MainThread - Terminator signals linked
+INFO - 2019-04-11 15:29:15,507 - MainThread - Socket setup, public key: b't7-VTB{ZpN&O7s/P2/@)6.$JJRmce#M@LuPBE%%I'
+INFO - 2019-04-11 15:31:30,021 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:31:32,706 - MainThread - Termination signal received, please wait.
+INFO - 2019-04-11 15:31:32,707 - FeedListener - Feed listener thread shutting down
+INFO - 2019-04-11 15:31:35,183 - Enroller - Enroller thread shutting down

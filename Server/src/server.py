@@ -11,11 +11,10 @@ import tensorflow as tf
 # relatively messy but not many options to do this.
 
 if sys.platform == 'linux':
-	print('Linux')
 	path = os.getcwd().split('/')
 	path = '/'.join(path[:len(path) - 2])
 	sys.path.append(path + '/CommonFiles')
-elif sys.platform == 'windows':
+elif "win" in sys.platform:
 	path = os.getcwd().split('\\')
 	path = '\\'.join(path[:len(path) - 2])
 	sys.path.append(path + '\\CommonFiles')

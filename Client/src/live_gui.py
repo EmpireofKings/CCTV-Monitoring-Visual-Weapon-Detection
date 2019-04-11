@@ -7,7 +7,6 @@ import math
 import sys
 import time
 from collections import deque
-from pprint import pprint
 from threading import Thread
 
 import cv2
@@ -188,10 +187,6 @@ class AlertWatcher(Thread):
 
 			count = 0
 			for path in soundsToPlay:
-				print(path)
-				print(self.index)
-				print(self.index.get(path))
-
 				self.playUntilDone(self.playlist[self.index.get(path)])
 
 				if count == len(soundsToPlay) - 2:
@@ -248,10 +243,6 @@ class gridViewer(QGridLayout):
 
 			for camera in level.cameras:
 				cameras.append(camera)
-
-		# pprint(cameraIDs)
-		# pprint(cameraLocations)
-		# layout = QGridLayout()
 
 		maxCols = 3  # TODO, dynamically choose based on availale space
 		# figure out how many rows are needed based on amount of items and max cols

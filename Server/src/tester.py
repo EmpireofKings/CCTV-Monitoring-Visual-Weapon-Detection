@@ -74,12 +74,6 @@ for file in files:
 		preds.append(0)
 
 	index = len(preds) - 1
-
-	if labels[index] == preds[index]:
-		print("Correct", str(count), 'of', str(total))
-	else:
-		print("False", str(count), 'of', str(total))
-
 	count += 1
 
 print(classification_report(np.asarray(labels), np.asarray(preds)))

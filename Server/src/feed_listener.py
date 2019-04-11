@@ -62,8 +62,11 @@ class FeedListener(Thread):
 				publicKey = handler.getPublicKey()
 
 				self.socket.send_string(str(assignedPort) + '  ' + str(publicKey, 'utf-8'))
-			except:
-				pass
+			except zmq.ZMQError as error:
+				if error.errno == zmq.EAGAIN:
+					pass
+				else:
+					logging.debug('error receiving')
 
 		self.socket.close()
 		self.ctxHandler.cleanup()

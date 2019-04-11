@@ -120,10 +120,8 @@ class LayoutPainter(QFrame):
                     painter.drawEllipse(self.lastMousePos, 10, 10)
 
     def findCamByID(self, camID):
-        print(camID)
         for level in self.data[0]:
             for camera in level.cameras:
-                print(camera.camID)
                 if camera.camID == camID:
                     return camera
         
@@ -396,7 +394,7 @@ class LayoutControls(QFrame):
             elif self.sender() is self.downLevelButton:
                 nextLevel = currentLevel - 1
             else:
-                print("Unknown Caller: LayoutControls.changeLevel()")
+                logging.debug("Unknown Caller: LayoutControls.changeLevel()")
 
             text = "Level " + str(nextLevel)
             index = self.dropdown.findText(text)

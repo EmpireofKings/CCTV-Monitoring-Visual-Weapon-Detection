@@ -7,7 +7,6 @@ path = '\\'.join(path[:len(path)])
 sys.path.append(path + '\\CommonFiles')
 sys.path.append(path + '\\Client\\src')
 sys.path.append(path + '\\Server\\src')
-print(sys.path)
 
 from feed_process_helper import FeedProcessHelper
 from results_handler import ResultsHandler

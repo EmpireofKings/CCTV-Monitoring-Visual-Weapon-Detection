@@ -56,7 +56,7 @@ class Networker(Thread):
 
 		self.serverAddr = 'tcp://35.204.135.105'
 		self.localAddr = 'tcp://127.0.0.1'
-		self.mainAddr = self.serverAddr
+		self.mainAddr = self.localAddr
 		self.initPort = ':5000'
 
 		self.total = 0
@@ -251,7 +251,7 @@ class Networker(Thread):
 			#ctxHandler.cleanup()
 			certHandler.cleanup()
 		except Exception as e:
-			print("exception while ending", e)
+			logging.debug("exception while ending")
 
 	def scale(self, val, inMin, inMax, outMin, outMax):
 		return ((val - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin

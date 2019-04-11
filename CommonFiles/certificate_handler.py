@@ -100,7 +100,6 @@ class CertificateHandler():
 
 	def savePublicKey(self, key):
 		path = self.getEnrolledKeysPath() + str(uuid.uuid4().hex) + '.key'
-		print(path)
 		now = datetime.datetime.now()
 
 		try:

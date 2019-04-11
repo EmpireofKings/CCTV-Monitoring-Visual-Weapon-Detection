@@ -43,7 +43,7 @@ class Enroller(Thread):
 				self.unsecuredSocket.send_string(str(self.publicKey))
 				logging.debug("New client enrolled %s", clientKey)
 			except:
-				pass
+				logging.debug('Error enrolling')
 
 		self.unsecuredSocket.close()
 		self.monitor.stop = True

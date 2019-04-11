@@ -93,7 +93,7 @@ Development Instance/Image setup GCP
 				e. git pull origin master
 				f. git push --set-upstream origin master
 
-
+		5000, 5001, 5002, 49151-65535
 		3.Docker (Dockerfile below)
 			a. sudo docker build -t server-image .
 			b. sudo docker run --runtime=nvidia -p 5000:5000 -p 5001:5001 server-image
@@ -123,3 +123,13 @@ Development Instance/Image setup GCP
 	 d. sudo mount -o discard,defaults /dev/[DEVICE_ID] /mnt/disks/[MNT_DIR]
 	 e. sudo chmod a+w /mnt/disks/[MNT_DIR]
 	 f. programs expect /Dataset and /Prepared-Data to exist on drive
+	 
+	 
+	 
+	 
+18.0.1 pyzmq
+tensorflow-gpu 1.12.0
+open cv 4.0.0.21
+numpy 1.16.0
+
+

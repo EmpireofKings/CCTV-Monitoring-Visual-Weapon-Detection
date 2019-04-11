@@ -13,7 +13,6 @@ from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 from PySide2.QtMultimedia import *
-from pprint import pprint
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
@@ -33,7 +32,7 @@ from corner_controls import CornerControls
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
-mainAddr = serverAddr
+mainAddr = localAddr
 connectCamPort = ':5000'
 registrationPort = ':5001'
 unsecuredEnrollPort = ':5002'
@@ -113,6 +112,7 @@ class mainWindow(QMainWindow):
 		shutil.rmtree('../data/Sounds')
 		self.app.exit()
 		sys.exit()
+
 
 class LoginDialog(QDialog):
 	def __init__(self):
@@ -234,7 +234,6 @@ class LoginDialog(QDialog):
 		password = self.passwordEntryLogin.text()
 
 		self.authenticated, self.msg, self.userID, self.key = self.verifyUser(username, password)
-		print(self.msg)
 		if self.authenticated:
 			self.accept()
 		else:
@@ -307,12 +306,9 @@ class LoginDialog(QDialog):
 			self.msgLabelRegister.setText(msg)
 
 	def registerUser(self, username, password, email):
-		print("register user")
 		socket = setupGlobalSocket(mainAddr + registrationPort)
 		socket.send_string('REGISTER ' + username + ' ' + password + ' ' + email)
-		print("sent")
 		result = socket.recv_string()
-		print(result)
 		socket.close()
 
 		parts = result.split('  ')

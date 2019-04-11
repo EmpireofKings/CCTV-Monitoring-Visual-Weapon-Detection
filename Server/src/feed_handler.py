@@ -57,9 +57,7 @@ class FeedHandler(Thread):
 		return self.publicKey
 
 	def saveClientKey(self, key):
-		print('saving', key)
 		self.certHandler.savePublicKey(key)
-		print('cofiguring')
 		self.ctxHandler.configureAuth()
 
 	def run(self):
@@ -108,7 +106,7 @@ class FeedHandler(Thread):
 		self.ctxHandler.cleanup()
 		self.certHandler.cleanup()
 		self.socket.close()
-		print("Ending thread", self.feedID)
+		logging.debug("Ending thread %s", self.feedID)
 
 
 def scale(val, inMin, inMax, outMin, outMax):

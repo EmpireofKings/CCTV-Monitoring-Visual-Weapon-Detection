@@ -1,7 +1,6 @@
 import copy
 import json
 import os
-from pprint import pprint
 
 import cv2
 import numpy as np
@@ -17,7 +16,6 @@ class DataLoader():
 
 	def parseData(self):
 		if not os.path.isfile(self.path):
-			print("Configuration file missing")
 			return None
 
 		with open(self.path, 'r') as fp:

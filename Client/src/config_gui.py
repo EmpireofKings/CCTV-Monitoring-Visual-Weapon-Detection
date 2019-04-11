@@ -1,5 +1,4 @@
 # TODO
-from pprint import pprint
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
@@ -200,7 +199,6 @@ class CameraDisplay(QLabel):
         self.drawSpace = drawSpace
         self.camera = camera
 
-        # print(self.camera.camID)
         pmap = camera.getPreview(256, 144)
         self.setPixmap(pmap)
 
