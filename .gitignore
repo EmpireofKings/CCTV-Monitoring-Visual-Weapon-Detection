@@ -133,3 +133,4 @@ venv.bak/
 /Client/data/Sounds/
 /Client/data/processed/
 /Client/data/videos/
+*.config
