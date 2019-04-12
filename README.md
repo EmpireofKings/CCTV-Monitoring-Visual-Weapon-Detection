@@ -24,9 +24,9 @@ This project aimed to tackle some of the problems of automated surveillance with
 ## Repository Structure
 
 1. Client - Contains code/data for client side application (Options  are debug, info, warning, error or critical for logging levels)
-	```sh
-			python3 client.py <option> 
-	```
+    ```sh
+            python3 client.py <option> 
+    ```
 	
 2. CommonFiles - Contains code that is used in multiple components, not to be executed directly.
 3. Data-Acquistion - Contains the code/data used in acquring the dataset
@@ -91,28 +91,28 @@ The following instructions detail how the development environment was set up.
 
 	* Compression Software (For dataset handling)
 	```sh
-            sudo apt-get install p7zip-full
-    		7z x -o<target path> archive.7z
+                sudo apt-get install p7zip-ful
+		7z x -o<target path> archive.7z
 	```	
 	* Database Software
 	```sh
-            sudo apt-get install mysql-server
+                sudo apt-get install mysql-server
     		mysql -h <IP> -u root -p (details saved in environment variables)
-    ```
+        ```
 	* Monitoring Software
-    ```sh
+        ```sh
         	sudo apt-get install iotop
     		htop should already be installed
     		nvidia-smi should already be installed
 	```
 	* Install latest NVIDIA drivers
 	```sh
-            sudo apt-get install ubuntu-drivers-common
+                sudo apt-get install ubuntu-drivers-common
     		ubuntu-drivers devices
-    	    sudo apt-get install nvidia-driver-<latest>
+    	        sudo apt-get install nvidia-driver-<latest>
     		May require reboot
     		nvidia-smi to confirm success
-    ```
+         ```
 	* Install CUDA API
 	```sh
     		sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub
