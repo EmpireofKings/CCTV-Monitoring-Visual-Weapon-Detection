@@ -31,5 +31,5 @@ EXPOSE 5000-5002
 EXPOSE 49151-65535
 
 #RUN SERVER APP IN UNBUFFERED MODE
-CMD ["python3", "-u", "./server.py"]
+CMD ["python3", "-u", "./server.py", "debug"]
 

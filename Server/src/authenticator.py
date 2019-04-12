@@ -200,6 +200,7 @@ class AuthenticationListener(Thread):
 					message = EmailMessage()
 					message.set_content(
 						'Hi ' + username + ',\n\nHere is your activation key:\n\t' + str(key) +
+						'\n\nHere is the channel notifications will be sent over\n\thttps://notify.run/c/fA32tvPxqKTDmVMJ' +
 						'\n\nRegards,\nBen')
 					message['Subject'] = 'Activation Key'
 					message['From'] = 'ben96ryan@gmail.com'
