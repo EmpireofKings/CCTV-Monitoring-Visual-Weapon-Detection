@@ -25,7 +25,7 @@ This project aimed to tackle some of the problems of automated surveillance with
 
 1. Client - Contains code/data for client side application (Options  are debug, info, warning, error or critical for logging levels)
 	```sh
-		    python3 client.py <option> 
+			python3 client.py <option> 
 	```
 	
 2. CommonFiles - Contains code that is used in multiple components, not to be executed directly.
@@ -63,7 +63,7 @@ This project aimed to tackle some of the problems of automated surveillance with
 The following instructions detail how the development environment was set up.
 1. Google Cloud Instance Specifications
     * Ubuntu 18.04 LTS Base Image
-    * CUDA API Enabled NVIDIA GPU (K80, P4 and V100 tested.)
+    * CUDA API Enabled NVIDIA GPU (K80, P4 and V100 tested)
     * 8+ vCPUs, any platform.
     * 16GB+ RAM
     * 50GB HDD boot disk.
@@ -166,7 +166,7 @@ The following instructions detail how the development environment was set up.
 	* Install GCSFUSE for GCP 
 	```sh
     		export GCSFUSE_REPO=gcsfuse-`lsb_release -c -s`
-    	    echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
+			echo "deb http://packages.cloud.google.com/apt $GCSFUSE_REPO main" | sudo tee /etc/apt/sources.list.d/gcsfuse.list
     		curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
     		sudo apt-get update
     		sudo apt-get install gcsfuse
