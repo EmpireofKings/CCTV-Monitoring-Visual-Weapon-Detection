@@ -1,5 +1,26 @@
 [
     {
+        "levelID": -2,
+        "levelDrawPath": "..\\data\\floorplans\\placeholder3.jpg",
+        "levelCameras": [
+            {
+                "cameraID": "0",
+                "cameraLocation": "Living Room",
+                "cameraCoordinates": [
+                    205,
+                    323
+                ],
+                "cameraAngle": 100,
+                "cameraColor": [
+                    255,
+                    170,
+                    127
+                ],
+                "cameraSize": 13
+            }
+        ]
+    },
+    {
         "levelID": -1,
         "levelDrawPath": "..\\data\\floorplans\\10-Mofflin-Street.jpg",
         "levelCameras": [
@@ -39,21 +60,6 @@
         "levelID": 0,
         "levelDrawPath": "..\\data\\floorplans\\placeholder1.jpg",
         "levelCameras": [
-            {
-                "cameraID": "0",
-                "cameraLocation": "Living Room",
-                "cameraCoordinates": [
-                    322,
-                    176
-                ],
-                "cameraAngle": 240,
-                "cameraColor": [
-                    85,
-                    170,
-                    0
-                ],
-                "cameraSize": 14
-            },
             {
                 "cameraID": "..\\..\\Demo Data\\demo1.mp4",
                 "cameraLocation": "Entrance",

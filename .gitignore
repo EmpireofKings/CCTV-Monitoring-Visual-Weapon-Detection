@@ -125,3 +125,11 @@ venv.bak/
 /Server/Certificates/
 /Client/Processed/
 *.result
+/.vscode/
+/Server/Logs/
+/Client/Logs/
+/.pytest_cache/
+/Demo Data/
+/Client/data/Sounds/
+/Client/data/processed/
+/Client/data/videos/
