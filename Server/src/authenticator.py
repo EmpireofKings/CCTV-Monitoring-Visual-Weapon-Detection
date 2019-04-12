@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import logging
 import os
 import smtplib
@@ -7,10 +9,10 @@ import uuid
 from email.message import EmailMessage
 from threading import Thread
 
+import MySQLdb as sql
 import zmq
 from argon2 import PasswordHasher
 
-import MySQLdb as sql
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
 from monitor import Monitor

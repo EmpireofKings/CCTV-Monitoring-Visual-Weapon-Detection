@@ -1,14 +1,16 @@
-import zmq
-import shutil
-import os
-import uuid
-import time
+# Ben Ryan C15507277
 
 import datetime
 import glob
 import io
-from zmq.utils.strtypes import bytes, unicode, b, u
 import logging
+import os
+import shutil
+import time
+import uuid
+
+import zmq
+from zmq.utils.strtypes import b, bytes, u, unicode
 
 
 class CertificateHandler():

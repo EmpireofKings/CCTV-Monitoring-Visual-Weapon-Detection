@@ -1,9 +1,11 @@
-# TODO
+# Ben Ryan C15507277
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from layout_gui import Layout, LayoutMode
+
 from data_handler import *
+from layout_gui import Layout, LayoutMode
 
 
 class Config(QWidget):
@@ -209,4 +211,3 @@ class CameraDisplay(QLabel):
         else:
             self.drawSpace.controls.setPlacing(False, self.camera.camID)
             self.drawSpace.controls.setMainFeedID(self.camera)
-

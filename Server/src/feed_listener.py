@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import logging
 from threading import Thread
 
@@ -6,8 +8,8 @@ import zmq
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
 from feed_handler import FeedHandler
-from terminator import Terminator
 from monitor import Monitor
+from terminator import Terminator
 
 
 class FeedListener(Thread):

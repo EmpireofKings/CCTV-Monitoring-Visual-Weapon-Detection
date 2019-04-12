@@ -1,16 +1,20 @@
+# Ben Ryan C15507277
+
 import numpy as np
 import cv2
 import csv
 import os
 
-typeLocMap = {0:['./Data/Sorted/Pistol/', './Sort Files/pistols.txt'],
-			  1:['./Data/Sorted/Rifle/', './Sort Files/rifles.txt'],
-			  2:['./Data/Sorted/Shotgun/', './Sort Files/shotguns.txt'],
-			  3:['./Data/Sorted/SubmachineGun/', './Sort Files/submachineguns.txt'],
-			  4:['./Data/Sorted/other/', './Sort Files/other.txt'],
-			  5:['delete','delete']}
+typeLocMap = {
+	0: ['./Data/Sorted/Pistol/', './Sort Files/pistols.txt'],
+	1: ['./Data/Sorted/Rifle/', './Sort Files/rifles.txt'],
+	2: ['./Data/Sorted/Shotgun/', './Sort Files/shotguns.txt'],
+	3: ['./Data/Sorted/SubmachineGun/', './Sort Files/submachineguns.txt'],
+	4: ['./Data/Sorted/other/', './Sort Files/other.txt'],
+	5: ['delete', 'delete']}
 
 imageDir = "./Data/Unsorted/"
+
 
 def getSortLists():
 	pistols = getList(typeLocMap[0][1])
@@ -21,10 +25,12 @@ def getSortLists():
 
 	return (pistols, rifles, shotguns, submachineguns, other)
 
+
 def getList(path):
 	file = open(path, 'r')
 	reader = csv.reader(file)
 	return next(reader)
+
 
 def getImagePaths():
 	files = os.listdir(imageDir)
@@ -34,6 +40,7 @@ def getImagePaths():
 		images.append(imageDir + file)
 
 	return images
+
 
 def sort(sortLists, images):
 	for name in images:
@@ -56,6 +63,7 @@ def sort(sortLists, images):
 				cv2.imwrite(path, img)
 
 			os.remove(name)
+
 
 def askUser(img, name):
 	print("\n\nHow should this be sorted?\n" + name + "\n\nPistol = 0 \nRifle = 1 \nShotgun = 2 \nSubmachine gun = 3 \nOther = 4 \nDelete = 5")

@@ -1,9 +1,6 @@
 # Ben Ryan - C15507277 Final Year Project
 # This script is used to train a neural network
 
-# Steps:
-# TODO
-
 import math
 import os
 import random
@@ -29,39 +26,38 @@ from tensorflow.python import debug as tf_debug
 import tensorflow.keras.backend as K
 import examineBatchContent as exBC
 
-#os.environ['CUDA_VISIBLE_DEVICES'] = '-1' #uncomment to force CPU to be used
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1' #uncomment to force CPU to be used
 
 rootFolderGCP = "../../../../mnt/temp/"
 rootFolderLocal = "C:/Dataset/"
 
 
-#controls flow
+# controls flow
 def main():
-	#setup session
+	# setup session
 	config = tf.ConfigProto()
 	config.gpu_options.allow_growth = True  # dynamically grow the memory used on the GPU
 	sess = tf.Session(config=config)
-#	tf.keras.backend.set_session(tf_debug.TensorBoardDebugWrapperSession(sess, "development:5000"))
 	tf.keras.backend.set_session(sess)
-	#get and shuffle batch paths
+	# get and shuffle batch paths
 	# datasetPaths= exBC.preparePaths(rootFolderLocal+'Prepared-Data')
-	datasetPaths= exBC.preparePaths(rootFolderGCP+'Prepared-Data')
+	datasetPaths = exBC.preparePaths(rootFolderGCP + 'Prepared-Data')
 
 	random.shuffle(datasetPaths)
 	batchAmt = len(datasetPaths)
 
 	testAmt = math.ceil(batchAmt * .1)
 
-	#5% set aside for testing
+	# 10% set aside for testing
 	testingPaths = datasetPaths[:testAmt]
 	trainingPaths = datasetPaths[testAmt:]
 
 	writeVideo(testingPaths)
 	print("Test Video Written")
 
-	#prepare the model
-#	untrainedModel = prepModel((64, 64, 3))
-	#untrainedModel.summary()
+	# prepare the model
+	# untrainedModel = prepModel((64, 64, 3))
+	# untrainedModel.summary()
 
 	# train the model
 	# trainedModel = trainModelHDD(trainingPaths, testingPaths, untrainedModel)
@@ -75,8 +71,7 @@ def main():
 	untrainedModel = Model(inputs=base.input, outputs=final)
 
 	for layer in base.layers:
-		layer.trainable=False
-
+		layer.trainable = False
 
 	untrainedModel.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 	untrainedModel.summary()
@@ -90,19 +85,19 @@ def main():
 
 	print("Complete")
 
-	#for layer in trainedModel.layers[:249]:
-   #		layer.trainable = False
-#	for layer in trainedModel.layers[249:]:
-#	   layer.trainable = True
+	# for layer in trainedModel.layers[:249]:
+	# 	layer.trainable = False
+	# for layer in trainedModel.layers[249:]:
+	#    layer.trainable = True
 
+	# trainedModel.compile(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+	# tunedModel = trainModelHDD(trainingPaths, testingPaths, trainedModel)
+	# tunedModel.save("tuned.h5")
+	# testModel(testingPaths, tunedModel)
 
-#	trainedModel.compile(optimizer=SGD(lr=0.0001, momentum=0.9), loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-#	tunedModel = trainModelHDD(trainingPaths, testingPaths, trainedModel)
-#	tunedModel.save("tuned.h5")
-#	testModel(testingPaths, tunedModel)
 
 def writeVideo(batches):
-	#fps does not matter here as it will be displayed frame by frame for demoing
+	# fps does not matter here as it will be displayed frame by frame for demoing
 	fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 	outStream = cv2.VideoWriter('./testData.mp4', fourcc, fps=30.0, frameSize=(64, 64))
 
@@ -111,18 +106,20 @@ def writeVideo(batches):
 		data = np.load(dataPath)
 
 		for image in data:
-			norm = cv2.normalize(image, None, alpha = 0, beta = 255, norm_type = cv2.NORM_MINMAX, dtype = cv2.CV_8U)
+			norm = cv2.normalize(
+				image, None, alpha=0, beta=255, norm_type=cv2.NORM_MINMAX, dtype=cv2.CV_8U)
 			outStream.write(norm)
 
 	outStream.release()
 
-#prepares model as specified
+
+# prepares model as specified
 def prepModel(shape):
 	model = Sequential()
 
-	#convolutional/pooling layers
-	model.add(Conv2D(64, (3,3), activation='relu', padding='same', input_shape=shape))
-	model.add(Conv2D(64, (3,3), activation='relu'))
+	# convolutional/pooling layers
+	model.add(Conv2D(64, (3, 3), activation='relu', padding='same', input_shape=shape))
+	model.add(Conv2D(64, (3, 3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.25))
 
@@ -131,25 +128,22 @@ def prepModel(shape):
 	# model.add(MaxPooling2D(pool_size=(2, 2)))
 	# model.add(Dropout(0.25))
 
-	model.add(Conv2D(128, (3,3), activation='relu', padding='same'))
-	model.add(Conv2D(128, (3,3), activation='relu'))
+	model.add(Conv2D(128, (3, 3), activation='relu', padding='same'))
+	model.add(Conv2D(128, (3, 3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.2))
 
-	model.add(Conv2D(128, (3,3), activation='relu', padding='same', kernel_regularizer=regularizers.l2(0.01)))
-	model.add(Conv2D(128, (3,3), activation='relu'))
+	model.add(Conv2D(128, (3, 3), activation='relu', padding='same', kernel_regularizer=regularizers.l2(0.01)))
+	model.add(Conv2D(128, (3, 3), activation='relu'))
 	model.add(MaxPooling2D(pool_size=(2, 2)))
 	model.add(Dropout(0.2))
 
-	#fully connected layers
+	# fully connected layers
 	model.add(Flatten())
 	model.add(Dense(1152, activation='relu', kernel_regularizer=regularizers.l2(0.01)))
-	#model.add(Dense(512, activation='relu'))
+	# model.add(Dense(512, activation='relu'))
 	model.add(Dropout(0.2))
 	model.add(Dense(10, activation='sigmoid'))
-
-	#precision = keras_metrics.precision(label=1)
-	#recall = keras_metrics.recall(label=0)
 
 	model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
@@ -221,7 +215,6 @@ def trainModelRAM(trainingPaths, validationPaths, model):
 		validation_data=(validationData, validationLabels),
 		shuffle=True, class_weight=getClassWeights(trainingPaths))
 
-
 	return model
 	# trainingSeq = DataSequence(trainingData)
 	# validationSeq = DataSequence(validationData)
@@ -236,6 +229,7 @@ def trainModelRAM(trainingPaths, validationPaths, model):
 	# 	callbacks=[checkpointCB, tensorBoardCB],
 	# 	max_queue_size=500, workers=20, shuffle=True)
 
+
 class DataSequence(Sequence):
 	def __init__(self, data):
 		Sequence.__init__(self)
@@ -246,6 +240,7 @@ class DataSequence(Sequence):
 
 	def __getitem__(self, idx):
 		return self.data[idx]
+
 
 class PathSequence(Sequence):
 	def __init__(self, paths):
@@ -272,23 +267,24 @@ def getClassWeights(data):
 		for label in labels:
 			allLabels.append(label)
 
-
 	intLabels = [label.argmax() for label in allLabels]
 
 	weights = classWeight.compute_class_weight('balanced', np.unique(intLabels), intLabels)
 	weights = dict(enumerate(weights))
 
 	# double weighting of true target classes
-	#weights['10'] = weights.get(10) * 2
-	#weights['11'] = weights.get(11) * 2
-	#weights['12'] = weights.get(12) * 2
+	# weights['10'] = weights.get(10) * 2
+	# weights['11'] = weights.get(11) * 2
+	# weights['12'] = weights.get(12) * 2
 	return weights
 
-#evaluates the trained model
+
+# evaluates the trained model
 def testModel(paths, model):
 	amt = len(paths)
-	results = model.evaluate_generator(PathSequence(paths), steps=amt, max_queue_size=50, use_multiprocessing=False, workers = 9, verbose=1)
-
+	results = model.evaluate_generator(
+		PathSequence(paths), steps=amt, max_queue_size=50,
+		use_multiprocessing=False, workers=9, verbose=1)
 
 	true = []
 	pred = []
@@ -320,17 +316,17 @@ def testModel(paths, model):
 					item[cat] = 0.
 
 		for item in labels:
-			#true.append([ item[0], item[1] ])
+			# true.append([ item[0], item[1] ])
 			true.append(item)
 
 		for item in predictions:
-			#pred.append([ int(item[0]), int(item[1]) ])
+			# pred.append([ int(item[0]), int(item[1]) ])
 			pred.append(item)
 
 	print(classification_report(np.asarray(true), np.asarray(pred)))
-	#print(classification_report(true, pred))
 	print(np.shape(true), np.shape(pred))
 	print(results)
+
 
 def cifarMain():
 	(x_train, y_train), (x_test, y_test) = tf.keras.datasets.fashion_mnist.load_data()
@@ -339,25 +335,21 @@ def cifarMain():
 	print(np.shape(x_train))
 	for im in x_train:
 		im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)
-		#im = cv2.resize(im, (64, 64))
 		newXT.append(im)
 
 	newYT = []
 	for im in x_test:
 		im = cv2.cvtColor(im, cv2.COLOR_GRAY2RGB)
-		#im = cv2.resize(im, (64,64))
 		newYT.append(im)
 
 	x_train = np.array(newXT)
 	x_test = np.array(newYT)
 	print(np.shape(x_train))
 
-	#x_train, x_test = x_train / 255.0, x_test / 255.0
 	y_train = tf.keras.utils.to_categorical(y_train)
 	y_test = tf.keras.utils.to_categorical(y_test)
 
-
-	model = prepModel((28,28,3))
+	model = prepModel((28, 28, 3))
 	model.summary()
 	model.fit(x_train, y_train, epochs=30, validation_data=(x_test, y_test))
 	print(model.evaluate(x_test, y_test))

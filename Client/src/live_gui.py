@@ -1,4 +1,4 @@
-# TODO
+# Ben Ryan C15507277
 
 import base64 as b64
 import json
@@ -6,25 +6,25 @@ import logging
 import math
 import sys
 import time
+import uuid
 from collections import deque
 from threading import Thread
 
 import cv2
 import numpy as np
+from gtts import gTTS
+from notify_run import Notify
 from PySide2.QtCore import *
 from PySide2.QtGui import *
-from PySide2.QtWidgets import *
 from PySide2.QtMultimedia import *
+from PySide2.QtWidgets import *
 
+from connectors import GenericConnector
 from data_handler import *
 from feed_loader import FeedLoader
 from layout_gui import Layout, LayoutMode
 from networker import Networker
-from gtts import gTTS
-import uuid
 from terminator import Terminator
-from notify_run import Notify
-from connectors import GenericConnector
 
 
 class LiveAnalysis(QWidget):
@@ -149,7 +149,6 @@ class AlertWatcher(Thread):
 		self.andPath = soundsPath + '/and.mp3'
 		self.notify = Notify()
 
-
 	def run(self):
 		terminator = Terminator.getInstance()
 
@@ -168,9 +167,10 @@ class AlertWatcher(Thread):
 							camera.alerted = True
 							soundsToPlay.append(camera.soundPath)
 
-							alertMsg = ('Weapon detected at level ' +
-									str(camera.levelID) + ' ' +
-									camera.location)
+							alertMsg = (
+								'Weapon detected at level ' +
+								str(camera.levelID) + ' ' +
+								camera.location)
 
 							alerter = Thread(target=self.sendAlert, args=[alertMsg])
 							alerter.start()
@@ -210,6 +210,7 @@ class AlertWatcher(Thread):
 	def mediaStateChange(self, state):
 		if state == QMediaPlayer.StoppedState:
 			self.finished = True
+
 
 # ### RIGHT SIDE ###
 class CameraViewer(QFrame):
@@ -285,9 +286,9 @@ class gridViewer(QGridLayout):
 						alertAudio.save(path)
 
 					feedDisplayer = FeedDisplayer(
-						camera, drawSpace, mainDisplay, 
+						camera, drawSpace, mainDisplay,
 						maxSize=QSize(384, 216), minSize=QSize(128, 72),
-						parent = self.parent)
+						parent=self.parent)
 
 					feedDisplayer.surface.setStyleSheet("border: 3px solid black")
 
@@ -317,7 +318,9 @@ class gridViewer(QGridLayout):
 
 
 class FeedDisplayer(QLabel):
-	def __init__(self, camera, drawSpace, mainDisplay=None, maxSize=None, minSize=None, parent=None):
+	def __init__(
+		self, camera, drawSpace, mainDisplay=None,
+		maxSize=None, minSize=None, parent=None):
 		QLabel.__init__(self)
 		self.parent = parent
 
@@ -353,10 +356,10 @@ class FeedDisplayer(QLabel):
 		displaySize = (640, 360)
 
 		pmap = QPixmap.fromImage(
-					QImage(
-						frame.data, displaySize[0],
-						displaySize[1], 3 * displaySize[0],
-						QImage.Format_RGB888))
+			QImage(
+				frame.data, displaySize[0],
+				displaySize[1], 3 * displaySize[0],
+				QImage.Format_RGB888))
 
 		pmap = pmap.scaled(QSize(self.width(), self.height()), Qt.KeepAspectRatio)
 		self.surface.setPixmap(pmap)

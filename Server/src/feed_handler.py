@@ -1,19 +1,21 @@
+# Ben Ryan C15507277
+
 import base64 as b64
-import cv2
 import logging
 from threading import Thread
 
+import cv2
 import numpy as np
 import zmq
 
+import _pickle as pickle
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
-from feed_process_helper import FeedProcessHelper, BackgroundRemover
+from feed_process_helper import BackgroundRemover, FeedProcessHelper
 from modelHandler import ModelHandler
 from monitor import Monitor
 from results_handler import ResultsHandler
 from terminator import Terminator
-import _pickle as pickle
 
 
 class FeedHandler(Thread):

@@ -1,6 +1,13 @@
-import unittest
+# Ben Ryan C15507277
+
 import os
 import sys
+import unittest
+
+import numpy as np
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
 
 path = os.getcwd().split('\\')
 path = '\\'.join(path[:len(path)])
@@ -8,13 +15,10 @@ sys.path.append(path + '\\CommonFiles')
 sys.path.append(path + '\\Client\\src')
 sys.path.append(path + '\\Server\\src')
 
+from data_handler import Camera, Level
 from feed_process_helper import FeedProcessHelper
 from results_handler import ResultsHandler
-from data_handler import Camera, Level
-import numpy as np
-from PySide2.QtCore import *
-from PySide2.QtGui import *
-from PySide2.QtWidgets import *
+
 
 class RegionExtraction(unittest.TestCase):
 	def setUp(self):
@@ -39,7 +43,7 @@ class RegionExtraction(unittest.TestCase):
 class ResultsHandling(unittest.TestCase):
 	def setUp(self):
 		self.handler = ResultsHandler(9, 5)
-		self.randomData = np.random.rand(9,2)
+		self.randomData = np.random.rand(9, 2)
 
 		for _ in range(10):
 			self.handler.append(self.randomData)

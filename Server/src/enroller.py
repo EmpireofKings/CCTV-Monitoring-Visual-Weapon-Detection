@@ -1,10 +1,14 @@
-from threading import Thread
-import zmq
-from terminator import Terminator
-from certificate_handler import CertificateHandler
+# Ben Ryan C15507277
+
 import logging
-from monitor import Monitor
 import threading
+from threading import Thread
+
+import zmq
+
+from certificate_handler import CertificateHandler
+from monitor import Monitor
+from terminator import Terminator
 
 
 class Enroller(Thread):

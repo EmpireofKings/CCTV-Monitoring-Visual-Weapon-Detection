@@ -1,18 +1,18 @@
-# TODO
+# Ben Ryan C15507277
 
 import logging
 import os
 import string
 import sys
 import threading
-import time 
-import cv2
+import time
 
+import cv2
 import zmq
 from PySide2.QtCore import *
 from PySide2.QtGui import *
-from PySide2.QtWidgets import *
 from PySide2.QtMultimedia import *
+from PySide2.QtWidgets import *
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
@@ -20,15 +20,16 @@ path = os.getcwd().split('\\')
 path = '\\'.join(path[:len(path) - 2])
 sys.path.append(path + '\\CommonFiles')
 
+from certificate_handler import CertificateHandler
 from config_gui import Config
+from context_handler import ContextHandler
+from corner_controls import CornerControls
 from data_handler import *
 from deferred_gui import DeferredAnalysis
 from live_gui import LiveAnalysis
-from validator import Validator
-from context_handler import ContextHandler
-from certificate_handler import CertificateHandler
 from terminator import Terminator
-from corner_controls import CornerControls
+from validator import Validator
+
 
 serverAddr = 'tcp://35.204.135.105'
 localAddr = 'tcp://127.0.0.1'
@@ -233,7 +234,8 @@ class LoginDialog(QDialog):
 		username = self.usernameEntryLogin.text()
 		password = self.passwordEntryLogin.text()
 
-		self.authenticated, self.msg, self.userID, self.key = self.verifyUser(username, password)
+		self.authenticated, self.msg, self.userID, self.key = self.verifyUser(
+			username, password)
 		if self.authenticated:
 			self.accept()
 		else:
@@ -295,7 +297,8 @@ class LoginDialog(QDialog):
 			if registered:
 				activationDialog = ActivationDialog()
 				activationDialog.setWindowTitle("Activation")
-				self.authenticated, self.msg, self.key = activationDialog.getKey(self.userID)
+				self.authenticated, self.msg, self.key = activationDialog.getKey(
+					self.userID)
 				if self.authenticated:
 					self.accept()
 				else:
@@ -474,7 +477,7 @@ def enroll():
 		publicKey = publicKey.decode('utf-8')
 
 		unsecuredSocket.send_string(str(publicKey))
-		serverKey = unsecuredSocket.recv_string()	
+		serverKey = unsecuredSocket.recv_string()
 
 		certHandler.savePublicKey(serverKey)
 		logging.debug('Enrolled')

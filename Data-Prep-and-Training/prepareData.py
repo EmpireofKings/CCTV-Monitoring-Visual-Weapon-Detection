@@ -1,8 +1,5 @@
 # Ben Ryan - C15507277 Final Year Project
 # This script is used to prepare the dataset for training
-#
-# Steps:
-# TODO
 
 import math
 import os
@@ -21,6 +18,7 @@ from terminator import Terminator
 rootFolderGCP = "../../../../mnt/temp/"
 rootFolderLocal = "C:/Dataset/"
 
+
 def isResuming():
 	if len(sys.argv) != 2:
 		print("Usage:", sys.argv[0], "<state>")
@@ -36,20 +34,22 @@ def isResuming():
 		print("Provided argument =", sys.argv[1])
 		sys.exit()
 
+
 def removeExistingBatches(rootFolder):
-	folder = rootFolder+"Prepared-Data/"
+	folder = rootFolder + "Prepared-Data/"
 	files = os.listdir(folder)
 
 	for file in files:
 		os.remove(folder + '/' + file)
 
-	if os.path.isfile(rootFolder+'resumeData.pickle'):
-		os.remove(rootFolder+'resumeData.pickle')
+	if os.path.isfile(rootFolder + 'resumeData.pickle'):
+		os.remove(rootFolder + 'resumeData.pickle')
 
-#gets required folders from user
+
+# gets required folders from user
 def getFolders(rootFolder):
-	basePath = rootFolder+'Unrefined/'
-	basePath = rootFolder+'Refined/'
+	basePath = rootFolder + 'Unrefined/'
+	basePath = rootFolder + 'Refined/'
 
 	negativePath = basePath + 'Negatives'
 	extraNeg = basePath + 'ExtraNeg'
@@ -57,9 +57,9 @@ def getFolders(rootFolder):
 	pistolPath = basePath + 'Pistol'
 	riflePath = basePath + 'Rifle'
 	shotgunPath = basePath + 'Shotgun'
-	submachineGunPath = basePath +'SubmachineGun'
+	submachineGunPath = basePath + 'SubmachineGun'
 
-	folders = [knifePath, pistolPath] #riflePath, shotgunPath, submachineGunPath]
+	folders = [knifePath, pistolPath]  # riflePath, shotgunPath, submachineGunPath]
 
 	for i in range(10):
 		cifarPath = basePath + "cifar" + str(i)
@@ -67,7 +67,8 @@ def getFolders(rootFolder):
 
 	return folders
 
-#gets list of file paths from folder
+
+# gets list of file paths from folder
 def getFiles(folders):
 	fileData = []
 	for folder in folders:
@@ -82,31 +83,33 @@ def getFiles(folders):
 		for file in files:
 			path = folder + "/" + file
 
-			label = [0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.,0.] #nothing
-			#decide label:
-			#label = [0., 0.]
+			label = [0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.]  # nothing
+			# decide label:
+			# label = [0., 0.]
 			if "Knife" in folder:
 				label[10] = 1.
 			elif "Pistol" in folder:
 				label[11] = 1.
 			elif "cifar" in folder:
-				l = folder[len(folder)-1]
+				l = folder[len(folder) - 1]
 				label[int(l)] = 1.
-			#elif "Rifle" in folder or "Shotgun" in folder or "SubmachineGun" in folder:
+			# elif "Rifle" in folder or "Shotgun" in folder or "SubmachineGun" in folder:
 			#	label[12] = 1. #LONG GUNS
 
-			#file path, augmentCounter, label
-			fileData.append({ "path" : path,
-							  "augmentCounter": 0,
-							  "label" : label })
+			# file path, augmentCounter, label
+			fileData.append({
+				"path": path,
+				"augmentCounter": 0,
+				"label": label})
 
 	random.shuffle(fileData)
 
 	return fileData
 
+
 def getResumeData(rootFolder):
-	if os.path.isfile(rootFolder+"resumeData.pickle"):
-		with open(rootFolder+"resumeData.pickle", 'rb') as fp:
+	if os.path.isfile(rootFolder + "resumeData.pickle"):
+		with open(rootFolder + "resumeData.pickle", 'rb') as fp:
 			resumeData = pickle.load(fp)
 
 			return resumeData[0], resumeData[1], resumeData[2], resumeData[3]
@@ -123,10 +126,8 @@ def prepare(files, rootFolder, terminator,
 
 	batchSize = 64
 
-#	expectedAmt = int(math.floor(((len(files))/batchSize)))
-
 	while len(files) != 0:
-		#if being told to terminate, save required data to restart at same place
+		# if being told to terminate, save required data to restart at same place
 		if terminator.isTerminating():
 			resumeData = (files, data, labels, batchCount)
 
@@ -193,29 +194,27 @@ def prepare(files, rootFolder, terminator,
 			data.clear()
 			labels.clear()
 
-			dataPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_data"
-			labelsPath = rootFolder+"Prepared-Data/batch_" + str(batchCount) + "_labels"
+			dataPath = rootFolder + "Prepared-Data/batch_" + str(batchCount) + "_data"
+			labelsPath = rootFolder + "Prepared-Data/batch_" + str(batchCount) + "_labels"
 
-			np.save(dataPath, dataArr , allow_pickle=True)
+			np.save(dataPath, dataArr, allow_pickle=True)
 			np.save(labelsPath, labelsArr, allow_pickle=True)
 
-			#with open(rootFolder+"Prepared-Data/batch_" + str(batchCount) + ".pickle", 'wb') as fp:
-			#	pickle.dump((dataArr, labelsArr), fp)
 			batchCount += 1
 
 	print("Finished.")
 
 
 def adjustBrightness(img, mult):
-	img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB) #convert to LAB colour space
-	l, a ,b = cv2.split(img)#split channels
-	avgV = np.mean(l) #get avg brigtness
-	adjustVal = int(avgV*.85) * mult #get 85% as value to adjust brightness by
+	img = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)  # convert to LAB colour space
+	l, a, b = cv2.split(img)  # split channels
+	avgV = np.mean(l)  # get avg brigtness
+	adjustVal = int(avgV * .85) * mult  # get 85% as value to adjust brightness by
 
-	#adjust brightness channel up
+	# adjust brightness channel up
 	lAdj = cv2.add(l, adjustVal)
 
-	#merge adjusted channels
+	# merge adjusted channels
 	img = cv2.merge((lAdj, a, b))
 	img = cv2.cvtColor(img, cv2.COLOR_LAB2BGR)
 
@@ -232,7 +231,7 @@ if __name__ == '__main__':
 		prepare(remainingfiles, rootFolderGCP, terminator, partialData, partialLabels, batchCount)
 
 	else:
-		#double check the user gave the correct instruction before deleting everything
+		# double check the user gave the correct instruction before deleting everything
 		ans = input("Are you sure you wish to start from the beginning. \nAll previously generated files will be permently deleted.(y/n)")
 
 		if ans == 'Y' or ans == 'y':

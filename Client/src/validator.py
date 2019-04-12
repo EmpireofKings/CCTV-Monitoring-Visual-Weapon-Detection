@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import string
 
 
@@ -110,7 +112,7 @@ class Validator():
                 prefix = parts[0]
                 domain = parts[1]
 
-                if prefix == '' :
+                if prefix == '':
                     valid = False
                     msg += '\n\tBlank prefix'
 

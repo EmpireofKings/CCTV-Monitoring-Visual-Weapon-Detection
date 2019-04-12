@@ -1,5 +1,7 @@
-from PySide2.QtCore import *
+# Ben Ryan C15507277
+
 import numpy as np
+from PySide2.QtCore import *
 
 
 class DisplayConnector(QObject):
@@ -11,6 +13,7 @@ class DisplayConnector(QObject):
 
 	def emitFrame(self, frame):
 		self.newFrameSignal.emit(frame)
+
 
 class GenericConnector(QObject):
 	signal = Signal(object)

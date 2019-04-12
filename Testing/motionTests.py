@@ -1,6 +1,10 @@
-from feed_process_helper import BackgroundRemover, scale
+# Ben Ryan C15507277
+
 import cv2
 import numpy as np
+
+from feed_process_helper import BackgroundRemover, scale
+
 
 def run():
 	bgRemover = BackgroundRemover()
@@ -24,6 +28,6 @@ def run():
 
 					cv2.rectangle(
 						frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-			
+
 			cv2.imshow('feed', frame)
 			cv2.waitKey(1)

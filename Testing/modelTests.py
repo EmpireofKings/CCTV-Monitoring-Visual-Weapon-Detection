@@ -1,13 +1,17 @@
-import easygui
+# Ben Ryan C15507277
+
+import sys
+import time
+import uuid
+
 import cv2
+import easygui
+import numpy as np
 import tensorflow as tf
+
 from feed_process_helper import FeedProcessHelper
 from results_handler import ResultsHandler
 from terminator import Terminator
-import numpy as np
-import sys
-import uuid
-import time
 
 
 def run():
@@ -35,7 +39,7 @@ def run():
 		image = cv2.imread(imageFile)
 
 		regions, drawCoords = fph.extractRegions(image, 4, (64, 64))
-		results = np.around(model.predict(regions)[:,10:], decimals=3)
+		results = np.around(model.predict(regions)[:, 10:], decimals=3)
 		image = fph.drawResults(image, results, drawCoords, ["Weapon", "Weapon"])
 
 		cv2.imshow("image", image)
@@ -46,7 +50,7 @@ def run():
 	terminator = Terminator.getInstance()
 	fpsTimer = time.time()
 	while feed.isOpened() and not terminator.isTerminating():
-		while time.time() - fpsTimer < 1 / FPS :
+		while time.time() - fpsTimer < 1 / FPS:
 			time.sleep(0.001)
 
 		fpsTimer = time.time()
@@ -58,7 +62,7 @@ def run():
 				outStream.write(frame)
 			regions, drawCoords = fph.extractRegions(frame, 4, (64, 64))
 
-			results = np.around(model.predict(regions)[:,10:], decimals=3)
+			results = np.around(model.predict(regions)[:, 10:], decimals=3)
 			resultsHandler.append(results)
 			frame = fph.drawResults(frame, resultsHandler.getAverages(), drawCoords, ["Weapon", "Weapon"])
 			cv2.imshow("feed", frame)

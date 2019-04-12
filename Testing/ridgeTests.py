@@ -1,6 +1,8 @@
+# Ben Ryan C15507277
+
 import cv2
-import numpy as np
 import easygui
+import numpy as np
 
 
 def run():

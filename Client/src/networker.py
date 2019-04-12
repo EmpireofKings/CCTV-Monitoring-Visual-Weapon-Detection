@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import logging
 import os
 import shutil
@@ -6,7 +8,6 @@ import time
 import uuid
 from collections import deque
 from threading import Thread
-import _pickle as pickle
 
 import cv2
 import numpy as np
@@ -22,9 +23,9 @@ import _pickle as pickle
 from certificate_handler import CertificateHandler
 from connectors import DisplayConnector, GenericConnector
 from context_handler import ContextHandler
+from feed_process_helper import FeedProcessHelper
 from monitor import Monitor
 from terminator import Terminator
-from feed_process_helper import FeedProcessHelper
 
 
 class Networker(Thread):
@@ -167,7 +168,6 @@ class Networker(Thread):
 
 				result = pickle.loads(serial)
 
-
 				if result[0] > 0.95 and not self.deferredMode and not self.imageMode:
 					regionResults = result[2][0]
 					drawCoords = result[2][1]
@@ -211,7 +211,7 @@ class Networker(Thread):
 					if mainCam is not None:
 						if self.camera.camID == mainCam.camID:
 							self.mainDisplayConn.emitFrame(displayFrame)
-							#self.mainDisplay.camera = self.camera
+							# self.mainDisplay.camera = self.camera
 				else:
 					results.append(result)
 
@@ -229,7 +229,7 @@ class Networker(Thread):
 
 				# 		with open('./performanceData' + self.camera.location, 'wb') as fp:
 				# 			pickle.dump(perfData, fp, protocol=4)
-							
+
 						# sys.exit()
 
 			elif (time.time() - deferredTimer) > 5 and self.deferredMode:
@@ -245,10 +245,10 @@ class Networker(Thread):
 			with open('../data/processed/' + self.filePath + '.result', 'wb') as fp:
 				pickle.dump(results, fp, protocol=4)
 
-		#socket.disable_monitor()
+		# socket.disable_monitor()
 		try:
 			socket.close()
-			#ctxHandler.cleanup()
+			# ctxHandler.cleanup()
 			certHandler.cleanup()
 		except Exception as e:
 			logging.debug("exception while ending")

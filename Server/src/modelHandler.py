@@ -1,5 +1,8 @@
-import tensorflow as tf
+# Ben Ryan C15507277
+
 import logging
+
+import tensorflow as tf
 
 
 class ModelHandler():

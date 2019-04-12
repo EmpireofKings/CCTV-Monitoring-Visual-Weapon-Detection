@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 from notify_run import Notify
 
 
@@ -7,4 +9,3 @@ def run():
 	userMessage = input('Input a message to send\n')
 
 	notify.send(userMessage)
-

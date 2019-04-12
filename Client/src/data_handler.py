@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import copy
 import json
 import os
@@ -189,7 +191,7 @@ class Camera():
 						width, height, label=self.location,
 						path=None, pmap=nd2pmap(frame))
 			else:
-				print("Error acquiring feed preview. (ID:", self.camID, ")" )
+				print("Error acquiring feed preview. (ID:", self.camID, ")")
 
 		return self.preview
 
@@ -209,7 +211,8 @@ class Camera():
 def nd2pmap(frame):
 	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 	h, w, c = np.shape(frame)
-	pmap = QPixmap.fromImage(QImage(frame.data, w, h, w*c,  QImage.Format_RGB888))
+	pmap = QPixmap.fromImage(
+		QImage(frame.data, w, h, w * c, QImage.Format_RGB888))
 	return pmap
 
 

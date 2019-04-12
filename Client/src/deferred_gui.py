@@ -1,4 +1,4 @@
-#TODO
+# Ben Ryan C15507277
 
 import base64 as b64
 import copy
@@ -16,20 +16,20 @@ from threading import Thread
 import cv2
 import ffmpeg
 import numpy as np
+from PySide2.QtCharts import *
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtMultimedia import *
 from PySide2.QtMultimediaWidgets import *
 from PySide2.QtWidgets import *
-from PySide2.QtCharts import *
 
 import _pickle as pickle
 import data_handler
 from connectors import DisplayConnector, GenericConnector
 from feed_loader import FeedLoader
+from feed_process_helper import FeedProcessHelper
 from networker import Networker
 from terminator import Terminator
-from feed_process_helper import FeedProcessHelper
 
 
 class DeferredAnalysis(QWidget):
@@ -246,7 +246,6 @@ class ProcessList(QWidget):
 		self.setSizePolicy(QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum))
 		self.update()
 
-
 	def update(self):
 		title = QLabel('Queue')
 		font = QFont('Helvetica', 18)
@@ -429,7 +428,6 @@ class Viewer(QWidget):
 		self.resultDisplay.setMinimumWidth(50)
 		self.resultDisplay.setMaximumWidth(50)
 
-
 		self.controls.addWidget(self.timeDisplay)
 		self.controls.addWidget(self.togglePlay)
 		self.controls.addWidget(self.resultDisplay)
@@ -486,7 +484,7 @@ class Viewer(QWidget):
 		self.timeDisplay.setText(str(cur) + " / " + str(total))
 		self.timeDisplay.update()
 
-		percentage = '{:5.2f}'.format(result*100)
+		percentage = '{:5.2f}'.format(result * 100)
 		self.resultDisplay.setText(percentage)
 		self.resultDisplay.update()
 
@@ -511,8 +509,8 @@ class Viewer(QWidget):
 		def __init__(self, parent):
 			QLabel.__init__(self)
 			self.data = None
-			self.padding = 10;
-			self.leftPadding = 30;
+			self.padding = 10
+			self.leftPadding = 30
 			self.maxX = None
 			self.currentPoints = None
 			self.closestPoint = None
@@ -522,7 +520,7 @@ class Viewer(QWidget):
 			self.setSizePolicy(QSizePolicy(
 				QSizePolicy.Ignored, QSizePolicy.Ignored))
 
-		def paintEvent(self, event):		
+		def paintEvent(self, event):
 			if self.data is not None:
 				painter = QPainter(self)
 				painter.setRenderHint(QPainter.Antialiasing)
@@ -671,7 +669,7 @@ class Viewer(QWidget):
 				fph = FeedProcessHelper()
 
 				while self.feed.isOpened() and self.reset is False:
-					#syncing results index with display frame 
+					# syncing results index with display frame
 					if self.frameCount != self.lastFrame + 1:
 						self.feed.set(cv2.CAP_PROP_POS_FRAMES, self.frameCount)
 						self.lastFrame = self.frameCount - 1
@@ -786,7 +784,7 @@ class Preview(QLabel):
 				previewPmap = QPixmap.fromImage(
 					QImage(
 						image.data, displaySize[0],
-						displaySize[1], 3 * displaySize[0], 
+						displaySize[1], 3 * displaySize[0],
 						QImage.Format_RGB888))
 
 		elif image is None and video is not None:

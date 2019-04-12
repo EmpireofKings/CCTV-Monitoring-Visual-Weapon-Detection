@@ -13,7 +13,7 @@ rootFolderLocal = "C:/Dataset/"
 def preparePaths(folder):
 	files = os.listdir(folder)
 
-	totalBatches = int(len(files)/2)
+	totalBatches = int(len(files) / 2)
 
 	batchPaths = []
 	for batch in range(1, totalBatches):
@@ -41,15 +41,15 @@ def view(batchPaths):
 			image = data[i] * 255.0
 			image = image.astype(np.uint8)
 			labelData = labels[i]
-			#print(image)
+			# print(image)
 
-			#cv2.imshow(str(labelData), image)# cv2.resize(image, (640, 640)))
+			# cv2.imshow(str(labelData), image)# cv2.resize(image, (640, 640)))
 			print(labelData)
-			#cv2.waitKey(0)
-			#cv2.destroyAllWindows()
+			# cv2.waitKey(0)
+			# cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-	#batchPaths = preparePaths(rootFolderLocal+"Prepared-Data")
-	batchPaths = preparePaths(rootFolderGCP+"Prepared-Data")
+	# batchPaths = preparePaths(rootFolderLocal+"Prepared-Data")
+	batchPaths = preparePaths(rootFolderGCP + "Prepared-Data")
 
 	view(batchPaths)

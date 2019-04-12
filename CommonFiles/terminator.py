@@ -1,3 +1,5 @@
+# Ben Ryan C15507277
+
 import signal
 import logging
 
@@ -27,4 +29,3 @@ class Terminator():
 
 	def isTerminating(self):
 		return self.__terminating
-

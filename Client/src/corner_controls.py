@@ -1,9 +1,13 @@
+# Ben Ryan C15507277
+
+import os
+import sys
+
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 from terminator import Terminator
-import os
-import sys
 
 
 class CornerControls(QPushButton):
@@ -36,4 +40,3 @@ class CornerControls(QPushButton):
 			terminator.autoTerminate()
 			self.app.exit()
 			sys.exit
-

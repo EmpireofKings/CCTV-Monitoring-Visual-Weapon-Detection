@@ -1,4 +1,4 @@
-# TODO
+# Ben Ryan C15507277
 
 import logging
 import os
@@ -6,6 +6,7 @@ import sys
 import time
 
 import tensorflow as tf
+
 
 # Appending CommonFiles to system path for importing
 # relatively messy but not many options to do this.
@@ -20,12 +21,12 @@ elif "win" in sys.platform:
 	sys.path.append(path + '\\CommonFiles')
 
 from authenticator import AuthenticationListener
-from enroller import Enroller
 from certificate_handler import CertificateHandler
 from context_handler import ContextHandler
+from enroller import Enroller
 from feed_listener import FeedListener
-from terminator import Terminator
 from modelHandler import ModelHandler
+from terminator import Terminator
 
 
 if __name__ == '__main__':

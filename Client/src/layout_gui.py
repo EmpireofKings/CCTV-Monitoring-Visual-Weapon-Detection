@@ -1,13 +1,16 @@
-from enum import Enum
+# Ben Ryan C15507277
+
+import logging
 import math
 import sys
+from enum import Enum
 
+from gtts import gTTS
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
+
 from data_handler import *
-from gtts import gTTS
-import logging
 
 
 class LayoutMode(Enum):
@@ -64,7 +67,7 @@ class LayoutPainter(QFrame):
             self.currentpmap = getPixmap(
                 self.width(), self.height(), self.level.drawPath)
 
-            #check where pmap should draw to be centered
+            # check where pmap should draw to be centered
             pmapDrawX = (self.width() - self.currentpmap.width()) / 2
 
             painter.drawPixmap(QPoint(pmapDrawX, 0), self.currentpmap)
@@ -103,7 +106,7 @@ class LayoutPainter(QFrame):
                     pen.setWidth(2)
                     painter.setPen(pen)
                     painter.drawEllipse(
-                        QPoint(camX, camY), 
+                        QPoint(camX, camY),
                         self.pulseRadiusMultiplier * camera.size,
                         self.pulseRadiusMultiplier * camera.size)
 
@@ -124,7 +127,7 @@ class LayoutPainter(QFrame):
             for camera in level.cameras:
                 if camera.camID == camID:
                     return camera
-        
+
         return False
 
     def mousePressEvent(self, event):
@@ -164,7 +167,7 @@ class LayoutPainter(QFrame):
                     for cam in self.data[1]:
                         if cam.camID == newCamera.camID:
                             self.data[1].remove(cam)
-                    
+
                     if len(self.data) == 3:
                         for cam in self.data[2]:
                             if cam.camID == newCamera.camID:
@@ -173,7 +176,6 @@ class LayoutPainter(QFrame):
                     self.config.cameraMenu.update(self.data)
                     self.placing = False
 
-  
     def mouseMoveEvent(self, event):
         if self.data[0] != []:
             pos = event.globalPos()
@@ -213,9 +215,6 @@ class LayoutPainter(QFrame):
     def range2range(self, value, oldMin, oldMax, newMin, newMax):
         return ((value - oldMin) / (oldMax - oldMin)) * (newMax - newMin) + newMin
 
-
-            # camera.camID, camera.levelID, camera.location
-            # camera.angle, camera.color, camera.size)
 
 class CameraDialog(QDialog):
     def __init__(
@@ -534,7 +533,7 @@ class LayoutControls(QFrame):
         if self.data[0] != []:
             msgBox = QMessageBox()
             msgBox.setText(
-                    """A restart will be required to begin live analysis with the new configuration data, do you wish to continue?""")
+                """A restart will be required to begin live analysis with the new configuration data, do you wish to continue?""")
 
             msgBox.setStandardButtons(QMessageBox.Yes | QMessageBox.Cancel)
             result = msgBox.exec()
@@ -580,7 +579,7 @@ class LayoutControls(QFrame):
             for camera in level.cameras:
                 if camera.camID == self.painter.mainFeedID:
                     if delete:
-                        level.cameras.remove(camera)    
+                        level.cameras.remove(camera)
                     return camera
 
     def resetConfig(self):

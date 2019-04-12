@@ -1,5 +1,8 @@
+# Ben Ryan C15507277
+
 import os
 import sys
+import unittest
 
 path = os.getcwd().split('\\')
 path = '\\'.join(path[:len(path) - 1])
@@ -7,15 +10,15 @@ sys.path.append(path + '\\CommonFiles')
 sys.path.append(path + '\\Client\\src')
 sys.path.append(path + '\\Server\\src')
 
+import alertTests
 import blobTests
 import cannyTests
 import harrisTests
-import ridgeTests
-import sobelTests
 import modelTests
 import motionTests
-import alertTests
-import unittest
+import ridgeTests
+import sobelTests
+
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:

@@ -1,22 +1,25 @@
+# Ben Ryan C15507277
+
 import base64 as b64
 import logging
 import time
+from collections import deque
 from threading import Thread
 
-import numpy as np
-
 import cv2
+import numpy as np
 from PySide2.QtCore import *
 from PySide2.QtGui import *
 from PySide2.QtWidgets import *
-from collections import deque
+
 from connectors import DisplayConnector
+
 
 class FeedLoader(Thread):
 	# GUI Thread launches this thread
 	# to prevent holding GUI Thread for too long keep __init__ minimal
 	def __init__(
-		self, camera=None, networker=None, display=None, 
+		self, camera=None, networker=None, display=None,
 		mainDisplay=None, feedID=None):
 		Thread.__init__(self)
 
