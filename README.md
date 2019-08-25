@@ -1,4 +1,4 @@
-# Automated Surveillance Using a Machine Learning Assisted Computer Vision Application to Detect Handheld Weapons in Images and Video
+Official Project Title: Automated Surveillance Using a Machine Learning Assisted Computer Vision Application to Detect Handheld Weapons in Images and Video
 
 This project aimed to tackle some of the problems of automated surveillance with weapon detection as the central automated feature. The core goal was to make these kinds of system more accessible to the masses, making it purerly visual, not requiring special hardware, and using the cloud to offload heavy processing so powerful, dedicated hardware is not required onsite. Some demonstration videos can be seen in [this YouTube playlist](https://www.youtube.com/playlist?list=PLK5DhDZQB1eEay-w90M8QicF_nWRFuBye "Project Demonstration"). Some screenshots of the final system can be seen below.
 
